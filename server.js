@@ -62,6 +62,16 @@ app.post('/api/addproject', function (req, res) {
   });
 });
 
+// /deletework 경로로 delete요청을 하면 실행될 코드
+app.delete('/api/deleteproject', function (요청, 응답) {
+  console.log(요청.body);
+  요청.body._id = parseInt(요청.body._id);
+  // 요청.body에 담겨온 게시물번호를 가진 글을 db에서 찾아서 삭제해주세요.
+  db.collection('projects').deleteOne(요청.body, function (에러, 결과) {
+    console.log(요청.body._id);
+  });
+});
+
 //
 //
 //
