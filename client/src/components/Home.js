@@ -28,13 +28,13 @@ const Home = () => {
 
   const boxTransition = {
     leftIn: {
-      transform: 'translate(0, 0)',
+      transform: 'translate(0%, 0)',
     },
     leftOut: {
       transform: 'translate(-100%, 0)',
     },
     rightIn: {
-      transform: 'translate(0, 0)',
+      transform: 'translate(0%, 0)',
     },
     rightOut: {
       transform: 'translate(100%, 0)',
@@ -45,8 +45,8 @@ const Home = () => {
     <>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}>
         <div className='land-contain'>
-          <motion.div initial='leftIn' animate='leftIn' exit='leftOut' transition={{ duration: 0.3 }} variants={boxTransition} className={leftBoxClass} />
-          <motion.div initial='rightIn' animate='rightIn' exit='rightOut' transition={{ duration: 0.3 }} variants={boxTransition} className={rightBoxClass} />
+          <motion.div initial='leftOut' animate='leftIn' exit='leftOut' transition={{ duration: 0.3 }} variants={boxTransition} className={leftBoxClass} />
+          <motion.div initial='rightOut' animate='rightIn' exit='rightOut' transition={{ duration: 0.3 }} variants={boxTransition} className={rightBoxClass} />
         </div>
       </motion.div>
     </>

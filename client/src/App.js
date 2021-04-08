@@ -2,13 +2,14 @@ import React from 'react';
 import './App.css';
 
 import { Route, Switch, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 import Home from './components/Home';
 import Games from './components/Games';
 import Projects from './components/Projects';
 import NavBar from './components/NavBar';
 import Admin from './components/admin/Admin';
+import ProjectDetail from './components/ProjectDetail';
 
 const App = () => {
   const location = useLocation();
@@ -22,7 +23,7 @@ const App = () => {
             <Route exact path='/'>
               <Home />
             </Route>
-            <Route path='/projects'>
+            <Route exact path='/projects'>
               <Projects />
             </Route>
             <Route path='/games'>
@@ -30,6 +31,9 @@ const App = () => {
             </Route>
             <Route path='/admin'>
               <Admin />
+            </Route>
+            <Route path='/projects/:id'>
+              <ProjectDetail />
             </Route>
           </Switch>
         </AnimatePresence>

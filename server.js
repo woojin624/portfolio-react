@@ -72,6 +72,14 @@ app.delete('/api/deleteproject', function (요청, 응답) {
   });
 });
 
+// 'edit/:id'로 접속하면 id번 게시물의 데이터를 결과로 보냄
+app.get('/api/projectDetail/:id', function (요청, 응답) {
+  db.collection('projects').findOne({ _id: parseInt(요청.params.id) }, function (에러, 결과) {
+    console.log(요청.params);
+    응답.send(결과);
+  });
+});
+
 //
 //
 //
