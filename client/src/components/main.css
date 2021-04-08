@@ -1,22 +1,37 @@
 .land-contain {
   display: flex;
   width: 100vw;
-  height: 90vh;
+  height: calc(100vh - 56px);
+  background-color: lightgrey;
+}
+
+.projects-contain {
+  background-color: burlywood;
+  width: 100vw;
+  height: calc(100vh - 56px);
+}
+
+.games-contain {
+  background-color: rgb(135, 199, 222);
+  width: 100vw;
+  height: calc(100vh - 56px);
+  z-index: -1;
+  position: relative;
 }
 
 .home-box-l {
   width: 50%;
   height: 100%;
   background: rgb(184, 87, 87);
-  transform: translate(0, 0);
-  transition: 0.3s ease-in;
+  transform: translate(-100%, 0);
+  /* transition: 0.3s ease-in; */
 }
 .home-box-r {
   width: 50%;
   height: 100%;
   background: rgb(91, 133, 104);
-  transform: translate(0, 0);
-  transition: 0.3s ease-in;
+  transform: translate(100%, 0);
+  /* transition: 0.3s ease-in; */
 }
 
 .home-hide-l {
@@ -25,4 +40,18 @@
 
 .home-hide-r {
   transform: translate(100%, 0);
+}
+
+.project-box-wrap {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.project-box {
+  width: 200px;
+  height: 200px;
+  background: forestgreen;
 }

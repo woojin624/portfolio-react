@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
 
-import { Route, Switch, useHistory, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+
 import Home from './components/Home';
 import Games from './components/Games';
 import Projects from './components/Projects';
@@ -9,12 +11,14 @@ import NavBar from './components/NavBar';
 import Admin from './components/admin/Admin';
 
 const App = () => {
+  const location = useLocation();
+
   return (
     <div className='App'>
-      <Router>
-        <NavBar />
-        <div className='whole-container'>
-          <Switch>
+      <NavBar />
+      <div className='whole-container'>
+        <AnimatePresence exitBeforeEnter>
+          <Switch location={location} key={location.pathname}>
             <Route exact path='/'>
               <Home />
             </Route>
@@ -28,8 +32,8 @@ const App = () => {
               <Admin />
             </Route>
           </Switch>
-        </div>
-      </Router>
+        </AnimatePresence>
+      </div>
     </div>
   );
 };
