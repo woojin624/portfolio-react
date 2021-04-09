@@ -20,8 +20,8 @@ const App = () => {
       <div className='whole-container'>
         <AnimatePresence exitBeforeEnter>
           <Switch location={location} key={location.pathname}>
-            <Route exact path='/'>
-              <Home />
+            <Route path='/projects/:id'>
+              <ProjectDetail />
             </Route>
             <Route exact path='/projects'>
               <Projects />
@@ -32,8 +32,8 @@ const App = () => {
             <Route path='/admin'>
               <Admin />
             </Route>
-            <Route path='/projects/:id'>
-              <ProjectDetail />
+            <Route exact path='/'>
+              <Home />
             </Route>
           </Switch>
         </AnimatePresence>

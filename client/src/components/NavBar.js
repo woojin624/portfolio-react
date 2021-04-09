@@ -18,14 +18,27 @@ const NavBar = () => {
     setIsNavOpen(false);
   };
 
-  const motionNav = {
+  const navContainVariants = {
     in: {
       opacity: 1,
       y: 0,
+      transition: { duration: 0.5, staggerChildren: 0.1 },
     },
     out: {
       opacity: 0,
       y: 200,
+      transition: { duration: 0.5, staggerChildren: 0.1 },
+    },
+  };
+
+  const navElVariants = {
+    in: {
+      opacity: 1,
+      x: 0,
+    },
+    out: {
+      opacity: 0,
+      x: -50,
     },
   };
 
@@ -38,19 +51,34 @@ const NavBar = () => {
         <div className='nav-toggle-top'></div>
         <div className='nav-toggle-bottom'></div>
       </div>
-      {isNavOpen ? (
-        <AnimatePresence>
-          <motion.div initial='out' animate='in' exit='out' transition={{ duration: 0.3 }} variants={motionNav} className='nav-contain'>
+      <AnimatePresence>
+        {isNavOpen ? (
+          <motion.div
+            initial='out' //
+            animate='in'
+            exit='out'
+            variants={navContainVariants}
+            className='nav-contain'
+          >
             <ul className='nav-list'>
               {navListNames.names.map((name, i) => (
-                <li key={i} onClick={navCloseHandler}>
+                <motion.li
+                  key={i} //
+                  variants={navElVariants}
+                  transition={{ duration: 0.4 }}
+                  whileHover={{
+                    scale: 1.1,
+                    textShadow: '0px 0px 2px rgb(255,255,255)',
+                  }}
+                  onClick={navCloseHandler}
+                >
                   <Link to={`/${name}`}>{name}</Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>
-        </AnimatePresence>
-      ) : null}
+        ) : null}
+      </AnimatePresence>
     </>
   );
 };

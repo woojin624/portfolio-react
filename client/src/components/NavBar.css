@@ -11,9 +11,6 @@
   align-items: center;
 }
 
-.nav-list {
-}
-
 .nav-list > li {
   font-size: 48px;
   font-weight: 600;
@@ -24,6 +21,8 @@
   color: #fff;
   text-decoration: none;
   outline: none;
+}
+.nav-list > li > a {
   text-transform: capitalize;
 }
 .nav-logo > a:hover,

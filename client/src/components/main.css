@@ -73,6 +73,7 @@
   /* position: fixed;
   top: 56px;
   left: 0; */
+  z-index: 400;
   width: 100vw;
   height: 100vh;
   background: rgb(87, 184, 160);
@@ -89,4 +90,5 @@
   width: 20px;
   height: 20px;
   background: #000;
+  cursor: pointer;
 }

@@ -7,7 +7,7 @@ import AdminList from './AdminList';
 import AdminWrite from './AdminWrite';
 const Admin = () => {
   return (
-    <div>
+    <div style={{ backgroundColor: '#fff', width: '100vw', height: '100vh', position: 'relative', zIndex: 1000 }}>
       <Router>
         <Navbar bg='light' expand='lg'>
           <Navbar.Brand href='/admin'>J.COM - admin</Navbar.Brand>
