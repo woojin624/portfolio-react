@@ -10,12 +10,12 @@ const Games = () => {
     in: {
       fontSize: '48px',
       fontWeight: '700',
-      y: 0,
+      y: 200,
     },
     end: {
       fontSize: '24px',
       fontWeight: '400',
-      y: 400,
+      y: 600,
     },
   };
 

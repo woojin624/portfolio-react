@@ -1,0 +1,92 @@
+.nav-contain {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.664);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-list {
+}
+
+.nav-list > li {
+  font-size: 48px;
+  font-weight: 600;
+  margin: 1rem 0;
+}
+.nav-logo > a,
+.nav-list > li > a {
+  color: #fff;
+  text-decoration: none;
+  outline: none;
+  text-transform: capitalize;
+}
+.nav-logo > a:hover,
+.nav-list > li > a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-logo {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  color: #fff;
+  z-index: 200;
+  font-size: 2rem;
+}
+
+.nav-toggle-btn {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  z-index: 200;
+  border: 2px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav-toggle-btn > div {
+  position: absolute;
+  width: 1.5rem;
+  height: 2px;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.nav-toggle-btn > .nav-toggle-top {
+  transform: translate(0, -250%);
+}
+.nav-toggle-btn > .nav-toggle-bottom {
+  transform: translate(0, 250%);
+}
+
+.nav-toggle-btn:hover > .nav-toggle-top {
+  transform: translate(0, 0%);
+}
+.nav-toggle-btn:hover > .nav-toggle-bottom {
+  transform: translate(0, 0%);
+}
+
+.nav-toggle-btn.opened > .nav-toggle-top {
+  transform: translate(0, 0%) rotate(45deg);
+}
+.nav-toggle-btn.opened > .nav-toggle-bottom {
+  transform: translate(0, 0%) rotate(135deg);
+}
+
+.nav-toggle-btn.opened:hover > .nav-toggle-top {
+  transform: translate(0, 0%) rotate(90deg);
+}
+.nav-toggle-btn.opened:hover > .nav-toggle-bottom {
+  transform: translate(0, 0%) rotate(90deg);
+}

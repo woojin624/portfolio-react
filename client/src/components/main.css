@@ -1,22 +1,23 @@
 .land-contain {
   display: flex;
   width: 100vw;
-  height: calc(100vh - 56px);
-  background-color: lightgrey;
+  height: 100vh;
+  background-color: rgb(77, 77, 77);
 }
 
 .projects-contain {
-  background-color: burlywood;
+  /* background-color: burlywood; */
   width: 100vw;
-  height: calc(100vh - 56px);
+  height: 100vh;
 }
 
 .games-contain {
-  background-color: rgb(135, 199, 222);
+  /* background-color: rgb(135, 199, 222); */
   width: 100vw;
-  height: calc(100vh - 56px);
+  height: 100vh;
   z-index: -1;
   position: relative;
+  color: #fff;
 }
 
 .home-box-l {
@@ -60,6 +61,11 @@
   height: 200px;
   background: forestgreen;
   cursor: pointer;
+  background-image: url('https://newtype.design/static/source/images/projects/pj33/PN33-1440-01-02.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: 0.3s ease-in;
 }
 
 .projectDetail-wrap {
@@ -68,7 +74,7 @@
   top: 56px;
   left: 0; */
   width: 100vw;
-  height: calc(100vh - 56px);
+  height: 100vh;
   background: rgb(87, 184, 160);
   display: flex;
   justify-content: center;
