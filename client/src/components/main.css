@@ -70,9 +70,9 @@
 
 .projectDetail-wrap {
   position: relative;
-  /* position: fixed;
-  top: 56px;
-  left: 0; */
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: 400;
   width: 100vw;
   height: 100vh;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import './main.css';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const ProjectDetail = ({ match }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -34,10 +34,11 @@ const ProjectDetail = ({ match }) => {
   };
 
   const projectClose = () => {
-    history.goBack();
+    history.push('/projects');
   };
 
   return (
+    // <AnimatePresence>
     <motion.div initial='out' animate='in' exit='out' transition={{ duration: 0.3 }} variants={projectDetailMotion} className='projectDetail-wrap'>
       {isLoading ? (
         <div>loading</div>
@@ -49,6 +50,7 @@ const ProjectDetail = ({ match }) => {
       )}
       <div className='project-close-btn' onClick={projectClose}></div>
     </motion.div>
+    // </AnimatePresence>
   );
 };
 

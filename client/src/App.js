@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import { Route, Switch, useLocation } from 'react-router-dom';
+import { Route, Switch, useLocation, BrowserRouter as Router } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
 import Home from './components/Home';
@@ -20,11 +20,13 @@ const App = () => {
       <div className='whole-container'>
         <AnimatePresence exitBeforeEnter>
           <Switch location={location} key={location.pathname}>
-            <Route path='/projects/:id'>
+            {/* <Route path='/projects/:id'>
               <ProjectDetail />
-            </Route>
+            </Route> */}
             <Route exact path='/projects'>
-              <Projects />
+              <Router>
+                <Projects />
+              </Router>
             </Route>
             <Route path='/games'>
               <Games />

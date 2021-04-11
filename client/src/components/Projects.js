@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { motion } from 'framer-motion';
-import { useHistory } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Route, Switch, useHistory, useLocation, withRouter } from 'react-router-dom';
+import ProjectDetail from './ProjectDetail';
 
 const Projects = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [projectsList, setProjectsList] = useState([]);
-
+  const location = useLocation();
   let history = useHistory();
 
   useEffect(() => {
@@ -64,8 +65,15 @@ const Projects = () => {
           </>
         )}
       </div>
+      <AnimatePresence exitBeforeEnter>
+        <Switch location={location} key={location.key}>
+          <Route path='/projects/:id'>
+            <ProjectDetail />
+          </Route>
+        </Switch>
+      </AnimatePresence>
     </motion.div>
   );
 };
 
-export default Projects;
+export default withRouter(Projects);
