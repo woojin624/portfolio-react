@@ -38,7 +38,6 @@ const ProjectDetail = ({ match }) => {
   };
 
   return (
-    // <AnimatePresence>
     <motion.div initial='out' animate='in' exit='out' transition={{ duration: 0.3 }} variants={projectDetailMotion} className='projectDetail-wrap'>
       {isLoading ? (
         <div>loading</div>
@@ -50,7 +49,6 @@ const ProjectDetail = ({ match }) => {
       )}
       <div className='project-close-btn' onClick={projectClose}></div>
     </motion.div>
-    // </AnimatePresence>
   );
 };
 

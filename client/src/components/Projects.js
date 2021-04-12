@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Route, Switch, useHistory, useLocation, withRouter } from 'react-router-dom';
-import ProjectDetail from './ProjectDetail';
+import { motion } from 'framer-motion';
+import { useHistory, withRouter } from 'react-router-dom';
 
 const Projects = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [projectsList, setProjectsList] = useState([]);
-  const location = useLocation();
+  // const location = useLocation();
   let history = useHistory();
 
   useEffect(() => {
@@ -65,13 +64,15 @@ const Projects = () => {
           </>
         )}
       </div>
-      <AnimatePresence exitBeforeEnter>
+
+      {/* 이 부분에서 새로고침이나 url을 통한 접근 시 렌더링이 안되는 현상 체크 */}
+      {/* <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.key}>
           <Route path='/projects/:id'>
             <ProjectDetail />
           </Route>
         </Switch>
-      </AnimatePresence>
+      </AnimatePresence> */}
     </motion.div>
   );
 };
