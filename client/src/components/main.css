@@ -1,19 +1,21 @@
 .land-contain {
   display: flex;
-  width: 100vw;
+  max-width: 1600px;
+  width: 100%;
   height: 100vh;
-  background-color: rgb(77, 77, 77);
 }
 
 .projects-contain {
   /* background-color: burlywood; */
-  width: 100vw;
+  max-width: 1600px;
+  width: 100%;
   height: 100vh;
 }
 
 .games-contain {
   /* background-color: rgb(135, 199, 222); */
-  width: 100vw;
+  max-width: 1600px;
+  width: 100%;
   height: 100vh;
   z-index: -1;
   position: relative;
@@ -23,14 +25,14 @@
 .home-box-l {
   width: 50%;
   height: 100%;
-  background: rgb(184, 87, 87);
+  background: rgb(49, 45, 45);
   transform: translate(-100%, 0);
   /* transition: 0.3s ease-in; */
 }
 .home-box-r {
   width: 50%;
   height: 100%;
-  background: rgb(91, 133, 104);
+  background: rgb(40, 40, 40);
   transform: translate(100%, 0);
   /* transition: 0.3s ease-in; */
 }
@@ -44,7 +46,8 @@
 }
 
 .project-box-wrap {
-  padding-top: 80px;
+  padding: 0 2rem;
+  padding-top: 120px;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -57,15 +60,37 @@
 }
 
 .project-box {
-  width: 200px;
-  height: 200px;
+  position: relative;
+  width: 100%;
   background: forestgreen;
   cursor: pointer;
-  background-image: url('https://newtype.design/static/source/images/projects/pj33/PN33-1440-01-02.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   transition: 0.3s ease-in;
+  color: #fff;
+}
+.project-box:after {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(142deg, rgba(0, 0, 0, 0.5382528011204482) 0%, rgba(0, 0, 0, 0) 38%);
+}
+
+.project-box-title {
+  position: absolute;
+  font-size: 22px;
+  font-weight: 700;
+  top: 1rem;
+  left: 0.5rem;
+}
+.project-box-content {
+  position: absolute;
+  font-size: 18px;
+  font-weight: 500;
+  top: 3rem;
+  left: 0.5rem;
 }
 
 .projectDetail-wrap {

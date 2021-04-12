@@ -55,9 +55,16 @@ const Projects = () => {
           <>
             <motion.div className='project-box-wrap' variants={projectBoxWrap} initial='hidden' animate='visible' exit='hidden'>
               {projectsList.map((project, i) => (
-                <motion.div onClick={onCardClick} data-id={project._id} variants={projectBoxMotion} className={`project-box`} key={i}>
-                  <h4>{project.title}</h4>
-                  <p>{project.content}</p>
+                <motion.div
+                  onClick={onCardClick} //
+                  data-id={project._id}
+                  variants={projectBoxMotion}
+                  style={{ backgroundImage: `url('${project.thumb}')` }}
+                  className={`project-box`}
+                  key={i}
+                >
+                  <h4 className='project-box-title'>{project.title}</h4>
+                  <p className='project-box-content'>{project.content}</p>
                 </motion.div>
               ))}
             </motion.div>

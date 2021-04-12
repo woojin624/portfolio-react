@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import { Route, Switch, useLocation, BrowserRouter as Router, withRouter } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
 import Home from './components/Home';

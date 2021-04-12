@@ -37,6 +37,7 @@ app.get('/api/projectlist', function (req, res) {
 app.post('/api/addproject', function (req, res) {
   const title = req.body.title;
   const content = req.body.content;
+  const thumb = req.body.thumb;
   // console.log(req.body);
 
   // DB중 counter라는 collection을 찾아 name이 게시물갯수인 데이터를 받아온다
@@ -47,7 +48,7 @@ app.post('/api/addproject', function (req, res) {
 
     // DB.work에 새 게시물을 기록함
     // 위에서 완료되면 _id : 총게시물갯수+1 해서 새로운 데이터를 work collection에 저장(insert)
-    db.collection('projects').insertOne({ _id: totalProjectIndex + 1, title, content }, function (err, result) {
+    db.collection('projects').insertOne({ _id: totalProjectIndex + 1, title, content, thumb }, function (err, result) {
       console.log('저장완료');
       // counter라는 collection에 있는 totalWorks라는 항목도 1증가시켜야함.
       // 몽고DB에서 데이터를 수정하고 싶을 때 updateOne() 함수를 사용한다.
