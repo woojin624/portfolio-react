@@ -21,6 +21,17 @@ const NavBar = () => {
   const navContainVariants = {
     in: {
       opacity: 1,
+      transition: { duration: 0.5, staggerChildren: 0.1 },
+    },
+    out: {
+      opacity: 0,
+      transition: { duration: 0.5, staggerChildren: 0.1 },
+    },
+  };
+
+  const navUlVariants = {
+    in: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.5, staggerChildren: 0.1 },
     },
@@ -38,7 +49,7 @@ const NavBar = () => {
     },
     out: {
       opacity: 0,
-      x: -50,
+      x: -70,
     },
   };
 
@@ -60,7 +71,7 @@ const NavBar = () => {
             variants={navContainVariants}
             className='nav-contain'
           >
-            <ul className='nav-list'>
+            <motion.ul className='nav-list' variants={navUlVariants}>
               {navListNames.names.map((name, i) => (
                 <motion.li
                   key={i} //
@@ -75,7 +86,7 @@ const NavBar = () => {
                   <Link to={`/${name}`}>{name}</Link>
                 </motion.li>
               ))}
-            </ul>
+            </motion.ul>
           </motion.div>
         ) : null}
       </AnimatePresence>

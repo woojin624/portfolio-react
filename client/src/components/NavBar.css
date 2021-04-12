@@ -12,9 +12,9 @@
 }
 
 .nav-list > li {
-  font-size: 48px;
-  font-weight: 600;
-  margin: 1rem 0;
+  font-size: 5rem;
+  font-weight: 700;
+  margin: 1.2rem 0;
 }
 .nav-logo > a,
 .nav-list > li > a {
