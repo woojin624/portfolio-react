@@ -12,7 +12,7 @@ const MemoryGame = () => {
   const [matched, setMatched] = useState([]);
 
   // 게임 클리어 여부
-  const [isClear, setIsClear] = useState(true);
+  const [isClear, setIsClear] = useState(false);
 
   // 카드 홀드 여부
   const [isCardHold, setIscardHold] = useState(false);

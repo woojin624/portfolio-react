@@ -27,6 +27,18 @@
   color: #fff;
 }
 
+.games-list > div {
+  border: 2px solid #fff;
+  width: 50%;
+  height: 150px;
+  margin: 2rem;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.games-list > div > h2 {
+  pointer-events: none;
+}
+
 .home-box-l {
   width: 50%;
   height: 100%;
