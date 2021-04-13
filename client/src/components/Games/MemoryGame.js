@@ -12,7 +12,7 @@ const MemoryGame = () => {
   const [matched, setMatched] = useState([]);
 
   // 게임 클리어 여부
-  const [isClear, setIsClear] = useState(false);
+  const [isClear, setIsClear] = useState(true);
 
   // 카드 홀드 여부
   const [isCardHold, setIscardHold] = useState(false);
@@ -145,13 +145,22 @@ const MemoryGame = () => {
 
   return (
     <>
-      {isGameStart ? <button onClick={restartGame}>Restart</button> : <button onClick={startGame}>Start</button>}
-      <p>
-        <span>{('0' + Math.floor((time / 60000) % 60)).slice(-2)}m </span>
-        <span>{('0' + Math.floor((time / 1000) % 60)).slice(-2)}s </span>
-        <span>{('0' + ((time / 10) % 100)).slice(-2)}</span>
-      </p>
       <div className='memory-game'>
+        <h2 className='memory-title'>Memory Game</h2>
+        {isGameStart ? (
+          <button className='memory-start-btn' onClick={restartGame}>
+            Restart
+          </button>
+        ) : (
+          <button className='memory-start-btn' onClick={startGame}>
+            Start
+          </button>
+        )}
+        <article className='memory-timer'>
+          <span>{('0' + Math.floor((time / 60000) % 60)).slice(-2)}m </span>
+          <span>{('0' + Math.floor((time / 1000) % 60)).slice(-2)}s </span>
+          <span>{('0' + ((time / 10) % 100)).slice(-2)}</span>
+        </article>
         <div className={`cards ${isGameStart ? '' : 'hold'}`}>
           {pairOfPokemons.map((pokemon, i) => {
             // let's flip the card with flipped css class
@@ -185,14 +194,36 @@ const MemoryGame = () => {
         {isClear ? (
           <div className='card-clear-pop'>
             <div className='card-clear-modal'>
-              <h3>clear!</h3>
-              <p>
+              <h3>CLEAR!</h3>
+              <h4>{time}</h4>
+              <article className='memory-timer'>
                 <span>{('0' + Math.floor((time / 60000) % 60)).slice(-2)}m </span>
                 <span>{('0' + Math.floor((time / 1000) % 60)).slice(-2)}s </span>
                 <span>{('0' + ((time / 10) % 100)).slice(-2)}</span>
-              </p>
-              <h4>{time}</h4>
-              <button onClick={() => setIsClear(false)}>닫기</button>
+              </article>
+              <div className='card-modal-rank'>
+                <h2>Ranking</h2>
+                <ul className='rank-list'>
+                  <li>
+                    <span className='rank-rate'>1.</span>
+                    <span className='rank-name'>aaa</span>
+                    <span className='rank-score'>00.16.58</span>
+                  </li>
+                  <li>
+                    <span className='rank-rate'>2.</span>
+                    <span className='rank-name'>babo</span>
+                    <span className='rank-score'>00.24.18</span>
+                  </li>
+                  <li>
+                    <span className='rank-rate'>3.</span>
+                    <span className='rank-name'>sipoqw</span>
+                    <span className='rank-score'>00.49.57</span>
+                  </li>
+                </ul>
+              </div>
+              <button className='card-modal-close' onClick={() => setIsClear(false)}>
+                닫기
+              </button>
             </div>
           </div>
         ) : null}

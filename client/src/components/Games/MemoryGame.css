@@ -3,16 +3,39 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  min-height: 100vh;
+  min-height: calc(100vh - 120px);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px;
+  /* padding: 50px; */
   line-height: 1;
   font-family: 'Patrick Hand', sans-serif;
 }
+.memory-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 2vh;
+}
 
-.memory-game p {
+.memory-start-btn {
+  width: 160px;
+  height: 60px;
+  margin-bottom: 2vh;
+  border: none;
+  border-radius: 16px;
+  font-size: 24px;
+  font-weight: 500;
+  background: rgb(21, 107, 237);
+  color: #fff;
+}
+
+.memory-timer {
+  margin-bottom: 2vh;
+  font-size: 30px;
+  font-weight: 500;
+}
+/* .memory-game p {
   text-align: right;
   font-size: 50px;
   color: #999;
@@ -24,7 +47,7 @@
 .memory-game p strong {
   font-size: 14px;
   color: #777;
-}
+} */
 
 .memory-game .cards {
   display: grid;
@@ -113,12 +136,65 @@
 .card-clear-modal {
   position: absolute;
   width: 80%;
-  height: 60%;
+  height: 50%;
   border-radius: 5vw;
-  background: #fff;
+  background: rgb(249, 249, 249);
+  border: 10px solid rgb(171, 171, 171);
   color: #000;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.card-clear-modal > h3 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 1vh;
+}
+
+.card-clear-modal > .memory-timer {
+  font-weight: 800;
+  font-size: 40px;
+  color: rgb(21, 107, 237);
+}
+
+.card-modal-close {
+  width: 120px;
+  height: 48px;
+  margin-bottom: 2vh;
+  border: none;
+  border-radius: 12px;
+  font-size: 24px;
+  font-weight: 500;
+  background: rgb(21, 107, 237);
+  color: #fff;
+}
+
+.card-modal-rank {
+  width: 90%;
+  height: 50%;
+  background: rgb(220, 232, 242);
+  margin-bottom: 2vh;
+  border: 5px solid rgb(141, 158, 172);
+  border-radius: 16px;
+}
+.card-modal-rank > h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+.card-modal-rank > .rank-list {
+  width: 100%;
+  margin: 10% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-modal-rank > .rank-list > li {
+  background: rgb(191, 204, 205);
+  margin: 10px 0;
+  padding: 5px 0;
+  font-size: 20px;
+  width: 80%;
 }
