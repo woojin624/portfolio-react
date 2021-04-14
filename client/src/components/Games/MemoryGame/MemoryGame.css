@@ -137,7 +137,7 @@
   position: absolute;
   width: 80%;
   max-width: 900px;
-  height: 60%;
+  height: 75%;
   min-height: 500px;
   border-radius: 5vw;
   background: rgb(249, 249, 249);
@@ -181,18 +181,19 @@
   border-radius: 16px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   overflow-y: scroll;
 }
 .card-modal-rank > h2 {
-  /* margin-top: 2%; */
+  margin-top: 2%;
   margin-bottom: 2%;
   font-size: 24px;
   font-weight: 700;
 }
 .card-modal-rank > .rank-list {
   width: 100%;
+  height: auto;
   /* margin: 10% 0; */
   display: flex;
   flex-direction: column;
@@ -226,4 +227,29 @@
 .card-modal-rank > .rank-list > li > .rank-score {
   width: 40%;
   text-align: right;
+}
+
+.card-rank-confirm {
+  width: 80px;
+  height: 36px;
+  /* margin-bottom: 1vh; */
+  margin-top: 2%;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  background: rgb(30, 175, 191);
+  color: #fff;
+}
+
+.card-rank-input {
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  padding: 5px 3px 3px 3px;
+  border: none;
+  border: 2px solid rgb(30, 175, 191);
+  background: #fff;
+  color: #000;
 }

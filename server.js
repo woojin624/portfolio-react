@@ -64,29 +64,48 @@ app.post('/api/addproject', function (req, res) {
 });
 
 // /deletework 경로로 delete요청을 하면 실행될 코드
-app.delete('/api/deleteproject', function (요청, 응답) {
-  console.log(요청.body);
-  요청.body._id = parseInt(요청.body._id);
-  // 요청.body에 담겨온 게시물번호를 가진 글을 db에서 찾아서 삭제해주세요.
-  db.collection('projects').deleteOne(요청.body, function (에러, 결과) {
-    console.log(요청.body._id);
+app.delete('/api/deleteproject', function (req, res) {
+  console.log(req.body);
+  req.body._id = parseInt(req.body._id);
+  // req.body에 담겨온 게시물번호를 가진 글을 db에서 찾아서 삭제해주세요.
+  db.collection('projects').deleteOne(req.body, function (err, result) {
+    console.log(req.body._id);
   });
 });
 
 // 'edit/:id'로 접속하면 id번 게시물의 데이터를 결과로 보냄
-app.get('/api/projectDetail/:id', function (요청, 응답) {
-  db.collection('projects').findOne({ _id: parseInt(요청.params.id) }, function (에러, 결과) {
-    console.log(요청.params);
-    응답.send(결과);
+app.get('/api/projectDetail/:id', function (req, res) {
+  db.collection('projects').findOne({ _id: parseInt(req.params.id) }, function (err, result) {
+    console.log(req.params);
+    res.send(result);
   });
 });
 
+// 게임랭킹
+app.get('/api/gamerank', function (req, res) {
+  db.collection('games')
+    .find()
+    .toArray(function (err, result) {
+      // console.log(result);
+      res.send(result);
+    });
+});
+
 // 메모리게임 랭킹
-app.get('/api/gamerank/memorygame', function (요청, 응답) {
-  db.collection('games').findOne({ name: 'memorygame' }, function (에러, 결과) {
-    console.log(요청.params);
-    응답.send(결과);
+app.get('/api/gamerank/memorygame', function (req, res) {
+  db.collection('games').findOne({ name: 'memorygame' }, function (err, result) {
+    console.log(req.params);
+    res.send(result);
   });
+});
+
+// 메모리게임 랭킹 수정
+app.put('/api/gamerank/memorygame/update', function (req, res) {
+  console.log(req.body);
+  const rank = req.body.rank;
+
+  //폼에담긴 데이터를 가지고 db.collection에다가 업데이트함
+  db.collection('games').updateOne({ name: 'memorygame' }, { $set: { rank } }, function (err, result) {});
 });
 
 //

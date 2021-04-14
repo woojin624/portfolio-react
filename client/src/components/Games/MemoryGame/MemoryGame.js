@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './MemoryGame.css';
+import MemoryClearModal from './MemoryClearModal';
 
 const MemoryGame = () => {
   const [rankList, setRankList] = useState([]);
@@ -26,7 +27,7 @@ const MemoryGame = () => {
   const [matched, setMatched] = useState([]);
 
   // 게임 클리어 여부
-  const [isClear, setIsClear] = useState(true);
+  const [isClear, setIsClear] = useState(false);
 
   // 카드 홀드 여부
   const [isCardHold, setIscardHold] = useState(false);
@@ -205,42 +206,7 @@ const MemoryGame = () => {
             );
           })}
         </div>
-        {isClear ? (
-          <div className='card-clear-pop'>
-            <div className='card-clear-modal'>
-              <h3>CLEAR!</h3>
-              <h4>{time}</h4>
-              <article className='memory-timer'>
-                <span>You left - </span>
-                <span>{('0' + Math.floor((time / 60000) % 60)).slice(-2)}m </span>
-                <span>{('0' + Math.floor((time / 1000) % 60)).slice(-2)}.</span>
-                <span>{('0' + ((time / 10) % 100)).slice(-2)}s</span>
-              </article>
-              <div className='card-modal-rank'>
-                <h2>Ranking</h2>
-                <ul className='rank-list'>
-                  {rankList &&
-                    rankList.map((rank, i) => {
-                      return (
-                        <li key={i}>
-                          <span className='rank-rate'>{i + 1}.</span>
-                          <span className='rank-name'>{rank.name}</span>
-                          <span className='rank-score'>
-                            {rank.time > 60000 && <span>{('0' + Math.floor((rank.time / 60000) % 60)).slice(-2)}m </span>}
-                            <span>{('0' + Math.floor((rank.time / 1000) % 60)).slice(-2)}.</span>
-                            <span>{('0' + ((rank.time / 10) % 100)).slice(-2)}s</span>
-                          </span>
-                        </li>
-                      );
-                    })}
-                </ul>
-              </div>
-              <button className='card-modal-close' onClick={() => setIsClear(false)}>
-                닫기
-              </button>
-            </div>
-          </div>
-        ) : null}
+        {isClear && rankList.length > 0 ? <MemoryClearModal time={time} rankList={rankList} setIsClear={setIsClear} /> : null}
       </div>
     </>
   );
