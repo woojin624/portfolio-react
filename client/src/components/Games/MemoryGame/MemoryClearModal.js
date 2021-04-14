@@ -69,7 +69,7 @@ const MemoryClearModal = ({ time, rankList, setIsClear }) => {
             </button>
           </div>
         ) : (
-          <div className='card-modal-rank'>
+          <div className='card-modal-rank rank-zone'>
             <h2>Ranking</h2>
             <ul className='rank-list'>
               {newRankList &&
