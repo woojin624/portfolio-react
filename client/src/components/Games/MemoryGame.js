@@ -1,7 +1,21 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './MemoryGame.css';
 
 const MemoryGame = () => {
+  const [rankList, setRankList] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`/api/gamerank/memorygame`)
+      .then((res) => {
+        setRankList(res.data.rank);
+        //   setIsLoading(false);
+        console.log(res.data.rank);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   // get pokemon api
   const url = 'https://pokeres.bastionbot.org/images/pokemon';
   // 게임 시작 여부
@@ -197,28 +211,28 @@ const MemoryGame = () => {
               <h3>CLEAR!</h3>
               <h4>{time}</h4>
               <article className='memory-timer'>
+                <span>You left - </span>
                 <span>{('0' + Math.floor((time / 60000) % 60)).slice(-2)}m </span>
-                <span>{('0' + Math.floor((time / 1000) % 60)).slice(-2)}s </span>
-                <span>{('0' + ((time / 10) % 100)).slice(-2)}</span>
+                <span>{('0' + Math.floor((time / 1000) % 60)).slice(-2)}.</span>
+                <span>{('0' + ((time / 10) % 100)).slice(-2)}s</span>
               </article>
               <div className='card-modal-rank'>
                 <h2>Ranking</h2>
                 <ul className='rank-list'>
-                  <li>
-                    <span className='rank-rate'>1.</span>
-                    <span className='rank-name'>aaa</span>
-                    <span className='rank-score'>00.16.58</span>
-                  </li>
-                  <li>
-                    <span className='rank-rate'>2.</span>
-                    <span className='rank-name'>babo</span>
-                    <span className='rank-score'>00.24.18</span>
-                  </li>
-                  <li>
-                    <span className='rank-rate'>3.</span>
-                    <span className='rank-name'>sipoqw</span>
-                    <span className='rank-score'>00.49.57</span>
-                  </li>
+                  {rankList &&
+                    rankList.map((rank, i) => {
+                      return (
+                        <li key={i}>
+                          <span className='rank-rate'>{i + 1}.</span>
+                          <span className='rank-name'>{rank.name}</span>
+                          <span className='rank-score'>
+                            {rank.time > 60000 && <span>{('0' + Math.floor((rank.time / 60000) % 60)).slice(-2)}m </span>}
+                            <span>{('0' + Math.floor((rank.time / 1000) % 60)).slice(-2)}.</span>
+                            <span>{('0' + ((rank.time / 10) % 100)).slice(-2)}s</span>
+                          </span>
+                        </li>
+                      );
+                    })}
                 </ul>
               </div>
               <button className='card-modal-close' onClick={() => setIsClear(false)}>

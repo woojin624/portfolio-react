@@ -136,7 +136,9 @@
 .card-clear-modal {
   position: absolute;
   width: 80%;
-  height: 50%;
+  max-width: 900px;
+  height: 60%;
+  min-height: 500px;
   border-radius: 5vw;
   background: rgb(249, 249, 249);
   border: 10px solid rgb(171, 171, 171);
@@ -177,14 +179,21 @@
   margin-bottom: 2vh;
   border: 5px solid rgb(141, 158, 172);
   border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
 }
 .card-modal-rank > h2 {
+  /* margin-top: 2%; */
+  margin-bottom: 2%;
   font-size: 24px;
   font-weight: 700;
 }
 .card-modal-rank > .rank-list {
   width: 100%;
-  margin: 10% 0;
+  /* margin: 10% 0; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -194,7 +203,27 @@
 .card-modal-rank > .rank-list > li {
   background: rgb(191, 204, 205);
   margin: 10px 0;
-  padding: 5px 0;
+  padding: 7px 16px 5px 16px;
   font-size: 20px;
-  width: 80%;
+  width: 90%;
+  border-radius: 8px;
+}
+.card-modal-rank > .rank-list > li > span {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 500;
+}
+.card-modal-rank > .rank-list > li > .rank-rate {
+  width: 10%;
+  font-weight: 700;
+  font-style: italic;
+  text-align: left;
+}
+.card-modal-rank > .rank-list > li > .rank-name {
+  width: 50%;
+  text-align: left;
+}
+.card-modal-rank > .rank-list > li > .rank-score {
+  width: 40%;
+  text-align: right;
 }

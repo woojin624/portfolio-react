@@ -81,6 +81,14 @@ app.get('/api/projectDetail/:id', function (요청, 응답) {
   });
 });
 
+// 메모리게임 랭킹
+app.get('/api/gamerank/memorygame', function (요청, 응답) {
+  db.collection('games').findOne({ name: 'memorygame' }, function (에러, 결과) {
+    console.log(요청.params);
+    응답.send(결과);
+  });
+});
+
 //
 //
 //
