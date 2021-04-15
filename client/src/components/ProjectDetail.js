@@ -14,7 +14,7 @@ const ProjectDetail = ({ match }) => {
 
   useEffect(() => {
     axios
-      .get(`/api/projectDetail/${id}`)
+      .get(`/api/projects/detail/${id}`)
       .then((res) => {
         setProjectsDetail(res.data);
         setIsLoading(false);

@@ -9,15 +9,6 @@ const Home = () => {
   const [rightBoxClass, setRightBoxClass] = useState('home-box-r home-hide-r');
 
   useEffect(() => {
-    axios
-      .get('/api/projectlist')
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
     // setLeftBoxClass('home-box-l');
     // setRightBoxClass('home-box-r');
 

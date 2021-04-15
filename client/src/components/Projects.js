@@ -11,7 +11,7 @@ const Projects = () => {
 
   useEffect(() => {
     axios
-      .get('/api/projectlist')
+      .get('/api/projects/list')
       .then((res) => {
         setProjectsList(res.data);
         setIsLoading(false);

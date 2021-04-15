@@ -8,7 +8,7 @@ const AdminList = () => {
 
   useEffect(() => {
     axios
-      .get('/api/projectlist')
+      .get('/api/projects/list')
       .then((res) => {
         setProjectsList(res.data);
         setIsLoading(false);
@@ -23,7 +23,7 @@ const AdminList = () => {
     let workId = e.target.dataset.id;
     axios
       //DELETE 요청의 두 번째 인자에 data: {} atrribute를 넣어주면 된다.
-      .delete('/api/deleteproject', {
+      .delete(`/api/projects/delete/${workId}`, {
         data: { _id: workId },
       })
       .then((response) => {

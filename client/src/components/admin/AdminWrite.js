@@ -19,9 +19,10 @@ const AdminWrite = () => {
     });
   };
 
-  const send = () => {
+  const send = (e) => {
+    e.preventDefault();
     axios
-      .post('/api/addproject', {
+      .post('/api/projects/add', {
         title: projectContent.title,
         content: projectContent.content,
         thumb: projectContent.thumb,
@@ -46,8 +47,8 @@ const AdminWrite = () => {
         <input type='text' value={thumb} name='thumb' onChange={getValue} />
         <br />
         <button
-          onClick={() => {
-            send();
+          onClick={(e) => {
+            send(e);
           }}
         >
           등록

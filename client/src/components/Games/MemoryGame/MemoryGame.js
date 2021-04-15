@@ -11,7 +11,7 @@ const MemoryGame = () => {
       .then((res) => {
         setRankList(res.data.rank);
         //   setIsLoading(false);
-        console.log(res.data.rank);
+        // console.log(res.data.rank);
       })
       .catch((err) => {
         console.log(err);
@@ -115,7 +115,7 @@ const MemoryGame = () => {
 
   // openCard배열에 변화가 있다면 실행될 이펙트
   useEffect(() => {
-    console.log(openCard);
+    // console.log(openCard);
 
     if (openCard < 2) return;
 
@@ -145,7 +145,7 @@ const MemoryGame = () => {
   }, [openCard]);
 
   useEffect(() => {
-    console.log(matched);
+    // console.log(matched);
     if (matched.length === 8) {
       setIsClear(true);
       stopGame();

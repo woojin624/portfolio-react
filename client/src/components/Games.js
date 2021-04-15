@@ -14,7 +14,7 @@ const Games = () => {
       .get(`/api/gamerank`)
       .then((res) => {
         setGameRank(res.data);
-        console.log(res.data);
+        // console.log(res.data);
         setMemoryRank(res.data[0].rank.slice(0, 5));
         setIsLoading(false);
       })
@@ -60,7 +60,7 @@ const Games = () => {
 
   const onCardClick = (e) => {
     let gameId = e.target.dataset.name;
-    console.log(gameId);
+    // console.log(gameId);
     history.push(`/games/${gameId}`);
   };
 
