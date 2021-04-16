@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 import { Route, Switch, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import axios from 'axios';
 
 import Home from './components/Home';
 import Games from './components/Games';
@@ -10,15 +11,20 @@ import Projects from './components/Projects';
 import NavBar from './components/NavBar';
 import Admin from './components/admin/Admin';
 import ProjectDetail from './components/ProjectDetail';
+import { connect } from 'react-redux';
+import { loadingProjects } from './redux';
 
-const App = () => {
-  const [isLoading, setIsLoading] = useState(false);
+const App = ({ loading, loadingProjects }) => {
   const location = useLocation();
+
+  useEffect(() => {
+    loadingProjects();
+  }, []);
 
   return (
     <div className='App'>
-      {isLoading ? (
-        <div>Loading...</div>
+      {loading ? (
+        <div style={{ color: '#fff' }}>Loading...</div>
       ) : (
         <>
           <NavBar />
@@ -51,4 +57,15 @@ const App = () => {
   );
 };
 
-export default App;
+const mapStateToProps = ({ projects }) => {
+  return {
+    projects: projects.projects,
+    loading: projects.loading,
+  };
+};
+
+const mapDispatchToProps = {
+  loadingProjects,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
