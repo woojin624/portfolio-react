@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
-
 import { Route, Switch, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { loadingProjects } from './redux';
+
+import './App.css';
 
 import Home from './components/Home';
 import Games from './components/Games';
@@ -11,8 +12,6 @@ import Projects from './components/Projects';
 import NavBar from './components/NavBar';
 import Admin from './components/admin/Admin';
 import ProjectDetail from './components/ProjectDetail';
-import { connect } from 'react-redux';
-import { loadingProjects } from './redux';
 
 const App = ({ loading, loadingProjects }) => {
   const location = useLocation();
@@ -35,9 +34,7 @@ const App = ({ loading, loadingProjects }) => {
                   <ProjectDetail />
                 </Route>
                 <Route exact path='/projects'>
-                  {/* <Router> */}
                   <Projects />
-                  {/* </Router> */}
                 </Route>
                 <Route path='/games'>
                   <Games />

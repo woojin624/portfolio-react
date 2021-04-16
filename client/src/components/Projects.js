@@ -1,25 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useHistory, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const Projects = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [projectsList, setProjectsList] = useState([]);
-  // const location = useLocation();
+const Projects = ({ projectsList }) => {
   let history = useHistory();
-
-  useEffect(() => {
-    axios
-      .get('/api/projects/list')
-      .then((res) => {
-        setProjectsList(res.data);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
 
   const projectBoxWrap = {
     hidden: { opacity: 1 },
@@ -49,27 +34,21 @@ const Projects = () => {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}>
       <div className='projects-contain'>
-        {isLoading ? (
-          <div>Loading...</div>
-        ) : (
-          <>
-            <motion.div className='project-box-wrap' variants={projectBoxWrap} initial='hidden' animate='visible' exit='hidden'>
-              {projectsList.map((project, i) => (
-                <motion.div
-                  onClick={onCardClick} //
-                  data-id={project._id}
-                  variants={projectBoxMotion}
-                  style={{ backgroundImage: `url('${project.thumb}')` }}
-                  className={`project-box`}
-                  key={i}
-                >
-                  <h4 className='project-box-title'>{project.title}</h4>
-                  <p className='project-box-content'>{project.content}</p>
-                </motion.div>
-              ))}
+        <motion.div className='project-box-wrap' variants={projectBoxWrap} initial='hidden' animate='visible' exit='hidden'>
+          {projectsList.map((project, i) => (
+            <motion.div
+              onClick={onCardClick} //
+              data-id={project._id}
+              variants={projectBoxMotion}
+              style={{ backgroundImage: `url('${project.thumb}')` }}
+              className={`project-box`}
+              key={i}
+            >
+              <h4 className='project-box-title'>{project.title}</h4>
+              <p className='project-box-content'>{project.content}</p>
             </motion.div>
-          </>
-        )}
+          ))}
+        </motion.div>
       </div>
 
       {/* 이 부분에서 새로고침이나 url을 통한 접근 시 렌더링이 안되는 현상 체크 */}
@@ -84,4 +63,10 @@ const Projects = () => {
   );
 };
 
-export default withRouter(Projects);
+const mapStateToProps = ({ projects }) => {
+  return {
+    projectsList: projects.projects,
+  };
+};
+
+export default connect(mapStateToProps)(withRouter(Projects));

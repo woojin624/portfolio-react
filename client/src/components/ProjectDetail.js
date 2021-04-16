@@ -1,27 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, withRouter } from 'react-router-dom';
-import axios from 'axios';
-import './main.css';
 import { motion, AnimatePresence } from 'framer-motion';
+import { connect } from 'react-redux';
 
-const ProjectDetail = ({ match }) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [projectsDetail, setProjectsDetail] = useState({});
+import './main.css';
 
+const ProjectDetail = ({ match, projectsList }) => {
+  const id = match.params.id;
+  const [project, setProject] = useState({});
   let history = useHistory();
 
-  const id = match.params.id;
-
   useEffect(() => {
-    axios
-      .get(`/api/projects/detail/${id}`)
-      .then((res) => {
-        setProjectsDetail(res.data);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const newArr = [...projectsList].filter((data) => data._id === parseInt(id));
+    setProject(...newArr);
   }, []);
 
   const projectDetailMotion = {
@@ -39,17 +30,17 @@ const ProjectDetail = ({ match }) => {
 
   return (
     <motion.div initial='out' animate='in' exit='out' transition={{ duration: 0.3 }} variants={projectDetailMotion} className='projectDetail-wrap'>
-      {isLoading ? (
-        <div>loading</div>
-      ) : (
-        <>
-          <h1>{projectsDetail.title}</h1>
-          <p>{projectsDetail.content}</p>
-        </>
-      )}
+      <h1>{project.title}</h1>
+      <p>{project.content}</p>
       <div className='project-close-btn' onClick={projectClose}></div>
     </motion.div>
   );
 };
 
-export default withRouter(ProjectDetail);
+const mapStateToProps = ({ projects }) => {
+  return {
+    projectsList: projects.projects,
+  };
+};
+
+export default connect(mapStateToProps)(withRouter(ProjectDetail));
