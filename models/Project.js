@@ -6,6 +6,7 @@ const projectSchema = new mongoose.Schema(
     title: { type: String, required: true },
     content: { type: String, required: true },
     thumb: { type: String, required: true },
+    tag: { type: String, required: true },
   },
   {
     versionKey: false,
@@ -15,18 +16,18 @@ const projectSchema = new mongoose.Schema(
 
 projectSchema.set('collection', 'projects');
 
-// Find All
+// get - Find All
 projectSchema.statics.findAll = function () {
   // return promise
   return this.find({});
 };
 
-// Find One by projectid
+// get one - Find One by projectid
 projectSchema.statics.findOneByProjectid = function (projectid) {
   return this.findOne({ _id: parseInt(projectid) });
 };
 
-// Create new project document
+// post - Create new project document
 projectSchema.statics.create = function (payload) {
   // this === Model
   const project = new this(payload);
@@ -34,13 +35,13 @@ projectSchema.statics.create = function (payload) {
   return project.save();
 };
 
-// Update by projectid
+// put - Update by projectid
 projectSchema.statics.updateByProjectid = function (projectid, payload) {
   // { new: true }: return the modified document rather than the original. defaults to false
   return this.findOneAndUpdate({ _id: parseInt(projectid) }, payload, { new: true });
 };
 
-// Delete by projectid
+// delete - Delete by projectid
 projectSchema.statics.deleteByProjectid = function (projectid) {
   return this.remove({ _id: parseInt(projectid) });
 };

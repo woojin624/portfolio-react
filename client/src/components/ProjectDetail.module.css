@@ -1,0 +1,24 @@
+.projectDetailWrap {
+  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 400;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(87, 184, 160);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.projectCloseBtn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  background: #000;
+  cursor: pointer;
+}

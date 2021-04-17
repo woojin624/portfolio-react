@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './MemoryGame.css';
 import MemoryClearModal from './MemoryClearModal';
+
+import styles from './MemoryGame.module.css';
 
 const MemoryGame = () => {
   const [rankList, setRankList] = useState([]);
@@ -160,23 +161,23 @@ const MemoryGame = () => {
 
   return (
     <>
-      <div className='memory-game'>
-        <h2 className='memory-title'>Memory Game</h2>
+      <div className={styles.memoryGame}>
+        <h2 className={styles.memoryTitle}>Memory Game</h2>
         {isGameStart ? (
-          <button className='memory-start-btn' onClick={restartGame}>
+          <button className={styles.memoryStartBtn} onClick={restartGame}>
             Restart
           </button>
         ) : (
-          <button className='memory-start-btn' onClick={startGame}>
+          <button className={styles.memoryStartBtn} onClick={startGame}>
             Start
           </button>
         )}
-        <article className='memory-timer'>
+        <article className={styles.memoryTimer}>
           <span>{('0' + Math.floor((time / 60000) % 60)).slice(-2)}m </span>
           <span>{('0' + Math.floor((time / 1000) % 60)).slice(-2)}s </span>
           <span>{('0' + ((time / 10) % 100)).slice(-2)}</span>
         </article>
-        <div className={`cards ${isGameStart ? '' : 'hold'}`}>
+        <div className={`${styles.cards} ${isGameStart ? '' : styles.hold}`}>
           {pairOfPokemons.map((pokemon, i) => {
             // let's flip the card with flipped css class
             let flipCard;
@@ -190,17 +191,17 @@ const MemoryGame = () => {
 
             return (
               <div
-                className={`pokemon-card ${flipCard ? 'flipped' : ''} ${isCardHold ? 'hold' : ''}`}
+                className={`${styles.pokemonCard} ${flipCard ? styles.flipped : ''} ${isCardHold ? styles.hold : ''}`}
                 key={i} //
                 onClick={(e) => {
                   handleFlip(i);
                 }}
               >
-                <div className='inner'>
-                  <div className='front'>
+                <div className={styles.inner}>
+                  <div className={styles.front}>
                     <img src={`${url}/${pokemon.id}.png`} alt='pokemon' width='100' />
                   </div>
-                  <div className='back'></div>
+                  <div className={styles.back}></div>
                 </div>
               </div>
             );

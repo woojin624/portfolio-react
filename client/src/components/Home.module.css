@@ -1,0 +1,29 @@
+.landContain {
+  display: flex;
+  max-width: 1600px;
+  width: 100%;
+  height: 100vh;
+}
+
+.homeBoxL {
+  width: 50%;
+  height: 100%;
+  background: rgb(49, 45, 45);
+  transform: translate(-100%, 0);
+  /* transition: 0.3s ease-in; */
+}
+.homeBoxR {
+  width: 50%;
+  height: 100%;
+  background: rgb(40, 40, 40);
+  transform: translate(100%, 0);
+  /* transition: 0.3s ease-in; */
+}
+
+.homeHideL {
+  transform: translate(-100%, 0);
+}
+
+.homeHideR {
+  transform: translate(100%, 0);
+}

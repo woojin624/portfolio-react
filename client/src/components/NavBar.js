@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 
-import { Navbar, Nav } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import './NavBar.css';
+import styles from './NavBar.module.css';
 
 const NavBar = () => {
   const navListNames = {
@@ -55,12 +54,12 @@ const NavBar = () => {
 
   return (
     <>
-      <h3 className='nav-logo' onClick={navCloseHandler}>
+      <h3 className={styles.navLogo} onClick={navCloseHandler}>
         <Link to={'/'}>J.com</Link>
       </h3>
-      <div className={isNavOpen ? 'nav-toggle-btn opened' : 'nav-toggle-btn'} onClick={navToggleHandler}>
-        <div className='nav-toggle-top'></div>
-        <div className='nav-toggle-bottom'></div>
+      <div className={isNavOpen ? `${styles.navToggleBtn} ${styles.opened}` : styles.navToggleBtn} onClick={navToggleHandler}>
+        <div className={styles.navToggleTop}></div>
+        <div className={styles.navToggleBottom}></div>
       </div>
       <AnimatePresence>
         {isNavOpen ? (
@@ -69,9 +68,9 @@ const NavBar = () => {
             animate='in'
             exit='out'
             variants={navContainVariants}
-            className='nav-contain'
+            className={styles.navContain}
           >
-            <motion.ul className='nav-list' variants={navUlVariants}>
+            <motion.ul className={styles.navList} variants={navUlVariants}>
               {navListNames.names.map((name, i) => (
                 <motion.li
                   key={i} //

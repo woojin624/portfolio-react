@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import { LOGIN_USER, REGISTER_USER, AUTH_USER } from '../_actions/types';
+import { LOGIN_USER, REGISTER_USER, AUTH_USER } from './types';
 
 const initialState = {};
 

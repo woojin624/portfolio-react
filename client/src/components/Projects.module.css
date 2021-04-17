@@ -1,0 +1,54 @@
+.projectsContain {
+  /* background-color: burlywood; */
+  max-width: 1600px;
+  width: 100%;
+  height: 100vh;
+}
+
+.projectBoxWrap {
+  padding: 0 2rem;
+  padding-top: 120px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  gap: 2rem;
+}
+
+.projectBoxWrap > div > * {
+  pointer-events: none;
+}
+
+.projectBox {
+  position: relative;
+  width: 100%;
+  background: forestgreen;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: 0.3s ease-in;
+  color: #fff;
+}
+.projectBox:after {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(142deg, rgba(0, 0, 0, 0.5382528011204482) 0%, rgba(0, 0, 0, 0) 38%);
+}
+
+.projectBoxTitle {
+  position: absolute;
+  font-size: 22px;
+  font-weight: 700;
+  top: 1rem;
+  left: 0.5rem;
+}
+.projectBoxContent {
+  position: absolute;
+  font-size: 18px;
+  font-weight: 500;
+  top: 3rem;
+  left: 0.5rem;
+}

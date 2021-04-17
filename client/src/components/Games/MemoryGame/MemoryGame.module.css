@@ -1,4 +1,4 @@
-.memory-game {
+.memoryGame {
   position: relative;
   padding: 0;
   margin: 0;
@@ -12,13 +12,13 @@
   line-height: 1;
   font-family: 'Patrick Hand', sans-serif;
 }
-.memory-title {
+.memoryTitle {
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 2vh;
 }
 
-.memory-start-btn {
+.memoryStartBtn {
   width: 160px;
   height: 60px;
   margin-bottom: 2vh;
@@ -30,7 +30,7 @@
   color: #fff;
 }
 
-.memory-timer {
+.memoryTimer {
   margin-bottom: 2vh;
   font-size: 30px;
   font-weight: 500;
@@ -49,17 +49,17 @@
   color: #777;
 } */
 
-.memory-game .cards {
+.memoryGame .cards {
   display: grid;
   grid-template: repeat(4, 1fr) / repeat(4, 1fr);
   gap: 10px;
 }
 
-.memory-game .cards.hold {
+.memoryGame .cards.hold {
   pointer-events: none;
 }
 
-.pokemon-card {
+.pokemonCard {
   height: 150px;
   width: 150px;
   border-radius: 2px;
@@ -70,15 +70,15 @@
   outline: none;
 }
 
-.pokemon-card.flipped {
+.pokemonCard.flipped {
   pointer-events: none;
 }
 
-.pokemon-card.hold {
+.pokemonCard.hold {
   pointer-events: none;
 }
 
-.pokemon-card.flipped .inner {
+.pokemonCard.flipped .inner {
   transform: rotateY(180deg);
 }
 
@@ -90,8 +90,8 @@
   transition: 0.6s cubic-bezier(0.38, 0.02, 0.09, 1.66) all;
 }
 
-.pokemon-card .front,
-.pokemon-card .back {
+.pokemonCard .front,
+.pokemonCard .back {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,25 +104,25 @@
   backface-visibility: hidden;
 }
 
-.pokemon-card .front {
+.pokemonCard .front {
   background: #fff;
   transform: rotateY(180deg);
 }
 
-.pokemon-card .back {
+.pokemonCard .back {
   background: #51dce0;
   color: #d6aeb5;
   font-size: 100px;
   transition: 0.3s ease all;
 }
 
-.pokemon-card .back:hover {
+.pokemonCard .back:hover {
   background: #dba8b1;
   color: #fff;
   transform: scale(1.02);
 }
 
-.card-clear-pop {
+.cardClearPop {
   position: fixed;
   top: 0;
   left: 0;
@@ -133,7 +133,7 @@
   justify-content: center;
   align-items: center;
 }
-.card-clear-modal {
+.cardClearModal {
   position: absolute;
   width: 80%;
   max-width: 900px;
@@ -148,19 +148,19 @@
   justify-content: center;
   align-items: center;
 }
-.card-clear-modal > h3 {
+.cardClearModal > h3 {
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 1vh;
 }
 
-.card-clear-modal > .memory-timer {
+.cardClearModal > .memoryTimer {
   font-weight: 800;
   font-size: 40px;
   color: rgb(21, 107, 237);
 }
 
-.card-modal-close {
+.cardModalClose {
   width: 120px;
   height: 48px;
   margin-bottom: 2vh;
@@ -172,7 +172,7 @@
   color: #fff;
 }
 
-.card-modal-rank {
+.cardModalRank {
   width: 90%;
   height: 50%;
   background: rgb(220, 232, 242);
@@ -185,16 +185,16 @@
   align-items: center;
   overflow-y: scroll;
 }
-.card-modal-rank.rank-zone {
+.cardModalRank.rankZone {
   justify-content: flex-start;
 }
-.card-modal-rank > h2 {
+.cardModalRank > h2 {
   margin-top: 2%;
   margin-bottom: 2%;
   font-size: 24px;
   font-weight: 700;
 }
-.card-modal-rank > .rank-list {
+.cardModalRank > .rankList {
   width: 100%;
   height: auto;
   /* margin: 10% 0; */
@@ -204,7 +204,7 @@
   align-items: center;
 }
 
-.card-modal-rank > .rank-list > li {
+.cardModalRank > .rankList > li {
   background: rgb(191, 204, 205);
   margin: 10px 0;
   padding: 7px 16px 5px 16px;
@@ -212,27 +212,27 @@
   width: 90%;
   border-radius: 8px;
 }
-.card-modal-rank > .rank-list > li > span {
+.cardModalRank > .rankList > li > span {
   display: inline-block;
   font-size: 20px;
   font-weight: 500;
 }
-.card-modal-rank > .rank-list > li > .rank-rate {
+.cardModalRank > .rankList > li > .rankRate {
   width: 10%;
   font-weight: 700;
   font-style: italic;
   text-align: left;
 }
-.card-modal-rank > .rank-list > li > .rank-name {
+.cardModalRank > .rankList > li > .rankName {
   width: 50%;
   text-align: left;
 }
-.card-modal-rank > .rank-list > li > .rank-score {
+.cardModalRank > .rankList > li > .rankScore {
   width: 40%;
   text-align: right;
 }
 
-.card-rank-confirm {
+.cardRankConfirm {
   width: 80px;
   height: 36px;
   /* margin-bottom: 1vh; */
@@ -245,7 +245,7 @@
   color: #fff;
 }
 
-.card-rank-input {
+.cardRankInput {
   border-radius: 12px;
   font-size: 16px;
   font-weight: 700;
@@ -258,21 +258,21 @@
 }
 
 @media (max-width: 400px) {
-  .pokemon-card {
+  .pokemonCard {
     height: 75px;
     width: 75px;
   }
-  .pokemon-card img {
+  .pokemonCard img {
     width: 90%;
     height: auto;
   }
-  .card-clear-modal > .memory-timer {
+  .cardClearModal > .memoryTimer {
     font-size: 26px;
   }
-  .card-clear-modal {
+  .cardClearModal {
     width: 90%;
   }
-  .card-modal-rank > .rank-list > li {
+  .cardModalRank > .rankList > li {
     background: rgb(191, 204, 205);
     margin: 6px 0;
     padding: 7px 10px 5px 10px;
@@ -280,7 +280,7 @@
     width: 90%;
     border-radius: 8px;
   }
-  .card-modal-rank > .rank-list > li > span {
+  .cardModalRank > .rankList > li > span {
     display: inline-block;
     font-size: 16px;
     font-weight: 500;

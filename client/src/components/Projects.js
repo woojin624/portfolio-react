@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { useHistory, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import styles from './Projects.module.css';
+
 const Projects = ({ projectsList }) => {
   let history = useHistory();
 
@@ -33,19 +35,19 @@ const Projects = ({ projectsList }) => {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}>
-      <div className='projects-contain'>
-        <motion.div className='project-box-wrap' variants={projectBoxWrap} initial='hidden' animate='visible' exit='hidden'>
+      <div className={styles.projectsContain}>
+        <motion.div className={styles.projectBoxWrap} variants={projectBoxWrap} initial='hidden' animate='visible' exit='hidden'>
           {projectsList.map((project, i) => (
             <motion.div
               onClick={onCardClick} //
               data-id={project._id}
               variants={projectBoxMotion}
               style={{ backgroundImage: `url('${project.thumb}')` }}
-              className={`project-box`}
+              className={styles.projectBox}
               key={i}
             >
-              <h4 className='project-box-title'>{project.title}</h4>
-              <p className='project-box-content'>{project.content}</p>
+              <h4 className={styles.projectBoxTitle}>{project.title}</h4>
+              <p className={styles.projectBoxContent}>{project.content}</p>
             </motion.div>
           ))}
         </motion.div>

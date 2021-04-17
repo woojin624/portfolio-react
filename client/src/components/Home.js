@@ -1,21 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import './main.css';
 import { motion } from 'framer-motion';
 
+import styles from './Home.module.css';
+
 const Home = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [leftBoxClass, setLeftBoxClass] = useState('home-box-l home-hide-l');
-  const [rightBoxClass, setRightBoxClass] = useState('home-box-r home-hide-r');
-
-  useEffect(() => {
-    // setLeftBoxClass('home-box-l');
-    // setRightBoxClass('home-box-r');
-
-    return () => {
-      console.log('언마운트');
-    };
-  }, []);
+  const [leftBoxClass, setLeftBoxClass] = useState(`${styles.homeBoxL} ${styles.homeHideL}`);
+  const [rightBoxClass, setRightBoxClass] = useState(`${styles.homeBoxR} ${styles.homeHideR}`);
 
   const boxTransition = {
     leftIn: {
@@ -35,7 +25,7 @@ const Home = () => {
   return (
     <>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}>
-        <div className='land-contain'>
+        <div className={styles.landContain}>
           <motion.div initial='leftOut' animate='leftIn' exit='leftOut' transition={{ duration: 0.5 }} variants={boxTransition} className={leftBoxClass} />
           <motion.div initial='rightOut' animate='rightIn' exit='rightOut' transition={{ duration: 0.5 }} variants={boxTransition} className={rightBoxClass} />
         </div>

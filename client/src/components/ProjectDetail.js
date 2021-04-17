@@ -3,7 +3,7 @@ import { useHistory, withRouter } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { connect } from 'react-redux';
 
-import './main.css';
+import styles from './ProjectDetail.module.css';
 
 const ProjectDetail = ({ match, projectsList }) => {
   const id = match.params.id;
@@ -29,10 +29,10 @@ const ProjectDetail = ({ match, projectsList }) => {
   };
 
   return (
-    <motion.div initial='out' animate='in' exit='out' transition={{ duration: 0.3 }} variants={projectDetailMotion} className='projectDetail-wrap'>
+    <motion.div initial='out' animate='in' exit='out' transition={{ duration: 0.3 }} variants={projectDetailMotion} className={styles.projectDetailWrap}>
       <h1>{project.title}</h1>
       <p>{project.content}</p>
-      <div className='project-close-btn' onClick={projectClose}></div>
+      <div className={styles.projectCloseBtn} onClick={projectClose}></div>
     </motion.div>
   );
 };

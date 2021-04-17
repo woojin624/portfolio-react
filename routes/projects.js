@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Project = require('../models/Project');
 
-// Find All
+// get - Find All
 router.get('/list', (req, res) => {
   Project.findAll()
     .then((projects) => {
@@ -12,7 +12,7 @@ router.get('/list', (req, res) => {
     .catch((err) => res.status(500).send(err));
 });
 
-// Find One by Projectid
+// get one - Find One by Projectid
 router.get('/detail/:id', (req, res) => {
   console.log(req.params);
   Project.findOneByProjectid(req.params.id)
@@ -23,7 +23,7 @@ router.get('/detail/:id', (req, res) => {
     .catch((err) => res.status(500).send(err));
 });
 
-// Create new project document
+// post - Create new project document
 router.post('/add', (req, res) => {
   Project.findAll().then((projects) => {
     req.body._id = parseInt(projects[projects.length - 1]._id + 1);
@@ -33,14 +33,14 @@ router.post('/add', (req, res) => {
   });
 });
 
-// Update by projectid
+// put - Update by projectid
 router.put('/update/:id', (req, res) => {
   Project.updateByProjectid(req.params.id, req.body)
     .then((project) => res.send(project))
     .catch((err) => res.status(500).send(err));
 });
 
-// Delete by projectid
+// delete - Delete by projectid
 router.delete('/delete/:id', (req, res) => {
   Project.deleteByProjectid(req.params.id)
     .then(() => res.sendStatus(200))

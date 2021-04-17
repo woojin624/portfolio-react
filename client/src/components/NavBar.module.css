@@ -1,4 +1,4 @@
-.nav-contain {
+.navContain {
   z-index: 100;
   position: fixed;
   top: 0;
@@ -11,27 +11,27 @@
   align-items: center;
 }
 
-.nav-list > li {
+.navList > li {
   font-size: 5rem;
   font-weight: 700;
   margin: 1.2rem 0;
 }
-.nav-logo > a,
-.nav-list > li > a {
+.navLogo > a,
+.navList > li > a {
   color: #fff;
   text-decoration: none;
   outline: none;
 }
-.nav-list > li > a {
+.navList > li > a {
   text-transform: capitalize;
 }
-.nav-logo > a:hover,
-.nav-list > li > a:hover {
+.navLogo > a:hover,
+.navList > li > a:hover {
   text-decoration: none;
   color: #fff;
 }
 
-.nav-logo {
+.navLogo {
   position: fixed;
   top: 2rem;
   left: 2rem;
@@ -40,7 +40,7 @@
   font-size: 2rem;
 }
 
-.nav-toggle-btn {
+.navToggleBtn {
   position: fixed;
   top: 2rem;
   right: 2rem;
@@ -54,7 +54,7 @@
   cursor: pointer;
 }
 
-.nav-toggle-btn > div {
+.navToggleBtn > div {
   position: absolute;
   width: 1.5rem;
   height: 2px;
@@ -62,30 +62,30 @@
   transition: 0.3s;
 }
 
-.nav-toggle-btn > .nav-toggle-top {
+.navToggleBtn > .navToggleTop {
   transform: translate(0, -250%);
 }
-.nav-toggle-btn > .nav-toggle-bottom {
+.navToggleBtn > .navToggleBottom {
   transform: translate(0, 250%);
 }
 
-.nav-toggle-btn:hover > .nav-toggle-top {
+.navToggleBtn:hover > .navToggleTop {
   transform: translate(0, 0%);
 }
-.nav-toggle-btn:hover > .nav-toggle-bottom {
+.navToggleBtn:hover > .navToggleBottom {
   transform: translate(0, 0%);
 }
 
-.nav-toggle-btn.opened > .nav-toggle-top {
+.navToggleBtn.opened > .navToggleTop {
   transform: translate(0, 0%) rotate(45deg);
 }
-.nav-toggle-btn.opened > .nav-toggle-bottom {
+.navToggleBtn.opened > .navToggleBottom {
   transform: translate(0, 0%) rotate(135deg);
 }
 
-.nav-toggle-btn.opened:hover > .nav-toggle-top {
+.navToggleBtn.opened:hover > .navToggleTop {
   transform: translate(0, 0%) rotate(90deg);
 }
-.nav-toggle-btn.opened:hover > .nav-toggle-bottom {
+.navToggleBtn.opened:hover > .navToggleBottom {
   transform: translate(0, 0%) rotate(90deg);
 }

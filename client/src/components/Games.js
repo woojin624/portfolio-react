@@ -2,8 +2,12 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Route, Switch, useLocation, BrowserRouter as Router, useHistory } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+
 import MemoryGame from './Games/MemoryGame/MemoryGame';
 import EtcGame from './Games/EtcGame';
+
+import styles from './Games.module.css';
+
 const Games = () => {
   const [gameRank, setGameRank] = useState([]);
   const [memoryRank, setMemoryRank] = useState([]);
@@ -65,8 +69,8 @@ const Games = () => {
   };
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className='games-back'>
-      <div className='games-contain'>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className={styles.gamesBack}>
+      <div className={styles.gamesContain}>
         <Router>
           <AnimatePresence exitBeforeEnter>
             <Switch location={location} key={location.pathname}>
@@ -82,28 +86,28 @@ const Games = () => {
                 </motion.p>
                 {!isLoading && (
                   <motion.div
-                    className='games-list'
+                    className={styles.gamesList}
                     initial='start' //
                     animate='in'
                     exit='end'
                     transition={{ duration: 0.3 }}
                     variants={gameListVariants}
                   >
-                    <div className='games-el' onClick={onCardClick} data-name='memorygame'>
+                    <div className={styles.gamesEl} onClick={onCardClick} data-name='memorygame'>
                       <h2>Memory Games</h2>
-                      <div className='games-desc'>
-                        <article className='games-el-left'>
+                      <div className={styles.gamesDesc}>
+                        <article className={styles.gamesElLeft}>
                           <img src='https://coding-woojin.s3.ap-northeast-2.amazonaws.com/memory-thumb.png' alt='' />
                         </article>
-                        <article className='games-el-right'>
+                        <article className={styles.gamesElRight}>
                           <h2>Ranking</h2>
                           <ul>
                             {memoryRank.map((rank, i) => {
                               return (
                                 <li key={i}>
-                                  <span className='rank-rate'>{i + 1}.</span>
-                                  <span className='rank-name'>{rank.name}</span>
-                                  <span className='rank-score'>
+                                  <span className={styles.rankRate}>{i + 1}.</span>
+                                  <span className={styles.rankName}>{rank.name}</span>
+                                  <span className={styles.rankScore}>
                                     {rank.time > 60000 && <span>{('0' + Math.floor((rank.time / 60000) % 60)).slice(-2)}m </span>}
                                     <span>{('0' + Math.floor((rank.time / 1000) % 60)).slice(-2)}.</span>
                                     <span>{('0' + ((rank.time / 10) % 100)).slice(-2)}s</span>
@@ -115,7 +119,7 @@ const Games = () => {
                         </article>
                       </div>
                     </div>
-                    <div className='games-el' onClick={onCardClick} data-name='etcgame'>
+                    <div className={styles.gamesEl} onClick={onCardClick} data-name='etcgame'>
                       <h2>ETC Games</h2>
                     </div>
                   </motion.div>
