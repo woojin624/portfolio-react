@@ -3,13 +3,12 @@ import axios from 'axios';
 import { Route, Switch, useLocation, BrowserRouter as Router, useHistory } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import MemoryGame from './Games/MemoryGame/MemoryGame';
-import EtcGame from './Games/EtcGame';
+import MemoryGame from './MemoryGame/MemoryGame';
+import EtcGame from './EtcGame';
 
 import styles from './Games.module.css';
 
 const Games = () => {
-  const [gameRank, setGameRank] = useState([]);
   const [memoryRank, setMemoryRank] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -17,7 +16,6 @@ const Games = () => {
     axios
       .get(`/api/gamerank`)
       .then((res) => {
-        setGameRank(res.data);
         // console.log(res.data);
         setMemoryRank(res.data[0].rank.slice(0, 5));
         setIsLoading(false);

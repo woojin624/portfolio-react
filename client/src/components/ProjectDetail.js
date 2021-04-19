@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, withRouter } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { connect } from 'react-redux';
 
 import styles from './ProjectDetail.module.css';

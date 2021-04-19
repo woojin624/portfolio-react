@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 
 import styles from './Home.module.css';
 
 const Home = () => {
-  const [leftBoxClass, setLeftBoxClass] = useState(`${styles.homeBoxL} ${styles.homeHideL}`);
-  const [rightBoxClass, setRightBoxClass] = useState(`${styles.homeBoxR} ${styles.homeHideR}`);
+  const leftBoxClass = `${styles.homeBoxL} ${styles.homeHideL}`;
+  const rightBoxClass = `${styles.homeBoxR} ${styles.homeHideR}`;
 
   const boxTransition = {
     leftIn: {

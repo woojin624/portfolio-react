@@ -48,37 +48,37 @@ const AdminList = () => {
     setProjectsList(tempArr);
   };
   // 카테고리 오름차순 정렬
-  const handleCategorySortUp = () => {
-    let tempArr = [...projectsList];
-    tempArr.sort(function (a, b) {
-      let x = a.category.toLowerCase();
-      let y = b.category.toLowerCase();
-      if (x < y) {
-        return -1;
-      }
-      if (x > y) {
-        return 1;
-      }
-      return 0;
-    });
-    setProjectsList(tempArr);
-  };
-  // 카테고리 내림차순 정렬
-  const handleCategorySortDown = () => {
-    let tempArr = [...projectsList];
-    tempArr.sort(function (a, b) {
-      let x = a.category.name[0].toLowerCase();
-      let y = b.category.name[0].toLowerCase();
-      if (x < y) {
-        return 1;
-      }
-      if (x > y) {
-        return -1;
-      }
-      return 0;
-    });
-    setProjectsList(tempArr);
-  };
+  // const handleCategorySortUp = () => {
+  //   let tempArr = [...projectsList];
+  //   tempArr.sort(function (a, b) {
+  //     let x = a.category.toLowerCase();
+  //     let y = b.category.toLowerCase();
+  //     if (x < y) {
+  //       return -1;
+  //     }
+  //     if (x > y) {
+  //       return 1;
+  //     }
+  //     return 0;
+  //   });
+  //   setProjectsList(tempArr);
+  // };
+  // // 카테고리 내림차순 정렬
+  // const handleCategorySortDown = () => {
+  //   let tempArr = [...projectsList];
+  //   tempArr.sort(function (a, b) {
+  //     let x = a.category.name[0].toLowerCase();
+  //     let y = b.category.name[0].toLowerCase();
+  //     if (x < y) {
+  //       return 1;
+  //     }
+  //     if (x > y) {
+  //       return -1;
+  //     }
+  //     return 0;
+  //   });
+  //   setProjectsList(tempArr);
+  // };
 
   var tStyle = { color: 'blue' };
 

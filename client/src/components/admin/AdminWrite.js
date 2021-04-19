@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import styles from './Admin.module.css';
+
 const AdminWrite = () => {
   const [projectContent, setProjectContetns] = useState({
     title: '',
@@ -22,6 +24,7 @@ const AdminWrite = () => {
 
   const send = (e) => {
     e.preventDefault();
+
     axios
       .post('/api/projects/add', {
         title: projectContent.title,
@@ -36,25 +39,17 @@ const AdminWrite = () => {
   };
 
   return (
-    <>
+    <div className={styles.AdminWrite}>
       <div>AdminWrite</div>
       <form>
         title
         <input type='text' value={title} name='title' onChange={getValue} placeholder='프로젝트제목' />
-        <br />
-        <br />
         content
         <input type='text' value={content} name='content' onChange={getValue} placeholder='프로젝트내용' />
-        <br />
-        <br />
         thumb
         <input type='text' value={thumb} name='thumb' onChange={getValue} placeholder='썸네일' />
-        <br />
-        <br />
         tag
         <input type='text' value={tag} name='tag' onChange={getValue} placeholder='태그' />
-        <br />
-        <br />
         <button
           onClick={(e) => {
             send(e);
@@ -63,7 +58,7 @@ const AdminWrite = () => {
           등록
         </button>
       </form>
-    </>
+    </div>
   );
 };
 

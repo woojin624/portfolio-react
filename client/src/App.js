@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { connect } from 'react-redux';
@@ -7,7 +7,7 @@ import { loadingProjects } from './redux';
 import './App.css';
 
 import Home from './components/Home';
-import Games from './components/Games';
+import Games from './components/Games/Games';
 import Projects from './components/Projects';
 import NavBar from './components/NavBar';
 import Admin from './components/admin/Admin';
