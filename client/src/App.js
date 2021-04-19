@@ -27,27 +27,25 @@ const App = ({ loading, loadingProjects }) => {
       ) : (
         <>
           <NavBar />
-          <div className='whole-container'>
-            <AnimatePresence exitBeforeEnter>
-              <Switch location={location} key={location.pathname}>
-                <Route path='/projects/:id'>
-                  <ProjectDetail />
-                </Route>
-                <Route exact path='/projects'>
-                  <Projects />
-                </Route>
-                <Route path='/games'>
-                  <Games />
-                </Route>
-                <Route path='/admin'>
-                  <Admin />
-                </Route>
-                <Route exact path='/'>
-                  <Home />
-                </Route>
-              </Switch>
-            </AnimatePresence>
-          </div>
+          <AnimatePresence exitBeforeEnter>
+            <Switch location={location} key={location.pathname}>
+              <Route path='/projects/:id'>
+                <ProjectDetail />
+              </Route>
+              <Route exact path='/projects'>
+                <Projects />
+              </Route>
+              <Route path='/games'>
+                <Games />
+              </Route>
+              <Route path='/admin'>
+                <Admin />
+              </Route>
+              <Route exact path='/'>
+                <Home />
+              </Route>
+            </Switch>
+          </AnimatePresence>
         </>
       )}
     </div>

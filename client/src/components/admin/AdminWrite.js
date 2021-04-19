@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-import styles from './Admin.module.css';
+import styles from './AdminWrite.module.css';
 
 const AdminWrite = () => {
   const [projectContent, setProjectContetns] = useState({
     title: '',
+    subTitle: '',
+    period: '',
     content: '',
     thumb: '',
+    mainImg: '',
+    subImg: '',
+    desc: '',
     tag: '',
+    people: '',
+    workRange: '',
   });
 
-  const { title, content, thumb, tag } = projectContent;
+  const { title, subTitle, period, mainImg, subImg, content, desc, thumb, tag, people, workRange } = projectContent;
 
   // 작성되는 글의 각 요소의 밸류값을 받아오는 함수
   const getValue = (e) => {
@@ -28,9 +35,16 @@ const AdminWrite = () => {
     axios
       .post('/api/projects/add', {
         title: projectContent.title,
+        subTitle: projectContent.subTitle,
+        period: projectContent.period,
         content: projectContent.content,
         thumb: projectContent.thumb,
+        mainImg: projectContent.mainImg,
+        subImg: projectContent.subImg,
+        desc: projectContent.desc,
         tag: projectContent.tag,
+        people: projectContent.people,
+        workRange: projectContent.workRange,
       })
       .then((response) => {
         console.log(response.data);
@@ -40,16 +54,51 @@ const AdminWrite = () => {
 
   return (
     <div className={styles.AdminWrite}>
-      <div>AdminWrite</div>
+      <h1 className={styles.pageTitle}>프로젝트 글 작성</h1>
       <form>
-        title
-        <input type='text' value={title} name='title' onChange={getValue} placeholder='프로젝트제목' />
-        content
-        <input type='text' value={content} name='content' onChange={getValue} placeholder='프로젝트내용' />
-        thumb
-        <input type='text' value={thumb} name='thumb' onChange={getValue} placeholder='썸네일' />
-        tag
-        <input type='text' value={tag} name='tag' onChange={getValue} placeholder='태그' />
+        <label htmlFor='thumb'>thumb</label>
+        <input type='text' value={thumb} name='thumb' onChange={getValue} placeholder='썸네일' id='thumb' />
+
+        <label htmlFor='mainImg'>mainImg</label>
+        <input type='text' value={mainImg} name='mainImg' onChange={getValue} placeholder='메인이미지' id='mainImg' />
+
+        <div className={styles.mainInfo}>
+          <div className={styles.mainInfoLeft}>
+            <label htmlFor='title'>title</label>
+            <input type='text' value={title} name='title' onChange={getValue} placeholder='프로젝트 제목' id='title' />
+
+            <label htmlFor='subTitle'>subTitle</label>
+            <input type='text' value={subTitle} name='subTitle' onChange={getValue} placeholder='프로젝트 부제목' id='subTitle' />
+
+            <label htmlFor='period'>period</label>
+            <input type='text' value={period} name='period' onChange={getValue} placeholder='프로젝트 기간' id='period' />
+          </div>
+          <div className={styles.mainInfoRight}>
+            <label htmlFor='desc'>description</label>
+            <input type='text' value={desc} name='desc' onChange={getValue} placeholder='프로젝트 설명' id='desc' />
+          </div>
+        </div>
+
+        <label htmlFor='subImg'>subImg</label>
+        <input type='text' value={subImg} name='subImg' onChange={getValue} placeholder='프로젝트내용' id='subImg' />
+
+        <div className={styles.summary}>
+          <div className={styles.summaryLeft}>
+            <h1>프로젝트 개요</h1>
+          </div>
+          <div className={styles.summaryRight}>
+            <label htmlFor='tag'>기술스택</label>
+            <input type='text' value={tag} name='tag' onChange={getValue} placeholder='태그' id='tag' />
+            <label htmlFor='people'>참여인원</label>
+            <input type='text' value={people} name='people' onChange={getValue} placeholder='태그' id='people' />
+            <label htmlFor='workRange'>내 업무범위</label>
+            <input type='text' value={workRange} name='workRange' onChange={getValue} placeholder='태그' id='workRange' />
+          </div>
+        </div>
+
+        <label htmlFor='content'>content</label>
+        <input type='text' value={content} name='content' onChange={getValue} placeholder='프로젝트내용' id='content' />
+
         <button
           onClick={(e) => {
             send(e);

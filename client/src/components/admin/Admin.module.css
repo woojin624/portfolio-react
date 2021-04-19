@@ -1,17 +1,8 @@
-.AdminWrite > form {
-  width: 500px;
-  margin: 2rem auto;
-  border: 1px solid black;
-  padding: 2rem;
-  display: inline-flex;
-  flex-direction: column;
-}
-
-.AdminWrite > form > input {
-  display: block;
-  margin: 0.5rem 0;
-}
-
-.AdminWrite > form > button {
-  margin-top: 3rem;
+.Admin {
+  background-color: #fff;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1000;
 }

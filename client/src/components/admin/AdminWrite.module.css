@@ -1,0 +1,58 @@
+input {
+  margin-bottom: 0.5rem;
+}
+
+.AdminWrite {
+  text-align: left;
+  position: relative;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.pageTitle {
+  margin-top: 2rem;
+  font-size: 40px;
+}
+.AdminWrite > form {
+  width: 100%;
+  margin: 2rem auto;
+  border: 1px solid rgba(0, 0, 0, 0.303);
+  padding: 50px;
+
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.AdminWrite > form > input {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+.AdminWrite > form > button {
+  margin-top: 3rem;
+}
+.summary,
+.mainInfo {
+  width: 100%;
+  display: flex;
+  margin: 40px 0;
+}
+.summary > div,
+.mainInfo > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.summaryLeft,
+.mainInfoLeft {
+  margin-right: 10px;
+}
+.summaryRight,
+.mainInfoRight {
+  margin-left: 10px;
+}
+
+.summaryLeft > h1 {
+  font-size: 40px;
+  font-weight: 500;
+}

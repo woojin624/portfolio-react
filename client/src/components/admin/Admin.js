@@ -5,9 +5,12 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import AdminHome from './AdminHome';
 import AdminList from './AdminList';
 import AdminWrite from './AdminWrite';
+
+import styles from './Admin.module.css';
+
 const Admin = () => {
   return (
-    <div style={{ backgroundColor: '#fff', width: '100vw', height: '100vh', position: 'relative', zIndex: 1000 }}>
+    <div className={styles.Admin}>
       <Router>
         <Navbar bg='light' expand='lg'>
           <Navbar.Brand href='/admin'>J.COM - admin</Navbar.Brand>
