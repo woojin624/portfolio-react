@@ -54,7 +54,7 @@ const AdminWrite = () => {
 
   return (
     <div className={styles.AdminWrite}>
-      {/* <h1 className={styles.pageTitle}>프로젝트 글 작성</h1> */}
+      <h1 className={styles.pageTitle}>프로젝트 글 작성</h1>
       <form>
         <label htmlFor='thumb'>thumb</label>
         <input type='text' value={thumb} name='thumb' onChange={getValue} placeholder='썸네일' id='thumb' />
@@ -83,7 +83,9 @@ const AdminWrite = () => {
         <input type='text' value={subImg} name='subImg' onChange={getValue} placeholder='프로젝트내용' id='subImg' />
 
         <section className={styles.summary}>
-          <article>{/* <h1 className={styles.summaryTitle}>프로젝트 개요</h1> */}</article>
+          <article>
+            <h1 className={styles.summaryTitle}>프로젝트 개요</h1>
+          </article>
           <article>
             <label htmlFor='tag'>기술스택</label>
             <input type='text' value={tag} name='tag' onChange={getValue} placeholder='태그' id='tag' />

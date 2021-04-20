@@ -4,9 +4,16 @@ const projectSchema = new mongoose.Schema(
   {
     _id: { type: Number },
     title: { type: String, required: true },
+    subTitle: { type: String, required: true },
+    period: { type: String, required: true },
+    desc: { type: String, required: true },
     content: { type: String, required: true },
     thumb: { type: String, required: true },
+    mainImg: { type: String, required: true },
+    subImg: { type: String, required: true },
     tag: { type: String, required: true },
+    people: { type: String, required: true },
+    workRange: { type: String, required: true },
   },
   {
     versionKey: false,

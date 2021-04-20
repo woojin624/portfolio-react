@@ -1,26 +1,27 @@
 .projectDetailWrap {
   position: relative;
-  position: fixed;
-  top: 0;
-  left: 0;
   z-index: 400;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: auto;
   background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-
-.projectCloseBtn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 20px;
-  height: 20px;
-  background: #000;
-  cursor: pointer;
+.mainImageWrap {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.mainImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
 }
 
 .projectInfo {
@@ -32,6 +33,57 @@
   padding: 50px;
   display: flex;
   flex-direction: column;
+}
+
+.projectTitle {
+  font-size: 86px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.projectSubTitle {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.projectPeriod {
+  font-size: 22px;
+  margin-bottom: 32px;
+}
+
+.projectDesc {
+  font-size: 28px;
+  line-height: 1.2;
+  padding-right: 30px;
+}
+
+.subImageWrap {
+  width: 100%;
+  height: auto;
+}
+.subImage {
+  width: 100%;
+  height: auto;
+}
+.mainInfo a:hover,
+.mainInfo a {
+  font-size: 20px;
+  outline: none;
+  color: #000;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  transition: 0.2s ease-in;
+}
+.mainInfo a span {
+  font-size: 22px;
+  margin-bottom: -4px;
+  margin-right: 2px;
+  transition: 0.2s ease-in;
+}
+.mainInfo a:hover span {
+  margin-right: 12px;
 }
 
 .summary,
@@ -58,6 +110,59 @@
 }
 
 .summaryTitle {
-  font-size: 40px;
+  font-size: 60px;
   font-weight: 500;
+}
+
+.projectRange,
+.projectPeople,
+.projectSkillSet {
+  font-size: 20px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.skillSetEls {
+  margin-bottom: 32px;
+}
+
+.skillSetEls > span {
+  font-size: 20px;
+  font-weight: normal;
+  margin-right: 12px;
+}
+
+.PeopleEl {
+  font-size: 20px;
+  margin-bottom: 32px;
+}
+
+.rangeEls {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.projectCloseBtn {
+  position: fixed;
+  z-index: 500;
+  top: 2rem;
+  right: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #000;
+  border: 2px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.xBtn {
+  color: #fff;
+  font-size: 36px;
+  transition: 0.2s ease-in;
+}
+.projectCloseBtn:hover > .xBtn {
+  transform: rotate(90deg);
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useHistory, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -7,6 +7,14 @@ import styles from './Projects.module.css';
 
 const Projects = ({ projectsList }) => {
   let history = useHistory();
+
+  const [reversedList, setReversedList] = useState([]);
+
+  useEffect(() => {
+    let arr = [...projectsList];
+    arr.reverse();
+    setReversedList(arr);
+  }, []);
 
   const projectBoxWrap = {
     hidden: { opacity: 1 },
@@ -37,7 +45,7 @@ const Projects = ({ projectsList }) => {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}>
       <div className={styles.projectsContain}>
         <motion.div className={styles.projectBoxWrap} variants={projectBoxWrap} initial='hidden' animate='visible' exit='hidden'>
-          {projectsList.map((project, i) => (
+          {reversedList.map((project, i) => (
             <motion.div
               onClick={onCardClick} //
               data-id={project._id}
