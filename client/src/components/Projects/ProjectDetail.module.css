@@ -1,31 +1,39 @@
-.AdminWrite {
+.projectDetailWrap {
+  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 400;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.projectCloseBtn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  background: #000;
+  cursor: pointer;
+}
+
+.projectInfo {
   text-align: left;
   position: relative;
   width: 100%;
   max-width: 1600px;
   margin: 0 auto;
-}
-.pageTitle {
-  margin-top: 2rem;
-  font-size: 40px;
-}
-.AdminWrite > form {
-  width: 100%;
-  margin: 2rem auto;
-  border: 1px solid rgba(0, 0, 0, 0.303);
   padding: 50px;
   display: flex;
   flex-direction: column;
 }
 
-.AdminWrite input {
-  display: block;
-  margin: 0.5rem 0;
-}
-
-.AdminWrite > form > button {
-  margin-top: 3rem;
-}
 .summary,
 .mainInfo {
   width: 100%;

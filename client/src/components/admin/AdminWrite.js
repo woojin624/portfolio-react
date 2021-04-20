@@ -54,7 +54,7 @@ const AdminWrite = () => {
 
   return (
     <div className={styles.AdminWrite}>
-      <h1 className={styles.pageTitle}>프로젝트 글 작성</h1>
+      {/* <h1 className={styles.pageTitle}>프로젝트 글 작성</h1> */}
       <form>
         <label htmlFor='thumb'>thumb</label>
         <input type='text' value={thumb} name='thumb' onChange={getValue} placeholder='썸네일' id='thumb' />
@@ -62,8 +62,8 @@ const AdminWrite = () => {
         <label htmlFor='mainImg'>mainImg</label>
         <input type='text' value={mainImg} name='mainImg' onChange={getValue} placeholder='메인이미지' id='mainImg' />
 
-        <div className={styles.mainInfo}>
-          <div className={styles.mainInfoLeft}>
+        <section className={styles.mainInfo}>
+          <article>
             <label htmlFor='title'>title</label>
             <input type='text' value={title} name='title' onChange={getValue} placeholder='프로젝트 제목' id='title' />
 
@@ -72,29 +72,27 @@ const AdminWrite = () => {
 
             <label htmlFor='period'>period</label>
             <input type='text' value={period} name='period' onChange={getValue} placeholder='프로젝트 기간' id='period' />
-          </div>
-          <div className={styles.mainInfoRight}>
+          </article>
+          <article>
             <label htmlFor='desc'>description</label>
             <input type='text' value={desc} name='desc' onChange={getValue} placeholder='프로젝트 설명' id='desc' />
-          </div>
-        </div>
+          </article>
+        </section>
 
         <label htmlFor='subImg'>subImg</label>
         <input type='text' value={subImg} name='subImg' onChange={getValue} placeholder='프로젝트내용' id='subImg' />
 
-        <div className={styles.summary}>
-          <div className={styles.summaryLeft}>
-            <h1>프로젝트 개요</h1>
-          </div>
-          <div className={styles.summaryRight}>
+        <section className={styles.summary}>
+          <article>{/* <h1 className={styles.summaryTitle}>프로젝트 개요</h1> */}</article>
+          <article>
             <label htmlFor='tag'>기술스택</label>
             <input type='text' value={tag} name='tag' onChange={getValue} placeholder='태그' id='tag' />
             <label htmlFor='people'>참여인원</label>
             <input type='text' value={people} name='people' onChange={getValue} placeholder='태그' id='people' />
             <label htmlFor='workRange'>내 업무범위</label>
             <input type='text' value={workRange} name='workRange' onChange={getValue} placeholder='태그' id='workRange' />
-          </div>
-        </div>
+          </article>
+        </section>
 
         <label htmlFor='content'>content</label>
         <input type='text' value={content} name='content' onChange={getValue} placeholder='프로젝트내용' id='content' />

@@ -8,10 +8,11 @@ import './App.css';
 
 import Home from './components/Home';
 import Games from './components/Games/Games';
-import Projects from './components/Projects';
+import Projects from './components/Projects/Projects';
 import NavBar from './components/NavBar';
 import Admin from './components/admin/Admin';
-import ProjectDetail from './components/ProjectDetail';
+import ProjectDetail from './components/Projects/ProjectDetail';
+import Loading from './components/Loading';
 
 const App = ({ loading, loadingProjects }) => {
   const location = useLocation();
@@ -23,7 +24,7 @@ const App = ({ loading, loadingProjects }) => {
   return (
     <div className='App'>
       {loading ? (
-        <div style={{ color: '#fff' }}>Loading...</div>
+        <Loading />
       ) : (
         <>
           <NavBar />
