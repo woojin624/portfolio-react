@@ -55,9 +55,14 @@ const ProjectDetail = ({ match, projectsList }) => {
     <>
       <motion.div initial='out' animate='in' exit='out' transition={{ duration: 0.3 }} variants={projectDetailMotion} className={styles.projectDetailWrap}>
         {project.mainImg && (
-          <motion.figure initial='out' animate='in' exit='out' variants={mainImageVariants} className={styles.mainImageWrap}>
-            <img className={styles.mainImage} src={project.mainImg} alt='' />
-          </motion.figure>
+          <motion.figure //
+            initial='out'
+            animate='in'
+            exit='out'
+            variants={mainImageVariants}
+            className={styles.mainImageWrap}
+            style={{ background: `url(${project.mainImg}) #fff no-repeat center`, backgroundSize: 'cover' }}
+          ></motion.figure>
         )}
         <div className={styles.projectInfo}>
           <section className={styles.mainInfo}>
