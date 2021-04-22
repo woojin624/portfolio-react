@@ -1,41 +1,49 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const saltRounds = 10;
 const jwt = require('jsonwebtoken');
 
-const userSchema = mongoose.Schema({
-  name: {
-    type: String,
-    maxlength: 50,
+const userSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      maxlength: 50,
+    },
+    email: {
+      type: String,
+      trim: true,
+      unique: 1,
+    },
+    password: {
+      type: String,
+      maxlength: 80,
+    },
+    lastname: {
+      type: String,
+      maxlength: 50,
+    },
+    role: {
+      type: Number,
+      default: 0,
+    },
+    image: String,
+    token: {
+      type: String,
+    },
+    tokenExp: {
+      type: Number,
+    },
   },
-  email: {
-    type: String,
-    trim: true,
-    unique: 1,
+  {
+    versionKey: false,
   },
-  password: {
-    type: String,
-    maxlength: 80,
-  },
-  lastname: {
-    type: String,
-    maxlength: 50,
-  },
-  role: {
-    type: Number,
-    default: 0,
-  },
-  image: String,
-  token: {
-    type: String,
-  },
-  tokenExp: {
-    type: Number,
-  },
-});
+  { collection: 'users' }
+);
+
+userSchema.set('collection', 'users');
 
 userSchema.pre('save', function (next) {
-  var user = this;
+  let user = this;
 
   if (user.isModified('password')) {
     // 비밀번호를 암호화 시킨다.
@@ -62,9 +70,9 @@ userSchema.methods.comparePassword = function (plainPassword, cb) {
 };
 
 userSchema.methods.generateToken = function (cb) {
-  var user = this;
+  let user = this;
   // jsonwebtoken을 이용해서 token을 생성하기
-  var token = jwt.sign(user._id.toHexString(), 'secretToken');
+  let token = jwt.sign(user._id.toHexString(), 'secretToken');
 
   // user._id + 'secretToken' = token
   // ->
@@ -78,8 +86,7 @@ userSchema.methods.generateToken = function (cb) {
 };
 
 userSchema.statics.findByToken = function (token, cb) {
-  var user = this;
-
+  let user = this;
   // user._id + '' = token
   // 토큰을 decode 한다.
   jwt.verify(token, 'secretToken', function (err, decoded) {
@@ -92,6 +99,4 @@ userSchema.statics.findByToken = function (token, cb) {
   });
 };
 
-const User = mongoose.model('User', userSchema);
-
-module.exports = { User };
+module.exports = mongoose.model('user', userSchema);

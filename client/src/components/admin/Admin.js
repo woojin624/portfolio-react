@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Switch, BrowserRouter as Router, withRouter } from 'react-router-dom';
 import AdminHome from './AdminHome';
 import AdminList from './AdminList';
 import AdminWrite from './AdminWrite';
@@ -48,4 +48,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default withRouter(Admin);

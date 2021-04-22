@@ -26,8 +26,8 @@ mongoose
 app.use('/api/projects', require('./routes/projects'));
 // 게임랭크 API
 app.use('/api/gamerank', require('./routes/games'));
-
-//
+// 유저 API
+app.use('/api/users', require('./routes/users'));
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

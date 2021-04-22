@@ -55,7 +55,6 @@ const Projects = ({ projectsList }) => {
               key={i}
             >
               <h4 className={styles.projectBoxTitle}>{project.title}</h4>
-              <p className={styles.projectBoxContent}>{project.content}</p>
             </motion.div>
           ))}
         </motion.div>

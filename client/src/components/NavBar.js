@@ -6,7 +6,7 @@ import styles from './NavBar.module.css';
 
 const NavBar = () => {
   const navListNames = {
-    names: ['projects', 'games', 'blog', 'github', 'admin'],
+    names: ['projects', 'games', 'blog', 'github'],
   };
   const [isNavOpen, setIsNavOpen] = useState(false);
 

@@ -1,7 +1,24 @@
 import React from 'react';
+import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
-const AdminHome = () => {
-  return <div>AdminHome</div>;
-};
+function AdminHome(props) {
+  const onLogoutHandler = () => {
+    axios.get('api/users/logout').then((response) => {
+      if (response.data.success) {
+        props.history.push('/login');
+      } else {
+        alert('로그아웃 하는데 실패하였습니다');
+      }
+    });
+  };
 
-export default AdminHome;
+  return (
+    <div>
+      ㅎㅇ It's Admin Page
+      <button onClick={onLogoutHandler}>로그아웃</button>
+    </div>
+  );
+}
+
+export default withRouter(AdminHome);

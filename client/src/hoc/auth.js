@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { auth } from '../_actions/user_action';
+import { auth } from '../redux/users/actions';
 
 export default function (SpecificComponent, option, adminRoute = null) {
   //null  => 아무나 출입이 가능한 페이지

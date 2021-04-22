@@ -31,6 +31,7 @@
   font-size: 86px;
   font-weight: 700;
   margin-bottom: 16px;
+  width: 100%;
 }
 
 .projectSubTitle {
@@ -157,4 +158,105 @@
 }
 .projectCloseBtn:hover > .xBtn {
   transform: rotate(90deg);
+}
+
+/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/
+@media all and (min-width: 768px) and (max-width: 1023px) {
+  .projectInfo {
+    padding: 20px 40px;
+  }
+  .projectTitle {
+    font-size: 76px;
+  }
+
+  .projectSubTitle {
+    font-size: 22px;
+  }
+
+  .projectPeriod {
+    font-size: 20px;
+  }
+  .projectDesc {
+    font-size: 24px;
+    padding-right: 0px;
+  }
+  .summaryTitle {
+    font-size: 52px;
+    font-weight: 700;
+  }
+}
+
+/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
+@media all and (max-width: 767px) {
+  .projectInfo {
+    padding: 0px;
+  }
+
+  .projectTitle {
+    font-size: 64px;
+  }
+
+  .projectSubTitle {
+    font-size: 20px;
+  }
+
+  .projectPeriod {
+    font-size: 18px;
+  }
+
+  .projectDesc {
+    font-size: 18px;
+    padding-right: 0px;
+    margin-top: 32px;
+  }
+
+  .summary,
+  .mainInfo {
+    flex-direction: column;
+    padding: 30px 20px;
+    margin: 0;
+  }
+  .summary > article:first-child,
+  .mainInfo > article:first-child {
+    margin-right: 0px;
+  }
+
+  .summary > article:last-child,
+  .mainInfo > article:last-child {
+    margin-left: 0px;
+  }
+
+  .summaryTitle {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 48px;
+  }
+
+  .projectRange,
+  .projectPeople,
+  .projectSkillSet {
+    font-size: 18px;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .skillSetEls {
+    margin-bottom: 32px;
+  }
+
+  .skillSetEls > span {
+    font-size: 18px;
+    font-weight: normal;
+    margin-right: 12px;
+  }
+
+  .PeopleEl {
+    font-size: 18px;
+    margin-bottom: 32px;
+  }
+
+  .rangeEls {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
 }
