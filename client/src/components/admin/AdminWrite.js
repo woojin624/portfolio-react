@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { loadingProjects } from '../../redux';
 
 import styles from './AdminWrite.module.css';
 
-const AdminWrite = () => {
+const AdminWrite = ({ loadingProjects }) => {
   const [projectContent, setProjectContetns] = useState({
     title: '',
     subTitle: '',
@@ -48,6 +50,7 @@ const AdminWrite = () => {
       })
       .then((response) => {
         console.log(response.data);
+        loadingProjects();
       });
     alert('등록 완료!');
   };
@@ -111,4 +114,12 @@ const AdminWrite = () => {
   );
 };
 
-export default AdminWrite;
+const mapStateToProps = () => {
+  return {};
+};
+
+const mapDispatchToProps = {
+  loadingProjects,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdminWrite);

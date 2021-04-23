@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { loadingProjects } from '../../redux';
 import { Table } from 'react-bootstrap';
 
-const AdminList = () => {
+const AdminList = ({ loadingProjects }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [projectsList, setProjectsList] = useState([]);
 
@@ -28,6 +30,7 @@ const AdminList = () => {
       })
       .then((response) => {
         console.log(response.data);
+        loadingProjects();
       });
   };
 
@@ -125,4 +128,12 @@ const AdminList = () => {
   );
 };
 
-export default AdminList;
+const mapStateToProps = () => {
+  return {};
+};
+
+const mapDispatchToProps = {
+  loadingProjects,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdminList);

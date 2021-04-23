@@ -2,7 +2,11 @@
 
 import { LOGIN_USER, REGISTER_USER, AUTH_USER } from './types';
 
-const initialState = {};
+const initialState = {
+  userData: {
+    isAuth: false,
+  },
+};
 
 const userAuth = (state = initialState, action) => {
   switch (action.type) {

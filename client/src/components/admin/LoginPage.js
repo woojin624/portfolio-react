@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { loginUser } from '../../redux/users/actions';
+import { loginUser } from '../../redux';
 
 function LoginPage(props) {
   const dispatch = useDispatch();
@@ -12,7 +12,6 @@ function LoginPage(props) {
   const onEmailHandler = (event) => {
     setEmail(event.currentTarget.value);
   };
-
   const onPasswordHandler = (event) => {
     setPassword(event.currentTarget.value);
   };
@@ -25,6 +24,7 @@ function LoginPage(props) {
       password: Password,
     };
 
+    console.log(body);
     dispatch(loginUser(body)).then((response) => {
       if (response.payload.loginSuccess) {
         props.history.push('/admin');
@@ -41,7 +41,8 @@ function LoginPage(props) {
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
-        height: '70vh',
+        height: '100vh',
+        background: 'grey',
       }}
     >
       <form style={{ display: 'flex', flexDirection: 'column' }} onSubmit={onSubmitHandler}>

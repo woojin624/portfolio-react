@@ -7,6 +7,7 @@ function AdminHome(props) {
     axios.get('api/users/logout').then((response) => {
       if (response.data.success) {
         props.history.push('/login');
+        window.location.reload();
       } else {
         alert('로그아웃 하는데 실패하였습니다');
       }
@@ -15,7 +16,7 @@ function AdminHome(props) {
 
   return (
     <div>
-      ㅎㅇ It's Admin Page
+      Admin Page
       <button onClick={onLogoutHandler}>로그아웃</button>
     </div>
   );
