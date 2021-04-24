@@ -59,31 +59,27 @@ const AdminWrite = ({ loadingProjects }) => {
     <div className={styles.AdminWrite}>
       <h1 className={styles.pageTitle}>프로젝트 글 작성</h1>
       <form>
-        <label htmlFor='thumb'>thumb</label>
-        <input type='text' value={thumb} name='thumb' onChange={getValue} placeholder='썸네일' id='thumb' />
+        <label htmlFor='thumb'>썸네일</label>
+        <input className={styles.thumbInput} type='text' value={thumb} name='thumb' onChange={getValue} placeholder='썸네일' id='thumb' />
 
-        <label htmlFor='mainImg'>mainImg</label>
-        <input type='text' value={mainImg} name='mainImg' onChange={getValue} placeholder='메인이미지' id='mainImg' />
+        <label htmlFor='mainImg'>메인 이미지</label>
+        <input className={styles.mainImageInput} type='text' value={mainImg} name='mainImg' onChange={getValue} placeholder='메인이미지' id='mainImg' />
 
         <section className={styles.mainInfo}>
           <article>
-            <label htmlFor='title'>title</label>
-            <input type='text' value={title} name='title' onChange={getValue} placeholder='프로젝트 제목' id='title' />
+            <input className={styles.titleInput} type='text' value={title} name='title' onChange={getValue} placeholder='프로젝트 제목' id='title' />
 
-            <label htmlFor='subTitle'>subTitle</label>
-            <input type='text' value={subTitle} name='subTitle' onChange={getValue} placeholder='프로젝트 부제목' id='subTitle' />
+            <input className={styles.subTitleInput} type='text' value={subTitle} name='subTitle' onChange={getValue} placeholder='프로젝트 부제목' id='subTitle' />
 
-            <label htmlFor='period'>period</label>
-            <input type='text' value={period} name='period' onChange={getValue} placeholder='프로젝트 기간' id='period' />
+            <input className={styles.periodInput} type='text' value={period} name='period' onChange={getValue} placeholder='프로젝트 기간 ex) 2021. 01 ~ 2021. 03' id='period' />
           </article>
           <article>
-            <label htmlFor='desc'>description</label>
-            <input type='text' value={desc} name='desc' onChange={getValue} placeholder='프로젝트 설명' id='desc' />
+            <input className={styles.descInput} type='text' value={desc} name='desc' onChange={getValue} placeholder='프로젝트 설명' id='desc' />
           </article>
         </section>
 
-        <label htmlFor='subImg'>subImg</label>
-        <input type='text' value={subImg} name='subImg' onChange={getValue} placeholder='프로젝트내용' id='subImg' />
+        <label htmlFor='subImg'>서브 이미지</label>
+        <input className={styles.subImageInput} type='text' value={subImg} name='subImg' onChange={getValue} placeholder='서브 이미지' id='subImg' />
 
         <section className={styles.summary}>
           <article>
@@ -91,11 +87,11 @@ const AdminWrite = ({ loadingProjects }) => {
           </article>
           <article>
             <label htmlFor='tag'>기술스택</label>
-            <input type='text' value={tag} name='tag' onChange={getValue} placeholder='태그' id='tag' />
+            <input className={styles.skillSetInput} type='text' value={tag} name='tag' onChange={getValue} placeholder='ex) React Js&&Node Js&&Express (단어 사이에 && 입력)' id='tag' />
             <label htmlFor='people'>참여인원</label>
-            <input type='text' value={people} name='people' onChange={getValue} placeholder='태그' id='people' />
+            <input className={styles.peopleInput} type='text' value={people} name='people' onChange={getValue} placeholder='ex) 2' id='people' />
             <label htmlFor='workRange'>내 업무범위</label>
-            <input type='text' value={workRange} name='workRange' onChange={getValue} placeholder='태그' id='workRange' />
+            <input className={styles.rangeInput} type='text' value={workRange} name='workRange' onChange={getValue} placeholder='ex) 디자인 - 50%&&프론트엔드 - 100%&&(단어 사이에 && 입력)' id='workRange' />
           </article>
         </section>
 

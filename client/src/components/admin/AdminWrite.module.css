@@ -12,7 +12,7 @@
 .AdminWrite > form {
   width: 100%;
   margin: 2rem auto;
-  border: 1px solid rgba(0, 0, 0, 0.303);
+  border: 1px solid rgba(71, 71, 71, 0.192);
   padding: 50px;
   display: flex;
   flex-direction: column;
@@ -20,12 +20,47 @@
 
 .AdminWrite input {
   display: block;
-  margin: 0.5rem 0;
+  border: 0;
+  background: rgba(235, 235, 235, 0.842);
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
 }
 
 .AdminWrite > form > button {
   margin-top: 3rem;
 }
+
+.thumbInput,
+.mainImageInput,
+.subImageInput {
+  padding: 10px 10px;
+  margin: 0.5rem 0;
+}
+
+.titleInput {
+  font-size: 86px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.subTitleInput {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.periodInput {
+  font-size: 22px;
+  margin-bottom: 32px;
+}
+
+.descInput {
+  font-size: 28px;
+  line-height: 1.2;
+  padding-right: 30px;
+}
+
 .summary,
 .mainInfo {
   width: 100%;
@@ -49,7 +84,106 @@
   margin-left: 10px;
 }
 
+.summary label {
+  font-size: 20px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.skillSetInput,
+.peopleInput,
+.rangeInput {
+  font-size: 20px;
+  margin-bottom: 32px;
+}
+
 .summaryTitle {
   font-size: 40px;
   font-weight: 500;
+}
+
+/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/
+@media all and (min-width: 768px) and (max-width: 1023px) {
+  .AdminWrite > form {
+    padding: 20px 40px;
+  }
+  .titleInput {
+    font-size: 76px;
+  }
+
+  .subTitleInput {
+    font-size: 22px;
+  }
+
+  .periodInput {
+    font-size: 20px;
+  }
+  .descInput {
+    font-size: 24px;
+    padding-right: 0px;
+  }
+  .summaryTitle {
+    font-size: 52px;
+    font-weight: 700;
+  }
+}
+
+/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
+@media all and (max-width: 767px) {
+  .AdminWrite > form {
+    padding: 0px;
+  }
+
+  .titleInput {
+    font-size: 64px;
+  }
+
+  .subTitleInput {
+    font-size: 20px;
+  }
+
+  .periodInput {
+    font-size: 18px;
+  }
+
+  .descInput {
+    font-size: 18px;
+    padding-right: 0px;
+    margin-top: 32px;
+  }
+
+  .summary,
+  .mainInfo {
+    flex-direction: column;
+    padding: 30px 20px;
+    margin: 0;
+  }
+  .summary > article:first-child,
+  .mainInfo > article:first-child {
+    margin-right: 0px;
+  }
+
+  .summary > article:last-child,
+  .mainInfo > article:last-child {
+    margin-left: 0px;
+  }
+
+  .summaryTitle {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 48px;
+  }
+
+  .summary label {
+    font-size: 18px;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .skillSetInput,
+  .peopleInput,
+  .rangeInput {
+    font-size: 18px;
+    margin-bottom: 32px;
+  }
 }
