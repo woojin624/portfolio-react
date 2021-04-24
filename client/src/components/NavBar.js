@@ -5,9 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import styles from './NavBar.module.css';
 
 const NavBar = () => {
-  const navListNames = {
-    names: ['projects', 'games', 'blog', 'github'],
-  };
+  const navListNames = [
+    { name: 'projects', link: '/projects', type: 'in' },
+    { name: 'games', link: '/games', type: 'in' },
+    { name: 'blog', link: '/blog', type: 'in' },
+    { name: 'github', link: 'https://github.com/woojin624', type: 'out' },
+  ];
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const navToggleHandler = () => {
@@ -71,7 +74,7 @@ const NavBar = () => {
             className={styles.navContain}
           >
             <motion.ul className={styles.navList} variants={navUlVariants}>
-              {navListNames.names.map((name, i) => (
+              {navListNames.map((list, i) => (
                 <motion.li
                   key={i} //
                   variants={navElVariants}
@@ -82,7 +85,13 @@ const NavBar = () => {
                   }}
                   onClick={navCloseHandler}
                 >
-                  <Link to={`/${name}`}>{name}</Link>
+                  {list.type === 'in' ? (
+                    <Link to={`${list.link}`}>{list.name}</Link>
+                  ) : (
+                    <a target='_blank' href={`${list.link}`}>
+                      {list.name}
+                    </a>
+                  )}
                 </motion.li>
               ))}
             </motion.ul>
