@@ -3,6 +3,9 @@ const router = express.Router();
 
 const Project = require('../models/Project');
 
+const multer = require('multer');
+const upload = multer({ dest: './upload' });
+
 // get - Find All
 router.get('/list', (req, res) => {
   Project.findAll()
@@ -25,10 +28,16 @@ router.get('/detail/:id', (req, res) => {
 });
 
 // post - Create new project document
-router.post('/add', (req, res) => {
+router.post('/add', upload.single('image'), (req, res) => {
+  console.log(req.body);
   Project.findAll().then((projects) => {
     req.body._id = parseInt(projects[projects.length - 1]._id + 1);
-    Project.create(req.body)
+    req.body.image = '/image/' + req.file.filename;
+
+    let params = { ...req.body };
+    console.log(params);
+
+    Project.create(params)
       .then((project) => res.send(project))
       .catch((err) => res.status(500).send(err));
   });

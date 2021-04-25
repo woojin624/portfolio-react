@@ -22,6 +22,8 @@ mongoose
   .then(() => console.log('Mongoose Connected...'))
   .catch((err) => console.log(err));
 
+app.use('/image', express.static('./upload'));
+
 // 프로젝트 API
 app.use('/api/projects', require('./routes/projects'));
 // 게임랭크 API
