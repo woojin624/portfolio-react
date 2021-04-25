@@ -4,7 +4,47 @@ const router = express.Router();
 const Project = require('../models/Project');
 
 const multer = require('multer');
-const upload = multer({ dest: './upload' });
+const upload = multer({ dest: 'upload/' });
+
+const { uploadFile, getFileStream } = require('../utils/s3');
+
+router.get('/images/:key', (req, res) => {
+  console.log(req.params);
+  const key = req.params.key;
+  const readStream = getFileStream(key);
+
+  readStream.pipe(res);
+});
+
+// post - Create new project document
+router.post(
+  '/add',
+  upload.fields([
+    { name: 'thumbImg', maxCount: 1 },
+    { name: 'mainImg', maxCount: 1 },
+    { name: 'subImg', maxCount: 1 },
+  ]),
+  async (req, res) => {
+    const thumbImg = req.files.thumbImg[0];
+    const mainImg = req.files.mainImg[0];
+    const subImg = req.files.subImg[0];
+    const result = await uploadFile(thumbImg);
+    console.log(result);
+    // console.log(req.files.thumbImg[0]);
+    // console.log(req.files.mainImg[0]);
+    // console.log(req.files.subImg[0]);
+    Project.findAll().then((projects) => {
+      req.body._id = parseInt(projects[projects.length - 1]._id + 1);
+      // req.body.image = '/image/' + req.files[0].filename;
+      let params = { ...req.body };
+      console.log(params);
+
+      // Project.create(params)
+      //   .then((project) => res.send(project))
+      //   .catch((err) => res.status(500).send(err));
+    });
+  }
+);
 
 // get - Find All
 router.get('/list', (req, res) => {
@@ -25,22 +65,6 @@ router.get('/detail/:id', (req, res) => {
       res.send(project);
     })
     .catch((err) => res.status(500).send(err));
-});
-
-// post - Create new project document
-router.post('/add', upload.single('image'), (req, res) => {
-  console.log(req.body);
-  Project.findAll().then((projects) => {
-    req.body._id = parseInt(projects[projects.length - 1]._id + 1);
-    req.body.image = '/image/' + req.file.filename;
-
-    let params = { ...req.body };
-    console.log(params);
-
-    Project.create(params)
-      .then((project) => res.send(project))
-      .catch((err) => res.status(500).send(err));
-  });
 });
 
 // put - Update by projectid

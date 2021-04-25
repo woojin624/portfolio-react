@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { loadingProjects } from '../../redux';
@@ -7,22 +7,25 @@ import styles from './AdminWrite.module.css';
 
 const AdminWrite = ({ loadingProjects }) => {
   const [projectContent, setProjectContetns] = useState({
-    file: null,
-    fileName: '',
+    thumbImg: null,
+    thumbImgName: '',
+    mainImg: null,
+    mainImgName: '',
+    subImg: '',
+    subImgName: '',
     title: '',
     subTitle: '',
     period: '',
     content: '',
-    thumb: '',
-    mainImg: '',
-    subImg: '',
+    // thumb: '',
+    // mainImg: '',
     desc: '',
     tag: '',
     people: '',
     workRange: '',
   });
 
-  const { file, fileName, title, subTitle, period, mainImg, subImg, content, desc, thumb, tag, people, workRange } = projectContent;
+  const { thumbImg, mainImg, thumbImgName, mainImgName, title, subTitle, period, subImg, subImgName, content, desc, tag, people, workRange } = projectContent;
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -41,25 +44,34 @@ const AdminWrite = ({ loadingProjects }) => {
   };
 
   const handleFileChange = (e) => {
+    const { name, value, files } = e.target;
     setProjectContetns({
       ...projectContent,
-      file: e.target.files[0],
-      fileName: e.target.value,
+      [name]: files[0],
+      [name + 'Name']: value,
     });
+    console.log(name);
+    console.log(value);
+    console.log(files[0]);
   };
+
+  useEffect(() => {
+    console.log(projectContent);
+  }, [projectContent]);
 
   const addPost = () => {
     const url = '/api/projects/add';
     const formData = new FormData();
 
-    formData.append('image', file);
+    formData.append('thumbImg', thumbImg);
+    formData.append('mainImg', mainImg);
+    formData.append('subImg', subImg);
     formData.append('title', title);
     formData.append('subTitle', subTitle);
     formData.append('period', period);
     formData.append('content', content);
-    formData.append('thumb', thumb);
-    formData.append('mainImg', mainImg);
-    formData.append('subImg', subImg);
+    // formData.append('thumb', thumb);
+    // formData.append('mainImg', mainImg);
     formData.append('desc', desc);
     formData.append('tag', tag);
     formData.append('people', people);
@@ -98,11 +110,12 @@ const AdminWrite = ({ loadingProjects }) => {
       <h1 className={styles.pageTitle}>프로젝트 글 작성</h1>
       <form onSubmit={handleFormSubmit}>
         <label htmlFor='thumb'>썸네일</label>
-        <input className={styles.thumbInput} type='text' value={thumb} name='thumb' onChange={getValue} placeholder='썸네일' id='thumb' />
+        {/* <input className={styles.thumbInput} type='text' value={thumb} name='thumb' onChange={getValue} placeholder='썸네일' id='thumb' /> */}
+        <input className={styles.thumbInput} type='file' value={thumbImgName} file={thumbImg} name='thumbImg' onChange={handleFileChange} placeholder='썸네일이미지파일' id='thumbImg' />
 
         <label htmlFor='mainImg'>메인 이미지</label>
-        <input className={styles.mainImageInput} type='text' value={mainImg} name='mainImg' onChange={getValue} placeholder='메인이미지' id='mainImg' />
-        <input className={styles.mainImageInput} type='file' file={file} value={fileName} name='file' onChange={handleFileChange} placeholder='메인이미지파일' id='file' />
+        {/* <input className={styles.mainImageInput} type='text' value={mainImg} name='mainImg' onChange={getValue} placeholder='메인이미지' id='mainImg' /> */}
+        <input className={styles.mainImageInput} type='file' value={mainImgName} file={mainImg} name='mainImg' onChange={handleFileChange} placeholder='메인이미지파일' id='mainImg' />
 
         <section className={styles.mainInfo}>
           <article>
@@ -118,7 +131,8 @@ const AdminWrite = ({ loadingProjects }) => {
         </section>
 
         <label htmlFor='subImg'>서브 이미지</label>
-        <input className={styles.subImageInput} type='text' value={subImg} name='subImg' onChange={getValue} placeholder='서브 이미지' id='subImg' />
+        {/* <input className={styles.subImageInput} type='text' value={subImg} name='subImg' onChange={getValue} placeholder='서브 이미지' id='subImg' /> */}
+        <input className={styles.subImageInput} type='file' value={subImgName} file={subImg} name='subImg' onChange={handleFileChange} placeholder='서브이미지파일' id='subImg' />
 
         <section className={styles.summary}>
           <article>
