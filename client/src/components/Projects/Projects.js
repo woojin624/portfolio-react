@@ -50,7 +50,7 @@ const Projects = ({ projectsList }) => {
               onClick={onCardClick} //
               data-id={project._id}
               variants={projectBoxMotion}
-              style={{ backgroundImage: `url('${project.thumb}')` }}
+              style={{ backgroundImage: `url('${project.thumbImg}')` }}
               className={styles.projectBox}
               key={i}
             >

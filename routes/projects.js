@@ -3,48 +3,32 @@ const router = express.Router();
 
 const Project = require('../models/Project');
 
-const multer = require('multer');
-const upload = multer({ dest: 'upload/' });
-
-const { uploadFile, getFileStream } = require('../utils/s3');
-
-router.get('/images/:key', (req, res) => {
-  console.log(req.params);
-  const key = req.params.key;
-  const readStream = getFileStream(key);
-
-  readStream.pipe(res);
-});
+const upload = require('../modules/multer');
 
 // post - Create new project document
-router.post(
-  '/add',
-  upload.fields([
-    { name: 'thumbImg', maxCount: 1 },
-    { name: 'mainImg', maxCount: 1 },
-    { name: 'subImg', maxCount: 1 },
-  ]),
-  async (req, res) => {
-    const thumbImg = req.files.thumbImg[0];
-    const mainImg = req.files.mainImg[0];
-    const subImg = req.files.subImg[0];
-    const result = await uploadFile(thumbImg);
-    console.log(result);
-    // console.log(req.files.thumbImg[0]);
-    // console.log(req.files.mainImg[0]);
-    // console.log(req.files.subImg[0]);
-    Project.findAll().then((projects) => {
-      req.body._id = parseInt(projects[projects.length - 1]._id + 1);
-      // req.body.image = '/image/' + req.files[0].filename;
-      let params = { ...req.body };
-      console.log(params);
+router.post('/add', upload.any(), async (req, res) => {
+  const images = req.files;
 
-      // Project.create(params)
-      //   .then((project) => res.send(project))
-      //   .catch((err) => res.status(500).send(err));
-    });
-  }
-);
+  // console.log(images);
+  // const path = image.map((img) => img.location);
+  // console.log(path);
+  const thumbImg = [...images].filter((file) => file.fieldname.substr([...file.fieldname].indexOf('&') + 1) === 'thumbImg');
+  const mainImg = [...images].filter((file) => file.fieldname.substr([...file.fieldname].indexOf('&') + 1) === 'mainImg');
+  const subImg = [...images].filter((file) => file.fieldname.substr([...file.fieldname].indexOf('&') + 1) === 'subImg');
+
+  Project.findAll().then((projects) => {
+    req.body._id = parseInt(projects[projects.length - 1]._id + 1);
+    req.body.thumbImg = thumbImg[0].location;
+    req.body.mainImg = mainImg[0].location;
+    req.body.subImg = subImg[0].location;
+    let params = { ...req.body };
+    console.log(params);
+
+    Project.create(params)
+      .then((project) => res.send(project))
+      .catch((err) => res.status(500).send(err));
+  });
+});
 
 // get - Find All
 router.get('/list', (req, res) => {

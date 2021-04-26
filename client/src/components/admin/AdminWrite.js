@@ -17,8 +17,6 @@ const AdminWrite = ({ loadingProjects }) => {
     subTitle: '',
     period: '',
     content: '',
-    // thumb: '',
-    // mainImg: '',
     desc: '',
     tag: '',
     people: '',
@@ -31,7 +29,9 @@ const AdminWrite = ({ loadingProjects }) => {
     e.preventDefault();
     addPost().then((response) => {
       console.log(response.data);
+      // loadingProjects();
     });
+    alert('등록 완료!');
   };
 
   // 작성되는 글의 각 요소의 밸류값을 받아오는 함수
@@ -63,15 +63,13 @@ const AdminWrite = ({ loadingProjects }) => {
     const url = '/api/projects/add';
     const formData = new FormData();
 
-    formData.append('thumbImg', thumbImg);
-    formData.append('mainImg', mainImg);
-    formData.append('subImg', subImg);
+    formData.append(`${title}&thumbImg`, thumbImg);
+    formData.append(`${title}&mainImg`, mainImg);
+    formData.append(`${title}&subImg`, subImg);
     formData.append('title', title);
     formData.append('subTitle', subTitle);
     formData.append('period', period);
     formData.append('content', content);
-    // formData.append('thumb', thumb);
-    // formData.append('mainImg', mainImg);
     formData.append('desc', desc);
     formData.append('tag', tag);
     formData.append('people', people);
@@ -83,26 +81,6 @@ const AdminWrite = ({ loadingProjects }) => {
       },
     };
     return axios.post(url, formData, config);
-
-    // axios
-    //   .post('/api/projects/add', {
-    //     title: projectContent.title,
-    //     subTitle: projectContent.subTitle,
-    //     period: projectContent.period,
-    //     content: projectContent.content,
-    //     thumb: projectContent.thumb,
-    //     mainImg: projectContent.mainImg,
-    //     subImg: projectContent.subImg,
-    //     desc: projectContent.desc,
-    //     tag: projectContent.tag,
-    //     people: projectContent.people,
-    //     workRange: projectContent.workRange,
-    //   })
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     loadingProjects();
-    //   });
-    // alert('등록 완료!');
   };
 
   return (

@@ -12,6 +12,7 @@ const projectSchema = new mongoose.Schema(
     thumb: { type: String },
     mainImg: { type: String },
     subImg: { type: String },
+    thumbImg: { type: String },
     tag: { type: String },
     people: { type: String },
     workRange: { type: String },
