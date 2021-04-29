@@ -1,0 +1,11 @@
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#bfc63e",
+
+    "titleBar.inactiveBackground": "#b9a829"
+  },
+  "launch": {
+    "configurations": [],
+    "compounds": []
+  }
+}
