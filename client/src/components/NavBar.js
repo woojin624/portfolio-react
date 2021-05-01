@@ -8,7 +8,7 @@ const NavBar = () => {
   const navListNames = [
     { name: 'projects', link: '/projects', type: 'in' },
     { name: 'games', link: '/games', type: 'in' },
-    { name: 'blog', link: '/blog', type: 'in' },
+    { name: 'blog', link: 'https://velog.io/@woojin', type: 'out' },
     { name: 'github', link: 'https://github.com/woojin624', type: 'out' },
   ];
   const [isNavOpen, setIsNavOpen] = useState(false);

@@ -9,14 +9,14 @@
 .homeBoxL {
   width: 50vw;
   height: 100%;
-  background: rgb(49, 45, 45);
+  background: rgb(228, 228, 228);
   transform: translate(-100%, 0);
   /* transition: 0.3s ease-in; */
 }
 .homeBoxR {
   width: 50vw;
   height: 100%;
-  background: rgb(40, 40, 40);
+  background: rgb(185, 185, 185);
   transform: translate(100%, 0);
   /* transition: 0.3s ease-in; */
 }

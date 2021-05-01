@@ -1,8 +1,10 @@
 .projectsContain {
   /* background-color: burlywood; */
-  max-width: 1600px;
+  max-width: 1440px;
   width: 100%;
-  height: 100vh;
+  margin: 0 auto;
+  height: auto;
+  text-align: left;
 }
 
 .projectBoxWrap {
@@ -10,8 +12,8 @@
   padding-top: 120px;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  place-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  /* place-items: center; */
   gap: 2rem;
 }
 
@@ -22,41 +24,118 @@
 .projectBox {
   position: relative;
   width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: 0.3s ease-in;
+  color: #242424;
+}
+
+.projectBoxImg {
+  width: 100%;
   background: #fff;
   cursor: pointer;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  transition: 0.3s ease-in;
-  color: #fff;
+  margin-bottom: 1rem;
 }
-.projectBox:after {
+
+.projectBoxImg:after {
   content: '';
   display: block;
-  padding-bottom: 100%;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(142deg, rgba(0, 0, 0, 0.5382528011204482) 0%, rgba(0, 0, 0, 0) 38%);
+  padding-bottom: 60%;
 }
 
 .projectBoxTitle {
-  position: absolute;
-  font-size: 22px;
+  position: relative;
+  font-size: 36px;
   font-weight: 700;
-  top: 1rem;
-  left: 0.5rem;
+  margin-bottom: 1.5rem;
 }
-.projectBoxContent {
-  position: absolute;
+
+.projectBoxSkills {
+  margin-bottom: 1rem;
+}
+.projectBoxSkills > span {
+  display: inline-block;
+  margin-right: 0.8rem;
+  background: #242424;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 8px 8px 4px 8px;
+  border-radius: 20px;
+}
+
+.projectBoxDesc {
+  position: relative;
   font-size: 18px;
+  line-height: 1.3;
   font-weight: 500;
-  top: 3rem;
-  left: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 /* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/
 @media all and (min-width: 768px) and (max-width: 1023px) {
+  .projectBoxWrap {
+    padding: 0 1rem;
+    padding-top: 120px;
+    gap: 1rem;
+  }
+
+  .projectBoxTitle {
+    font-size: 30px;
+    margin-bottom: 1.5rem;
+  }
+
+  .projectBoxSkills {
+    margin-bottom: 1rem;
+  }
+  .projectBoxSkills > span {
+    display: inline-block;
+    margin-right: 0.6rem;
+    background: #242424;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px 6px 3px 6px;
+  }
+
+  .projectBoxDesc {
+    font-size: 16px;
+    margin-bottom: 1rem;
+  }
 }
 
 /* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
 @media all and (max-width: 767px) {
+  .projectBoxWrap {
+    padding: 0 1rem;
+    padding-top: 120px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+  }
+
+  .projectBoxTitle {
+    font-size: 30px;
+    margin-bottom: 1.5rem;
+  }
+
+  .projectBoxSkills {
+    margin-bottom: 1rem;
+  }
+  .projectBoxSkills > span {
+    display: inline-block;
+    margin-right: 0.6rem;
+    background: #242424;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px 6px 3px 6px;
+  }
+
+  .projectBoxDesc {
+    font-size: 16px;
+    margin-bottom: 1rem;
+  }
 }

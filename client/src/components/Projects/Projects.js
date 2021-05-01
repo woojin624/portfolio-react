@@ -22,7 +22,7 @@ const Projects = ({ projectsList }) => {
       opacity: 1,
       transition: {
         delayChildren: 0,
-        staggerChildren: 0.1,
+        staggerChildren: 0.3,
       },
     },
   };
@@ -50,11 +50,18 @@ const Projects = ({ projectsList }) => {
               onClick={onCardClick} //
               data-id={project._id}
               variants={projectBoxMotion}
-              style={{ backgroundImage: `url('${project.thumbImg}')` }}
               className={styles.projectBox}
               key={i}
             >
+              <div className={styles.projectBoxImg} style={{ backgroundImage: `url('${project.thumbImg}')` }}></div>
               <h4 className={styles.projectBoxTitle}>{project.title}</h4>
+              <div className={styles.projectBoxSkills}>
+                <span>React Js</span>
+                <span>Node Js</span>
+                <span>Express</span>
+                <span>AWS</span>
+              </div>
+              <p className={styles.projectBoxDesc}>{project.desc}</p>
             </motion.div>
           ))}
         </motion.div>

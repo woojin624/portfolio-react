@@ -5,7 +5,8 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(15px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,7 +19,7 @@
 }
 .navLogo > a,
 .navList > li > a {
-  color: #fff;
+  color: #242424;
   text-decoration: none;
   outline: none;
 }
@@ -28,14 +29,14 @@
 .navLogo > a:hover,
 .navList > li > a:hover {
   text-decoration: none;
-  color: #fff;
+  color: #242424;
 }
 
 .navLogo {
   position: fixed;
   top: 2rem;
   left: 2rem;
-  color: #fff;
+  color: #242424;
   z-index: 200;
   font-size: 2rem;
 }
@@ -47,7 +48,7 @@
   width: 2.5rem;
   height: 2.5rem;
   z-index: 200;
-  border: 2px solid #fff;
+  border: 2px solid #242424;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,7 +59,7 @@
   position: absolute;
   width: 1.5rem;
   height: 2px;
-  background: #fff;
+  background: #242424;
   transition: 0.3s;
 }
 
