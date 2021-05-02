@@ -10,26 +10,73 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-y: scroll;
+}
+
+.linkList {
+  text-align: right;
+  margin: 0 1.5rem;
+  padding-left: 2rem;
+  padding-top: 2rem;
+}
+
+.linkList > hr {
+  width: 100%;
+  color: #242424;
+  border: thin solid #242424;
+  margin: 2rem 0;
+}
+.linkList > .mail {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+.linkList > .copy {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.linkList > li {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 1.5rem 0;
+}
+
+.navList {
+  text-align: left;
+  margin: 0 1.5rem;
 }
 
 .navList > li {
-  font-size: 5rem;
+  font-size: 6rem;
   font-weight: 700;
-  margin: 1.2rem 0;
+  margin: 2.5rem 0;
 }
 .navLogo > a,
+.linkList > li > a,
 .navList > li > a {
+  display: block;
   color: #242424;
   text-decoration: none;
   outline: none;
 }
+.linkList > li > a,
 .navList > li > a {
   text-transform: capitalize;
 }
 .navLogo > a:hover,
+.linkList > li > a:hover,
 .navList > li > a:hover {
   text-decoration: none;
   color: #242424;
+}
+
+.linkList > li > a {
+  transition: 0.3s;
+}
+
+.linkList > li > a:hover {
+  transform: translate(-8px, -8px);
 }
 
 .navLogo {
@@ -89,4 +136,53 @@
 }
 .navToggleBtn.opened:hover > .navToggleBottom {
   transform: translate(0, 0%) rotate(90deg);
+}
+@media all and (max-width: 767px) {
+  .navContain {
+    flex-direction: column-reverse;
+  }
+
+  .linkList {
+    text-align: center;
+    margin: 0rem;
+    padding-left: 0rem;
+    padding-top: 0rem;
+  }
+
+  .linkList > li {
+    display: inline-block;
+    font-size: 1.2rem;
+    margin: 1rem;
+  }
+
+  .linkList > .mail {
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .linkList > .copy {
+    font-weight: 500;
+  }
+
+  .navList {
+    text-align: center;
+    margin: 0rem;
+  }
+
+  .navList > li {
+    font-size: 4rem;
+    margin: 2.5rem 0;
+  }
+
+  .navLogo {
+    top: 1.5rem;
+    left: 1.5rem;
+    font-size: 2rem;
+  }
+
+  .navToggleBtn {
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
 }

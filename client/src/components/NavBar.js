@@ -6,10 +6,16 @@ import styles from './NavBar.module.css';
 
 const NavBar = () => {
   const navListNames = [
+    { name: 'about', link: '/about', type: 'in' },
     { name: 'projects', link: '/projects', type: 'in' },
     { name: 'games', link: '/games', type: 'in' },
-    { name: 'blog', link: 'https://velog.io/@woojin', type: 'out' },
+    // { name: 'blog', link: 'https://velog.io/@woojin', type: 'out' },
+    // { name: 'github', link: 'https://github.com/woojin624', type: 'out' },
+  ];
+  const linkListNames = [
+    { name: 'velog', link: 'https://velog.io/@woojin', type: 'out' },
     { name: 'github', link: 'https://github.com/woojin624', type: 'out' },
+    { name: 'codepen', link: 'https://codepen.io/woojin624', type: 'out' },
   ];
   const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -44,6 +50,19 @@ const NavBar = () => {
     },
   };
 
+  const linkElVariants = {
+    in: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+    },
+    out: {
+      opacity: 0,
+      x: -70,
+      y: 0,
+    },
+  };
+
   const navElVariants = {
     in: {
       opacity: 1,
@@ -51,7 +70,7 @@ const NavBar = () => {
     },
     out: {
       opacity: 0,
-      x: -70,
+      x: 70,
     },
   };
 
@@ -73,6 +92,22 @@ const NavBar = () => {
             variants={navContainVariants}
             className={styles.navContain}
           >
+            <motion.ul className={styles.linkList} variants={navUlVariants}>
+              {linkListNames.map((list, i) => (
+                <motion.li
+                  key={i} //
+                  variants={linkElVariants}
+                  transition={{ duration: 0.4 }}
+                >
+                  <a target='_blank' href={`${list.link}`}>
+                    {list.name}
+                  </a>
+                </motion.li>
+              ))}
+              <hr />
+              <p className={styles.mail}>624jang@gmail.com</p>
+              <p className={styles.copy}>ⓒ Woojin. All rights reserved.</p>
+            </motion.ul>
             <motion.ul className={styles.navList} variants={navUlVariants}>
               {navListNames.map((list, i) => (
                 <motion.li
@@ -81,17 +116,10 @@ const NavBar = () => {
                   transition={{ duration: 0.4 }}
                   whileHover={{
                     scale: 1.1,
-                    textShadow: '0px 0px 2px rgb(255,255,255)',
                   }}
                   onClick={navCloseHandler}
                 >
-                  {list.type === 'in' ? (
-                    <Link to={`${list.link}`}>{list.name}</Link>
-                  ) : (
-                    <a target='_blank' href={`${list.link}`}>
-                      {list.name}
-                    </a>
-                  )}
+                  <Link to={`${list.link}`}>{list.name}</Link>
                 </motion.li>
               ))}
             </motion.ul>
