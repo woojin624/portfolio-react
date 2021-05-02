@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { connect } from 'react-redux';
 import { BsChevronRight, BsX } from 'react-icons/bs';
 
+import ReactHtmlParser from 'react-html-parser';
+
 import styles from './ProjectDetail.module.css';
 
 const ProjectDetail = ({ match, projectsList }) => {
@@ -109,7 +111,7 @@ const ProjectDetail = ({ match, projectsList }) => {
                 ))}
             </article>
           </section>
-          <section className={styles.content}></section>
+          <section className={styles.content}>{ReactHtmlParser(project.content)}</section>
         </div>
       </motion.div>
       <div className={styles.projectCloseBtn} onClick={projectClose}>

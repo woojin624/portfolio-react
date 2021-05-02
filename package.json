@@ -20,8 +20,6 @@
   },
   "homepage": "https://github.com/woojin624/portfolio-react#readme",
   "dependencies": {
-    "@toast-ui/editor": "^2.5.2",
-    "@toast-ui/react-editor": "^2.5.3",
     "aws-sdk": "^2.879.0",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
