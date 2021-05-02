@@ -7,7 +7,8 @@ import { loadingProjects } from './redux';
 import './App.css';
 
 import Auth from './hoc/auth';
-import Home from './components/Home';
+import Home from './components/Home/Home';
+import About from './components/About/About';
 import Games from './components/Games/Games';
 import Projects from './components/Projects/Projects';
 import NavBar from './components/NavBar';
@@ -34,6 +35,9 @@ const App = ({ loading, loadingProjects }) => {
             <Switch location={location} key={location.pathname}>
               <Route path='/projects/:id'>
                 <ProjectDetail />
+              </Route>
+              <Route exact path='/about'>
+                <About />
               </Route>
               <Route exact path='/projects'>
                 <Projects />

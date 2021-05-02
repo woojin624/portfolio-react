@@ -21,8 +21,8 @@ const Projects = ({ projectsList }) => {
     visible: {
       opacity: 1,
       transition: {
-        delayChildren: 0,
-        staggerChildren: 0.3,
+        delayChildren: 0.1,
+        staggerChildren: 0.1,
       },
     },
   };
