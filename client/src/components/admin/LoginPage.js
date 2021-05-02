@@ -3,6 +3,10 @@ import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { loginUser } from '../../redux';
 
+import { AiOutlineUser, AiOutlineLock } from 'react-icons/ai';
+
+import styles from './LoginPage.module.css';
+
 function LoginPage(props) {
   const dispatch = useDispatch();
 
@@ -35,24 +39,27 @@ function LoginPage(props) {
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
-        height: '100vh',
-        background: 'grey',
-      }}
-    >
-      <form style={{ display: 'flex', flexDirection: 'column' }} onSubmit={onSubmitHandler}>
-        <label>Email</label>
-        <input type='email' value={Email} onChange={onEmailHandler} />
-        <label>Password</label>
-        <input type='password' value={Password} onChange={onPasswordHandler} />
-        <br />
-        <button>Login</button>
-      </form>
+    <div className={styles.loginPage}>
+      <h1 className={styles.title}>J.com Admin</h1>
+      <div className={styles.formWrap}>
+        <figure className={styles.imgWrap}>
+          <img src='/images/login.png' alt='login-image' />
+        </figure>
+        <div className={styles.formLine}></div>
+        <form className={styles.loginForm} onSubmit={onSubmitHandler}>
+          <p className={styles.formCopy}>Login as a Admin User</p>
+          <div className={styles.formCopyLine}></div>
+          <div className={styles.inputWrap}>
+            <AiOutlineUser className={styles.loginIcon} />
+            <input type='email' value={Email} onChange={onEmailHandler} placeholder='admin@email.com'></input>
+          </div>
+          <div className={styles.inputWrap}>
+            <AiOutlineLock className={styles.loginIcon} />
+            <input type='password' value={Password} onChange={onPasswordHandler} placeholder='*********'></input>
+          </div>
+          <button>LOGIN</button>
+        </form>
+      </div>
     </div>
   );
 }
