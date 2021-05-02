@@ -135,6 +135,13 @@
   margin-bottom: 8px;
 }
 
+.content {
+  background: rgb(199, 199, 199);
+  width: 100%;
+  min-height: 100px;
+  height: auto;
+}
+
 .projectCloseBtn {
   position: fixed;
   z-index: 500;

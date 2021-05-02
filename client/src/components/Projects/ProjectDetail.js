@@ -109,6 +109,7 @@ const ProjectDetail = ({ match, projectsList }) => {
                 ))}
             </article>
           </section>
+          <section className={styles.content}></section>
         </div>
       </motion.div>
       <div className={styles.projectCloseBtn} onClick={projectClose}>

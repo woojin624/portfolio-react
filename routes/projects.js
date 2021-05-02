@@ -18,6 +18,7 @@ router.post('/add', upload.any(), async (req, res) => {
 
   Project.findAll().then((projects) => {
     req.body._id = parseInt(projects[projects.length - 1]._id + 1);
+    req.body.number = parseInt(req.body.number);
     req.body.thumbImg = thumbImg[0].location;
     req.body.mainImg = mainImg[0].location;
     req.body.subImg = subImg[0].location;

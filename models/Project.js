@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const projectSchema = new mongoose.Schema(
   {
     _id: { type: Number },
+    number: { type: Number },
     image: { type: String },
     title: { type: String },
     subTitle: { type: String },

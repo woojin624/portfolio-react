@@ -109,7 +109,6 @@ const AdminList = ({ loadingProjects }) => {
         <tbody>
           {projectsList.map((element, i) => {
             return (
-              // a = props.state[i]
               <tr key={i}>
                 <td>{element._id}</td>
                 <td>{element.title}</td>

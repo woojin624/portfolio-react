@@ -4,9 +4,11 @@ import { connect } from 'react-redux';
 import { loadingProjects } from '../../redux';
 
 import styles from './AdminWrite.module.css';
+import AdminWriteEditor from './AdminWriteEditor';
 
 const AdminWrite = ({ loadingProjects }) => {
   const [projectContent, setProjectContetns] = useState({
+    number: '',
     thumbImg: null,
     thumbImgName: '',
     mainImg: null,
@@ -16,14 +18,15 @@ const AdminWrite = ({ loadingProjects }) => {
     title: '',
     subTitle: '',
     period: '',
-    content: '',
     desc: '',
     tag: '',
     people: '',
     workRange: '',
   });
 
-  const { thumbImg, mainImg, thumbImgName, mainImgName, title, subTitle, period, subImg, subImgName, content, desc, tag, people, workRange } = projectContent;
+  const { number, thumbImg, mainImg, thumbImgName, mainImgName, title, subTitle, period, subImg, subImgName, desc, tag, people, workRange } = projectContent;
+
+  const [content, setContent] = useState('콘텐츠 입력');
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -56,8 +59,8 @@ const AdminWrite = ({ loadingProjects }) => {
   };
 
   useEffect(() => {
-    console.log(projectContent);
-  }, [projectContent]);
+    console.log(content);
+  }, [content]);
 
   const addPost = () => {
     const url = '/api/projects/add';
@@ -66,6 +69,7 @@ const AdminWrite = ({ loadingProjects }) => {
     formData.append(`${title}&thumbImg`, thumbImg);
     formData.append(`${title}&mainImg`, mainImg);
     formData.append(`${title}&subImg`, subImg);
+    formData.append(`number`, number);
     formData.append('title', title);
     formData.append('subTitle', subTitle);
     formData.append('period', period);
@@ -87,12 +91,12 @@ const AdminWrite = ({ loadingProjects }) => {
     <div className={styles.AdminWrite}>
       <h1 className={styles.pageTitle}>프로젝트 글 작성</h1>
       <form onSubmit={handleFormSubmit}>
+        <label htmlFor='number'>프로젝트 넘버</label>
+        <input className={styles.number} type='number' value={number} name='number' onChange={getValue} placeholder='프로젝트 넘버' id='number' />
         <label htmlFor='thumb'>썸네일</label>
-        {/* <input className={styles.thumbInput} type='text' value={thumb} name='thumb' onChange={getValue} placeholder='썸네일' id='thumb' /> */}
         <input className={styles.thumbInput} type='file' value={thumbImgName} file={thumbImg} name='thumbImg' onChange={handleFileChange} placeholder='썸네일이미지파일' id='thumbImg' />
 
         <label htmlFor='mainImg'>메인 이미지</label>
-        {/* <input className={styles.mainImageInput} type='text' value={mainImg} name='mainImg' onChange={getValue} placeholder='메인이미지' id='mainImg' /> */}
         <input className={styles.mainImageInput} type='file' value={mainImgName} file={mainImg} name='mainImg' onChange={handleFileChange} placeholder='메인이미지파일' id='mainImg' />
 
         <section className={styles.mainInfo}>
@@ -109,7 +113,6 @@ const AdminWrite = ({ loadingProjects }) => {
         </section>
 
         <label htmlFor='subImg'>서브 이미지</label>
-        {/* <input className={styles.subImageInput} type='text' value={subImg} name='subImg' onChange={getValue} placeholder='서브 이미지' id='subImg' /> */}
         <input className={styles.subImageInput} type='file' value={subImgName} file={subImg} name='subImg' onChange={handleFileChange} placeholder='서브이미지파일' id='subImg' />
 
         <section className={styles.summary}>
@@ -126,9 +129,10 @@ const AdminWrite = ({ loadingProjects }) => {
           </article>
         </section>
 
-        <label htmlFor='content'>content</label>
-        <input type='text' value={content} name='content' onChange={getValue} placeholder='프로젝트내용' id='content' />
-
+        <label htmlFor='content'>내용</label>
+        <div className={styles.contentWrap}>
+          <AdminWriteEditor content={content} setContent={setContent} />
+        </div>
         <button type='submit'>등록</button>
       </form>
     </div>
