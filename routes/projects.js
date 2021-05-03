@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
 const Project = require('../models/Project');
-
 const upload = require('../modules/multer');
 
 // post - Create new project document
@@ -19,9 +17,9 @@ router.post('/add', upload.any(), async (req, res) => {
   Project.findAll().then((projects) => {
     req.body._id = parseInt(projects[projects.length - 1]._id + 1);
     req.body.number = parseInt(req.body.number);
-    req.body.thumbImg = thumbImg[0].location;
-    req.body.mainImg = mainImg[0].location;
-    req.body.subImg = subImg[0].location;
+    req.body.thumbImg = thumbImg[0] ? thumbImg[0].location : req.body.thumbImg;
+    req.body.mainImg = mainImg[0] ? mainImg[0].location : req.body.mainImg;
+    req.body.subImg = subImg[0] ? subImg[0].location : req.body.subImg;
     let params = { ...req.body };
     console.log(params);
 
@@ -29,6 +27,30 @@ router.post('/add', upload.any(), async (req, res) => {
       .then((project) => res.send(project))
       .catch((err) => res.status(500).send(err));
   });
+});
+
+// put - Update by projectid
+router.put('/editwork', upload.any(), async (req, res) => {
+  const images = req.files;
+
+  console.log(images);
+  // const path = image.map((img) => img.location);
+  // console.log(path);
+  const thumbImg = [...images].filter((file) => file.fieldname.substr([...file.fieldname].indexOf('&') + 1) === 'thumbImg');
+  const mainImg = [...images].filter((file) => file.fieldname.substr([...file.fieldname].indexOf('&') + 1) === 'mainImg');
+  const subImg = [...images].filter((file) => file.fieldname.substr([...file.fieldname].indexOf('&') + 1) === 'subImg');
+  req.body._id = parseInt(req.body._id);
+  req.body.number = parseInt(req.body.number);
+  req.body.thumbImg = thumbImg[0] ? thumbImg[0].location : req.body.thumbImg;
+  req.body.mainImg = mainImg[0] ? mainImg[0].location : req.body.mainImg;
+  req.body.subImg = subImg[0] ? subImg[0].location : req.body.subImg;
+
+  let params = { ...req.body };
+  console.log(params);
+
+  Project.updateByProjectid(req.body._id, params)
+    .then((project) => res.send(project))
+    .catch((err) => res.status(500).send(err));
 });
 
 // get - Find All
@@ -49,13 +71,6 @@ router.get('/detail/:id', (req, res) => {
       if (!project) return res.status(404).send({ err: 'Project not found' });
       res.send(project);
     })
-    .catch((err) => res.status(500).send(err));
-});
-
-// put - Update by projectid
-router.put('/update/:id', (req, res) => {
-  Project.updateByProjectid(req.params.id, req.body)
-    .then((project) => res.send(project))
     .catch((err) => res.status(500).send(err));
 });
 

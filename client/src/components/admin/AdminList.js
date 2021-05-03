@@ -112,7 +112,7 @@ const AdminList = ({ loadingProjects }) => {
               <tr key={i}>
                 <td>{element._id}</td>
                 <td>{element.title}</td>
-                <td>{element.content}</td>
+                <td>{element.desc}</td>
                 <td>
                   <button data-id={element._id} onClick={onDeleteWork}>
                     삭제

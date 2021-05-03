@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import AdminHome from './AdminHome';
 import AdminList from './AdminList';
 import AdminWrite from './AdminWrite';
+import AdminEdit from './AdminEdit';
 
 import styles from './Admin.module.css';
 
@@ -48,6 +49,9 @@ const Admin = ({ user }) => {
               </Route>
               <Route path='/admin/write'>
                 <AdminWrite />
+              </Route>
+              <Route path='/admin/edit/:id'>
+                <AdminEdit />
               </Route>
               <Route path='/admin/list'>
                 <AdminList />

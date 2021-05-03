@@ -11,7 +11,7 @@ const AdminWriteEditor = ({ content, setContent }) => {
   //   const [content, setContent] = useState();
 
   const onContentHandler = () => {
-    console.log(editorRef.current.getInstance().getHtml());
+    // console.log(editorRef.current.getInstance().getHtml());
     setContent(editorRef.current.getInstance().getHtml());
   };
 
