@@ -7,7 +7,7 @@ import styles from './Projects.module.css';
 
 const Projects = ({ projectsList }) => {
   let history = useHistory();
-
+  const initTitle = ['P', 'R', 'O', 'J', 'E', 'C', 'T', 'S'];
   const [reversedList, setReversedList] = useState([]);
 
   useEffect(() => {
@@ -16,11 +16,29 @@ const Projects = ({ projectsList }) => {
     setReversedList(arr);
   }, []);
 
-  const projectBoxWrap = {
-    hidden: { opacity: 1 },
+  const projectMotion = {
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
+        duration: 0.3,
+      },
+    },
+    out: {
+      opacity: 0,
+      transition: {
+        when: 'afterChildren',
+        duration: 0.5,
+      },
+    },
+  };
+
+  const projectBoxWrap = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 2,
         delayChildren: 0.1,
         staggerChildren: 0.1,
       },
@@ -32,6 +50,41 @@ const Projects = ({ projectsList }) => {
     visible: {
       y: 0,
       opacity: 1,
+      transition: {
+        delay: 2,
+      },
+    },
+  };
+
+  const initTitleWrap = {
+    hidden: { x: 0 },
+    visible: {
+      x: 0,
+      y: ['-50%', '-150%'],
+      transition: {
+        when: 'beforeChildren',
+        staggerChildren: 0.1,
+      },
+    },
+    out: { x: 500, opacity: 0 },
+  };
+
+  const initTitleMotion = {
+    hidden: { y: 30 },
+    visible: {
+      y: 0,
+      transition: {
+        duration: 0.3,
+        type: 'spring',
+        damping: 20,
+        stiffness: 500,
+      },
+    },
+    out: {
+      marginRight: '348px',
+      transition: {
+        duration: 0.5,
+      },
     },
   };
 
@@ -42,7 +95,14 @@ const Projects = ({ projectsList }) => {
   };
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}>
+    <motion.div variants={projectMotion} initial='hidden' animate='visible' exit='out' style={{ position: 'relative' }}>
+      <motion.p className={styles.initTitle} variants={initTitleWrap} initial='hidden' animate='visible' exit='out'>
+        {initTitle.map((a, i) => (
+          <motion.span key={i} variants={initTitleMotion}>
+            {a}
+          </motion.span>
+        ))}
+      </motion.p>
       <div className={styles.projectsContain}>
         <motion.div className={styles.projectBoxWrap} variants={projectBoxWrap} initial='hidden' animate='visible' exit='hidden'>
           {reversedList.map((project, i) => (

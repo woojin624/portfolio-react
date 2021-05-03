@@ -113,7 +113,7 @@ const NavBar = () => {
                 <motion.li
                   key={i} //
                   variants={navElVariants}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.2 }}
                   whileHover={{
                     scale: 1.1,
                   }}
