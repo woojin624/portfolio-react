@@ -7,7 +7,7 @@ import styles from './Projects.module.css';
 
 const Projects = ({ projectsList }) => {
   let history = useHistory();
-  const initTitle = ['T', 'E', 'S', 'T', 'D', 'E', 'M', 'O'];
+  const initTitle = ['P', 'R', 'O', 'J', 'E', 'C', 'T', 'S'];
   const [reversedList, setReversedList] = useState([]);
 
   useEffect(() => {
@@ -21,14 +21,14 @@ const Projects = ({ projectsList }) => {
     visible: {
       opacity: 1,
       transition: {
-        duration: 0.3,
+        duration: 0.1,
       },
     },
     out: {
       opacity: 1,
       transition: {
         when: 'afterChildren',
-        duration: 0.5,
+        duration: 0.1,
       },
     },
   };
@@ -38,14 +38,14 @@ const Projects = ({ projectsList }) => {
     visible: {
       opacity: 1,
       transition: {
-        delay: 1.4,
-        duration: 0.4,
+        delay: 0.8,
+        duration: 0.3,
       },
     },
     out: {
       opacity: 0,
       transition: {
-        duration: 0.4,
+        duration: 0.3,
       },
     },
   };
@@ -56,15 +56,15 @@ const Projects = ({ projectsList }) => {
       y: 0,
       opacity: 1,
       transition: {
-        delay: 1.4,
-        duration: 0.4,
+        delay: 0.7,
+        duration: 0.3,
       },
     },
     out: {
       opacity: 0,
       y: -30,
       transition: {
-        duration: 0.4,
+        duration: 0.3,
       },
     },
   };
@@ -72,22 +72,21 @@ const Projects = ({ projectsList }) => {
   const initTitleWrap = {
     hidden: {
       opacity: 0,
-      top: '20vh',
+      top: '100px',
       left: '0%',
       x: '-100%',
-      y: '-50%',
+      // y: '-50%',
       letterSpacing: '-3rem',
     },
     visible: {
       opacity: 1,
-      top: '20vh',
+      top: '100px',
       left: '0%',
-      x: '-2.5%',
-      y: '-50%',
+      x: '-1.5%',
+      // y: '-50%',
       letterSpacing: '0rem',
       transition: {
-        duration: 1.2,
-        // when: 'beforeChildren',
+        duration: 1.1,
         staggerChildren: 0.1,
       },
     },
@@ -95,9 +94,8 @@ const Projects = ({ projectsList }) => {
       opacity: 0,
       letterSpacing: '15rem',
       transition: {
-        delay: 0.5,
-        duration: 0.5,
-        // when: 'beforeChildren',
+        delay: 0.3,
+        duration: 0.4,
       },
     },
   };
@@ -133,7 +131,7 @@ const Projects = ({ projectsList }) => {
   };
 
   return (
-    <motion.div variants={projectMotion} initial='hidden' animate='visible' exit='out' style={{ position: 'relative' }}>
+    <motion.div variants={projectMotion} initial='hidden' animate='visible' exit='out' style={{ position: 'relative', textAlign: 'left' }}>
       <motion.p className={styles.initTitle} variants={initTitleWrap} initial='hidden' animate='visible' exit='out'>
         {initTitle.map((a, i) => (
           <motion.span key={i} variants={initTitleMotion}>
