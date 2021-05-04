@@ -7,7 +7,7 @@ import styles from './Projects.module.css';
 
 const Projects = ({ projectsList }) => {
   let history = useHistory();
-  const initTitle = ['P', 'R', 'O', 'J', 'E', 'C', 'T', 'S'];
+  const initTitle = ['T', 'E', 'S', 'T', 'D', 'E', 'M', 'O'];
   const [reversedList, setReversedList] = useState([]);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const Projects = ({ projectsList }) => {
       },
     },
     out: {
-      opacity: 0,
+      opacity: 1,
       transition: {
         when: 'afterChildren',
         duration: 0.5,
@@ -38,51 +38,89 @@ const Projects = ({ projectsList }) => {
     visible: {
       opacity: 1,
       transition: {
-        delay: 2,
-        delayChildren: 0.1,
-        staggerChildren: 0.1,
+        delay: 1.4,
+        duration: 0.4,
+      },
+    },
+    out: {
+      opacity: 0,
+      transition: {
+        duration: 0.4,
       },
     },
   };
 
   const projectBoxMotion = {
-    hidden: { y: 50, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        delay: 2,
+        delay: 1.4,
+        duration: 0.4,
+      },
+    },
+    out: {
+      opacity: 0,
+      y: -30,
+      transition: {
+        duration: 0.4,
       },
     },
   };
 
   const initTitleWrap = {
-    hidden: { x: 0 },
+    hidden: {
+      opacity: 0,
+      top: '20vh',
+      left: '0%',
+      x: '-100%',
+      y: '-50%',
+      letterSpacing: '-3rem',
+    },
     visible: {
-      x: 0,
-      y: ['-50%', '-150%'],
+      opacity: 1,
+      top: '20vh',
+      left: '0%',
+      x: '-2.5%',
+      y: '-50%',
+      letterSpacing: '0rem',
       transition: {
-        when: 'beforeChildren',
+        duration: 1.2,
+        // when: 'beforeChildren',
         staggerChildren: 0.1,
       },
     },
-    out: { x: 500, opacity: 0 },
+    out: {
+      opacity: 0,
+      letterSpacing: '15rem',
+      transition: {
+        delay: 0.5,
+        duration: 0.5,
+        // when: 'beforeChildren',
+      },
+    },
   };
 
   const initTitleMotion = {
-    hidden: { y: 30 },
+    hidden: {
+      y: 100,
+      x: -100,
+    },
     visible: {
       y: 0,
+      x: 0,
       transition: {
-        duration: 0.3,
-        type: 'spring',
-        damping: 20,
-        stiffness: 500,
+        ease: 'easeInOut',
+        duration: 0.7,
       },
     },
     out: {
-      marginRight: '348px',
+      y: -10,
+      x: 0,
       transition: {
+        delay: 0.5,
+        ease: 'easeInOut',
         duration: 0.5,
       },
     },
@@ -104,7 +142,7 @@ const Projects = ({ projectsList }) => {
         ))}
       </motion.p>
       <div className={styles.projectsContain}>
-        <motion.div className={styles.projectBoxWrap} variants={projectBoxWrap} initial='hidden' animate='visible' exit='hidden'>
+        <motion.div className={styles.projectBoxWrap} variants={projectBoxWrap} initial='hidden' animate='visible' exit='out'>
           {reversedList.map((project, i) => (
             <motion.div
               onClick={onCardClick} //

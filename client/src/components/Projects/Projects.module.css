@@ -5,6 +5,8 @@
   margin: 0 auto;
   height: auto;
   text-align: left;
+  position: relative;
+  z-index: 10;
 }
 
 .projectBoxWrap {
@@ -22,6 +24,7 @@
 }
 
 .projectBox {
+  /* display: none; */
   position: relative;
   width: 100%;
   height: auto;
@@ -77,17 +80,16 @@
 
 .initTitle {
   position: absolute;
-  top: 50vh;
   left: 0;
-  /* transform: translate(0, -50%); */
-}
-
-.initTitle {
-  font-size: 15rem;
+  white-space: nowrap;
+  font-size: 18rem;
   font-weight: 800;
   color: #242424;
 }
 
+.initTitle > span {
+  display: inline-block;
+}
 /* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/
 @media all and (min-width: 768px) and (max-width: 1023px) {
   .projectBoxWrap {
