@@ -131,7 +131,7 @@ const Projects = ({ projectsList }) => {
   };
 
   return (
-    <motion.div variants={projectMotion} initial='hidden' animate='visible' exit='out' style={{ position: 'relative', textAlign: 'left' }}>
+    <motion.div variants={projectMotion} initial='hidden' animate='visible' exit='out' className={styles.projectWrap}>
       <motion.p className={styles.initTitle} variants={initTitleWrap} initial='hidden' animate='visible' exit='out'>
         {initTitle.map((a, i) => (
           <motion.span key={i} variants={initTitleMotion}>

@@ -1,3 +1,9 @@
+.projectWrap {
+  position: relative;
+  text-align: left;
+  overflow-x: hidden;
+}
+
 .projectsContain {
   /* background-color: burlywood; */
   max-width: 1440px;
@@ -80,7 +86,7 @@
 
 .initTitle {
   width: 100%;
-  overflow: hidden;
+  /* overflow-x: hidden; */
   position: relative;
   margin-bottom: 4rem;
   white-space: nowrap;
