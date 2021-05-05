@@ -1,31 +1,280 @@
-.landContain {
-  display: flex;
-  /* max-width: 1600px; */
+.home {
+  position: relative;
   width: 100%;
   height: 100vh;
   margin: 0 auto;
+  overflow: hidden;
+  text-align: left;
+}
+.landContain {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100vh;
   overflow-x: hidden;
+  overflow-y: scroll;
 }
 
-.homeBoxL {
-  width: 50vw;
-  height: 100%;
-  background: rgb(228, 228, 228);
-  transform: translate(-100%, 0);
-  /* transition: 0.3s ease-in; */
-}
-.homeBoxR {
-  width: 50vw;
-  height: 100%;
-  background: rgb(185, 185, 185);
-  transform: translate(100%, 0);
-  /* transition: 0.3s ease-in; */
+.pageTitle {
+  position: absolute;
+  font-size: 14px;
+  font-weight: 700;
+  left: 50%;
+  top: 3rem;
 }
 
-.homeHideL {
-  transform: translate(-100%, 0);
+.introSec {
+  position: relative;
+  height: auto;
+  width: 100%;
+  flex: 3;
+  padding-right: 3rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-.homeHideR {
-  transform: translate(100%, 0);
+.textWrap > h4 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.textWrap > p {
+  font-size: 108px;
+  font-weight: 800;
+  margin-left: -6px;
+  overflow: hidden;
+}
+
+.textWrap > p > span {
+  display: inline-block;
+}
+
+.myWorks,
+.aboutMe {
+  margin-top: 2rem;
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  font-size: 20px;
+  font-weight: 600;
+  border: 2px solid #242424;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.6s;
+}
+
+.myWorks {
+  margin-top: 0rem;
+  margin-bottom: 2rem;
+}
+
+.arrow {
+  transition: 0.3s;
+  margin-left: 0.5rem;
+  transform: rotate(-45deg) scale(1.1);
+}
+
+.myWorks:hover,
+.aboutMe:hover {
+  border: 2px solid #242424;
+  color: #fff;
+  background: #242424;
+}
+
+.aboutMe:hover .arrow,
+.myWorks:hover .arrow {
+  transform: rotate(0deg) scale(1.1);
+}
+
+.cornerCircle {
+  position: absolute;
+  pointer-events: none;
+  top: 100vh;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  backdrop-filter: invert(100%);
+  border-radius: 50%;
+}
+
+.worksSec {
+  width: 100%;
+  height: auto;
+  flex: 2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.thumbBox {
+  width: 480px;
+  height: 480px;
+  position: relative;
+}
+
+.workThumb {
+  position: absolute;
+  background: grey;
+  width: 480px;
+  height: 270px;
+  overflow: hidden;
+}
+
+.workThumb > img {
+  width: 100%;
+}
+
+@media all and (min-width: 1201px) and (max-width: 1440px) {
+  .thumbBox {
+    width: 400px;
+    height: 400px;
+  }
+
+  .workThumb {
+    width: 400px;
+    height: 225px;
+  }
+
+  .introSec {
+    padding-right: 2rem;
+  }
+
+  .textWrap > p {
+    font-size: 90px;
+    font-weight: 800;
+    margin-left: -6px;
+  }
+}
+
+@media all and (min-width: 1023px) and (max-width: 1200px) {
+  .thumbBox {
+    width: 320px;
+    height: 320px;
+  }
+
+  .workThumb {
+    width: 320px;
+    height: 180px;
+  }
+
+  .introSec {
+    padding-right: 2rem;
+  }
+
+  .textWrap > h4 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .textWrap > p {
+    font-size: 80px;
+    font-weight: 800;
+    margin-left: -6px;
+  }
+
+  .myWorks,
+  .aboutMe {
+    font-size: 18px;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1023px) {
+  .landContain {
+    flex-direction: column;
+  }
+  .thumbBox {
+    width: 480px;
+    height: 480px;
+  }
+
+  .workThumb {
+    width: 480px;
+    height: 270px;
+  }
+
+  .introSec {
+    padding-top: 150px;
+    padding-right: 2rem;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .textWrap > h4 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .textWrap > p {
+    font-size: 80px;
+    font-weight: 800;
+    margin-left: -6px;
+  }
+
+  .myWorks,
+  .aboutMe {
+    font-size: 18px;
+  }
+
+  .worksSec {
+    margin-top: 60px;
+    justify-content: center;
+    flex: 1;
+    text-align: right;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .landContain {
+    flex-direction: column;
+  }
+  .thumbBox {
+    width: 320px;
+    height: 320px;
+  }
+
+  .workThumb {
+    pointer-events: none;
+    width: 320px;
+    height: 180px;
+  }
+
+  .introSec {
+    padding-top: 120px;
+    padding-right: 0rem;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .textWrap > h4 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .textWrap > p {
+    font-size: 48px;
+    font-weight: 800;
+    margin-left: -3px;
+  }
+
+  .myWorks,
+  .aboutMe {
+    font-size: 18px;
+  }
+
+  .cornerCircle {
+    width: 200px;
+    height: 200px;
+  }
+
+  .worksSec {
+    margin-top: 60px;
+    justify-content: center;
+    flex: 1;
+    text-align: right;
+  }
+
+  .pageTitle {
+    top: 2.5rem;
+  }
 }

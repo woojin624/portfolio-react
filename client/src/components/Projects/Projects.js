@@ -21,14 +21,14 @@ const Projects = ({ projectsList }) => {
     visible: {
       opacity: 1,
       transition: {
-        duration: 0.1,
+        duration: 0,
       },
     },
     out: {
       opacity: 1,
       transition: {
         when: 'afterChildren',
-        duration: 0.1,
+        duration: 0,
       },
     },
   };
@@ -72,7 +72,7 @@ const Projects = ({ projectsList }) => {
   const initTitleWrap = {
     hidden: {
       opacity: 0,
-      top: '100px',
+      top: '80px',
       left: '0%',
       x: '-100%',
       // y: '-50%',
@@ -80,7 +80,7 @@ const Projects = ({ projectsList }) => {
     },
     visible: {
       opacity: 1,
-      top: '100px',
+      top: '80px',
       left: '0%',
       x: '-1.5%',
       // y: '-50%',

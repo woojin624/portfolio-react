@@ -88,9 +88,9 @@
   width: 100%;
   /* overflow-x: hidden; */
   position: relative;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   white-space: nowrap;
-  font-size: 16rem;
+  font-size: 14rem;
   font-weight: 700;
   color: #242424;
 }
