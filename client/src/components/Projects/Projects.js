@@ -38,7 +38,7 @@ const Projects = ({ projectsList }) => {
     visible: {
       opacity: 1,
       transition: {
-        delay: 1.3,
+        delay: 1.1,
         duration: 0.3,
       },
     },
@@ -55,7 +55,7 @@ const Projects = ({ projectsList }) => {
     visible: {
       opacity: 1,
       transition: {
-        delay: 1.3,
+        delay: 1.1,
         duration: 0.3,
       },
     },
@@ -73,7 +73,6 @@ const Projects = ({ projectsList }) => {
       top: '80px',
       left: '0%',
       x: '-100%',
-      // y: '-50%',
       letterSpacing: '-3rem',
     },
     visible: {
@@ -81,7 +80,6 @@ const Projects = ({ projectsList }) => {
       top: '80px',
       left: '0%',
       x: '-1.5%',
-      // y: '-50%',
       letterSpacing: '0rem',
       transition: {
         duration: 1,
@@ -108,7 +106,7 @@ const Projects = ({ projectsList }) => {
       x: 0,
       transition: {
         ease: 'easeInOut',
-        duration: 0.6,
+        duration: 0.4,
       },
     },
     out: {
@@ -122,6 +120,21 @@ const Projects = ({ projectsList }) => {
     },
   };
 
+  const pageTitleMotion = {
+    hidden: {
+      x: '-50%',
+      y: '-450%',
+    },
+    visible: {
+      x: '-50%',
+      y: '-50%',
+    },
+    out: {
+      x: '-50%',
+      y: '-450%',
+    },
+  };
+
   // 프로젝트 카드 클릭시 해당 상세페이지로 이동
   const onCardClick = (e) => {
     let workId = e.target.dataset.id;
@@ -130,6 +143,9 @@ const Projects = ({ projectsList }) => {
 
   return (
     <motion.div variants={projectMotion} initial='hidden' animate='visible' exit='out' className={styles.projectWrap}>
+      <motion.h3 variants={pageTitleMotion} className={styles.pageTitle}>
+        Projects
+      </motion.h3>
       <motion.p className={styles.initTitle} variants={initTitleWrap} initial='hidden' animate='visible' exit='out'>
         {initTitle.map((a, i) => (
           <motion.span key={i} variants={initTitleMotion}>

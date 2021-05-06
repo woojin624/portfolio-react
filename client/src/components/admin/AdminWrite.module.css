@@ -7,7 +7,9 @@
 }
 .pageTitle {
   margin-top: 2rem;
-  font-size: 40px;
+  margin-left: 50px;
+  font-size: 32px;
+  font-weight: 700;
 }
 .AdminWrite > form {
   width: 100%;
@@ -58,6 +60,16 @@ input.number {
 
 .periodInput {
   font-size: 22px;
+  margin-bottom: 16px;
+}
+
+.siteLinkInput {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.githubLinkInput {
+  font-size: 18px;
   margin-bottom: 32px;
 }
 
@@ -131,6 +143,15 @@ input.number {
   .periodInput {
     font-size: 20px;
   }
+
+  .siteLinkInput {
+    font-size: 16px;
+  }
+
+  .githubLinkInput {
+    font-size: 16px;
+  }
+
   .descInput {
     font-size: 24px;
     padding-right: 0px;
@@ -157,6 +178,14 @@ input.number {
 
   .periodInput {
     font-size: 18px;
+  }
+
+  .siteLinkInput {
+    font-size: 16px;
+  }
+
+  .githubLinkInput {
+    font-size: 16px;
   }
 
   .descInput {

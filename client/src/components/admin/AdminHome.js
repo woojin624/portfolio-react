@@ -1,23 +1,12 @@
 import React from 'react';
-import axios from 'axios';
 import { withRouter } from 'react-router-dom';
+import styles from './AdminHome.module.css';
 
 function AdminHome(props) {
-  const onLogoutHandler = () => {
-    axios.get('api/users/logout').then((response) => {
-      if (response.data.success) {
-        props.history.push('/login');
-        window.location.reload();
-      } else {
-        alert('로그아웃 하는데 실패하였습니다');
-      }
-    });
-  };
-
   return (
-    <div>
-      Admin Page
-      <button onClick={onLogoutHandler}>로그아웃</button>
+    <div className={styles.adminHome}>
+      <h1>어드민 페이지입니다.</h1>
+      <p>Ver 1.0.0</p>
     </div>
   );
 }

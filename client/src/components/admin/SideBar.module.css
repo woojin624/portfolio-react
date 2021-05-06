@@ -1,7 +1,12 @@
 .sidebar {
-  position: relative;
-  width: 300px;
-  height: 100vh;
+  /* position: relative; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 240px;
+  width: 240px;
+  min-height: 100vh;
+  height: 100%;
   background: rgb(12, 49, 65);
   color: #fff;
   display: flex;
@@ -10,8 +15,23 @@
   overflow: hidden;
   white-space: nowrap;
   transition: 0.3s;
+  z-index: 10;
 }
+
+.sidebarBack {
+  position: relative;
+  min-width: 240px;
+  width: 240px;
+  min-height: 100vh;
+  height: 100%;
+  background: rgb(12, 49, 65);
+  transition: 0.3s;
+  z-index: 3;
+}
+
+.sidebarBack.sideClose,
 .sidebar.sideClose {
+  min-width: 0px;
   width: 0;
 }
 
@@ -38,6 +58,10 @@
   width: 100%;
 }
 
+.profile > h2 > span {
+  font-weight: 800;
+}
+
 .menuList {
   width: 100%;
   text-align: left;
@@ -47,26 +71,35 @@
 
 .menuList > li {
   width: 100%;
-  font-size: 14px;
-  font-weight: 600;
+
   width: 100%;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.445);
 }
 
 .menuList > li:first-child {
-  border-top: 1px solid #000;
+  border-top: 1px solid rgba(0, 0, 0, 0.445);
 }
 
 .menuList > li > a {
   display: block;
   padding: 1rem 1rem;
-  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(156, 156, 156);
   text-decoration: none;
   outline: none;
   transition: 0.3s;
 }
 
+.menuList > li > a > span {
+  font-size: 16px;
+  margin-right: 4px;
+  color: rgb(14, 151, 137);
+}
+
 .menuList > li.selected > a {
+  font-weight: 600;
+  color: rgb(255, 255, 255);
   background: rgb(5, 32, 43);
 }
 
@@ -118,4 +151,18 @@
 .sideToggleBtn.opened:hover > .sideToggleBottom,
 .sideToggleBtn.opened:hover > .sideToggleTop {
   transform: translate(0, 0%) rotate(90deg);
+}
+
+.logoutBtn {
+  position: absolute;
+  width: 100%;
+  left: 0rem;
+  bottom: 0rem;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 12px;
+  /* border-radius: 4px; */
+  background: rgb(9, 109, 84);
+  color: #fff;
+  border: none;
 }

@@ -1,0 +1,13 @@
+.adminHome {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 50px;
+  text-align: left;
+}
+
+.adminHome > h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 2rem 0;
+}

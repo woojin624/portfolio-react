@@ -32,6 +32,8 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
     title: '',
     subTitle: '',
     period: '',
+    siteLink: '',
+    githubLink: '',
     desc: '',
     tag: '',
     people: '',
@@ -39,7 +41,7 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
     ...project,
   });
 
-  const { number, thumbImg, mainImg, thumbImgName, mainImgName, title, subTitle, period, subImg, subImgName, desc, tag, people, workRange } = projectContent;
+  const { number, thumbImg, mainImg, thumbImgName, mainImgName, title, subTitle, period, siteLink, githubLink, subImg, subImgName, desc, tag, people, workRange } = projectContent;
 
   const [content, setContent] = useState();
 
@@ -90,6 +92,8 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
     formData.append('title', title);
     formData.append('subTitle', subTitle);
     formData.append('period', period);
+    formData.append('siteLink', siteLink);
+    formData.append('githubLink', githubLink);
     formData.append('content', content);
     formData.append('desc', desc);
     formData.append('tag', tag);
@@ -119,10 +123,10 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
         <section className={styles.mainInfo}>
           <article>
             <input className={styles.titleInput} type='text' value={title} name='title' onChange={getValue} placeholder='프로젝트 제목' id='title' />
-
             <input className={styles.subTitleInput} type='text' value={subTitle} name='subTitle' onChange={getValue} placeholder='프로젝트 부제목' id='subTitle' />
-
             <input className={styles.periodInput} type='text' value={period} name='period' onChange={getValue} placeholder='프로젝트 기간 ex) 2021. 01 ~ 2021. 03' id='period' />
+            <input className={styles.siteLinkInput} type='text' value={siteLink} name='siteLink' onChange={getValue} placeholder='사이트 링크' id='siteLink' />
+            <input className={styles.githubLinkInput} type='text' value={githubLink} name='githubLink' onChange={getValue} placeholder='깃허브 링크' id='githubLink' />
           </article>
           <article>
             <input className={styles.descInput} type='text' value={desc} name='desc' onChange={getValue} placeholder='프로젝트 설명' id='desc' />

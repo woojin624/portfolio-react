@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { Route, Switch, BrowserRouter as Router, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -25,23 +23,6 @@ const Admin = ({ user }) => {
     <div className={styles.admin}>
       {isLogin ? (
         <Router>
-          {/* <Navbar bg='light' expand='lg'>
-            <Navbar.Brand href='/admin'>J.COM - admin</Navbar.Brand>
-            <Navbar.Toggle aria-controls='basic-navbar-nav' />
-            <Navbar.Collapse id='basic-navbar-nav'>
-              <Nav className='mr-auto'>
-                <Nav.Link as={Link} to='/admin'>
-                  Home
-                </Nav.Link>
-                <Nav.Link as={Link} to='/admin/write'>
-                  Write
-                </Nav.Link>
-                <Nav.Link as={Link} to='/admin/list'>
-                  List
-                </Nav.Link>
-              </Nav>
-            </Navbar.Collapse>
-          </Navbar> */}
           <Sidebar />
           <div className={styles.adminContainer}>
             <div className={styles.adminTop}>

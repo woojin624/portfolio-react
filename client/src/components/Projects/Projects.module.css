@@ -105,6 +105,14 @@
   display: inline-block;
 }
 
+.pageTitle {
+  position: absolute;
+  font-size: 14px;
+  font-weight: 700;
+  left: 50%;
+  top: 3rem;
+}
+
 @media all and (min-width: 1023px) and (max-width: 1440px) {
   .initTitle {
     margin-bottom: 3rem;
@@ -188,5 +196,9 @@
     margin-bottom: 1rem;
     font-size: 4rem;
     font-weight: 700;
+  }
+
+  .pageTitle {
+    top: 2.2rem;
   }
 }

@@ -8,6 +8,8 @@ const projectSchema = new mongoose.Schema(
     title: { type: String },
     subTitle: { type: String },
     period: { type: String },
+    siteLink: { type: String },
+    githubLink: { type: String },
     desc: { type: String },
     content: { type: String },
     thumb: { type: String },

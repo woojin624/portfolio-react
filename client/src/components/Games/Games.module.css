@@ -97,3 +97,17 @@
   width: 90%;
   height: auto;
 }
+
+.pageTitle {
+  position: absolute;
+  font-size: 14px;
+  font-weight: 700;
+  left: 50%;
+  top: 3rem;
+}
+
+@media all and (max-width: 767px) {
+  .pageTitle {
+    top: 2.2rem;
+  }
+}

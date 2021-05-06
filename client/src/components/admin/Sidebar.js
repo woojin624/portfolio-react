@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import axios from 'axios';
 import styles from './SideBar.module.css';
 
-const Sidebar = () => {
+import { AiOutlineHome, AiOutlineUnorderedList, AiOutlineFileAdd } from 'react-icons/ai';
+
+const Sidebar = ({ location, history }) => {
   const [isSideOpen, setIsSideOpen] = useState(true);
 
   const sideToggleHandler = () => {
@@ -10,9 +13,9 @@ const Sidebar = () => {
   };
 
   const [menuList, setMenuList] = useState([
-    { name: 'Home', link: '/admin', class: '' },
-    { name: 'Write', link: '/admin/write', class: '' },
-    { name: 'List', link: '/admin/list', class: '' },
+    { name: 'Home', icon: <AiOutlineHome />, link: '/admin', class: location.pathname === '/admin' ? styles.selected : '' },
+    { name: 'Write', icon: <AiOutlineFileAdd />, link: '/admin/write', class: location.pathname === '/admin/write' ? styles.selected : '' },
+    { name: 'List', icon: <AiOutlineUnorderedList />, link: '/admin/list', class: location.pathname === '/admin/list' ? styles.selected : '' },
   ]);
 
   const onClickMenu = (e) => {
@@ -23,40 +26,50 @@ const Sidebar = () => {
     setMenuList(arr);
   };
 
+  const onLogoutHandler = () => {
+    axios.get('api/users/logout').then((response) => {
+      if (response.data.success) {
+        history.push('/login');
+        window.location.reload();
+      } else {
+        alert('로그아웃 하는데 실패하였습니다');
+      }
+    });
+  };
+
   return (
-    <div className={isSideOpen ? styles.sidebar : `${styles.sidebar} ${styles.sideClose}`}>
-      <div className={isSideOpen ? `${styles.sideToggleBtn} ${styles.opened}` : styles.sideToggleBtn} onClick={sideToggleHandler}>
-        <div className={styles.sideToggleTop}></div>
-        <div className={styles.sideToggleBottom}></div>
+    <>
+      <div className={isSideOpen ? styles.sidebarBack : `${styles.sidebarBack} ${styles.sideClose}`}></div>
+      <div className={isSideOpen ? styles.sidebar : `${styles.sidebar} ${styles.sideClose}`}>
+        <div className={isSideOpen ? `${styles.sideToggleBtn} ${styles.opened}` : styles.sideToggleBtn} onClick={sideToggleHandler}>
+          <div className={styles.sideToggleTop}></div>
+          <div className={styles.sideToggleBottom}></div>
+        </div>
+        <section className={styles.profile}>
+          <figure>
+            <img src='/images/profile-img.png' alt='' />
+          </figure>
+          <h2>
+            Hello, <span>Woojin</span>
+          </h2>
+        </section>
+        <section className={styles.menu}>
+          <ul className={styles.menuList}>
+            {menuList.map((menu, i) => (
+              <li className={menu.class} key={i}>
+                <Link to={menu.link} data-id={i} onClick={onClickMenu}>
+                  <span>{menu.icon}</span> {menu.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+        <button onClick={onLogoutHandler} className={styles.logoutBtn}>
+          로그아웃
+        </button>
       </div>
-      <section className={styles.profile}>
-        <figure>
-          <img src='/images/profile-img.png' alt='' />
-        </figure>
-        <h2>Hello, Woojin</h2>
-      </section>
-      <section className={styles.menu}>
-        <ul className={styles.menuList}>
-          {menuList.map((menu, i) => (
-            <li className={menu.class} key={i}>
-              <Link to={menu.link} data-id={i} onClick={onClickMenu}>
-                {menu.name}
-              </Link>
-            </li>
-          ))}
-          {/* <li className={}>
-            <Link to='/admin'>Home</Link>
-          </li>
-          <li>
-            <Link to='/admin/write'>Write</Link>
-          </li>
-          <li>
-            <Link to='/admin/list'>List</Link>
-          </li> */}
-        </ul>
-      </section>
-    </div>
+    </>
   );
 };
 
-export default Sidebar;
+export default withRouter(Sidebar);

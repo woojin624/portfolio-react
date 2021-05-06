@@ -27,6 +27,24 @@ const Games = () => {
 
   const location = useLocation();
   let history = useHistory();
+
+  const gameMotion = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0,
+      },
+    },
+    out: {
+      opacity: 0,
+      transition: {
+        when: 'afterChildren',
+        duration: 0,
+      },
+    },
+  };
+
   const gameTextMotion = {
     start: {
       opacity: 0,
@@ -60,6 +78,21 @@ const Games = () => {
     },
   };
 
+  const pageTitleMotion = {
+    hidden: {
+      x: '-50%',
+      y: '-450%',
+    },
+    visible: {
+      x: '-50%',
+      y: '-50%',
+    },
+    out: {
+      x: '-50%',
+      y: '-450%',
+    },
+  };
+
   const onCardClick = (e) => {
     let gameId = e.target.dataset.name;
     // console.log(gameId);
@@ -67,7 +100,10 @@ const Games = () => {
   };
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className={styles.gamesBack}>
+    <motion.div variants={gameMotion} initial='hidden' animate='visible' exit='out' className={styles.gamesBack}>
+      <motion.h3 variants={pageTitleMotion} className={styles.pageTitle}>
+        Games
+      </motion.h3>
       <div className={styles.gamesContain}>
         <Router>
           <AnimatePresence exitBeforeEnter>
