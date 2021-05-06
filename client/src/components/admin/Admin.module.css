@@ -1,8 +1,30 @@
-.Admin {
+.admin {
   background-color: #fff;
   width: 100%;
   height: auto;
   min-height: 100vh;
   position: relative;
   z-index: 1000;
+  display: flex;
+}
+
+.adminTop {
+  width: 100%;
+  background: #fff;
+  height: auto;
+  border-bottom: 2px solid grey;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.adminTop > h1 {
+  margin-left: 3rem;
+  font-size: 24px;
+  font-weight: 700;
+  color: rgb(14, 151, 137);
+}
+
+.adminContainer {
+  width: 100%;
 }

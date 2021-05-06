@@ -10,6 +10,7 @@ import AdminWrite from './AdminWrite';
 import AdminEdit from './AdminEdit';
 
 import styles from './Admin.module.css';
+import Sidebar from './Sidebar';
 
 const Admin = ({ user }) => {
   const [isLogin, setIsLogin] = useState();
@@ -21,10 +22,10 @@ const Admin = ({ user }) => {
   }, [user]);
 
   return (
-    <div className={styles.Admin}>
+    <div className={styles.admin}>
       {isLogin ? (
         <Router>
-          <Navbar bg='light' expand='lg'>
+          {/* <Navbar bg='light' expand='lg'>
             <Navbar.Brand href='/admin'>J.COM - admin</Navbar.Brand>
             <Navbar.Toggle aria-controls='basic-navbar-nav' />
             <Navbar.Collapse id='basic-navbar-nav'>
@@ -40,9 +41,12 @@ const Admin = ({ user }) => {
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
-          </Navbar>
-
-          <div className='admin-container'>
+          </Navbar> */}
+          <Sidebar />
+          <div className={styles.adminContainer}>
+            <div className={styles.adminTop}>
+              <h1>Admin</h1>
+            </div>
             <Switch>
               <Route exact path='/admin'>
                 <AdminHome />

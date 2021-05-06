@@ -58,10 +58,6 @@ const AdminWrite = ({ loadingProjects }) => {
     console.log(files[0]);
   };
 
-  useEffect(() => {
-    console.log(content);
-  }, [content]);
-
   const addPost = () => {
     const url = '/api/projects/add';
     const formData = new FormData();
