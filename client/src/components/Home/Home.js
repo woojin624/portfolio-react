@@ -59,34 +59,6 @@ const Home = ({ projectsList }) => {
     }),
   };
 
-  const cornerCircleMotion = {
-    hidden: {
-      x: '-50%',
-      y: '-50%',
-      scale: 0,
-    },
-    visible: {
-      x: '-50%',
-      y: '-50%',
-      scale: 1,
-      transition: {
-        delay: 1.3,
-        ease: 'easeInOut',
-        duration: 0.8,
-      },
-    },
-    out: {
-      opacity: [1, 1, 0],
-      x: '-50%',
-      y: '-50%',
-      scale: [1, 10, 10],
-      transition: {
-        ease: 'easeInOut',
-        duration: 1,
-      },
-    },
-  };
-
   const thumbImgMotion = {
     hidden: (i) => ({
       x: '0%',
@@ -155,6 +127,34 @@ const Home = ({ projectsList }) => {
     out: {
       x: '-50%',
       y: '-450%',
+    },
+  };
+
+  const cornerCircleMotion = {
+    hidden: {
+      x: '-50%',
+      y: '-50%',
+      scale: 0,
+    },
+    visible: {
+      x: '-50%',
+      y: '-50%',
+      scale: 1,
+      transition: {
+        delay: 0,
+        ease: 'easeInOut',
+        duration: 0.8,
+      },
+    },
+    out: {
+      opacity: [1, 1, 0],
+      x: '-50%',
+      y: '-50%',
+      scale: [1, 10, 10],
+      transition: {
+        ease: 'easeInOut',
+        duration: 1,
+      },
     },
   };
 

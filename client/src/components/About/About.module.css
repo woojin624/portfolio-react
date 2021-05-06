@@ -1,0 +1,33 @@
+.about {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: left;
+}
+
+.aboutContain {
+  display: flex;
+  justify-content: cetner;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.pageTitle {
+  position: absolute;
+  font-size: 14px;
+  font-weight: 700;
+  left: 50%;
+  top: 3rem;
+}
+
+@media all and (max-width: 767px) {
+  .pageTitle {
+    top: 2.2rem;
+  }
+}
