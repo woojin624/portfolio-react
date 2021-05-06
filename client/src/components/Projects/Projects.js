@@ -38,7 +38,7 @@ const Projects = ({ projectsList }) => {
     visible: {
       opacity: 1,
       transition: {
-        delay: 0.8,
+        delay: 1.3,
         duration: 0.3,
       },
     },
@@ -51,18 +51,16 @@ const Projects = ({ projectsList }) => {
   };
 
   const projectBoxMotion = {
-    hidden: { y: 30, opacity: 0 },
+    hidden: { opacity: 0 },
     visible: {
-      y: 0,
       opacity: 1,
       transition: {
-        delay: 0.7,
+        delay: 1.3,
         duration: 0.3,
       },
     },
     out: {
       opacity: 0,
-      y: -30,
       transition: {
         duration: 0.3,
       },
@@ -86,7 +84,7 @@ const Projects = ({ projectsList }) => {
       // y: '-50%',
       letterSpacing: '0rem',
       transition: {
-        duration: 1.1,
+        duration: 1,
         staggerChildren: 0.1,
       },
     },
@@ -110,7 +108,7 @@ const Projects = ({ projectsList }) => {
       x: 0,
       transition: {
         ease: 'easeInOut',
-        duration: 0.7,
+        duration: 0.6,
       },
     },
     out: {
@@ -149,7 +147,9 @@ const Projects = ({ projectsList }) => {
               className={styles.projectBox}
               key={i}
             >
-              <div className={styles.projectBoxImg} style={{ backgroundImage: `url('${project.thumbImg}')` }}></div>
+              <figure className={styles.projectBoxImg}>
+                <img src={project.thumbImg} alt='dominant color placeholder' />
+              </figure>
               <h4 className={styles.projectBoxTitle}>{project.title}</h4>
               <div className={styles.projectBoxSkills}>
                 <span>React Js</span>

@@ -32,16 +32,18 @@ const ProjectDetail = ({ match, projectsList }) => {
   const projectDetailMotion = {
     in: {
       y: '0%',
+      transition: { duration: 0.3, delay: 0 },
     },
     out: {
       y: '100vh',
+      transition: { duration: 0.3, delay: 0 },
     },
   };
 
   const mainImageVariants = {
     in: {
       height: '50vh',
-      transition: { duration: 0.7, delay: 0.6, ease: 'easeIn' },
+      transition: { duration: 0.7, delay: 0.5, ease: 'easeIn' },
     },
     out: {
       height: '100vh',
@@ -55,7 +57,7 @@ const ProjectDetail = ({ match, projectsList }) => {
 
   return (
     <>
-      <motion.div initial='out' animate='in' exit='out' transition={{ duration: 0.3 }} variants={projectDetailMotion} className={styles.projectDetailWrap}>
+      <motion.div initial='out' animate='in' exit='out' variants={projectDetailMotion} className={styles.projectDetailWrap}>
         {project.mainImg && (
           <motion.figure //
             initial='out'
@@ -63,8 +65,9 @@ const ProjectDetail = ({ match, projectsList }) => {
             exit='out'
             variants={mainImageVariants}
             className={styles.mainImageWrap}
-            style={{ background: `url(${project.mainImg}) #fff no-repeat center`, backgroundSize: 'cover' }}
-          ></motion.figure>
+          >
+            <img src={project.mainImg} alt='dominant color placeholder' />
+          </motion.figure>
         )}
         <div className={styles.projectInfo}>
           <section className={styles.mainInfo}>

@@ -40,7 +40,7 @@
 }
 
 .textWrap > p {
-  font-size: 108px;
+  font-size: 140px;
   font-weight: 800;
   margin-left: -6px;
   overflow: hidden;
@@ -108,21 +108,65 @@
 }
 
 .thumbBox {
-  width: 480px;
-  height: 480px;
+  width: 640px;
+  height: 640px;
   position: relative;
 }
 
 .workThumb {
   position: absolute;
   background: grey;
-  width: 480px;
-  height: 270px;
+  width: 640px;
+  height: 360px;
   overflow: hidden;
 }
 
 .workThumb > img {
   width: 100%;
+}
+
+@media all and (min-width: 1721px) and (max-width: 1920px) {
+  .thumbBox {
+    width: 560px;
+    height: 560px;
+  }
+
+  .workThumb {
+    width: 560px;
+    height: 315px;
+  }
+
+  .introSec {
+    padding-right: 3rem;
+  }
+
+  .textWrap > p {
+    font-size: 128px;
+    font-weight: 800;
+    margin-left: -6px;
+  }
+}
+
+@media all and (min-width: 1441px) and (max-width: 1720px) {
+  .thumbBox {
+    width: 480px;
+    height: 480px;
+  }
+
+  .workThumb {
+    width: 480px;
+    height: 270px;
+  }
+
+  .introSec {
+    padding-right: 3rem;
+  }
+
+  .textWrap > p {
+    font-size: 108px;
+    font-weight: 800;
+    margin-left: -6px;
+  }
 }
 
 @media all and (min-width: 1201px) and (max-width: 1440px) {
@@ -275,6 +319,6 @@
   }
 
   .pageTitle {
-    top: 2.5rem;
+    top: 2.2rem;
   }
 }

@@ -44,9 +44,9 @@ const Home = ({ projectsList }) => {
     visible: (i) => ({
       y: '0%',
       transition: {
-        delay: i * 0.2,
+        delay: i * 0.1,
         // ease: 'easeInOut',
-        duration: 0.6,
+        duration: 0.5,
       },
     }),
     out: (i) => ({
@@ -70,7 +70,7 @@ const Home = ({ projectsList }) => {
       y: '-50%',
       scale: 1,
       transition: {
-        delay: 1,
+        delay: 1.3,
         ease: 'easeInOut',
         duration: 0.8,
       },
@@ -131,6 +131,7 @@ const Home = ({ projectsList }) => {
     visible: {
       x: '0%',
       transition: {
+        delay: 0.8,
         duration: 0.6,
       },
     },

@@ -6,7 +6,7 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(6px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -176,13 +176,25 @@
   .navLogo {
     top: 1.5rem;
     left: 1.5rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .navToggleBtn {
     top: 1.5rem;
     right: 1.5rem;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .navToggleBtn > div {
+    width: 1rem;
+    height: 2px;
+  }
+
+  .navToggleBtn > .navToggleTop {
+    transform: translate(0, -200%);
+  }
+  .navToggleBtn > .navToggleBottom {
+    transform: translate(0, 200%);
   }
 }
