@@ -2,26 +2,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { loadingProjects } from '../../redux';
-
-import colorPicker from 'tui-color-picker';
+import { AiFillCloseCircle } from 'react-icons/ai';
+import { ColorPicker, useColor } from 'react-color-palette';
+import 'react-color-palette/lib/css/styles.css';
 
 import styles from './AdminWrite.module.css';
 import AdminWriteEditor from './AdminWriteEditor';
 
 const AdminWrite = ({ loadingProjects }) => {
-  console.log(colorPicker);
-
-  // var result = document.getElementById('result');
-
-  // var colorpicker = colorPicker.create({
-  //   container: document.querySelector('.color-picker'),
-  // });
-
-  // colorpicker.on('selectColor', function (ev) {
-  //   result.value = JSON.stringify(ev, null, 8);
-  //   console.log(ev);
-  // });
-
   const [projectContent, setProjectContetns] = useState({
     number: '',
     thumbImg: null,
@@ -44,6 +32,18 @@ const AdminWrite = ({ loadingProjects }) => {
   const { number, thumbImg, mainImg, thumbImgName, mainImgName, title, subTitle, period, siteLink, githubLink, subImg, subImgName, desc, tag, people, workRange } = projectContent;
 
   const [content, setContent] = useState('콘텐츠 입력');
+  const [colorOpen, setColorOpen] = useState(false);
+  const [color, setColor] = useColor('hex', '#fff');
+
+  const colorTabHandler = (e) => {
+    if (e.target !== e.currentTarget) {
+      return;
+    }
+    setColorOpen(!colorOpen);
+  };
+  const colorTabClose = (e) => {
+    setColorOpen(false);
+  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -106,14 +106,34 @@ const AdminWrite = ({ loadingProjects }) => {
     <div className={styles.AdminWrite}>
       <h1 className={styles.pageTitle}>프로젝트 글 작성</h1>
       <form onSubmit={handleFormSubmit}>
-        <label htmlFor='number'>프로젝트 넘버</label>
-        <input className={styles.number} type='number' value={number} name='number' onChange={getValue} placeholder='프로젝트 넘버' id='number' />
-        <div className='color-picker'></div>
-        <label htmlFor='thumb'>썸네일</label>
-        <input className={styles.thumbInput} type='file' value={thumbImgName} file={thumbImg} name='thumbImg' onChange={handleFileChange} placeholder='썸네일이미지파일' id='thumbImg' />
-
-        <label htmlFor='mainImg'>메인 이미지</label>
-        <input className={styles.mainImageInput} type='file' value={mainImgName} file={mainImg} name='mainImg' onChange={handleFileChange} placeholder='메인이미지파일' id='mainImg' />
+        <section className={styles.defaultInfo}>
+          <article>
+            <div>
+              <label htmlFor='number'>프로젝트 넘버</label>
+              <input className={styles.number} type='number' value={number} name='number' onChange={getValue} placeholder='프로젝트 넘버' id='number' />
+            </div>
+            <div className={styles.colorWrap}>
+              <h3>메인 컬러</h3>
+              <div className={styles.colorTab} onClick={colorTabHandler}>
+                <p onClick={colorTabHandler}>{color.hex}</p>
+                <div onClick={colorTabHandler} className={styles.colorBox} style={{ backgroundColor: color.hex }}></div>
+                {colorOpen ? (
+                  <div className={styles.colorPickerWrap}>
+                    <div>
+                      <h3>Color Picker</h3>
+                      <AiFillCloseCircle onClick={colorTabClose} style={{ fontSize: '22px', cursor: 'pointer' }} />
+                    </div>
+                    <ColorPicker width={268} height={180} color={color} onChange={setColor} hideHSV dark />
+                  </div>
+                ) : null}
+              </div>
+            </div>
+          </article>
+          <label htmlFor='thumb'>썸네일</label>
+          <input className={styles.thumbInput} type='file' value={thumbImgName} file={thumbImg} name='thumbImg' onChange={handleFileChange} placeholder='썸네일이미지파일' id='thumbImg' />
+          <label htmlFor='mainImg'>메인 이미지</label>
+          <input className={styles.mainImageInput} type='file' value={mainImgName} file={mainImg} name='mainImg' onChange={handleFileChange} placeholder='메인이미지파일' id='mainImg' />
+        </section>
 
         <section className={styles.mainInfo}>
           <article>

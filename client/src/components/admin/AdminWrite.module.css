@@ -33,10 +33,65 @@
   margin-top: 3rem;
 }
 
+.defaultInfo > article {
+  display: flex;
+}
+
 input.number {
   width: 20%;
   min-width: 200px;
   margin: 0.5rem 0;
+}
+
+.colorWrap {
+  margin: 0 1rem;
+}
+
+.colorTab {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  margin: 0.5rem 0;
+  padding: 5px 10px;
+  font-weight: 500;
+  font-size: 18px;
+  background: rgba(235, 235, 235, 0.842);
+  cursor: pointer;
+}
+
+.colorBox {
+  width: 30px;
+  height: 30px;
+  border-radius: 20%;
+}
+
+.colorPickerWrap {
+  width: 300px;
+  height: auto;
+  position: absolute;
+  background: rgba(38, 38, 38, 0.591);
+  padding: 1rem;
+  top: 40px;
+  right: 0;
+  border-radius: 10px;
+  cursor: auto;
+}
+
+.colorPickerWrap > div:first-child {
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  padding: 1rem;
+  padding-top: 0;
+}
+
+.colorPickerWrap > div:last-child {
+  cursor: pointer;
 }
 
 .thumbInput,
