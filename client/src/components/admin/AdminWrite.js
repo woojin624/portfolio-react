@@ -1,12 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { loadingProjects } from '../../redux';
+
+import colorPicker from 'tui-color-picker';
 
 import styles from './AdminWrite.module.css';
 import AdminWriteEditor from './AdminWriteEditor';
 
 const AdminWrite = ({ loadingProjects }) => {
+  console.log(colorPicker);
+
+  // var result = document.getElementById('result');
+
+  // var colorpicker = colorPicker.create({
+  //   container: document.querySelector('.color-picker'),
+  // });
+
+  // colorpicker.on('selectColor', function (ev) {
+  //   result.value = JSON.stringify(ev, null, 8);
+  //   console.log(ev);
+  // });
+
   const [projectContent, setProjectContetns] = useState({
     number: '',
     thumbImg: null,
@@ -93,6 +108,7 @@ const AdminWrite = ({ loadingProjects }) => {
       <form onSubmit={handleFormSubmit}>
         <label htmlFor='number'>프로젝트 넘버</label>
         <input className={styles.number} type='number' value={number} name='number' onChange={getValue} placeholder='프로젝트 넘버' id='number' />
+        <div className='color-picker'></div>
         <label htmlFor='thumb'>썸네일</label>
         <input className={styles.thumbInput} type='file' value={thumbImgName} file={thumbImg} name='thumbImg' onChange={handleFileChange} placeholder='썸네일이미지파일' id='thumbImg' />
 

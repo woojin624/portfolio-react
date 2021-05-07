@@ -36,18 +36,29 @@ const ProjectDetail = ({ match, projectsList }) => {
     },
     out: {
       y: '100vh',
-      transition: { duration: 0.3, delay: 0 },
+      transition: { duration: 0.3, delay: 0.7 },
     },
   };
 
   const mainImageVariants = {
     in: {
-      height: '50vh',
-      transition: { duration: 0.7, delay: 0.5, ease: 'easeIn' },
+      height: '40vh',
+      transition: { duration: 0.7, delay: 1.1, ease: 'easeIn' },
     },
     out: {
       height: '100vh',
-      transition: { duration: 0.3, delay: 0 },
+      transition: { duration: 0.4, delay: 0 },
+    },
+  };
+
+  const mainImageCoverVariants = {
+    in: {
+      height: '0%',
+      transition: { duration: 0.4, delay: 0.6, ease: 'easeIn' },
+    },
+    out: {
+      height: '100%',
+      transition: { duration: 0.4, delay: 0 },
     },
   };
 
@@ -67,6 +78,8 @@ const ProjectDetail = ({ match, projectsList }) => {
             className={styles.mainImageWrap}
           >
             <img src={project.mainImg} alt='dominant color placeholder' />
+            <motion.div variants={mainImageCoverVariants} className={styles.mainImageCover} style={{ backgroundColor: '#f00' }}></motion.div>
+            <h1>{project.title}</h1>
           </motion.figure>
         )}
         <div className={styles.projectInfo}>

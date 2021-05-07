@@ -13,16 +13,16 @@ const Sidebar = ({ location, history }) => {
   };
 
   const [menuList, setMenuList] = useState([
-    { name: 'Home', icon: <AiOutlineHome />, link: '/admin', class: location.pathname === '/admin' ? styles.selected : '' },
-    { name: 'Write', icon: <AiOutlineFileAdd />, link: '/admin/write', class: location.pathname === '/admin/write' ? styles.selected : '' },
-    { name: 'List', icon: <AiOutlineUnorderedList />, link: '/admin/list', class: location.pathname === '/admin/list' ? styles.selected : '' },
+    { name: 'Home', icon: <AiOutlineHome />, link: '/admin', cls: location.pathname === '/admin' ? styles.selected : '' },
+    { name: 'Write', icon: <AiOutlineFileAdd />, link: '/admin/write', cls: location.pathname === '/admin/write' ? styles.selected : '' },
+    { name: 'List', icon: <AiOutlineUnorderedList />, link: '/admin/list', cls: location.pathname === '/admin/list' ? styles.selected : '' },
   ]);
 
   const onClickMenu = (e) => {
     let menuId = e.target.dataset.id;
     let arr = [...menuList];
-    arr.map((menu) => (menu.class = ''));
-    arr[menuId].class = styles.selected;
+    arr.map((menu) => (menu.cls = ''));
+    arr[menuId].cls = styles.selected;
     setMenuList(arr);
   };
 
@@ -56,7 +56,7 @@ const Sidebar = ({ location, history }) => {
         <section className={styles.menu}>
           <ul className={styles.menuList}>
             {menuList.map((menu, i) => (
-              <li className={menu.class} key={i}>
+              <li className={menu.cls} key={i}>
                 <Link to={menu.link} data-id={i} onClick={onClickMenu}>
                   <span>{menu.icon}</span> {menu.name}
                 </Link>

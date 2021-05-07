@@ -27,6 +27,7 @@
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.2.3",
     "styled-reset": "^4.3.4",
+    "tui-color-picker": "^2.2.6",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
