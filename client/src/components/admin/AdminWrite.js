@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { loadingProjects } from '../../redux';
@@ -83,6 +83,7 @@ const AdminWrite = ({ loadingProjects }) => {
     formData.append(`${title}&mainImg`, mainImg);
     formData.append(`${title}&subImg`, subImg);
     formData.append(`number`, number);
+    formData.append(`color`, color);
     formData.append('title', title);
     formData.append('subTitle', subTitle);
     formData.append('period', period);
@@ -144,7 +145,7 @@ const AdminWrite = ({ loadingProjects }) => {
             <input className={styles.githubLinkInput} type='text' value={githubLink} name='githubLink' onChange={getValue} placeholder='깃허브 링크' id='githubLink' />
           </article>
           <article>
-            <input className={styles.descInput} type='text' value={desc} name='desc' onChange={getValue} placeholder='프로젝트 설명' id='desc' />
+            <textarea className={styles.descInput} type='text' value={desc} name='desc' onChange={getValue} placeholder='프로젝트 설명' id='desc' />
           </article>
         </section>
 

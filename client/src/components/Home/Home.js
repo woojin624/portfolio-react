@@ -45,7 +45,6 @@ const Home = ({ projectsList }) => {
       y: '0%',
       transition: {
         delay: i * 0.1,
-        // ease: 'easeInOut',
         duration: 0.5,
       },
     }),
@@ -53,7 +52,6 @@ const Home = ({ projectsList }) => {
       y: '-100%',
       transition: {
         delay: i * 0.1,
-        // ease: 'easeInOut',
         duration: 0.3,
       },
     }),
@@ -68,9 +66,8 @@ const Home = ({ projectsList }) => {
       x: `${-i * 5}%`,
       y: `${i * 15}%`,
       transition: {
-        delay: 1,
-        // ease: 'easeInOut',
-        duration: 0.8,
+        delay: 0.5,
+        duration: 1,
       },
     }),
     out: (i) => ({
@@ -94,23 +91,6 @@ const Home = ({ projectsList }) => {
       transition: {
         delay: 0.5,
         duration: 0.5,
-      },
-    },
-  };
-
-  const worksSecMotion = {
-    hidden: { x: '100%' },
-    visible: {
-      x: '0%',
-      transition: {
-        delay: 0.8,
-        duration: 0.6,
-      },
-    },
-    out: {
-      x: '100%',
-      transition: {
-        duration: 1,
       },
     },
   };
@@ -139,7 +119,7 @@ const Home = ({ projectsList }) => {
     visible: {
       x: '-50%',
       y: '-50%',
-      scale: 1,
+      scale: 0.5,
       transition: {
         delay: 0,
         ease: 'easeInOut',
@@ -150,7 +130,7 @@ const Home = ({ projectsList }) => {
       opacity: [1, 1, 0],
       x: '-50%',
       y: '-50%',
-      scale: [1, 10, 10],
+      scale: [1, 15, 15],
       transition: {
         ease: 'easeInOut',
         duration: 1,
@@ -171,8 +151,8 @@ const Home = ({ projectsList }) => {
         <motion.h3 variants={pageTitleMotion} className={styles.pageTitle}>
           Portfolio
         </motion.h3>
-        <div className={styles.landContain}>
-          <motion.section variants={introSecMotion} className={styles.introSec}>
+        <motion.div variants={introSecMotion} className={styles.landContain}>
+          <section className={styles.introSec}>
             <div className={styles.textWrap}>
               <h4>FRONT-END</h4>
               {introText.map((text, i) => (
@@ -188,8 +168,8 @@ const Home = ({ projectsList }) => {
                 </p>
               </div>
             </div>
-          </motion.section>
-          <motion.section variants={worksSecMotion} className={styles.worksSec}>
+          </section>
+          <section className={styles.worksSec}>
             <div className={styles.worksWrap}>
               <div onClick={onWorksClick} className={styles.myWorks}>
                 <p>
@@ -204,8 +184,8 @@ const Home = ({ projectsList }) => {
                 ))}
               </div>
             </div>
-          </motion.section>
-        </div>
+          </section>
+        </motion.div>
         <motion.div variants={cornerCircleMotion} className={styles.cornerCircle}></motion.div>
       </motion.div>
     </>

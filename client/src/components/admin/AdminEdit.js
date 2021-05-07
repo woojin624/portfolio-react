@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useHistory, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loadingProjects } from '../../redux';
+import { AiFillCloseCircle } from 'react-icons/ai';
 import { NodeHtmlMarkdown, NodeHtmlMarkdownOptions } from 'node-html-markdown';
+import { ColorPicker, useColor } from 'react-color-palette';
+import 'react-color-palette/lib/css/styles.css';
+
 import styles from './AdminWrite.module.css';
 import AdminWriteEditor from './AdminWriteEditor';
 
@@ -19,6 +23,7 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
   useEffect(() => {
     setProjectContetns({ ...projectContent, ...project });
     setContent(project.content);
+    project.color && setColor(project.color);
   }, [project]);
 
   const [projectContent, setProjectContetns] = useState({
@@ -44,6 +49,18 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
   const { number, thumbImg, mainImg, thumbImgName, mainImgName, title, subTitle, period, siteLink, githubLink, subImg, subImgName, desc, tag, people, workRange } = projectContent;
 
   const [content, setContent] = useState();
+  const [colorOpen, setColorOpen] = useState(false);
+  const [color, setColor] = useColor('hex', '#fff');
+
+  const colorTabHandler = (e) => {
+    if (e.target !== e.currentTarget) {
+      return;
+    }
+    setColorOpen(!colorOpen);
+  };
+  const colorTabClose = (e) => {
+    setColorOpen(false);
+  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -76,10 +93,6 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
     console.log(files[0]);
   };
 
-  //   useEffect(() => {
-  //     console.log(content);
-  //   }, [content]);
-
   const addPost = () => {
     const url = `/api/projects/editwork`;
     const formData = new FormData();
@@ -89,6 +102,7 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
     formData.append(subImgName ? `${title}&subImg` : 'subImg', subImg);
     formData.append(`_id`, project._id);
     formData.append(`number`, number);
+    formData.append(`color`, color);
     formData.append('title', title);
     formData.append('subTitle', subTitle);
     formData.append('period', period);
@@ -112,13 +126,38 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
     <div className={styles.AdminWrite}>
       <h1 className={styles.pageTitle}>프로젝트 글 작성</h1>
       <form onSubmit={handleFormSubmit}>
-        <label htmlFor='number'>프로젝트 넘버</label>
-        <input className={styles.number} type='number' value={number} name='number' onChange={getValue} placeholder='프로젝트 넘버' id='number' />
-        <label htmlFor='thumb'>썸네일</label>
-        <input className={styles.thumbInput} type='file' value={thumbImgName} file={thumbImg} name='thumbImg' onChange={handleFileChange} placeholder='썸네일이미지파일' id='thumbImg' />
-
-        <label htmlFor='mainImg'>메인 이미지</label>
-        <input className={styles.mainImageInput} type='file' value={mainImgName} file={mainImg} name='mainImg' onChange={handleFileChange} placeholder='메인이미지파일' id='mainImg' />
+        <section className={styles.defaultInfo}>
+          <article>
+            <div>
+              <label htmlFor='number'>프로젝트 넘버</label>
+              <input className={styles.number} type='number' value={number} name='number' onChange={getValue} placeholder='프로젝트 넘버' id='number' />
+            </div>
+            <div className={styles.colorWrap}>
+              <h3>메인 컬러</h3>
+              <div className={styles.colorTab} onClick={colorTabHandler}>
+                {color ? (
+                  <>
+                    <p onClick={colorTabHandler}>{color.hex}</p>
+                    <div onClick={colorTabHandler} className={styles.colorBox} style={{ backgroundColor: color.hex }}></div>
+                    {colorOpen ? (
+                      <div className={styles.colorPickerWrap}>
+                        <div>
+                          <h3>Color Picker</h3>
+                          <AiFillCloseCircle onClick={colorTabClose} style={{ fontSize: '22px', cursor: 'pointer' }} />
+                        </div>
+                        <ColorPicker width={268} height={180} color={color} onChange={setColor} hideHSV dark />
+                      </div>
+                    ) : null}
+                  </>
+                ) : null}
+              </div>
+            </div>
+          </article>
+          <label htmlFor='thumb'>썸네일</label>
+          <input className={styles.thumbInput} type='file' value={thumbImgName} file={thumbImg} name='thumbImg' onChange={handleFileChange} placeholder='썸네일이미지파일' id='thumbImg' />
+          <label htmlFor='mainImg'>메인 이미지</label>
+          <input className={styles.mainImageInput} type='file' value={mainImgName} file={mainImg} name='mainImg' onChange={handleFileChange} placeholder='메인이미지파일' id='mainImg' />
+        </section>
 
         <section className={styles.mainInfo}>
           <article>
@@ -129,7 +168,7 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
             <input className={styles.githubLinkInput} type='text' value={githubLink} name='githubLink' onChange={getValue} placeholder='깃허브 링크' id='githubLink' />
           </article>
           <article>
-            <input className={styles.descInput} type='text' value={desc} name='desc' onChange={getValue} placeholder='프로젝트 설명' id='desc' />
+            <textarea className={styles.descInput} type='text' value={desc} name='desc' onChange={getValue} placeholder='프로젝트 설명' id='desc' />
           </article>
         </section>
 

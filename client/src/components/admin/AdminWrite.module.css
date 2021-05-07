@@ -20,11 +20,11 @@
   flex-direction: column;
 }
 
+.AdminWrite textarea,
 .AdminWrite input {
   display: block;
   border: 0;
   background: rgba(235, 235, 235, 0.842);
-  display: block;
   width: 100%;
   padding: 0.5rem;
 }
@@ -130,6 +130,8 @@ input.number {
 
 .descInput {
   font-size: 28px;
+  height: 100%;
+  margin-bottom: 32px;
   line-height: 1.2;
   padding-right: 30px;
 }
@@ -179,7 +181,7 @@ input.number {
   width: 100%;
   height: auto;
   margin: 0.5rem 0;
-  border: 1px solid red;
+  border: 1px solid black;
 }
 
 /* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/

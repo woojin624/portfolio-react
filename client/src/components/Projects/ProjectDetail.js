@@ -22,8 +22,8 @@ const ProjectDetail = ({ match, projectsList }) => {
 
   useEffect(() => {
     if (project !== {}) {
-      const skills = project.tag ? project.tag.split('&&') : [];
-      const ranges = project.workRange ? project.workRange.split('&&') : [];
+      const skills = project.tag ? project.tag.split(',') : [];
+      const ranges = project.workRange ? project.workRange.split(',') : [];
       setProjectSkills(skills);
       setProjectRange(ranges);
     }
@@ -32,18 +32,18 @@ const ProjectDetail = ({ match, projectsList }) => {
   const projectDetailMotion = {
     in: {
       y: '0%',
-      transition: { duration: 0.3, delay: 0 },
+      transition: { duration: 1, delay: 0 },
     },
     out: {
       y: '100vh',
-      transition: { duration: 0.3, delay: 0.7 },
+      transition: { duration: 0.5, delay: 0.7 },
     },
   };
 
   const mainImageVariants = {
     in: {
       height: '40vh',
-      transition: { duration: 0.7, delay: 1.1, ease: 'easeIn' },
+      transition: { duration: 0.7, delay: 1.3, ease: 'easeIn' },
     },
     out: {
       height: '100vh',
@@ -54,7 +54,7 @@ const ProjectDetail = ({ match, projectsList }) => {
   const mainImageCoverVariants = {
     in: {
       height: '0%',
-      transition: { duration: 0.4, delay: 0.6, ease: 'easeIn' },
+      transition: { duration: 0.3, delay: 0.8, ease: 'easeIn' },
     },
     out: {
       height: '100%',
@@ -64,6 +64,7 @@ const ProjectDetail = ({ match, projectsList }) => {
 
   const projectClose = () => {
     history.push('/projects');
+    window.scrollTo(0, 0);
   };
 
   return (

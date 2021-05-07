@@ -139,6 +139,7 @@ const Projects = ({ projectsList }) => {
   const onCardClick = (e) => {
     let workId = e.target.dataset.id;
     history.push(`/projects/${workId}`);
+    window.scrollTo(0, 0);
   };
 
   return (
