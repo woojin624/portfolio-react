@@ -43,7 +43,17 @@ const About = (props) => {
           About
         </motion.h3>
         <div className={styles.aboutContain}>
-          <h1>About</h1>
+          <section className={styles.introSec}>
+            <article className={styles.introLeft}>
+              <h1>ABOUT</h1>
+              <h2>개발자를 위한 개발을 하는 개발자</h2>
+            </article>
+            <article className={styles.introRight}>
+              <figure>
+                <img src='/images/profile-img1.png' alt='' />
+              </figure>
+            </article>
+          </section>
         </div>
       </motion.div>
     </>

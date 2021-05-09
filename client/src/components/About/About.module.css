@@ -8,14 +8,42 @@
 }
 
 .aboutContain {
-  display: flex;
+  /* display: flex;
   justify-content: cetner;
-  align-items: center;
+  align-items: center; */
   position: relative;
+  padding-top: 120px;
   width: 100%;
   height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
+}
+
+.introSec {
+  position: relative;
+  width: 100%;
+  max-width: 1600px;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+}
+
+.introSec .introLeft {
+  flex: 1;
+}
+
+.introSec .introLeft h1 {
+  font-size: 130px;
+  font-weight: 800;
+}
+
+.introSec .introLeft h2 {
+  font-size: 48px;
+  font-weight: 300;
+}
+
+.introSec .introRight {
+  flex: 1;
 }
 
 .pageTitle {
