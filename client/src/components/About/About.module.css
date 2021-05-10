@@ -8,11 +8,8 @@
 }
 
 .aboutContain {
-  /* display: flex;
-  justify-content: cetner;
-  align-items: center; */
   position: relative;
-  padding-top: 120px;
+  padding-top: 150px;
   width: 100%;
   height: 100vh;
   overflow-x: hidden;
@@ -23,13 +20,14 @@
   position: relative;
   width: 100%;
   max-width: 1600px;
+  padding: 0 50px;
   height: auto;
   margin: 0 auto;
   display: flex;
 }
 
 .introSec .introLeft {
-  flex: 1;
+  flex: 3;
 }
 
 .introSec .introLeft h1 {
@@ -38,12 +36,118 @@
 }
 
 .introSec .introLeft h2 {
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 300;
+  margin-top: 3rem;
+}
+
+.introSec .introLeft .introDesc {
+  position: relative;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding-top: 3rem;
+}
+
+.introSec .introLeft .introDesc p {
+  margin-top: 1rem;
+}
+
+.introSec .introLeft .line {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 1px;
+  width: 60vw;
+  background-color: #242424;
 }
 
 .introSec .introRight {
-  flex: 1;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.introRight figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.introRight figure img {
+  width: 90%;
+}
+
+.contactDetails {
+  margin-top: 1.5rem;
+}
+
+.contactDetails h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+}
+
+.contactDetails p {
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 0.8rem;
+}
+
+.abilityLine {
+  position: relative;
+  width: 100%;
+  max-width: 1600px;
+  padding: 0 50px;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 150px;
+  display: flex;
+}
+
+.abilityLine h2 {
+  font-size: 72px;
+  font-weight: 800;
+  margin-right: 2rem;
+}
+
+.abilityLine > div {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.abilityLine > div > .line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 1px;
+  width: 100vw;
+  background-color: #242424;
+}
+
+.abilitySec {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-top: 3rem;
+  background-color: #242424;
+  color: rgb(240, 240, 240);
+}
+
+.abilitySec > article {
+  position: relative;
+  width: 100%;
+  max-width: 1600px;
+  padding: 70px 50px;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+}
+
+.abilitySec > article > h3 {
+  font-size: 48px;
+  font-weight: 700;
 }
 
 .pageTitle {
