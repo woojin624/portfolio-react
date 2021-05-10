@@ -32,7 +32,7 @@ const ProjectDetail = ({ match, projectsList }) => {
   const projectDetailMotion = {
     in: {
       y: '0%',
-      transition: { duration: 1, delay: 0 },
+      transition: { duration: 0.7, delay: 0 },
     },
     out: {
       y: '100vh',
@@ -43,7 +43,7 @@ const ProjectDetail = ({ match, projectsList }) => {
   const mainImageVariants = {
     in: {
       height: '40vh',
-      transition: { duration: 0.7, delay: 1.3, ease: 'easeIn' },
+      transition: { duration: 1.2, delay: 1.1 },
     },
     out: {
       height: '100vh',
@@ -54,7 +54,7 @@ const ProjectDetail = ({ match, projectsList }) => {
   const mainImageCoverVariants = {
     in: {
       height: '0%',
-      transition: { duration: 0.3, delay: 0.8, ease: 'easeIn' },
+      transition: { duration: 0.9, delay: 0.6 },
     },
     out: {
       height: '100%',

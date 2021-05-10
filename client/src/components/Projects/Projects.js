@@ -71,16 +71,16 @@ const Projects = ({ projectsList }) => {
     hidden: {
       opacity: 0,
       top: '80px',
-      left: '0%',
+      left: '0',
       x: '-100%',
       letterSpacing: '-3rem',
     },
     visible: {
       opacity: 1,
       top: '80px',
-      left: '0%',
-      x: '-1.5%',
-      letterSpacing: '0rem',
+      left: '1rem',
+      x: '0',
+      letterSpacing: '-0.2rem',
       transition: {
         duration: 1,
         staggerChildren: 0.1,
