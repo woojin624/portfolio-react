@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Route, Switch, useLocation, BrowserRouter as Router, useHistory } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import * as framer from '../../framer/games';
 
 import MemoryGame from './MemoryGame/MemoryGame';
 import EtcGame from './EtcGame';
@@ -28,71 +29,6 @@ const Games = () => {
   const location = useLocation();
   let history = useHistory();
 
-  const gameMotion = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0,
-      },
-    },
-    out: {
-      opacity: 0,
-      transition: {
-        when: 'afterChildren',
-        duration: 0,
-      },
-    },
-  };
-
-  const gameTextMotion = {
-    start: {
-      opacity: 0,
-      fontSize: '10px',
-      fontWeight: '300',
-      y: -400,
-    },
-    in: {
-      opacity: 1,
-      fontSize: '48px',
-      fontWeight: '700',
-      y: 0,
-    },
-    end: {
-      opacity: 0,
-      fontSize: '24px',
-      fontWeight: '400',
-      y: 600,
-    },
-  };
-
-  const gameListVariants = {
-    start: {
-      opacity: 0,
-    },
-    in: {
-      opacity: 1,
-    },
-    end: {
-      opacity: 0,
-    },
-  };
-
-  const pageTitleMotion = {
-    hidden: {
-      x: '-50%',
-      y: '-450%',
-    },
-    visible: {
-      x: '-50%',
-      y: '-50%',
-    },
-    out: {
-      x: '-50%',
-      y: '-450%',
-    },
-  };
-
   const onCardClick = (e) => {
     let gameId = e.target.dataset.name;
     // console.log(gameId);
@@ -100,8 +36,8 @@ const Games = () => {
   };
 
   return (
-    <motion.div variants={gameMotion} initial='hidden' animate='visible' exit='out' className={styles.gamesBack}>
-      <motion.h3 variants={pageTitleMotion} className={styles.pageTitle}>
+    <motion.div variants={framer.gameMotion} initial='hidden' animate='visible' exit='out' className={styles.gamesBack}>
+      <motion.h3 variants={framer.pageTitleMotion} className={styles.pageTitle}>
         Games
       </motion.h3>
       <div className={styles.gamesContain}>
@@ -115,7 +51,7 @@ const Games = () => {
                 <EtcGame />
               </Route>
               <Route exact path='/games'>
-                <motion.p initial='start' animate='in' exit='end' transition={{ duration: 0.3 }} variants={gameTextMotion}>
+                <motion.p initial='start' animate='in' exit='end' transition={{ duration: 0.3 }} variants={framer.gameTextMotion}>
                   Games
                 </motion.p>
                 {!isLoading && (
@@ -125,7 +61,7 @@ const Games = () => {
                     animate='in'
                     exit='end'
                     transition={{ duration: 0.3 }}
-                    variants={gameListVariants}
+                    variants={framer.gameListVariants}
                   >
                     <div className={styles.gamesEl} onClick={onCardClick} data-name='memorygame'>
                       <h2>Memory Games</h2>

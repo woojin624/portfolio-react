@@ -3,6 +3,7 @@ import { useHistory, withRouter } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { connect } from 'react-redux';
 import { BsChevronRight, BsX } from 'react-icons/bs';
+import * as framer from '../../framer/projectDetail';
 
 import ReactHtmlParser from 'react-html-parser';
 
@@ -29,39 +30,6 @@ const ProjectDetail = ({ match, projectsList }) => {
     }
   }, [project]);
 
-  const projectDetailMotion = {
-    in: {
-      y: '0%',
-      transition: { duration: 0.7, delay: 0 },
-    },
-    out: {
-      y: '100vh',
-      transition: { duration: 0.5, delay: 0.7 },
-    },
-  };
-
-  const mainImageVariants = {
-    in: {
-      height: '40vh',
-      transition: { duration: 1.2, delay: 1.1 },
-    },
-    out: {
-      height: '100vh',
-      transition: { duration: 0.4, delay: 0 },
-    },
-  };
-
-  const mainImageCoverVariants = {
-    in: {
-      height: '0%',
-      transition: { duration: 0.9, delay: 0.6 },
-    },
-    out: {
-      height: '100%',
-      transition: { duration: 0.4, delay: 0 },
-    },
-  };
-
   const projectClose = () => {
     history.push('/projects');
     window.scrollTo(0, 0);
@@ -69,17 +37,17 @@ const ProjectDetail = ({ match, projectsList }) => {
 
   return (
     <>
-      <motion.div initial='out' animate='in' exit='out' variants={projectDetailMotion} className={styles.projectDetailWrap}>
+      <motion.div initial='out' animate='in' exit='out' variants={framer.projectDetailMotion} className={styles.projectDetailWrap}>
         {project.mainImg && (
           <motion.figure //
             initial='out'
             animate='in'
             exit='out'
-            variants={mainImageVariants}
+            variants={framer.mainImage}
             className={styles.mainImageWrap}
           >
             <img src={project.mainImg} alt='dominant color placeholder' />
-            <motion.div variants={mainImageCoverVariants} className={styles.mainImageCover} style={{ backgroundColor: '#f00' }}></motion.div>
+            <motion.div variants={framer.mainImageCover} className={styles.mainImageCover} style={{ backgroundColor: '#f00' }}></motion.div>
             <h1>{project.title}</h1>
           </motion.figure>
         )}
