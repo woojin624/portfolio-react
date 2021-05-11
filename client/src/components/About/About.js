@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import ability from './abilityData';
 
 import styles from './About.module.css';
+import AbilityList from './AbilityList';
 
 const About = (props) => {
   console.log(ability.frontEnd);
@@ -78,7 +79,16 @@ const About = (props) => {
           <section className={styles.abilitySec}>
             <article>
               <h3>Front-End</h3>
-              <div className={styles.feWrap}></div>
+              <AbilityList ability={ability.frontEnd} />
+
+              <h3>Back-End</h3>
+              <AbilityList ability={ability.backEnd} />
+
+              <h3>Database</h3>
+              <AbilityList ability={ability.database} />
+
+              <h3>ETC</h3>
+              <AbilityList ability={ability.etc} />
             </article>
           </section>
         </div>
