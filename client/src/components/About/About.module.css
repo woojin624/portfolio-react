@@ -9,7 +9,7 @@
 
 .aboutContain {
   position: relative;
-  padding-top: 150px;
+  padding-top: 120px;
   width: 100%;
   height: 100vh;
   overflow-x: hidden;
@@ -28,6 +28,7 @@
 
 .introSec .introLeft {
   flex: 3;
+  padding-right: 50px;
 }
 
 .introSec .introLeft h1 {
@@ -45,11 +46,13 @@
   position: relative;
   width: 100%;
   margin-top: 1.5rem;
-  padding-top: 3rem;
+  padding-top: 2rem;
 }
 
 .introSec .introLeft .introDesc p {
   margin-top: 1rem;
+  line-height: 1.5;
+  font-weight: 500;
 }
 
 .introSec .introLeft .line {
@@ -68,6 +71,15 @@
   align-items: center;
 }
 
+.introRight .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  border-radius: 20px;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.3);
+}
+
 .introRight figure {
   display: flex;
   justify-content: center;
@@ -75,17 +87,24 @@
 }
 
 .introRight figure img {
-  width: 90%;
+  width: 80%;
+  transition: all 200ms cubic-bezier(0.25, 0.25, 0.665, 1.65);
+  transition-timing-function: cubic-bezier(0.25, 0.25, 0.665, 1.65);
+}
+
+.introRight .card:hover figure img {
+  transform: rotate(15deg);
 }
 
 .contactDetails {
   margin-top: 1.5rem;
+  padding: 1.5rem;
 }
 
 .contactDetails h2 {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 700;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .contactDetails p {
@@ -101,7 +120,7 @@
   padding: 0 50px;
   height: auto;
   margin: 0 auto;
-  margin-top: 150px;
+  margin-top: 120px;
   display: flex;
 }
 
@@ -139,16 +158,16 @@
   position: relative;
   width: 100%;
   max-width: 1600px;
-  padding: 70px 50px;
+  padding: 1rem 50px 6rem 50px;
   height: auto;
   margin: 0 auto;
   /* display: flex; */
 }
 
 .abilitySec > article > h3 {
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 700;
-  margin: 2rem 0;
+  margin: 3rem 0 1.5rem 0;
 }
 
 .feWrap {
@@ -158,10 +177,12 @@
 .feWrap > li {
   width: 100%;
   display: flex;
-  margin: 1rem 0;
+  margin: 0.8rem 0;
+  padding: 0.6rem 1rem;
   justify-content: space-between;
   align-items: center;
   color: aliceblue;
+  border-bottom: 2px solid rgb(41, 41, 41);
 }
 
 .feWrap > li > .title {
@@ -169,11 +190,15 @@
 }
 .feWrap > li > .title > img {
   width: 32px;
+  height: auto;
   margin-right: 1rem;
 }
 .feWrap > li > .title > h4 {
   font-size: 24px;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  padding-bottom: 0.1rem;
 }
 .feWrap > li > .desc {
   text-align: right;
@@ -187,7 +212,159 @@
   top: 3rem;
 }
 
+@media all and (min-width: 768px) and (max-width: 1023px) {
+  .introSec {
+    align-items: center;
+    padding: 0 2rem;
+  }
+
+  .introSec .introLeft {
+    padding-right: 2rem;
+  }
+
+  .introSec .introLeft h1 {
+    font-size: 90px;
+  }
+
+  .introSec .introLeft h2 {
+    font-size: 32px;
+    margin-top: 2rem;
+  }
+
+  .introSec .introLeft .introDesc {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  .introRight .card {
+    padding: 1.5rem 1rem;
+  }
+
+  .contactDetails {
+    margin-top: 1.5rem;
+    padding: 1rem;
+  }
+
+  .contactDetails h2 {
+    font-size: 28px;
+  }
+
+  .contactDetails p {
+    font-size: 16px;
+  }
+}
+
 @media all and (max-width: 767px) {
+  .aboutContain {
+    padding-top: 80px;
+  }
+
+  .introSec {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1.5rem;
+  }
+
+  .introSec .introLeft {
+    padding-right: 0rem;
+  }
+
+  .introSec .introLeft h1 {
+    font-size: 64px;
+  }
+
+  .introSec .introLeft h2 {
+    font-size: 22px;
+    margin-top: 1rem;
+  }
+
+  .introSec .introLeft .introDesc {
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+
+  .introSec .introLeft .introDesc p {
+    margin-top: 1rem;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .introSec .introLeft .line {
+    width: 100vw;
+  }
+
+  .introRight .card {
+    margin-top: 2rem;
+    padding: 1rem 0.5rem;
+    flex-direction: row;
+  }
+
+  .introRight figure img {
+    max-width: 180px;
+  }
+
+  .contactDetails {
+    margin-top: 0rem;
+    padding: 1rem;
+  }
+
+  .contactDetails h2 {
+    font-size: 18px;
+    margin-bottom: 1rem;
+  }
+
+  .contactDetails p {
+    font-size: 12px;
+  }
+
+  .abilityLine {
+    margin-top: 40px;
+    padding: 0 1.5rem;
+  }
+
+  .abilityLine h2 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-right: 1rem;
+  }
+
+  .abilitySec {
+    margin-top: 1.5rem;
+  }
+
+  .abilitySec > article {
+    padding: 0.5rem 1.5rem 3rem 1.5rem;
+  }
+
+  .abilitySec > article > h3 {
+    font-size: 24px;
+    margin: 2rem 0 1rem 0;
+  }
+
+  .feWrap > li {
+    flex-direction: column;
+    margin: 0.8rem 0;
+    padding: 0.6rem 1rem;
+    align-items: flex-start;
+  }
+
+  .feWrap > li > .title > img {
+    width: 26px;
+    margin-right: 1rem;
+  }
+  .feWrap > li > .title > h4 {
+    font-size: 18px;
+    padding-bottom: 0.1rem;
+  }
+
+  .feWrap > li > .desc {
+    align-self: flex-end;
+    text-align: right;
+    margin-top: 1.5rem;
+    padding-left: 3rem;
+    font-size: 14px;
+  }
+
   .pageTitle {
     top: 2.2rem;
   }
