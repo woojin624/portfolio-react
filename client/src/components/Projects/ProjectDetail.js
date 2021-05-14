@@ -43,7 +43,7 @@ const ProjectDetail = ({ match, projectsList }) => {
             initial='out'
             animate='in'
             exit='out'
-            variants={framer.mainImage}
+            variants={framer.mainImageWrap}
             className={styles.mainImageWrap}
           >
             <img src={project.mainImg} alt='dominant color placeholder' />

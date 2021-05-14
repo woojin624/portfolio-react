@@ -52,15 +52,11 @@ export const projectBoxMotion = {
 export const initTitleWrap = {
   hidden: {
     opacity: 0,
-    top: '80px',
-    left: '0',
     x: '-100%',
     letterSpacing: '-3rem',
   },
   visible: {
     opacity: 1,
-    top: '80px',
-    left: '1rem',
     x: '0',
     letterSpacing: '-0.2rem',
     transition: {

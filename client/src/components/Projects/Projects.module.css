@@ -21,7 +21,6 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  /* place-items: center; */
   gap: 2rem;
 }
 
@@ -30,7 +29,6 @@
 }
 
 .projectBox {
-  /* display: none; */
   position: relative;
   width: 100%;
   height: auto;
@@ -43,9 +41,6 @@
   width: 100%;
   background: #fff;
   cursor: pointer;
-  /* background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover; */
   margin-bottom: 1rem;
 }
 
@@ -54,12 +49,6 @@
   height: 100%;
   object-fit: cover;
 }
-
-/* .projectBoxImg:after {
-  content: '';
-  display: block;
-  padding-bottom: 60%;
-} */
 
 .projectBoxTitle {
   position: relative;
@@ -92,6 +81,8 @@
 
 .initTitle {
   width: 100%;
+  top: 80px;
+  left: 1rem;
   /* overflow-x: hidden; */
   position: relative;
   padding-bottom: 3rem;

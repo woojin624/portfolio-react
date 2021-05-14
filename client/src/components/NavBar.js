@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './NavBar.module.css';
+import * as framer from '../framer/navBar';
 
 const NavBar = () => {
   const navListNames = [
@@ -26,54 +27,6 @@ const NavBar = () => {
     setIsNavOpen(false);
   };
 
-  const navContainVariants = {
-    in: {
-      opacity: 1,
-      transition: { duration: 0.5, staggerChildren: 0.1 },
-    },
-    out: {
-      opacity: 0,
-      transition: { duration: 0.5, staggerChildren: 0.1 },
-    },
-  };
-
-  const navUlVariants = {
-    in: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, staggerChildren: 0.1 },
-    },
-    out: {
-      opacity: 0,
-      y: 200,
-      transition: { duration: 0.5, staggerChildren: 0.1 },
-    },
-  };
-
-  const linkElVariants = {
-    in: {
-      opacity: 1,
-      x: 0,
-      y: 0,
-    },
-    out: {
-      opacity: 0,
-      x: -70,
-      y: 0,
-    },
-  };
-
-  const navElVariants = {
-    in: {
-      opacity: 1,
-      x: 0,
-    },
-    out: {
-      opacity: 0,
-      x: 70,
-    },
-  };
-
   return (
     <>
       <h3 className={styles.navLogo} onClick={navCloseHandler}>
@@ -89,14 +42,14 @@ const NavBar = () => {
             initial='out' //
             animate='in'
             exit='out'
-            variants={navContainVariants}
+            variants={framer.navContain}
             className={styles.navContain}
           >
-            <motion.ul className={styles.linkList} variants={navUlVariants}>
+            <motion.ul className={styles.linkList} variants={framer.navUl}>
               {linkListNames.map((list, i) => (
                 <motion.li
                   key={i} //
-                  variants={linkElVariants}
+                  variants={framer.linkEl}
                   transition={{ duration: 0.4 }}
                 >
                   <a target='_blank' href={`${list.link}`}>
@@ -108,11 +61,11 @@ const NavBar = () => {
               <p className={styles.mail}>624jang@gmail.com</p>
               <p className={styles.copy}>ⓒ Woojin. All rights reserved.</p>
             </motion.ul>
-            <motion.ul className={styles.navList} variants={navUlVariants}>
+            <motion.ul className={styles.navList} variants={framer.navUl}>
               {navListNames.map((list, i) => (
                 <motion.li
                   key={i} //
-                  variants={navElVariants}
+                  variants={framer.navEl}
                   transition={{ duration: 0.2 }}
                   whileHover={{
                     scale: 1.1,

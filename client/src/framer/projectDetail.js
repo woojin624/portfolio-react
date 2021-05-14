@@ -9,7 +9,7 @@ export const projectDetailMotion = {
   },
 };
 
-export const mainImage = {
+export const mainImageWrap = {
   in: {
     height: '40vh',
     transition: { duration: 1.2, delay: 1.1 },
@@ -22,11 +22,11 @@ export const mainImage = {
 
 export const mainImageCover = {
   in: {
-    height: '0%',
+    scaleY: 0,
     transition: { duration: 0.9, delay: 0.6 },
   },
   out: {
-    height: '100%',
+    scaleY: 1,
     transition: { duration: 0.4, delay: 0 },
   },
 };
