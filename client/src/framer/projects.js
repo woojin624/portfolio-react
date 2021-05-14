@@ -1,4 +1,4 @@
-export const projectMotion = {
+export const projects = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -32,7 +32,7 @@ export const projectBoxWrap = {
   },
 };
 
-export const projectBoxMotion = {
+export const projectBox = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -49,7 +49,7 @@ export const projectBoxMotion = {
   },
 };
 
-export const initTitleWrap = {
+export const initTitle = {
   hidden: {
     opacity: 0,
     x: '-100%',
@@ -74,7 +74,7 @@ export const initTitleWrap = {
   },
 };
 
-export const initTitleMotion = {
+export const initTitleSpan = {
   hidden: {
     y: 100,
     x: -100,
@@ -98,10 +98,10 @@ export const initTitleMotion = {
   },
 };
 
-export const pageTitleMotion = {
+export const pageTitle = {
   hidden: {
     x: '-50%',
-    y: '-450%',
+    y: '-500%',
   },
   visible: {
     x: '-50%',
@@ -109,6 +109,6 @@ export const pageTitleMotion = {
   },
   out: {
     x: '-50%',
-    y: '-450%',
+    y: '-500%',
   },
 };

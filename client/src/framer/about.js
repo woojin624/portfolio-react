@@ -1,4 +1,4 @@
-const aboutMotion = {
+export const about = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -15,10 +15,10 @@ const aboutMotion = {
   },
 };
 
-const pageTitleMotion = {
+export const pageTitle = {
   hidden: {
     x: '-50%',
-    y: '-450%',
+    y: '-500%',
   },
   visible: {
     x: '-50%',
@@ -26,6 +26,22 @@ const pageTitleMotion = {
   },
   out: {
     x: '-50%',
-    y: '-450%',
+    y: '-500%',
+  },
+};
+
+export const aboutContain = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+    },
+  },
+  out: {
+    opacity: 0,
+    transition: {
+      duration: 0.4,
+    },
   },
 };

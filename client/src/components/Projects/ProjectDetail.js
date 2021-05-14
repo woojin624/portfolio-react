@@ -37,7 +37,7 @@ const ProjectDetail = ({ match, projectsList }) => {
 
   return (
     <>
-      <motion.div initial='out' animate='in' exit='out' variants={framer.projectDetailMotion} className={styles.projectDetailWrap}>
+      <motion.div initial='out' animate='in' exit='out' variants={framer.projectDetail} className={styles.projectDetail}>
         {project.mainImg && (
           <motion.figure //
             initial='out'

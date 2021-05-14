@@ -36,8 +36,8 @@ const Games = () => {
   };
 
   return (
-    <motion.div variants={framer.gameMotion} initial='hidden' animate='visible' exit='out' className={styles.gamesBack}>
-      <motion.h3 variants={framer.pageTitleMotion} className={styles.pageTitle}>
+    <motion.div variants={framer.games} initial='hidden' animate='visible' exit='out' className={styles.games}>
+      <motion.h3 variants={framer.pageTitle} className={styles.pageTitle}>
         Games
       </motion.h3>
       <div className={styles.gamesContain}>
@@ -51,7 +51,7 @@ const Games = () => {
                 <EtcGame />
               </Route>
               <Route exact path='/games'>
-                <motion.p initial='start' animate='in' exit='end' transition={{ duration: 0.3 }} variants={framer.gameTextMotion}>
+                <motion.p initial='start' animate='in' exit='end' transition={{ duration: 0.3 }} variants={framer.gameText}>
                   Games
                 </motion.p>
                 {!isLoading && (
@@ -61,7 +61,7 @@ const Games = () => {
                     animate='in'
                     exit='end'
                     transition={{ duration: 0.3 }}
-                    variants={framer.gameListVariants}
+                    variants={framer.gamesList}
                   >
                     <div className={styles.gamesEl} onClick={onCardClick} data-name='memorygame'>
                       <h2>Memory Games</h2>

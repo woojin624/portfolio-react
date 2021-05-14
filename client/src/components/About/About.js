@@ -10,13 +10,14 @@ import AbilityList from './AbilityList';
 const About = () => {
   console.log('clientHeight', document.documentElement.clientHeight);
   console.log('clientWidth', document.documentElement.clientWidth);
+  console.log(framer);
 
   return (
-    <motion.div variants={framer.aboutMotion} initial='hidden' animate='visible' exit='out' className={styles.about}>
-      <motion.h3 variants={framer.pageTitleMotion} className={styles.pageTitle}>
+    <motion.div variants={framer.about} initial='hidden' animate='visible' exit='out' className={styles.about}>
+      <motion.h3 variants={framer.pageTitle} className={styles.pageTitle}>
         About
       </motion.h3>
-      <div className={styles.aboutContain}>
+      <motion.div variants={framer.aboutContain} className={styles.aboutContain}>
         <section className={styles.introSec}>
           <article className={styles.introLeft}>
             <h1>ABOUT</h1>
@@ -63,7 +64,7 @@ const About = () => {
             <AbilityList ability={ability.etc} />
           </article>
         </section>
-      </div>
+      </motion.div>
     </motion.div>
   );
 };

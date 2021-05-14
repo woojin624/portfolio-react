@@ -1,4 +1,4 @@
-export const projectDetailMotion = {
+export const projectDetail = {
   in: {
     y: '0%',
     transition: { duration: 0.7, delay: 0 },

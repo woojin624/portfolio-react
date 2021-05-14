@@ -1,4 +1,4 @@
-export const homeMotion = {
+export const home = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -11,6 +11,25 @@ export const homeMotion = {
     transition: {
       when: 'afterChildren',
       duration: 0,
+    },
+  },
+};
+
+export const landContain = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+    },
+  },
+  out: {
+    opacity: 0,
+    transition: {
+      delay: 0.5,
+      duration: 0.5,
     },
   },
 };
@@ -35,7 +54,7 @@ export const introTextSpan = {
   }),
 };
 
-export const thumbImgMotion = {
+export const workThumb = {
   hidden: {
     x: '0%',
     y: '0%',
@@ -54,29 +73,10 @@ export const thumbImgMotion = {
   }),
 };
 
-export const introSecMotion = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.4,
-    },
-  },
-  out: {
-    opacity: 0,
-    transition: {
-      delay: 0.5,
-      duration: 0.5,
-    },
-  },
-};
-
-export const pageTitleMotion = {
+export const pageTitle = {
   hidden: {
     x: '-50%',
-    y: '-450%',
+    y: '-500%',
   },
   visible: {
     x: '-50%',
@@ -84,11 +84,11 @@ export const pageTitleMotion = {
   },
   out: {
     x: '-50%',
-    y: '-450%',
+    y: '-500%',
   },
 };
 
-export const cornerCircleMotion = {
+export const cornerCircle = {
   hidden: {
     x: '-50%',
     y: '-50%',

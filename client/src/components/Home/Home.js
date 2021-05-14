@@ -30,11 +30,11 @@ const Home = ({ projectsList }) => {
 
   return (
     <>
-      <motion.div variants={framer.homeMotion} initial='hidden' animate='visible' exit='out' className={styles.home}>
-        <motion.h3 variants={framer.pageTitleMotion} className={styles.pageTitle}>
+      <motion.div variants={framer.home} initial='hidden' animate='visible' exit='out' className={styles.home}>
+        <motion.h3 variants={framer.pageTitle} className={styles.pageTitle}>
           Portfolio
         </motion.h3>
-        <motion.div variants={framer.introSecMotion} className={styles.landContain}>
+        <motion.div variants={framer.landContain} className={styles.landContain}>
           <section className={styles.introSec}>
             <div className={styles.textWrap}>
               <h4>FRONT-END</h4>
@@ -61,7 +61,7 @@ const Home = ({ projectsList }) => {
               </div>
               <div className={styles.thumbBox}>
                 {myWorks.map((work, i) => (
-                  <motion.div variants={framer.thumbImgMotion} custom={i} key={i} className={styles.workThumb}>
+                  <motion.div variants={framer.workThumb} custom={i} key={i} className={styles.workThumb}>
                     <img src={work.thumbImg} alt='' />
                   </motion.div>
                 ))}
@@ -69,7 +69,7 @@ const Home = ({ projectsList }) => {
             </div>
           </section>
         </motion.div>
-        <motion.div variants={framer.cornerCircleMotion} className={styles.cornerCircle}></motion.div>
+        <motion.div variants={framer.cornerCircle} className={styles.cornerCircle}></motion.div>
       </motion.div>
     </>
   );

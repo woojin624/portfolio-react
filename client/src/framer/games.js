@@ -1,4 +1,4 @@
-export const gameMotion = {
+export const games = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -15,7 +15,7 @@ export const gameMotion = {
   },
 };
 
-export const gameTextMotion = {
+export const gameText = {
   start: {
     opacity: 0,
     fontSize: '10px',
@@ -36,7 +36,7 @@ export const gameTextMotion = {
   },
 };
 
-export const gameListVariants = {
+export const gamesList = {
   start: {
     opacity: 0,
   },
@@ -48,10 +48,10 @@ export const gameListVariants = {
   },
 };
 
-export const pageTitleMotion = {
+export const pageTitle = {
   hidden: {
     x: '-50%',
-    y: '-450%',
+    y: '-500%',
   },
   visible: {
     x: '-50%',
@@ -59,6 +59,6 @@ export const pageTitleMotion = {
   },
   out: {
     x: '-50%',
-    y: '-450%',
+    y: '-500%',
   },
 };

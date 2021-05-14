@@ -25,13 +25,13 @@ const Projects = ({ projectsList }) => {
   };
 
   return (
-    <motion.div variants={framer.projectMotion} initial='hidden' animate='visible' exit='out' className={styles.projectWrap}>
-      <motion.h3 variants={framer.pageTitleMotion} className={styles.pageTitle}>
+    <motion.div variants={framer.projects} initial='hidden' animate='visible' exit='out' className={styles.projects}>
+      <motion.h3 variants={framer.pageTitle} className={styles.pageTitle}>
         Projects
       </motion.h3>
-      <motion.p className={styles.initTitle} variants={framer.initTitleWrap} initial='hidden' animate='visible' exit='out'>
+      <motion.p className={styles.initTitle} variants={framer.initTitle} initial='hidden' animate='visible' exit='out'>
         {initTitle.map((a, i) => (
-          <motion.span key={i} variants={framer.initTitleMotion}>
+          <motion.span key={i} variants={framer.initTitleSpan}>
             {a}
           </motion.span>
         ))}
@@ -42,7 +42,7 @@ const Projects = ({ projectsList }) => {
             <motion.div
               onClick={onCardClick} //
               data-id={project._id}
-              variants={framer.projectBoxMotion}
+              variants={framer.projectBox}
               className={styles.projectBox}
               key={i}
             >
