@@ -21,7 +21,6 @@ const Projects = ({ projectsList }) => {
   const onCardClick = (e) => {
     let workId = e.target.dataset.id;
     history.push(`/projects/${workId}`);
-    window.scrollTo(0, 0);
   };
 
   return (
@@ -29,7 +28,7 @@ const Projects = ({ projectsList }) => {
       <motion.h3 variants={framer.pageTitle} className={styles.pageTitle}>
         Projects
       </motion.h3>
-      <motion.p className={styles.initTitle} variants={framer.initTitle} initial='hidden' animate='visible' exit='out'>
+      <motion.p className={styles.initTitle} variants={framer.initTitle}>
         {initTitle.map((a, i) => (
           <motion.span key={i} variants={framer.initTitleSpan}>
             {a}
@@ -37,7 +36,7 @@ const Projects = ({ projectsList }) => {
         ))}
       </motion.p>
       <div className={styles.projectsContain}>
-        <motion.div className={styles.projectBoxWrap} variants={framer.projectBoxWrap} initial='hidden' animate='visible' exit='out'>
+        <div className={styles.projectBoxWrap}>
           {reversedList.map((project, i) => (
             <motion.div
               onClick={onCardClick} //
@@ -59,7 +58,7 @@ const Projects = ({ projectsList }) => {
               <p className={styles.projectBoxDesc}>{project.desc}</p>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </motion.div>
   );

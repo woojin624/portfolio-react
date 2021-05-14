@@ -15,36 +15,19 @@ export const projects = {
   },
 };
 
-export const projectBoxWrap = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      delay: 1.1,
-      duration: 0.3,
-    },
-  },
-  out: {
-    opacity: 0,
-    transition: {
-      duration: 0.3,
-    },
-  },
-};
-
 export const projectBox = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      delay: 1.1,
+      delay: 0.4,
       duration: 0.3,
     },
   },
   out: {
     opacity: 0,
     transition: {
-      duration: 0.3,
+      duration: 0.4,
     },
   },
 };

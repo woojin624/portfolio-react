@@ -15,6 +15,7 @@ const ProjectDetail = ({ match, projectsList }) => {
   const [projectSkills, setProjectSkills] = useState([]);
   const [projectRange, setProjectRange] = useState([]);
   let history = useHistory();
+  window.scrollTo(0, 0);
 
   useEffect(() => {
     const newArr = [...projectsList].filter((data) => data._id === parseInt(id));
@@ -47,7 +48,7 @@ const ProjectDetail = ({ match, projectsList }) => {
             className={styles.mainImageWrap}
           >
             <img src={project.mainImg} alt='dominant color placeholder' />
-            <motion.div variants={framer.mainImageCover} className={styles.mainImageCover} style={{ backgroundColor: '#f00' }}></motion.div>
+            <motion.div variants={framer.mainImageCover} className={styles.mainImageCover} style={{ backgroundColor: project.color ? project.color : '#f00' }}></motion.div>
             <h1>{project.title}</h1>
           </motion.figure>
         )}

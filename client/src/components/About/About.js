@@ -43,13 +43,13 @@ const About = () => {
             </div>
           </article>
         </section>
-        <section className={styles.abilityLine}>
+        <motion.section variants={framer.ability} className={styles.abilityLine}>
           <h2>Ability</h2>
           <div>
             <div className={styles.line}></div>
           </div>
-        </section>
-        <section className={styles.abilitySec}>
+        </motion.section>
+        <motion.section variants={framer.ability} className={styles.abilitySec}>
           <article>
             <h3>Front-End</h3>
             <AbilityList ability={ability.frontEnd} />
@@ -63,7 +63,7 @@ const About = () => {
             <h3>ETC</h3>
             <AbilityList ability={ability.etc} />
           </article>
-        </section>
+        </motion.section>
       </motion.div>
     </motion.div>
   );
