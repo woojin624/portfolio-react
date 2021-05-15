@@ -71,6 +71,11 @@ export const workThumb = {
     x: `${-i * 5}%`,
     y: `${i * 15}%`,
   }),
+  hover: {
+    scale: 1.02,
+    zIndex: 10,
+    transition: { duration: 0.3 },
+  },
 };
 
 export const pageTitle = {

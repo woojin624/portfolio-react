@@ -12,8 +12,7 @@ import styles from './ProjectDetail.module.css';
 const ProjectDetail = ({ match, projectsList }) => {
   const id = match.params.id;
   const [project, setProject] = useState({});
-  const [projectSkills, setProjectSkills] = useState([]);
-  const [projectRange, setProjectRange] = useState([]);
+
   let history = useHistory();
   window.scrollTo(0, 0);
 
@@ -21,15 +20,6 @@ const ProjectDetail = ({ match, projectsList }) => {
     const newArr = [...projectsList].filter((data) => data._id === parseInt(id));
     setProject(...newArr);
   }, []);
-
-  useEffect(() => {
-    if (project !== {}) {
-      const skills = project.tag ? project.tag.split(',') : [];
-      const ranges = project.workRange ? project.workRange.split(',') : [];
-      setProjectSkills(skills);
-      setProjectRange(ranges);
-    }
-  }, [project]);
 
   const projectClose = () => {
     history.push('/projects');
@@ -59,12 +49,12 @@ const ProjectDetail = ({ match, projectsList }) => {
               <h3 className={styles.projectSubTitle}>{project.subTitle}</h3>
               <p className={styles.projectPeriod}>{project.period}</p>
 
-              <a href='#'>
-                <span>SITE</span>
+              <a href={project.siteLink ? project.siteLink : '#'}>
+                <span>- SITE</span>
                 <BsChevronRight />
               </a>
-              <a href='#'>
-                <span>GITHUB</span>
+              <a href={project.githubLink ? project.githubLink : '#'}>
+                <span>- GITHUB</span>
                 <BsChevronRight />
               </a>
             </article>
@@ -85,12 +75,12 @@ const ProjectDetail = ({ match, projectsList }) => {
             </article>
             <article>
               <h4 className={styles.projectSkillSet}>기술스택</h4>
-              <div className={styles.skillSetEls}>{projectSkills && projectSkills.map((skill, i) => <span key={i}>{skill}</span>)}</div>
+              <div className={styles.skillSetEls}>{project.tag && project.tag.map((skill, i) => <span key={i}>{skill}</span>)}</div>
               <h4 className={styles.projectPeople}>참여인원</h4>
               <p className={styles.PeopleEl}>{project.people}명</p>
               <h4 className={styles.projectRange}>내 업무범위</h4>
-              {projectRange &&
-                projectRange.map((range, i) => (
+              {project.workRange &&
+                project.workRange.map((range, i) => (
                   <p className={styles.rangeEls} key={i}>
                     {range}
                   </p>

@@ -17,22 +17,30 @@ export const about = {
 
 export const mainText = {
   hidden: (i) => ({
-    x: `${i * 1.6}em`,
-    y: 'calc(40vh - 120px)',
-    scale: 3,
+    x: `${-i * 2 - 2.5}em`,
+    y: 'calc(70vh - 120px)',
+    rotate: '-180deg',
+    scale: 7,
   }),
   visible: (i) => ({
     x: `0%`,
     y: `0%`,
+    rotate: '0deg',
     scale: 1,
     transition: {
-      delay: 0.5,
+      delay: 0,
       duration: 1,
     },
   }),
   out: (i) => ({
-    x: `${-i * 5}%`,
-    y: `${i * 15}%`,
+    x: `${-i * 0.7}em`,
+    y: 'calc(10vh - 120px)',
+    rotate: '180deg',
+    scale: 0,
+    transition: {
+      delay: 0,
+      duration: 0.7,
+    },
   }),
 };
 
@@ -47,7 +55,28 @@ export const aboutContain = {
   out: {
     opacity: 0,
     transition: {
-      duration: 0.4,
+      duration: 0,
+      when: 'afterChildren',
+    },
+  },
+};
+
+export const opacity = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      delay: 0.5,
+      duration: 0.6,
+    },
+  },
+  out: {
+    opacity: 0,
+    y: 10,
+    transition: {
+      duration: 0.7,
     },
   },
 };
@@ -55,21 +84,21 @@ export const aboutContain = {
 export const ability = {
   hidden: {
     opacity: 0,
-    y: 100,
+    y: 150,
   },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      delay: 5.2,
-      duration: 0.4,
+      delay: 0.5,
+      duration: 0.6,
     },
   },
   out: {
     opacity: 0,
-    y: 100,
+    y: 30,
     transition: {
-      duration: 0.4,
+      duration: 0.7,
     },
   },
 };

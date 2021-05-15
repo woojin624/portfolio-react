@@ -30,7 +30,7 @@ const Projects = ({ projectsList }) => {
       </motion.h3>
       <motion.p className={styles.initTitle} variants={framer.initTitle}>
         {initTitle.map((a, i) => (
-          <motion.span key={i} variants={framer.initTitleSpan}>
+          <motion.span key={i} variants={framer.initTitleSpan} custom={i}>
             {a}
           </motion.span>
         ))}
@@ -49,12 +49,7 @@ const Projects = ({ projectsList }) => {
                 <img src={project.thumbImg} alt='dominant color placeholder' />
               </figure>
               <h4 className={styles.projectBoxTitle}>{project.title}</h4>
-              <div className={styles.projectBoxSkills}>
-                <span>React Js</span>
-                <span>Node Js</span>
-                <span>Express</span>
-                <span>AWS</span>
-              </div>
+              <div className={styles.projectBoxSkills}>{project.tag && project.tag.map((skill, i) => <span key={i}>{skill}</span>)}</div>
               <p className={styles.projectBoxDesc}>{project.desc}</p>
             </motion.div>
           ))}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { loadingProjects } from '../../redux';
@@ -24,16 +24,28 @@ const AdminWrite = ({ loadingProjects }) => {
     siteLink: '',
     githubLink: '',
     desc: '',
-    tag: '',
+    tagArr: '',
     people: '',
-    workRange: '',
+    workRangeArr: '',
   });
 
-  const { number, thumbImg, mainImg, thumbImgName, mainImgName, title, subTitle, period, siteLink, githubLink, subImg, subImgName, desc, tag, people, workRange } = projectContent;
+  const { number, thumbImg, mainImg, thumbImgName, mainImgName, title, subTitle, period, siteLink, githubLink, subImg, subImgName, desc, tagArr, people, workRangeArr } = projectContent;
 
   const [content, setContent] = useState('콘텐츠 입력');
   const [colorOpen, setColorOpen] = useState(false);
   const [color, setColor] = useColor('hex', '#fff');
+  const [tag, setTag] = useState([]);
+  const [workRange, setWorkRange] = useState([]);
+
+  useEffect(() => {
+    const skills = tagArr.split(',');
+    setTag(skills);
+  }, [tagArr]);
+
+  useEffect(() => {
+    const ranges = workRangeArr.split(',');
+    setWorkRange(ranges);
+  }, [workRangeArr]);
 
   const colorTabHandler = (e) => {
     if (e.target !== e.currentTarget) {
@@ -41,6 +53,7 @@ const AdminWrite = ({ loadingProjects }) => {
     }
     setColorOpen(!colorOpen);
   };
+
   const colorTabClose = (e) => {
     setColorOpen(false);
   };
@@ -83,7 +96,7 @@ const AdminWrite = ({ loadingProjects }) => {
     formData.append(`${title}&mainImg`, mainImg);
     formData.append(`${title}&subImg`, subImg);
     formData.append(`number`, number);
-    formData.append(`color`, color);
+    formData.append(`color`, color.hex);
     formData.append('title', title);
     formData.append('subTitle', subTitle);
     formData.append('period', period);
@@ -91,9 +104,9 @@ const AdminWrite = ({ loadingProjects }) => {
     formData.append('githubLink', githubLink);
     formData.append('content', content);
     formData.append('desc', desc);
-    formData.append('tag', tag);
+    tag.forEach((skill) => formData.append('tag[]', skill));
     formData.append('people', people);
-    formData.append('workRange', workRange);
+    workRange.forEach((range) => formData.append('workRange[]', range));
 
     const config = {
       header: {
@@ -157,12 +170,25 @@ const AdminWrite = ({ loadingProjects }) => {
             <h1 className={styles.summaryTitle}>프로젝트 개요</h1>
           </article>
           <article>
-            <label htmlFor='tag'>기술스택</label>
-            <input className={styles.skillSetInput} type='text' value={tag} name='tag' onChange={getValue} placeholder='ex) React Js&&Node Js&&Express (단어 사이에 && 입력)' id='tag' />
+            <label htmlFor='tagArr'>기술스택</label>
+            {tag.length > 1 && (
+              <div className={styles.skillSetEls}>
+                {tag.map((skill, i) => (
+                  <span key={i}>{skill}</span>
+                ))}
+              </div>
+            )}
+            <input className={styles.skillSetInput} type='text' value={tagArr} name='tagArr' onChange={getValue} placeholder='ex) React Js,Node Js,Express (단어 사이에 "," 입력)' id='tagArr' />
             <label htmlFor='people'>참여인원</label>
             <input className={styles.peopleInput} type='text' value={people} name='people' onChange={getValue} placeholder='ex) 2' id='people' />
-            <label htmlFor='workRange'>내 업무범위</label>
-            <input className={styles.rangeInput} type='text' value={workRange} name='workRange' onChange={getValue} placeholder='ex) 디자인 - 50%&&프론트엔드 - 100%&&(단어 사이에 && 입력)' id='workRange' />
+            <label htmlFor='workRangeArr'>내 업무범위</label>
+            {workRange.length > 1 &&
+              workRange.map((range, i) => (
+                <p className={styles.rangeEls} key={i}>
+                  {range}
+                </p>
+              ))}
+            <input className={styles.rangeInput} type='text' value={workRangeArr} name='workRangeArr' onChange={getValue} placeholder='ex) 디자인 - 50%,프론트엔드 - 100% (단어 사이에 "," 입력)' id='workRangeArr' />
           </article>
         </section>
 

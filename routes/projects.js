@@ -6,6 +6,7 @@ const upload = require('../modules/multer');
 // post - Create new project document
 router.post('/add', upload.any(), async (req, res) => {
   const images = req.files;
+  console.log(req.body);
 
   // console.log(images);
   // const path = image.map((img) => img.location);

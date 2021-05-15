@@ -172,6 +172,21 @@ input.number {
   margin-bottom: 32px;
 }
 
+.skillSetEls {
+  margin-bottom: 8px;
+}
+
+.skillSetEls > span {
+  font-size: 20px;
+  font-weight: normal;
+  margin-right: 12px;
+}
+
+.rangeEls {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
 .summaryTitle {
   font-size: 40px;
   font-weight: 500;

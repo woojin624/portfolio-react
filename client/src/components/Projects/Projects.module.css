@@ -90,6 +90,7 @@
   font-size: 14rem;
   font-weight: 700;
   color: #242424;
+  letter-spacing: -0.2rem;
 }
 
 .initTitle > span {
@@ -110,13 +111,16 @@
     font-size: 12rem;
     font-weight: 700;
   }
+  .projectBoxWrap {
+    padding-top: 80px;
+  }
 }
 
 /* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/
 @media all and (min-width: 768px) and (max-width: 1023px) {
   .projectBoxWrap {
     padding: 0 1rem;
-    padding-top: 120px;
+    padding-top: 80px;
     gap: 1rem;
   }
 
@@ -135,7 +139,7 @@
     color: #fff;
     font-size: 14px;
     font-weight: 600;
-    padding: 6px 6px 3px 6px;
+    padding: 4px 8px 6px 8px;
   }
 
   .projectBoxDesc {
@@ -154,7 +158,7 @@
 @media all and (max-width: 767px) {
   .projectBoxWrap {
     padding: 0 1rem;
-    padding-top: 120px;
+    padding-top: 60px;
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
   }
@@ -172,9 +176,9 @@
     margin-right: 0.6rem;
     background: #242424;
     color: #fff;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
-    padding: 6px 6px 3px 6px;
+    padding: 3px 6px 4px 6px;
   }
 
   .projectBoxDesc {

@@ -60,7 +60,7 @@
 .projectTitle {
   font-size: 86px;
   font-weight: 700;
-  margin-bottom: 16px;
+  margin-bottom: 32px;
   width: 100%;
 }
 
@@ -105,7 +105,7 @@
 }
 .mainInfo a span {
   font-size: 22px;
-  margin-bottom: -4px;
+  margin-top: -4px;
   margin-right: 2px;
   transition: 0.2s ease-in;
 }

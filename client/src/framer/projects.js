@@ -36,12 +36,10 @@ export const initTitle = {
   hidden: {
     opacity: 0,
     x: '-100%',
-    letterSpacing: '-3rem',
   },
   visible: {
     opacity: 1,
     x: '0',
-    letterSpacing: '-0.2rem',
     transition: {
       duration: 1,
       staggerChildren: 0.1,
@@ -49,7 +47,6 @@ export const initTitle = {
   },
   out: {
     opacity: 0,
-    letterSpacing: '15rem',
     transition: {
       delay: 0.3,
       duration: 0.4,
@@ -58,11 +55,13 @@ export const initTitle = {
 };
 
 export const initTitleSpan = {
-  hidden: {
-    y: 100,
-    x: -100,
-  },
+  hidden: (i) => ({
+    opacity: 0,
+    y: 150,
+    x: `${-i * 30}`,
+  }),
   visible: {
+    opacity: 1,
     y: 0,
     x: 0,
     transition: {
@@ -70,15 +69,15 @@ export const initTitleSpan = {
       duration: 0.4,
     },
   },
-  out: {
-    y: -10,
-    x: 0,
+  out: (i) => ({
+    opacity: 0,
+    x: `${i * 200}%`,
     transition: {
-      delay: 0.5,
+      delay: 0,
       ease: 'easeInOut',
       duration: 0.5,
     },
-  },
+  }),
 };
 
 export const pageTitle = {
