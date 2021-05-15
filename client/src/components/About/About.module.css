@@ -36,6 +36,11 @@
   font-weight: 800;
 }
 
+.introSec .introLeft h1 span {
+  display: inline-block;
+  transform-origin: left center;
+}
+
 .introSec .introLeft h2 {
   font-size: 40px;
   font-weight: 300;
