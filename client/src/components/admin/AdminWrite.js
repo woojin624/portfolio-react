@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { loadingProjects } from '../../redux';
-import { AiFillCloseCircle } from 'react-icons/ai';
-import { ColorPicker, useColor } from 'react-color-palette';
+import { useColor } from 'react-color-palette';
 import 'react-color-palette/lib/css/styles.css';
 
 import styles from './AdminWrite.module.css';
 import AdminWriteEditor from './AdminWriteEditor';
+import ColorTab from './ColorTab';
 
 const AdminWrite = ({ loadingProjects }) => {
   const [projectContent, setProjectContetns] = useState({
@@ -32,7 +32,6 @@ const AdminWrite = ({ loadingProjects }) => {
   const { number, thumbImg, mainImg, thumbImgName, mainImgName, title, subTitle, period, siteLink, githubLink, subImg, subImgName, desc, tagArr, people, workRangeArr } = projectContent;
 
   const [content, setContent] = useState('콘텐츠 입력');
-  const [colorOpen, setColorOpen] = useState(false);
   const [color, setColor] = useColor('hex', '#fff');
   const [tag, setTag] = useState([]);
   const [workRange, setWorkRange] = useState([]);
@@ -46,17 +45,6 @@ const AdminWrite = ({ loadingProjects }) => {
     const ranges = workRangeArr.split(',');
     setWorkRange(ranges);
   }, [workRangeArr]);
-
-  const colorTabHandler = (e) => {
-    if (e.target !== e.currentTarget) {
-      return;
-    }
-    setColorOpen(!colorOpen);
-  };
-
-  const colorTabClose = (e) => {
-    setColorOpen(false);
-  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -128,19 +116,7 @@ const AdminWrite = ({ loadingProjects }) => {
             </div>
             <div className={styles.colorWrap}>
               <h3>메인 컬러</h3>
-              <div className={styles.colorTab} onClick={colorTabHandler}>
-                <p onClick={colorTabHandler}>{color.hex}</p>
-                <div onClick={colorTabHandler} className={styles.colorBox} style={{ backgroundColor: color.hex }}></div>
-                {colorOpen ? (
-                  <div className={styles.colorPickerWrap}>
-                    <div>
-                      <h3>Color Picker</h3>
-                      <AiFillCloseCircle onClick={colorTabClose} style={{ fontSize: '22px', cursor: 'pointer' }} />
-                    </div>
-                    <ColorPicker width={268} height={180} color={color} onChange={setColor} hideHSV dark />
-                  </div>
-                ) : null}
-              </div>
+              <ColorTab color={color} setColor={setColor} />
             </div>
           </article>
           <label htmlFor='thumb'>썸네일</label>

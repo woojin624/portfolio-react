@@ -16,35 +16,35 @@ export const games = {
 };
 
 export const gameText = {
-  start: {
+  hidden: {
     opacity: 0,
-    fontSize: '10px',
-    fontWeight: '300',
-    y: -400,
+    x: '-100%',
   },
-  in: {
+  visible: {
     opacity: 1,
-    fontSize: '48px',
-    fontWeight: '700',
-    y: 0,
+    x: '0%',
   },
-  end: {
+  out: {
     opacity: 0,
-    fontSize: '24px',
-    fontWeight: '400',
-    y: 600,
+    x: '-100%',
   },
 };
 
 export const gamesList = {
-  start: {
+  hidden: {
     opacity: 0,
+    y: 100,
   },
-  in: {
+  visible: {
     opacity: 1,
+    y: 0,
   },
-  end: {
+  out: {
     opacity: 0,
+    y: 100,
+    transition: {
+      duration: 0.3,
+    },
   },
 };
 

@@ -3,24 +3,46 @@
 }
 
 .gamesContain {
-  /* background-color: rgb(135, 199, 222); */
   max-width: 1600px;
   padding-top: 120px;
   width: 100%;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   margin: 0 auto;
-  /* z-index: -1; */
+  display: flex;
+  justify-content: center;
   position: relative;
   color: #242424;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
+
+.gameText {
+  position: absolute;
+  left: 0;
+  text-align: left;
+  font-size: 14rem;
+  font-weight: 700;
+  writing-mode: vertical-rl;
+  white-space: nowrap;
+}
+
+.gameText > span {
+  display: inline-block;
+}
+
 .gamesList {
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
 }
 
 .gamesEl {
+  position: relative;
   border: 2px solid #242424;
+  background: #242424;
+  color: #fff;
   width: 90%;
   max-width: 980px;
   height: auto;
@@ -29,6 +51,7 @@
   cursor: pointer;
   padding: 2%;
 }
+
 .gamesEl > h2 {
   pointer-events: none;
   font-size: 30px;
@@ -55,6 +78,8 @@
   /* width: 45%; */
   flex: 0.8;
   min-width: 320px;
+  background: #fff;
+  color: #242424;
   border: 2px solid #242424;
   border-radius: 10px;
   height: 350px;
@@ -106,8 +131,86 @@
   top: 3rem;
 }
 
+@media all and (min-width: 1024px) and (max-width: 1350px) {
+  .gameText {
+    position: relative;
+    left: 0;
+    text-align: left;
+    font-size: 11rem;
+    font-weight: 700;
+    writing-mode: vertical-rl;
+  }
+
+  .gamesEl {
+    width: 95%;
+    margin: 1rem;
+    padding: 1%;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1023px) {
+  .gamesContain {
+    flex-direction: column;
+    padding-top: 80px;
+  }
+
+  .gameText {
+    position: relative;
+    left: 1rem;
+    text-align: left;
+    font-size: 11rem;
+    font-weight: 700;
+    writing-mode: horizontal-tb;
+  }
+
+  .gamesEl {
+    width: 95%;
+    margin: 1rem;
+    padding: 1%;
+  }
+}
+
 @media all and (max-width: 767px) {
   .pageTitle {
     top: 2.2rem;
+  }
+
+  .gamesContain {
+    flex-direction: column;
+    padding-top: 60px;
+  }
+
+  .gameText {
+    position: relative;
+    left: 1rem;
+    text-align: left;
+    font-size: 5.5rem;
+    font-weight: 700;
+    writing-mode: horizontal-tb;
+  }
+
+  .gamesEl {
+    width: 90%;
+    margin: 1rem 2rem;
+    padding: 1%;
+  }
+
+  .gamesEl > h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .gamesElRight > ul > li > span {
+    display: inline-block;
+    font-size: 18px;
+  }
+
+  .gamesElRight {
+    flex: 0.8;
+    min-width: 300px;
+    margin: 1rem;
+    padding: 0.5rem;
   }
 }

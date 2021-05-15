@@ -12,6 +12,7 @@ import styles from './Games.module.css';
 const Games = () => {
   const [memoryRank, setMemoryRank] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const gameText = ['G', 'A', 'M', 'E', 'S'];
 
   useEffect(() => {
     axios
@@ -51,18 +52,13 @@ const Games = () => {
                 <EtcGame />
               </Route>
               <Route exact path='/games'>
-                <motion.p initial='start' animate='in' exit='end' transition={{ duration: 0.3 }} variants={framer.gameText}>
-                  Games
+                <motion.p variants={framer.gameText} className={styles.gameText}>
+                  {gameText.map((text, i) => (
+                    <span key={i}>{text}</span>
+                  ))}
                 </motion.p>
                 {!isLoading && (
-                  <motion.div
-                    className={styles.gamesList}
-                    initial='start' //
-                    animate='in'
-                    exit='end'
-                    transition={{ duration: 0.3 }}
-                    variants={framer.gamesList}
-                  >
+                  <motion.div className={styles.gamesList} variants={framer.gamesList}>
                     <div className={styles.gamesEl} onClick={onCardClick} data-name='memorygame'>
                       <h2>Memory Games</h2>
                       <div className={styles.gamesDesc}>

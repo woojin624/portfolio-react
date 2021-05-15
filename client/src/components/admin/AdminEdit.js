@@ -3,13 +3,13 @@ import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loadingProjects } from '../../redux';
-import { AiFillCloseCircle } from 'react-icons/ai';
-import { NodeHtmlMarkdown, NodeHtmlMarkdownOptions } from 'node-html-markdown';
-import { ColorPicker, useColor } from 'react-color-palette';
+import { NodeHtmlMarkdown } from 'node-html-markdown';
+import { useColor } from 'react-color-palette';
 import 'react-color-palette/lib/css/styles.css';
 
 import styles from './AdminWrite.module.css';
 import AdminWriteEditor from './AdminWriteEditor';
+import ColorTab from './ColorTab';
 
 const AdminEdit = ({ match, projectsList, loadingProjects }) => {
   const id = match.params.id;
@@ -18,7 +18,6 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
     const newArr = [...projectsList].filter((data) => data._id === parseInt(id))[0];
 
     setContent(newArr.content);
-    setColor(`'hex', ${newArr.color}`);
     setTag(newArr.tag);
     setWorkRange(newArr.workRange);
     console.log(newArr);
@@ -48,8 +47,7 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
   const { number, thumbImg, mainImg, thumbImgName, mainImgName, title, subTitle, period, siteLink, githubLink, subImg, subImgName, desc, tagArr, people, workRangeArr } = projectContent;
 
   const [content, setContent] = useState();
-  const [colorOpen, setColorOpen] = useState(false);
-  const [color, setColor] = useColor('hex', '#fff');
+  const [color, setColor] = useColor('hex', [...projectsList].filter((data) => data._id === parseInt(id))[0].color);
   const [tag, setTag] = useState([]);
   const [workRange, setWorkRange] = useState([]);
 
@@ -62,16 +60,6 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
     const ranges = workRangeArr.split(',');
     setWorkRange(ranges);
   }, [workRangeArr]);
-
-  const colorTabHandler = (e) => {
-    if (e.target !== e.currentTarget) {
-      return;
-    }
-    setColorOpen(!colorOpen);
-  };
-  const colorTabClose = (e) => {
-    setColorOpen(false);
-  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -145,23 +133,7 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
             </div>
             <div className={styles.colorWrap}>
               <h3>메인 컬러</h3>
-              <div className={styles.colorTab} onClick={colorTabHandler}>
-                {color ? (
-                  <>
-                    <p onClick={colorTabHandler}>{color.hex}</p>
-                    <div onClick={colorTabHandler} className={styles.colorBox} style={{ backgroundColor: color.hex }}></div>
-                    {colorOpen ? (
-                      <div className={styles.colorPickerWrap}>
-                        <div>
-                          <h3>Color Picker</h3>
-                          <AiFillCloseCircle onClick={colorTabClose} style={{ fontSize: '22px', cursor: 'pointer' }} />
-                        </div>
-                        <ColorPicker width={268} height={180} color={color} onChange={setColor} hideHSV dark />
-                      </div>
-                    ) : null}
-                  </>
-                ) : null}
-              </div>
+              <ColorTab color={color} setColor={setColor} />
             </div>
           </article>
           <label htmlFor='thumb'>썸네일</label>
