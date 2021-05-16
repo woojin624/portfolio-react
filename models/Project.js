@@ -50,7 +50,6 @@ projectSchema.statics.create = function (payload) {
 
 // put - Update by projectid
 projectSchema.statics.updateByProjectid = function (projectid, payload) {
-  // { new: true }: return the modified document rather than the original. defaults to false
   return this.findOneAndUpdate({ _id: parseInt(projectid) }, payload, { new: true });
 };
 

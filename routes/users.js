@@ -56,6 +56,16 @@ router.get('/auth', auth, (req, res) => {
     lastname: req.user.lastname,
     role: req.user.role,
     image: req.user.image,
+    memo: req.user.memo,
+  });
+});
+
+router.put('/editmemo', (req, res) => {
+  User.findOneAndUpdate({ _id: req.body._id }, { memo: req.body.memo }, (err, user) => {
+    if (err) return res.json({ success: false, err });
+    return res.status(200).send({
+      success: true,
+    });
   });
 });
 

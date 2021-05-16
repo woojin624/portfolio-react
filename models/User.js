@@ -33,6 +33,9 @@ const userSchema = new mongoose.Schema(
     tokenExp: {
       type: Number,
     },
+    memo: {
+      type: String,
+    },
   },
   {
     versionKey: false,
