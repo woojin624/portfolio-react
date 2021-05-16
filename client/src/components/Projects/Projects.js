@@ -45,8 +45,8 @@ const Projects = ({ projectsList }) => {
               className={styles.projectBox}
               key={i}
             >
-              <figure className={styles.projectBoxImg}>
-                <img src={project.thumbImg} alt='dominant color placeholder' />
+              <figure className={styles.projectBoxImg} style={{ backgroundColor: project.color }}>
+                <img src={project.thumbImg} alt='thumbImg' />
               </figure>
               <h4 className={styles.projectBoxTitle}>{project.title}</h4>
               <div className={styles.projectBoxSkills}>{project.tag && project.tag.map((skill, i) => <span key={i}>{skill}</span>)}</div>
