@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { AiFillGithub, AiOutlineMail, AiOutlineUser } from 'react-icons/ai';
 import ability from './abilityData';
 
 import styles from './About.module.css';
@@ -46,9 +47,15 @@ const About = () => {
               </figure>
               <div className={styles.contactDetails}>
                 <h2>Contact Details</h2>
-                <p>장우진</p>
-                <p>624jang@gmail.com</p>
-                <p>https://github.com/woojin624</p>
+                <p>
+                  <AiOutlineUser /> 장우진
+                </p>
+                <p>
+                  <AiOutlineMail /> 624jang@gmail.com
+                </p>
+                <p>
+                  <AiFillGithub /> https://github.com/woojin624
+                </p>
               </div>
             </div>
           </motion.article>

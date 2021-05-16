@@ -116,6 +116,13 @@
   font-size: 18px;
   font-weight: 500;
   margin-top: 0.8rem;
+  white-space: nowrap;
+}
+
+.contactDetails p svg {
+  font-size: 20px;
+  margin-right: 4px;
+  margin-top: -2px;
 }
 
 .abilityLine {
