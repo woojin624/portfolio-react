@@ -29,10 +29,13 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
     number: '',
     thumbImg: null,
     thumbImgName: '',
+    thumbImgPath: '',
     mainImg: null,
     mainImgName: '',
+    mainImgPath: '',
     subImg: '',
     subImgName: '',
+    subImgPath: '',
     title: '',
     subTitle: '',
     period: '',
@@ -44,7 +47,7 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
     workRangeArr: '',
   });
 
-  const { number, thumbImg, mainImg, thumbImgName, mainImgName, title, subTitle, period, siteLink, githubLink, subImg, subImgName, desc, tagArr, people, workRangeArr } = projectContent;
+  const { number, thumbImg, thumbImgName, thumbImgPath, mainImg, mainImgName, mainImgPath, title, subTitle, period, siteLink, githubLink, subImg, subImgName, subImgPath, desc, tagArr, people, workRangeArr } = projectContent;
 
   const [content, setContent] = useState();
   const [color, setColor] = useColor('hex', [...projectsList].filter((data) => data._id === parseInt(id))[0].color);
@@ -81,15 +84,19 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
   };
 
   const handleFileChange = (e) => {
+    e.preventDefault();
     const { name, value, files } = e.target;
+
     setProjectContent({
       ...projectContent,
       [name]: files[0],
       [name + 'Name']: value,
+      [name + 'Path']: URL.createObjectURL(files[0]),
     });
-    console.log(name);
-    console.log(value);
-    console.log(files[0]);
+    console.log('name : ', name);
+    console.log('value : ', value);
+    console.log(URL.createObjectURL(files[0]));
+    console.log('files[0] : ', files[0]);
   };
 
   const addPost = () => {
@@ -138,8 +145,15 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
           </article>
           <label htmlFor='thumb'>썸네일</label>
           <input className={styles.thumbInput} type='file' value={thumbImgName} file={thumbImg} name='thumbImg' onChange={handleFileChange} placeholder='썸네일이미지파일' id='thumbImg' />
+          <figure className={styles.thumbFrame}>
+            <img src={thumbImgPath ? thumbImgPath : thumbImg} alt='thumbnail' />
+          </figure>
           <label htmlFor='mainImg'>메인 이미지</label>
           <input className={styles.mainImageInput} type='file' value={mainImgName} file={mainImg} name='mainImg' onChange={handleFileChange} placeholder='메인이미지파일' id='mainImg' />
+          <figure className={styles.mainFrame}>
+            <img src={mainImgPath ? mainImgPath : mainImg} alt='mainImg' />
+            <h1>{title}</h1>
+          </figure>
         </section>
 
         <section className={styles.mainInfo}>
@@ -157,6 +171,9 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
 
         <label htmlFor='subImg'>서브 이미지</label>
         <input className={styles.subImageInput} type='file' value={subImgName} file={subImg} name='subImg' onChange={handleFileChange} placeholder='서브이미지파일' id='subImg' />
+        <figure className={styles.subFrame}>
+          <img src={subImgPath ? subImgPath : subImg} alt='subImg' />
+        </figure>
 
         <section className={styles.summary}>
           <article>

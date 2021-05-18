@@ -14,10 +14,13 @@ const AdminWrite = ({ loadingProjects }) => {
     number: '',
     thumbImg: null,
     thumbImgName: '',
+    thumbImgPath: '',
     mainImg: null,
     mainImgName: '',
+    mainImgPath: '',
     subImg: '',
     subImgName: '',
+    subImgPath: '',
     title: '',
     subTitle: '',
     period: '',
@@ -29,7 +32,7 @@ const AdminWrite = ({ loadingProjects }) => {
     workRangeArr: '',
   });
 
-  const { number, thumbImg, mainImg, thumbImgName, mainImgName, title, subTitle, period, siteLink, githubLink, subImg, subImgName, desc, tagArr, people, workRangeArr } = projectContent;
+  const { number, thumbImg, thumbImgName, thumbImgPath, mainImg, mainImgName, mainImgPath, title, subTitle, period, siteLink, githubLink, subImg, subImgName, subImgPath, desc, tagArr, people, workRangeArr } = projectContent;
 
   const [content, setContent] = useState('콘텐츠 입력');
   const [color, setColor] = useColor('hex', '#fff');
@@ -65,15 +68,19 @@ const AdminWrite = ({ loadingProjects }) => {
   };
 
   const handleFileChange = (e) => {
+    e.preventDefault();
     const { name, value, files } = e.target;
+
     setProjectContetns({
       ...projectContent,
       [name]: files[0],
       [name + 'Name']: value,
+      [name + 'Path']: URL.createObjectURL(files[0]),
     });
-    console.log(name);
-    console.log(value);
-    console.log(files[0]);
+    console.log('name : ', name);
+    console.log('value : ', value);
+    console.log(URL.createObjectURL(files[0]));
+    console.log('files[0] : ', files[0]);
   };
 
   const addPost = () => {
@@ -121,8 +128,13 @@ const AdminWrite = ({ loadingProjects }) => {
           </article>
           <label htmlFor='thumb'>썸네일</label>
           <input className={styles.thumbInput} type='file' value={thumbImgName} file={thumbImg} name='thumbImg' onChange={handleFileChange} placeholder='썸네일이미지파일' id='thumbImg' />
+          <figure className={styles.thumbFrame}>{thumbImg ? <img src={thumbImgPath} alt='thumbnail' /> : <div className={styles.thumbTemp}>Thumbnail</div>}</figure>
           <label htmlFor='mainImg'>메인 이미지</label>
           <input className={styles.mainImageInput} type='file' value={mainImgName} file={mainImg} name='mainImg' onChange={handleFileChange} placeholder='메인이미지파일' id='mainImg' />
+          <figure className={styles.mainFrame}>
+            {mainImg ? <img src={mainImgPath} alt='mainImg' /> : <div className={styles.mainTemp}>Main</div>}
+            <h1>{title}</h1>
+          </figure>
         </section>
 
         <section className={styles.mainInfo}>
@@ -140,6 +152,7 @@ const AdminWrite = ({ loadingProjects }) => {
 
         <label htmlFor='subImg'>서브 이미지</label>
         <input className={styles.subImageInput} type='file' value={subImgName} file={subImg} name='subImg' onChange={handleFileChange} placeholder='서브이미지파일' id='subImg' />
+        <figure className={styles.subFrame}>{subImg ? <img src={subImgPath} alt='subImg' /> : <div className={styles.subTemp}>Sub</div>}</figure>
 
         <section className={styles.summary}>
           <article>
