@@ -76,8 +76,8 @@
 }
 
 .projectDesc {
-  font-size: 28px;
-  line-height: 1.2;
+  font-size: 20px;
+  line-height: 1.5;
   padding-right: 30px;
 }
 
@@ -250,7 +250,8 @@
     font-size: 20px;
   }
   .projectDesc {
-    font-size: 24px;
+    font-size: 18px;
+    line-height: 1.5;
     padding-right: 0px;
   }
   .summaryTitle {
@@ -278,7 +279,8 @@
   }
 
   .projectDesc {
-    font-size: 18px;
+    font-size: 14px;
+    line-height: 1.5;
     padding-right: 0px;
     margin-top: 32px;
   }

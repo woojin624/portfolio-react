@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -6,6 +6,8 @@ import styles from './NavBar.module.css';
 import * as framer from '../framer/navBar';
 
 const NavBar = () => {
+  console.log(window.location.pathname);
+
   const navListNames = [
     { name: 'about', link: '/about', type: 'in' },
     { name: 'projects', link: '/projects', type: 'in' },
@@ -71,6 +73,7 @@ const NavBar = () => {
                     scale: 1.1,
                   }}
                   onClick={navCloseHandler}
+                  className={window.location.pathname === list.link ? styles.active : null}
                 >
                   <Link to={`${list.link}`}>{list.name}</Link>
                 </motion.li>
