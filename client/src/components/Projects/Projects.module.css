@@ -24,7 +24,7 @@
   gap: 2rem;
 }
 
-.projectBoxWrap > div > * {
+.projectBoxWrap > div > figure > * {
   pointer-events: none;
 }
 
@@ -32,12 +32,14 @@
   position: relative;
   width: 100%;
   height: auto;
-  cursor: pointer;
+  /* cursor: pointer; */
   transition: 0.3s ease-in;
   color: #242424;
 }
 
 .projectBoxImg {
+  position: relative;
+  z-index: 999;
   width: 100%;
   cursor: pointer;
   margin-bottom: 2rem;
@@ -50,11 +52,49 @@
   object-fit: cover;
 }
 
+.projectBoxImg .thumbHover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.projectBoxImg .thumbHover svg {
+  transition: 0.4s;
+  transform: scale(0) rotate(0deg);
+}
+
+.projectBoxImg:hover .thumbHover {
+  opacity: 1;
+}
+
+.projectBoxImg:hover .thumbHover svg {
+  transform: scale(1) rotate(90deg);
+}
+
+.projectBoxImg:hover:active .thumbHover svg {
+  transform: scale(0.8) rotate(90deg);
+}
+
+.projectBoxImg .thumbHover.mouseUp svg {
+  transform: scale(8) rotate(90deg) !important;
+}
+
 .projectBoxTitle {
   position: relative;
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 1rem;
+  cursor: pointer;
 }
 
 .projectBoxSkills {
@@ -147,6 +187,10 @@
     margin-bottom: 1rem;
   }
 
+  .projectBoxImg .thumbHover {
+    font-size: 3rem;
+  }
+
   .initTitle {
     margin-bottom: 2rem;
     font-size: 8rem;
@@ -184,6 +228,10 @@
   .projectBoxDesc {
     font-size: 16px;
     margin-bottom: 1rem;
+  }
+
+  .projectBoxImg .thumbHover {
+    font-size: 3rem;
   }
 
   .initTitle {
