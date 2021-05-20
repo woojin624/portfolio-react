@@ -43,10 +43,13 @@ const ProjectDetail = ({ match, projectsList }) => {
           </motion.figure>
         )}
         <div className={styles.projectInfo}>
+          <h1 className={styles.projectTitle}>{project.title}</h1>
+          <h3 className={styles.projectSubTitle}>
+            <span />
+            {project.subTitle}
+          </h3>
           <section className={styles.mainInfo}>
             <article>
-              <h1 className={styles.projectTitle}>{project.title}</h1>
-              <h3 className={styles.projectSubTitle}>{project.subTitle}</h3>
               <p className={styles.projectPeriod}>{project.period}</p>
 
               <a href={project.siteLink ? project.siteLink : '#'}>

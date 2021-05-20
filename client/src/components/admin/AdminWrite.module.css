@@ -204,7 +204,6 @@ input.number {
 .titleInput {
   font-size: 86px;
   font-weight: 700;
-  margin-bottom: 16px;
 }
 
 .subTitleInput {
@@ -229,7 +228,8 @@ input.number {
 }
 
 .descInput {
-  font-size: 28px;
+  font-size: 18px;
+  font-weight: 500;
   height: 100%;
   margin-bottom: 32px;
   line-height: 1.2;
