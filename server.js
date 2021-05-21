@@ -22,14 +22,12 @@ mongoose
   .then(() => console.log('Mongoose Connected...'))
   .catch((err) => console.log(err));
 
-app.use('/image', express.static('./upload'));
-
 // 프로젝트 API
-app.use('/api/projects', require('./routes/projects'));
+app.use('/api/projects', require('./server/routes/projects'));
 // 게임랭크 API
-app.use('/api/gamerank', require('./routes/games'));
+app.use('/api/gamerank', require('./server/routes/games'));
 // 유저 API
-app.use('/api/users', require('./routes/users'));
+app.use('/api/users', require('./server/routes/users'));
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
