@@ -67,7 +67,7 @@ const ProjectDetail = ({ match, projectsList }) => {
             <article>
               <div>
                 <h4 className={styles.projectPeople}>참여인원</h4>
-                <p className={styles.PeopleEl}>{project.people}명</p>
+                <p className={styles.peopleEl}>{project.people}명</p>
               </div>
               <div>
                 <h4 className={styles.projectRange}>내 업무범위</h4>

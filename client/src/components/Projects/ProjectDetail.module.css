@@ -71,7 +71,7 @@
 
 .projectSubTitle > span {
   display: inline-block;
-  width: 4rem;
+  width: 6rem;
   height: 2px;
   background: #242424;
   margin-left: 0.5rem;
@@ -86,8 +86,6 @@
   text-align: right;
   width: 100%;
   color: rgba(0, 0, 0, 0);
-  /* mix-blend-mode: difference; */
-  /* transform: translateY(-20%); */
   -webkit-text-stroke: 2px rgb(59, 59, 59);
 }
 
@@ -196,8 +194,6 @@
   flex: 3;
   padding-left: 20px;
   justify-content: space-between;
-
-  /* border-left: 1px solid rgb(194, 194, 194); */
 }
 
 .summary {

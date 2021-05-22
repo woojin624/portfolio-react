@@ -24,7 +24,7 @@
 .AdminWrite input {
   display: block;
   border: 0;
-  background: rgba(235, 235, 235, 0.842);
+  background: rgba(243, 243, 243, 0.884);
   width: 100%;
   padding: 0.5rem;
 }
@@ -95,14 +95,8 @@ input.number {
   cursor: pointer;
 }
 
-.thumbInput,
-.mainImageInput,
-.subImageInput {
-  padding: 10px 10px;
-  margin: 0.5rem 0;
-}
-
 .thumbFrame {
+  position: relative;
   width: 500px;
   height: auto;
   background: rgb(179, 179, 179);
@@ -113,13 +107,29 @@ input.number {
   height: auto;
 }
 
+.thumbFrame .thumbTemp {
+  width: 500px;
+  height: 300px;
+  background: rgb(199, 199, 199);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.divLine {
+  width: 100%;
+  height: 2px;
+  background: #000;
+  margin: 3rem 0;
+}
+
 .mainFrame {
   width: 100%;
   height: 40vh;
   position: relative;
   overflow: hidden;
   transform-origin: center top;
-  margin-bottom: 3rem;
 }
 
 .mainFrame > img {
@@ -128,7 +138,7 @@ input.number {
   object-fit: cover;
 }
 
-.mainFrame > h1 {
+/* .mainFrame > h1 {
   position: absolute;
   padding: 2rem;
   top: 45%;
@@ -140,6 +150,20 @@ input.number {
   color: #fff;
   mix-blend-mode: difference;
   white-space: nowrap;
+} */
+
+.mainFrame .mainTemp {
+  width: 100%;
+  height: 100%;
+  background: rgb(199, 199, 199);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.mainImageInput {
+  margin-bottom: 3rem;
 }
 
 .subFrame {
@@ -165,27 +189,7 @@ input.number {
   transform: translateY(-50%);
 }
 
-.thumbTemp {
-  width: 500px;
-  height: 300px;
-  background: rgb(199, 199, 199);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-}
-
-.mainTemp {
-  width: 100%;
-  height: 100%;
-  background: rgb(199, 199, 199);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-}
-
-.subTemp {
+.subFrame .subTemp {
   position: absolute;
   width: 100%;
   height: 800px;
@@ -201,78 +205,30 @@ input.number {
   font-size: 2rem;
 }
 
-.titleInput {
-  font-size: 86px;
-  font-weight: 700;
-}
-
 .subTitleInput {
   font-size: 24px;
   font-weight: 500;
   margin-bottom: 16px;
 }
 
-.periodInput {
-  font-size: 22px;
-  margin-bottom: 16px;
-}
-
-.siteLinkInput {
-  font-size: 18px;
-  margin-bottom: 16px;
-}
-
-.githubLinkInput {
-  font-size: 18px;
-  margin-bottom: 32px;
-}
-
-.descInput {
-  font-size: 18px;
-  font-weight: 500;
-  height: 100%;
-  margin-bottom: 32px;
-  line-height: 1.2;
-  padding-right: 30px;
-}
-
-.summary,
-.mainInfo {
-  width: 100%;
-  display: flex;
-  margin: 40px 0;
-}
-.summary > article,
-.mainInfo > article {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.summary > article:first-child,
-.mainInfo > article:first-child {
-  margin-right: 10px;
-}
-
-.summary > article:last-child,
-.mainInfo > article:last-child {
-  margin-left: 10px;
-}
-
-.summary label {
-  font-size: 20px;
-  margin-bottom: 12px;
+.titleInput {
+  font-size: 8rem;
   font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 2.5rem;
+  text-align: right;
+  color: rgba(201, 201, 201, 0);
+  -webkit-text-stroke: 2px rgb(59, 59, 59);
 }
 
-.skillSetInput,
-.peopleInput,
-.rangeInput {
+.skillSetInput {
+  text-align: right;
   font-size: 20px;
-  margin-bottom: 32px;
+  margin-bottom: 1rem;
 }
 
 .skillSetEls {
+  text-align: right;
   margin-bottom: 8px;
 }
 
@@ -282,14 +238,109 @@ input.number {
   margin-right: 12px;
 }
 
-.rangeEls {
+.skillSetEls > span:last-child {
+  margin-right: 0;
+}
+
+.periodInput {
   font-size: 20px;
+  margin-bottom: 1rem;
+  text-align: right;
+}
+
+.siteLinkInput,
+.githubLinkInput {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.projectRange,
+.projectPeople {
+  font-size: 16px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.peopleInput,
+.rangeInput {
+  font-size: 16px;
+  margin-bottom: 8px;
+  text-align: right;
+}
+
+.peopleInput {
+  width: 3rem;
+}
+
+.peopleEl,
+.rangeEls {
+  font-size: 16px;
   margin-bottom: 8px;
 }
 
+.mainInfo {
+  width: 100%;
+  display: flex;
+  margin: 20px 0 60px 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.mainInfo > article:last-child > div {
+  text-align: right;
+  padding-left: 20px;
+}
+
+.mainInfo > article {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainInfo > article:first-child {
+  /* margin-right: 20px; */
+  text-align: right;
+  flex: 2;
+}
+
+.mainInfo > article:last-child {
+  flex-direction: row;
+  flex: 3;
+  /* padding-left: 20px; */
+  justify-content: space-between;
+}
+
+.summary {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 60px 0;
+}
+
+.summary > article {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.summary label {
+  font-size: 20px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
 .summaryTitle {
-  font-size: 40px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.descInput {
+  font-size: 18px;
   font-weight: 500;
+  min-height: 200px;
+  height: 100%;
+  margin-bottom: 32px;
+  line-height: 1.7;
+  word-break: keep-all;
 }
 
 .contentWrap {

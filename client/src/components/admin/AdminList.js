@@ -7,7 +7,7 @@ import { loadingProjects } from '../../redux';
 import styles from './AdminList.module.css';
 
 const AdminList = ({ loadingProjects, originProjectsList }) => {
-  let history = useHistory();
+  const history = useHistory();
 
   const [projectsList, setProjectsList] = useState(originProjectsList);
 
