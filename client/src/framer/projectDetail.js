@@ -11,7 +11,7 @@ export const projectDetail = {
 
 export const mainImageWrap = {
   in: {
-    height: '40vh',
+    height: document.body.offsetWidth > 400 ? '40vh' : '25vh',
     transition: { duration: 1.2, delay: 1.1 },
   },
   out: {

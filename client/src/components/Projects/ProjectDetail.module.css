@@ -15,6 +15,7 @@
   position: relative;
   overflow: hidden;
   transform-origin: center top;
+  padding: 1rem;
 }
 
 .mainImageWrap > img {
@@ -32,7 +33,7 @@
   transform-origin: center top;
 }
 
-.mainImageWrap > h1 {
+.mainImageWrap > div > h1 {
   position: absolute;
   padding: 2rem;
   top: 45%;
@@ -54,51 +55,80 @@
   max-width: 1600px;
   margin: 0 auto;
   padding: 50px;
+  padding-top: 30px;
   display: flex;
   flex-direction: column;
-}
-
-.projectTitle {
-  font-size: 86px;
-  font-weight: 700;
-  /* margin-bottom: 32px; */
-  width: 100%;
-  /* -webkit-text-stroke: 5px rgb(150, 150, 150); */
 }
 
 .projectSubTitle {
   font-size: 24px;
   font-weight: 500;
-  /* margin-bottom: 16px; */
-  /* display: flex; */
-  /* align-items: center; */
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 .projectSubTitle > span {
   display: inline-block;
-  width: 3px;
-  height: 4rem;
+  width: 4rem;
+  height: 2px;
   background: #242424;
-  margin-right: 0.5rem;
+  margin-left: 0.5rem;
   margin-bottom: -2px;
 }
 
-.projectPeriod {
-  font-size: 22px;
-  margin-bottom: 32px;
+.projectTitle {
+  font-size: 8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 2.5rem;
+  text-align: right;
+  width: 100%;
+  color: rgba(0, 0, 0, 0);
+  /* mix-blend-mode: difference; */
+  /* transform: translateY(-20%); */
+  -webkit-text-stroke: 2px rgb(59, 59, 59);
 }
 
-.projectDesc {
-  font-size: 18px;
+.skillSetEls {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+.skillSetEls > span {
+  font-size: 20px;
   font-weight: 500;
-  line-height: 1.5;
-  padding-right: 30px;
+  margin-right: 12px;
+}
+.skillSetEls > span:last-child {
+  margin-right: 0;
+}
+
+.projectPeriod {
+  font-size: 20px;
+  margin-bottom: 1rem;
+  text-align: right;
+}
+
+.projectRange,
+.projectPeople {
+  font-size: 16px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.PeopleEl,
+.rangeEls {
+  font-size: 16px;
+  margin-bottom: 8px;
 }
 
 .subImageWrap {
   width: 100%;
   overflow: hidden;
   position: relative;
+  margin: 1rem 0 3rem;
 }
 
 .subImageWrap:before {
@@ -129,8 +159,7 @@
   transition: 0.2s ease-in;
 }
 .mainInfo a span {
-  font-size: 22px;
-  margin-top: -4px;
+  margin-top: -2px;
   margin-right: 2px;
   transition: 0.2s ease-in;
 }
@@ -138,65 +167,62 @@
   margin-right: 12px;
 }
 
-.summary {
-  width: 100%;
-  display: flex;
-  margin: 60px 0;
-}
 .mainInfo {
   width: 100%;
   display: flex;
   margin: 20px 0 60px 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
 }
-.summary > article,
+
+.mainInfo > article:last-child > div {
+  text-align: right;
+  margin-left: 2rem;
+}
+
 .mainInfo > article {
-  flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-.summary > article:first-child,
 .mainInfo > article:first-child {
   padding-right: 20px;
+  text-align: right;
+  flex: 2;
 }
 
-.summary > article:last-child,
 .mainInfo > article:last-child {
+  flex-direction: row;
+  flex: 3;
   padding-left: 20px;
-  border-left: 1px solid rgb(194, 194, 194);
+  justify-content: space-between;
+
+  /* border-left: 1px solid rgb(194, 194, 194); */
+}
+
+.summary {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 60px 0;
+}
+
+.summary > article {
+  width: 70%;
+  margin: 0 auto;
 }
 
 .summaryTitle {
-  font-size: 60px;
-  font-weight: 500;
-}
-
-.projectRange,
-.projectPeople,
-.projectSkillSet {
   font-size: 20px;
-  margin-bottom: 12px;
   font-weight: 700;
+  margin-bottom: 2rem;
 }
 
-.skillSetEls {
-  margin-bottom: 32px;
-}
-
-.skillSetEls > span {
+.projectDesc {
   font-size: 18px;
-  font-weight: normal;
-  margin-right: 12px;
-}
-
-.PeopleEl {
-  font-size: 18px;
-  margin-bottom: 32px;
-}
-
-.rangeEls {
-  font-size: 18px;
-  margin-bottom: 8px;
+  font-weight: 500;
+  line-height: 1.7;
+  word-break: keep-all;
 }
 
 .content {
@@ -263,97 +289,127 @@
   }
 
   .projectSubTitle {
-    font-size: 22px;
-  }
-
-  .projectPeriod {
     font-size: 20px;
-  }
-  .projectDesc {
-    font-size: 18px;
-    line-height: 1.5;
-    padding-right: 0px;
-  }
-  .summaryTitle {
-    font-size: 52px;
-    font-weight: 700;
   }
 }
 
 /* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
 @media all and (max-width: 767px) {
+  .mainImageWrap {
+    padding: 0;
+  }
+
   .projectInfo {
-    padding: 0px;
+    padding: 1rem;
+  }
+
+  .projectSubTitle {
+    font-size: 16px;
+    margin-bottom: 1rem;
+  }
+
+  .projectSubTitle > span {
+    width: 3px;
+    height: 2rem;
   }
 
   .projectTitle {
     font-size: 64px;
-    padding: 10px 20px;
+    /* padding: 10px 20px; */
+    margin-bottom: 1rem;
   }
 
-  .projectSubTitle {
-    font-size: 20px;
+  .skillSetEls {
+    text-align: right;
+    margin-bottom: 0.5rem;
+  }
+
+  .skillSetEls > span {
+    font-size: 14px;
   }
 
   .projectPeriod {
-    font-size: 18px;
+    font-size: 14px;
+    margin-bottom: 2rem;
   }
 
-  .projectDesc {
+  .projectRange,
+  .projectPeople {
     font-size: 14px;
-    line-height: 1.5;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .PeopleEl,
+  .rangeEls {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .mainInfo > article:first-child {
     padding-right: 0px;
-    margin-top: 32px;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+  }
+
+  .mainInfo > article:last-child {
+    justify-content: flex-end;
+  }
+
+  .mainInfo a:hover,
+  .mainInfo a {
+    font-size: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    /* justify-content: ; */
+    align-items: center;
+    transition: 0.2s ease-in;
+  }
+  .mainInfo a span {
+    margin-top: -2px;
+    margin-right: 2px;
+    transition: 0.2s ease-in;
+  }
+  .mainInfo a:hover span {
+    margin-right: 0px;
+  }
+
+  .mainInfo a:focus span {
+    margin-right: 12px;
   }
 
   .summary,
   .mainInfo {
     flex-direction: column;
-    padding: 30px 20px;
     margin: 0;
   }
-  .summary > article:first-child,
-  .mainInfo > article:first-child {
-    margin-right: 0px;
+
+  .subImageWrap {
+    margin: 2rem 0 3rem;
   }
 
-  .summary > article:last-child,
-  .mainInfo > article:last-child {
-    margin-left: 0px;
+  .summary {
+    margin-bottom: 3rem;
+  }
+
+  .summary > article {
+    text-align: center;
+
+    width: 90%;
+    margin: 0 auto;
   }
 
   .summaryTitle {
-    font-size: 40px;
+    font-size: 20px;
     font-weight: 700;
-    margin-bottom: 48px;
+    margin-bottom: 2rem;
   }
 
-  .projectRange,
-  .projectPeople,
-  .projectSkillSet {
-    font-size: 18px;
-    margin-bottom: 12px;
-    font-weight: 700;
-  }
-
-  .skillSetEls {
-    margin-bottom: 32px;
-  }
-
-  .skillSetEls > span {
-    font-size: 18px;
-    font-weight: normal;
-    margin-right: 12px;
-  }
-
-  .PeopleEl {
-    font-size: 18px;
-    margin-bottom: 32px;
-  }
-
-  .rangeEls {
-    font-size: 18px;
-    margin-bottom: 8px;
+  .projectDesc {
+    font-size: 14px;
+    line-height: 1.7;
   }
 
   .projectCloseBtn {

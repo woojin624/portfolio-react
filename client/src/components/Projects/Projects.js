@@ -60,7 +60,7 @@ const Projects = ({ projectsList }) => {
                 {project.title}
               </h4>
               <div className={styles.projectBoxSkills}>{project.tag && project.tag.map((skill, i) => <span key={i}>{skill}</span>)}</div>
-              <p className={styles.projectBoxDesc}>{project.desc}</p>
+              <p className={styles.projectBoxDesc}>{project.subTitle}</p>
             </div>
           ))}
         </div>

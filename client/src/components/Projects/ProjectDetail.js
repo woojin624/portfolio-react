@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, withRouter } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { connect } from 'react-redux';
-import { BsChevronRight, BsX } from 'react-icons/bs';
+import { BsArrowUpRight, BsX } from 'react-icons/bs';
 import * as framer from '../../framer/projectDetail';
 
 import ReactHtmlParser from 'react-html-parser';
@@ -26,6 +26,8 @@ const ProjectDetail = ({ match, projectsList }) => {
     window.scrollTo(0, 0);
   };
 
+  console.log(document.body.offsetWidth);
+
   return (
     <>
       <motion.div initial='out' animate='in' exit='out' variants={framer.projectDetail} className={styles.projectDetail}>
@@ -38,31 +40,44 @@ const ProjectDetail = ({ match, projectsList }) => {
             className={styles.mainImageWrap}
           >
             <img src={project.mainImg} alt='dominant color placeholder' />
-            <motion.div variants={framer.mainImageCover} className={styles.mainImageCover} style={{ backgroundColor: project.color ? project.color : '#f00' }}></motion.div>
-            <h1>{project.title}</h1>
+            <motion.div variants={framer.mainImageCover} className={styles.mainImageCover} style={{ backgroundColor: project.color ? project.color : '#f00' }}>
+              <h1>{project.title}</h1>
+            </motion.div>
           </motion.figure>
         )}
         <div className={styles.projectInfo}>
-          <h1 className={styles.projectTitle}>{project.title}</h1>
           <h3 className={styles.projectSubTitle}>
-            <span />
             {project.subTitle}
+            <span />
           </h3>
+          <h1 className={styles.projectTitle}>{project.title}</h1>
+          <div className={styles.skillSetEls}>{project.tag && project.tag.map((skill, i) => <span key={i}>{skill}</span>)}</div>
+          <p className={styles.projectPeriod}>{project.period}</p>
           <section className={styles.mainInfo}>
             <article>
-              <p className={styles.projectPeriod}>{project.period}</p>
-
               <a href={project.siteLink ? project.siteLink : '#'}>
-                <span>- SITE</span>
-                <BsChevronRight />
+                <span>SITE</span>
+                <BsArrowUpRight />
               </a>
               <a href={project.githubLink ? project.githubLink : '#'}>
-                <span>- GITHUB</span>
-                <BsChevronRight />
+                <span>GITHUB</span>
+                <BsArrowUpRight />
               </a>
             </article>
             <article>
-              <p className={styles.projectDesc}>{project.desc}</p>
+              <div>
+                <h4 className={styles.projectPeople}>참여인원</h4>
+                <p className={styles.PeopleEl}>{project.people}명</p>
+              </div>
+              <div>
+                <h4 className={styles.projectRange}>내 업무범위</h4>
+                {project.workRange &&
+                  project.workRange.map((range, i) => (
+                    <p className={styles.rangeEls} key={i}>
+                      {range}
+                    </p>
+                  ))}
+              </div>
             </article>
           </section>
 
@@ -74,20 +89,10 @@ const ProjectDetail = ({ match, projectsList }) => {
 
           <section className={styles.summary}>
             <article>
-              <h2 className={styles.summaryTitle}>프로젝트 개요</h2>
+              <h2 className={styles.summaryTitle}>About the Project</h2>
             </article>
             <article>
-              <h4 className={styles.projectSkillSet}>기술스택</h4>
-              <div className={styles.skillSetEls}>{project.tag && project.tag.map((skill, i) => <span key={i}>{skill}</span>)}</div>
-              <h4 className={styles.projectPeople}>참여인원</h4>
-              <p className={styles.PeopleEl}>{project.people}명</p>
-              <h4 className={styles.projectRange}>내 업무범위</h4>
-              {project.workRange &&
-                project.workRange.map((range, i) => (
-                  <p className={styles.rangeEls} key={i}>
-                    {range}
-                  </p>
-                ))}
+              <p className={styles.projectDesc}>{project.desc}</p>
             </article>
           </section>
           <section className={styles.content}>{ReactHtmlParser(project.content)}</section>
