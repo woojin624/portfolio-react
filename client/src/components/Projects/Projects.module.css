@@ -1,15 +1,16 @@
 .projects {
   position: relative;
+  width: 100;
+  height: auto;
   text-align: left;
   overflow-x: hidden;
 }
 
 .projectsContain {
-  /* background-color: burlywood; */
   max-width: 1440px;
   width: 100%;
-  margin: 0 auto;
   height: auto;
+  margin: 0 auto;
   text-align: left;
   position: relative;
   z-index: 10;

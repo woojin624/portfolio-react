@@ -1,5 +1,8 @@
 .games {
   position: relative;
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
 }
 
 .gamesContain {
@@ -7,14 +10,11 @@
   padding-top: 120px;
   width: 100%;
   height: auto;
-  min-height: 100vh;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   position: relative;
   color: #242424;
-  overflow-x: hidden;
-  overflow-y: visible;
 }
 
 .gameText {
@@ -46,6 +46,7 @@
   width: 90%;
   max-width: 980px;
   height: auto;
+  min-height: 480px;
   margin: 2rem;
   border-radius: 15px;
   cursor: pointer;

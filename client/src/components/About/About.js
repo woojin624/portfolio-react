@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { AiFillGithub, AiOutlineMail, AiOutlineUser } from 'react-icons/ai';
 import ability from './abilityData';

@@ -27,6 +27,10 @@ const NavBar = () => {
     setIsNavOpen(false);
   };
 
+  const scrollTopHandler = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <>
       <h3 className={styles.navLogo} onClick={navCloseHandler}>
@@ -51,6 +55,7 @@ const NavBar = () => {
                   key={i} //
                   variants={framer.linkEl}
                   transition={{ duration: 0.4 }}
+                  onClick={scrollTopHandler}
                 >
                   <a target='_blank' href={`${list.link}`}>
                     {list.name}

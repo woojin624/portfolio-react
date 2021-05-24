@@ -20,8 +20,7 @@ export const projectBox = {
   visible: {
     opacity: 1,
     transition: {
-      delay: 0.4,
-      duration: 0.3,
+      duration: 0.7,
     },
   },
   out: {
@@ -41,7 +40,7 @@ export const initTitle = {
     opacity: 1,
     x: '0',
     transition: {
-      duration: 1,
+      duration: 0.8,
       staggerChildren: 0.1,
     },
   },

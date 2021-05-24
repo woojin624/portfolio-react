@@ -1,7 +1,7 @@
 import React from 'react';
 
 const EtcGame = () => {
-  return <div>이것은 다른 게임임</div>;
+  return <div>Coming Soon</div>;
 };
 
 export default EtcGame;

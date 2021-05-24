@@ -5,7 +5,7 @@ export const projectDetail = {
   },
   out: {
     y: '100vh',
-    transition: { duration: 0.5, delay: 0.5 },
+    transition: { duration: 0.5, delay: 0.4 },
   },
 };
 
@@ -27,6 +27,6 @@ export const mainImageCover = {
   },
   out: {
     scaleY: 1,
-    transition: { duration: 0.4, delay: 0 },
+    transition: { duration: 0, delay: 0.9 },
   },
 };

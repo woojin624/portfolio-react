@@ -11,8 +11,7 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 
 .pageTitle {
@@ -251,8 +250,12 @@
 }
 
 @media all and (min-width: 768px) and (max-width: 1023px) {
+  .home {
+    height: auto;
+  }
   .landContain {
     flex-direction: column;
+    height: auto;
   }
   .thumbBox {
     width: 480px;
@@ -293,12 +296,21 @@
     flex: 1;
     text-align: right;
   }
+
+  .cornerCircle {
+    left: -10%;
+  }
 }
 
 @media all and (max-width: 767px) {
+  .home {
+    height: auto;
+  }
   .landContain {
     flex-direction: column;
+    height: auto;
   }
+
   .thumbBox {
     width: 320px;
     height: 320px;
@@ -342,5 +354,8 @@
 
   .pageTitle {
     top: 2.2rem;
+  }
+  .cornerCircle {
+    left: -10%;
   }
 }

@@ -4,7 +4,6 @@ body {
   font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: #fff; */
   background: rgb(250, 250, 250);
   color: #242424;
   height: auto;
@@ -16,19 +15,19 @@ code {
 
 /* SCROLL */
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 5px;
   padding: 1px;
-  border: 1px solid rgba(0, 0, 0, 0.29);
+  border: 1px solid rgba(0, 0, 0, 0.507);
 }
 /* 스크롤바의 width */
 ::-webkit-scrollbar-track {
-  background-color: #ffffff73;
-  box-shadow: inset 0px 0px 4px rgba(184, 184, 184, 0.392);
+  background-color: #b8b8b8a1;
+  box-shadow: inset 0px 0px 4px rgba(133, 133, 133, 0.678);
   border-radius: 3px;
 }
 /* 스크롤바의 전체 배경색 */
 ::-webkit-scrollbar-thumb {
-  background: #747474;
+  background: #6e6e6e;
   border-radius: 3px;
 }
 /* 스크롤바 색 */

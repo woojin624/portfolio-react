@@ -85,8 +85,8 @@ const Games = () => {
                         </article>
                       </div>
                     </div>
-                    <div className={styles.gamesEl} onClick={onCardClick} data-name='etcgame'>
-                      <h2>ETC Games</h2>
+                    <div className={styles.gamesEl} data-name='etcgame'>
+                      <h2>Coming Soon</h2>
                     </div>
                   </motion.div>
                 )}
