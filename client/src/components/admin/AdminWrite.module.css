@@ -43,6 +43,7 @@ input.number {
   margin: 0.5rem 0;
 }
 
+.visibleWrap,
 .colorWrap {
   margin: 0 1rem;
 }
@@ -93,6 +94,40 @@ input.number {
 
 .colorPickerWrap > div:last-child {
   cursor: pointer;
+}
+
+.visibleInput {
+  width: 20%;
+  height: 40px;
+  min-width: 140px;
+  margin: 0.5rem 0;
+  padding: 5px 10px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(243, 243, 243, 0.884);
+}
+
+.visibleInput > .toggleWrap {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  border-radius: 15px;
+  background: #000;
+  cursor: pointer;
+}
+
+.visibleInput > .toggleWrap > .toggle {
+  position: absolute;
+  margin: 3px;
+  top: 0;
+  left: 0%;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.2s;
 }
 
 .thumbFrame {

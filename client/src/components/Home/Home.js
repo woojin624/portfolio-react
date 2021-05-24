@@ -9,8 +9,8 @@ import styles from './Home.module.css';
 
 const Home = ({ projectsList }) => {
   let history = useHistory();
-  const [myWorks, setMyWorks] = useState([]);
 
+  const [myWorks, setMyWorks] = useState([]);
   const introText = ['DEVELOPER', 'TO', 'DEVELOP', 'FOR', 'DEVELOPERS'];
 
   useEffect(() => {
@@ -62,7 +62,7 @@ const Home = ({ projectsList }) => {
               <div className={styles.thumbBox}>
                 {myWorks.map((work, i) => (
                   <motion.div onClick={onWorksClick} variants={framer.workThumb} whileHover='hover' custom={i} key={i} className={styles.workThumb}>
-                    <img className={styles.thumbImg} src={work.thumbImg} alt='' />
+                    <img className={styles.thumbImg} src={work.thumbImg} alt='thumb' />
                   </motion.div>
                 ))}
               </div>

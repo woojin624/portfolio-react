@@ -275,6 +275,20 @@
   transform: rotate(90deg);
 }
 
+.hiddenProject {
+  width: 100vw;
+  height: 100vh;
+  background: rgb(204, 204, 204);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hiddenProject > h1 {
+  font-size: 6vw;
+  font-weight: 700;
+}
+
 /* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/
 @media all and (min-width: 768px) and (max-width: 1023px) {
   .projectInfo {

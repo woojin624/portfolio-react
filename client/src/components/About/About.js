@@ -9,10 +9,6 @@ import * as framer from '../../framer/about';
 import AbilityList from './AbilityList';
 
 const About = () => {
-  console.log('clientHeight', document.documentElement.clientHeight);
-  console.log('clientWidth', document.documentElement.clientWidth);
-  console.log(framer);
-
   const aboutTitle = ['A', 'B', 'O', 'U', 'T'];
 
   return (

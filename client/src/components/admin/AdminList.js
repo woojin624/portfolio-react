@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -122,6 +122,7 @@ const AdminList = ({ loadingProjects, originProjectsList }) => {
               </div>
             </th>
             <th>제목</th>
+            <th>공개여부</th>
             <th>내용</th>
             <th>수정</th>
             <th>삭제</th>
@@ -133,6 +134,7 @@ const AdminList = ({ loadingProjects, originProjectsList }) => {
               <tr key={i} className={i % 2 === 1 ? styles.odd : styles.even}>
                 <td>{element._id}</td>
                 <td>{element.title}</td>
+                <td>{element.visible ? '공개' : '비공개'}</td>
                 <td>{element.subTitle}</td>
                 <td>
                   <button className={styles.editBtn} data-id={element._id} onClick={onEditWork}>

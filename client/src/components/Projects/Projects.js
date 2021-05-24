@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { useHistory, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { AiOutlinePlus } from 'react-icons/ai';
-import { BsArrowUpRight } from 'react-icons/bs';
 
 import * as framer from '../../framer/projects';
 
@@ -21,7 +20,6 @@ const Projects = ({ projectsList }) => {
     setReversedList(arr);
   }, []);
 
-  // 프로젝트 카드 클릭시 해당 상세페이지로 이동
   const onCardClick = (e) => {
     let workId = e.target.parentNode.dataset.id;
     history.push(`/projects/${workId}`);
@@ -41,28 +39,30 @@ const Projects = ({ projectsList }) => {
       </motion.p>
       <motion.div className={styles.projectsContain} variants={framer.projectBox}>
         <div className={styles.projectBoxWrap}>
-          {reversedList.map((project, i) => (
-            <div data-id={project._id} className={styles.projectBox} key={i}>
-              <figure
-                className={styles.projectBoxImg}
-                onClick={onCardClick} //
-                onMouseUp={() => {
-                  setThumbClass(`${styles.thumbHover} ${styles.mouseUp}`);
-                }}
-                style={{ backgroundColor: project.color }}
-              >
-                <img src={project.thumbImg} alt='thumbImg' />
-                <div className={thumbClass}>
-                  <AiOutlinePlus />
-                </div>
-              </figure>
-              <h4 className={styles.projectBoxTitle} onClick={onCardClick}>
-                {project.title}
-              </h4>
-              <div className={styles.projectBoxSkills}>{project.tag && project.tag.map((skill, i) => <span key={i}>{skill}</span>)}</div>
-              <p className={styles.projectBoxDesc}>{project.subTitle}</p>
-            </div>
-          ))}
+          {reversedList.map((project, i) =>
+            project.visible ? (
+              <div data-id={project._id} className={styles.projectBox} key={i}>
+                <figure
+                  className={styles.projectBoxImg}
+                  onClick={onCardClick} //
+                  onMouseUp={() => {
+                    setThumbClass(`${styles.thumbHover} ${styles.mouseUp}`);
+                  }}
+                  style={{ backgroundColor: project.color }}
+                >
+                  <img src={project.thumbImg} alt='thumbImg' />
+                  <div className={thumbClass}>
+                    <AiOutlinePlus />
+                  </div>
+                </figure>
+                <h4 className={styles.projectBoxTitle} onClick={onCardClick}>
+                  {project.title}
+                </h4>
+                <div className={styles.projectBoxSkills}>{project.tag && project.tag.map((skill, i) => <span key={i}>{skill}</span>)}</div>
+                <p className={styles.projectBoxDesc}>{project.subTitle}</p>
+              </div>
+            ) : null
+          )}
         </div>
       </motion.div>
     </motion.div>

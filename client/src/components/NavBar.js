@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -12,8 +12,6 @@ const NavBar = () => {
     { name: 'about', link: '/about', type: 'in' },
     { name: 'projects', link: '/projects', type: 'in' },
     { name: 'games', link: '/games', type: 'in' },
-    // { name: 'blog', link: 'https://velog.io/@woojin', type: 'out' },
-    // { name: 'github', link: 'https://github.com/woojin624', type: 'out' },
   ];
   const linkListNames = [
     { name: 'velog', link: 'https://velog.io/@woojin', type: 'out' },

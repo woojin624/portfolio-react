@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import styles from './SideBar.module.css';
@@ -47,7 +47,7 @@ const Sidebar = ({ location, history }) => {
         </div>
         <section className={styles.profile}>
           <figure>
-            <img src='/images/profile-img.png' alt='' />
+            <img src='/images/profile-img.png' alt='profile' />
           </figure>
           <h2>
             Hello, <span>Woojin</span>

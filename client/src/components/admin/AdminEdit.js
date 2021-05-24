@@ -54,6 +54,7 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
   const [color, setColor] = useColor('hex', [...projectsList].filter((data) => data._id === parseInt(id))[0].color);
   const [tag, setTag] = useState([]);
   const [workRange, setWorkRange] = useState([]);
+  const [visible, setVisible] = useState([...projectsList].filter((data) => data._id === parseInt(id))[0].visible);
 
   useEffect(() => {
     const skills = tagArr.split(',');
@@ -64,6 +65,10 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
     const ranges = workRangeArr.split(',');
     setWorkRange(ranges);
   }, [workRangeArr]);
+
+  const handleVisible = () => {
+    setVisible(!visible);
+  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -111,6 +116,7 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
     formData.append(`_id`, projectContent._id);
     formData.append(`number`, number);
     formData.append(`color`, color.hex);
+    formData.append(`visible`, visible);
     formData.append('title', title);
     formData.append('subTitle', subTitle);
     formData.append('period', period);
@@ -143,6 +149,15 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
             <div className={styles.colorWrap}>
               <h3>메인 컬러</h3>
               <ColorTab color={color} setColor={setColor} />
+            </div>
+            <div className={styles.visibleWrap}>
+              <h3>공개 여부</h3>
+              <div className={styles.visibleInput}>
+                <p>{visible ? '공개' : '비공개'}</p>
+                <div className={styles.toggleWrap} style={{ backgroundColor: visible ? 'green' : 'red' }} onClick={handleVisible}>
+                  <div className={styles.toggle} style={{ left: visible ? '0' : '50%' }}></div>
+                </div>
+              </div>
             </div>
           </article>
           <figure className={styles.thumbFrame}>

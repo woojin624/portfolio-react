@@ -43,7 +43,7 @@ function LoginPage(props) {
       <h1 className={styles.title}>J.com Admin</h1>
       <div className={styles.formWrap}>
         <figure className={styles.imgWrap}>
-          <img src='/images/login.png' alt='login-image' />
+          <img src='/images/login.png' alt='login' />
         </figure>
         <div className={styles.formLine}></div>
         <form className={styles.loginForm} onSubmit={onSubmitHandler}>

@@ -6,6 +6,7 @@ const projectSchema = new mongoose.Schema(
     number: { type: Number },
     image: { type: String },
     color: { type: String },
+    visible: { type: Boolean },
     title: { type: String },
     subTitle: { type: String },
     period: { type: String },

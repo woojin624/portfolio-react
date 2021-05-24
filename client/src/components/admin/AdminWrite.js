@@ -41,6 +41,7 @@ const AdminWrite = ({ loadingProjects }) => {
   const [color, setColor] = useColor('hex', '#fff');
   const [tag, setTag] = useState([]);
   const [workRange, setWorkRange] = useState([]);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const skills = tagArr.split(',');
@@ -51,6 +52,10 @@ const AdminWrite = ({ loadingProjects }) => {
     const ranges = workRangeArr.split(',');
     setWorkRange(ranges);
   }, [workRangeArr]);
+
+  const handleVisible = () => {
+    setVisible(!visible);
+  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -96,6 +101,7 @@ const AdminWrite = ({ loadingProjects }) => {
     formData.append(`${title}&subImg`, subImg);
     formData.append(`number`, number);
     formData.append(`color`, color.hex);
+    formData.append(`visible`, visible);
     formData.append('title', title);
     formData.append('subTitle', subTitle);
     formData.append('period', period);
@@ -129,24 +135,29 @@ const AdminWrite = ({ loadingProjects }) => {
               <h3>메인 컬러</h3>
               <ColorTab color={color} setColor={setColor} />
             </div>
+            <div className={styles.visibleWrap}>
+              <h3>공개 여부</h3>
+              <div className={styles.visibleInput}>
+                <p>{visible ? '공개' : '비공개'}</p>
+                <div className={styles.toggleWrap} style={{ backgroundColor: visible ? 'green' : 'red' }} onClick={handleVisible}>
+                  <div className={styles.toggle} style={{ left: visible ? '0' : '50%' }}></div>
+                </div>
+              </div>
+            </div>
           </article>
           <figure className={styles.thumbFrame}>
-            {/* <label htmlFor='thumb'>썸네일</label> */}
             {thumbImg ? <img src={thumbImgPath} alt='thumbnail' /> : <div className={styles.thumbTemp}>Thumbnail</div>}
             <input className={styles.thumbInput} type='file' value={thumbImgName} file={thumbImg} name='thumbImg' onChange={handleFileChange} placeholder='썸네일이미지파일' id='thumbImg' />
           </figure>
           <div className={styles.divLine}></div>
           <figure className={styles.mainFrame}>
-            {/* <label htmlFor='mainImg'>메인 이미지</label> */}
             {mainImg ? <img src={mainImgPath} alt='mainImg' /> : <div className={styles.mainTemp}>Main</div>}
             {/* <h1>{title}</h1> */}
           </figure>
           <input className={styles.mainImageInput} type='file' value={mainImgName} file={mainImg} name='mainImg' onChange={handleFileChange} placeholder='메인이미지파일' id='mainImg' />
         </section>
-
         <input className={styles.subTitleInput} type='text' value={subTitle} name='subTitle' onChange={getValue} placeholder='프로젝트 부제목' id='subTitle' />
         <input className={styles.titleInput} type='text' value={title} name='title' onChange={getValue} placeholder='프로젝트 제목' id='title' />
-        {/* <label htmlFor='tagArr'>기술스택</label> */}
         {tag.length > 1 && (
           <div className={styles.skillSetEls}>
             {tag.map((skill, i) => (
@@ -184,10 +195,7 @@ const AdminWrite = ({ loadingProjects }) => {
           </article>
         </section>
 
-        <figure className={styles.subFrame}>
-          {/* <label htmlFor='subImg'>서브 이미지</label> */}
-          {subImg ? <img src={subImgPath} alt='subImg' /> : <div className={styles.subTemp}>Sub</div>}
-        </figure>
+        <figure className={styles.subFrame}>{subImg ? <img src={subImgPath} alt='subImg' /> : <div className={styles.subTemp}>Sub</div>}</figure>
         <input className={styles.subImageInput} type='file' value={subImgName} file={subImg} name='subImg' onChange={handleFileChange} placeholder='서브이미지파일' id='subImg' />
 
         <section className={styles.summary}>

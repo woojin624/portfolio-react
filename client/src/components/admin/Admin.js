@@ -51,8 +51,6 @@ const Admin = ({ user }) => {
   );
 };
 
-// export default withRouter(Admin);
-
 const mapStateToProps = ({ user }) => {
   return {
     user,
