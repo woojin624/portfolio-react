@@ -21,9 +21,16 @@ const OtherProjectBtn = ({ project, order }) => {
     height: 100%;
     color: #fff;
     background-position: center;
-    background-size: cover;
+    background-color: #242424;
+    background-size: 50% auto;
     background-repeat: no-repeat;
     background-image: url(${project.mainImg});
+
+    @media all and (max-width: 767px) {
+      position: relative;
+      width: 100%;
+      height: 160px;
+    }
   `;
 
   const BtnBack = styled.div`
@@ -34,7 +41,7 @@ const OtherProjectBtn = ({ project, order }) => {
     transition: 0.6s;
 
     &:hover {
-      background-color: #242424b7;
+      background-color: #24242490;
 
       h2 {
         letter-spacing: 0.1rem;
@@ -56,6 +63,10 @@ const OtherProjectBtn = ({ project, order }) => {
       font-size: 2rem;
       font-weight: 700;
       transition: 0.4s ease-out;
+    }
+
+    @media all and (max-width: 767px) {
+      padding: 2rem 1.5rem;
     }
   `;
 

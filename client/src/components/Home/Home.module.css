@@ -112,7 +112,7 @@
   transform: translate(50%, -50%);
   width: 75vw;
   height: 75vw;
-  border: 1px solid #7e7e7e;
+  border: 2px solid #525252;
   border-radius: 50%;
   z-index: -1;
 }

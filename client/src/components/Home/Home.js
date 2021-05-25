@@ -70,7 +70,7 @@ const Home = ({ projectsList }) => {
           </section>
         </motion.div>
         <motion.div variants={framer.cornerCircle} className={styles.cornerCircle}></motion.div>
-        <div className={styles.backCircle}></div>
+        <motion.div variants={framer.backCircle} className={styles.backCircle}></motion.div>
       </motion.div>
     </>
   );
