@@ -8,6 +8,7 @@ import * as framer from '../../framer/projectDetail';
 import ReactHtmlParser from 'react-html-parser';
 
 import styles from './ProjectDetail.module.css';
+import SubImg from './SubImg';
 
 const ProjectDetail = ({ match, projectsList }) => {
   const id = match.params.id;
@@ -24,19 +25,16 @@ const ProjectDetail = ({ match, projectsList }) => {
   return (
     <>
       {project.visible ? (
-        <motion.div initial='out' animate='in' exit='out' variants={framer.projectDetail} className={styles.projectDetail}>
+        <motion.div initial='hidden' animate='in' exit='out' variants={framer.projectDetail} className={styles.projectDetail}>
           {project.mainImg && (
             <motion.figure //
-              initial='out'
-              animate='in'
-              exit='out'
               variants={framer.mainImageWrap}
               className={styles.mainImageWrap}
             >
               <img src={project.mainImg} alt='main' />
-              <motion.div variants={framer.mainImageCover} className={styles.mainImageCover} style={{ backgroundColor: project.color ? project.color : '#f00' }}>
+              {/* <motion.div variants={framer.mainImageCover} className={styles.mainImageCover} style={{ backgroundColor: project.color ? project.color : '#f00' }}>
                 <h1>{project.title}</h1>
-              </motion.div>
+              </motion.div> */}
             </motion.figure>
           )}
           <div className={styles.projectInfo}>
@@ -75,11 +73,7 @@ const ProjectDetail = ({ match, projectsList }) => {
               </article>
             </section>
 
-            {project.subImg && (
-              <figure className={styles.subImageWrap}>
-                <img className={styles.subImage} src={project.subImg} alt='sub' />
-              </figure>
-            )}
+            {project.subImg && <SubImg subImg={project.subImg} />}
 
             <section className={styles.summary}>
               <article>

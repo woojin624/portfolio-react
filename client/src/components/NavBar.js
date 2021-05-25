@@ -6,8 +6,6 @@ import styles from './NavBar.module.css';
 import * as framer from '../framer/navBar';
 
 const NavBar = () => {
-  console.log(window.location.pathname);
-
   const navListNames = [
     { name: 'about', link: '/about', type: 'in' },
     { name: 'projects', link: '/projects', type: 'in' },

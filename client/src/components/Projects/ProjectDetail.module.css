@@ -12,7 +12,7 @@
   position: relative;
   overflow: hidden;
   transform-origin: center top;
-  padding: 1rem;
+  /* padding: 1rem; */
 }
 
 .mainImageWrap > img {
@@ -140,7 +140,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  transform: translateY(-50%);
+  /* transform: translateY(-50%); */
 }
 .mainInfo a:hover,
 .mainInfo a {
