@@ -12,25 +12,22 @@ export const projectDetail = {
   out: {
     y: '100vh',
     opacity: 1,
-    transition: { duration: 0.6, delay: 0.4 },
+    transition: { duration: 0.9, delay: 0.4 },
   },
 };
 
 export const mainImageWrap = {
   hidden: {
     height: '100vh',
-    padding: '0rem',
     transition: { duration: 0.4, delay: 0 },
   },
   in: {
     height: document.body.offsetWidth > 400 ? '40vh' : '25vh',
-    padding: '1rem',
     transition: { duration: 1.2, delay: 0.5 },
   },
   out: {
     height: '100vh',
-    padding: '0rem',
-    transition: { duration: 0.4, delay: 0 },
+    transition: { duration: 0.6, delay: 0 },
   },
 };
 

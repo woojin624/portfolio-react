@@ -46,6 +46,7 @@ input.number {
 .visibleWrap,
 .colorWrap {
   margin: 0 1rem;
+  z-index: 10;
 }
 
 .colorTab {

@@ -4,19 +4,19 @@ export default {
       name: 'HTML5',
       icon: '/images/logo/logo_html.png',
       color: '#E44D26',
-      desc: 'HTML5 작성',
+      desc: '시맨틱 마크업, 웹 표준, 웹 접근성',
     },
     {
       name: 'CSS3',
       icon: '/images/logo/logo_css.png',
       color: '#0170BA',
-      desc: 'CSS3 작성',
+      desc: 'SCSS, Styled-Component, Layout, Flex Box, Gird, Animation, Interaction',
     },
     {
       name: 'JavsScript',
       icon: '/images/logo/logo_js.png',
       color: '#F7DF1E',
-      desc: 'ES6',
+      desc: 'ES6+, DOM요소 동적 조작',
     },
     {
       name: 'React',

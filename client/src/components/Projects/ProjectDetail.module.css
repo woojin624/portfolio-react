@@ -12,7 +12,6 @@
   position: relative;
   overflow: hidden;
   transform-origin: center top;
-  /* padding: 1rem; */
 }
 
 .mainImageWrap > img {
@@ -284,6 +283,22 @@
 .hiddenProject > h1 {
   font-size: 6vw;
   font-weight: 700;
+}
+
+.otherProjectsWrap {
+  width: 100%;
+  height: 360px;
+  background: #242424;
+}
+
+.otherProjects {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
 }
 
 /* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/

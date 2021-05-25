@@ -9,10 +9,13 @@ import ReactHtmlParser from 'react-html-parser';
 
 import styles from './ProjectDetail.module.css';
 import SubImg from './SubImg';
+import OtherProjectBtn from './OtherProjectBtn';
 
 const ProjectDetail = ({ match, projectsList }) => {
   const id = match.params.id;
-  const [project, setProject] = useState(...[...projectsList].filter((data) => data._id === parseInt(id)));
+  const openedProjects = projectsList.filter((project) => project.visible);
+  const [project, setProject] = useState(openedProjects.find((project) => project._id === parseInt(id)));
+  const curIndex = openedProjects.indexOf(project);
 
   let history = useHistory();
   window.scrollTo(0, 0);
@@ -84,6 +87,12 @@ const ProjectDetail = ({ match, projectsList }) => {
               </article>
             </section>
             <section className={styles.content}>{ReactHtmlParser(project.content)}</section>
+          </div>
+          <div className={styles.otherProjectsWrap}>
+            <section className={styles.otherProjects}>
+              {openedProjects[curIndex + 1] && <OtherProjectBtn order={'Prev'} project={openedProjects[curIndex + 1]} />}
+              {openedProjects[curIndex - 1] && <OtherProjectBtn order={'Next'} project={openedProjects[curIndex - 1]} />}
+            </section>
           </div>
         </motion.div>
       ) : (
