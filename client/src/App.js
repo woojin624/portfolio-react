@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { connect } from 'react-redux';
-import { loadingProjects } from './redux';
+import { loadingGames, loadingProjects } from './redux';
 
 import './App.css';
 
@@ -17,18 +17,17 @@ import ProjectDetail from './components/Projects/ProjectDetail';
 import Loading from './components/Loading';
 import LoginPage from './components/admin/LoginPage';
 
-const App = ({ loading, loadingProjects }) => {
+const App = ({ loading, gLoading, loadingProjects, loadingGames }) => {
   const location = useLocation();
 
   useEffect(() => {
+    loadingGames();
     loadingProjects();
   }, []);
 
   return (
     <div className='App'>
-      {loading ? (
-        <Loading />
-      ) : (
+      {!gLoading && !loading ? (
         <>
           <NavBar />
           <AnimatePresence exitBeforeEnter>
@@ -53,20 +52,23 @@ const App = ({ loading, loadingProjects }) => {
             </Switch>
           </AnimatePresence>
         </>
+      ) : (
+        <Loading />
       )}
     </div>
   );
 };
 
-const mapStateToProps = ({ projects }) => {
+const mapStateToProps = ({ projects, games }) => {
   return {
-    projects: projects.projects,
     loading: projects.loading,
+    gLoading: games.loading,
   };
 };
 
 const mapDispatchToProps = {
   loadingProjects,
+  loadingGames,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

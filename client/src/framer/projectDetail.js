@@ -10,7 +10,6 @@ export const projectDetail = {
     transition: { duration: 0.7, delay: 0 },
   },
   out: {
-    // y: '0%',
     y: '100vh',
     opacity: 1,
     transition: { duration: 0.6, delay: 0.4 },
@@ -29,7 +28,6 @@ export const mainImageWrap = {
     transition: { duration: 1.2, delay: 0.5 },
   },
   out: {
-    height: document.body.offsetWidth > 400 ? '40vh' : '25vh',
     height: '100vh',
     padding: '0rem',
     transition: { duration: 0.4, delay: 0 },
