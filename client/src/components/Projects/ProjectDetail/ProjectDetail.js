@@ -18,11 +18,9 @@ const ProjectDetail = ({ match, projectsList }) => {
   const curIndex = openedProjects.indexOf(project);
 
   let history = useHistory();
-  window.scrollTo(0, 0);
 
   const projectClose = () => {
     history.push('/projects');
-    window.scrollTo(0, 0);
   };
 
   return (
