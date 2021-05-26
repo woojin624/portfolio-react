@@ -141,7 +141,7 @@ export const backCircle = {
     opacity: [1, 1, 0],
     x: '50%',
     y: '-50%',
-    scale: [1, 4, 4],
+    scale: [1, 0, 0],
     transition: {
       ease: 'easeInOut',
       duration: 1,

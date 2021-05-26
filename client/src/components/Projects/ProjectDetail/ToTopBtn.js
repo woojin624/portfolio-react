@@ -29,6 +29,17 @@ const ToTopBtn = () => {
         opacity: 1;
       }
     }
+
+    @media all and (max-width: 767px) {
+      top: -3.5rem;
+      right: 1rem;
+      font-size: 1.2rem;
+
+      svg {
+        font-size: 1.3rem;
+        opacity: 1;
+      }
+    }
   `;
 
   return (

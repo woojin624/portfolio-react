@@ -66,7 +66,7 @@ const OtherProjectBtn = ({ project, order }) => {
     }
 
     @media all and (max-width: 767px) {
-      padding: 2rem 1.5rem;
+      padding: 2rem 1rem;
     }
   `;
 

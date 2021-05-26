@@ -40,13 +40,7 @@ const NavBar = () => {
       </div>
       <AnimatePresence>
         {isNavOpen ? (
-          <motion.div
-            initial='out' //
-            animate='in'
-            exit='out'
-            variants={framer.navContain}
-            className={styles.navContain}
-          >
+          <motion.div initial='out' animate='in' exit='out' variants={framer.navContain} className={styles.navContain}>
             <motion.ul className={styles.linkList} variants={framer.navUl}>
               {linkListNames.map((list, i) => (
                 <motion.li
@@ -67,7 +61,7 @@ const NavBar = () => {
             <motion.ul className={styles.navList} variants={framer.navUl}>
               {navListNames.map((list, i) => (
                 <motion.li
-                  key={i} //
+                  key={i}
                   variants={framer.navEl}
                   transition={{ duration: 0.2 }}
                   whileHover={{
