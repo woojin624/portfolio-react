@@ -58,21 +58,28 @@ export const workThumb = {
   hidden: {
     x: '0%',
     y: '0%',
+    opacity: 1,
   },
   visible: (i) => ({
-    x: `${-i * 5}%`,
+    x: `${-i * 8}%`,
     y: `${i * 15}%`,
+    opacity: 1,
     transition: {
       delay: 0.5,
       duration: 1,
     },
   }),
   out: (i) => ({
-    x: `${-i * 5}%`,
-    y: `${i * 15}%`,
+    x: `${0}%`,
+    y: `${0}%`,
+    opacity: 0,
+    transition: {
+      delay: 0,
+      duration: 0.7,
+    },
   }),
   hover: {
-    scale: 1.02,
+    scale: 1.01,
     zIndex: 10,
     transition: { duration: 0.3 },
   },
@@ -95,13 +102,13 @@ export const pageTitle = {
 
 export const cornerCircle = {
   hidden: {
-    x: '-50%',
-    y: '-50%',
+    x: '-60%',
+    y: '-45%',
     scale: 0,
   },
   visible: {
-    x: '-50%',
-    y: '-50%',
+    x: '-60%',
+    y: '-45%',
     scale: 0.5,
     transition: {
       delay: 0,
@@ -111,9 +118,9 @@ export const cornerCircle = {
   },
   out: {
     opacity: [1, 1, 0],
-    x: '-50%',
-    y: '-50%',
-    scale: [1, 15, 15],
+    x: '-60%',
+    y: '-45%',
+    scale: [1, 5, 5],
     transition: {
       ease: 'easeInOut',
       duration: 1,

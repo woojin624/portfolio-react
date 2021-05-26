@@ -61,7 +61,7 @@ const Home = ({ projectsList }) => {
               </div>
               <div className={styles.thumbBox}>
                 {myWorks.map((work, i) => (
-                  <motion.div onClick={onWorksClick} variants={framer.workThumb} whileHover='hover' custom={i} key={i} className={styles.workThumb}>
+                  <motion.div onClick={onWorksClick} variants={framer.workThumb} initial='hidden' animate='visible' exit='out' whileHover='hover' custom={i} key={i} className={styles.workThumb}>
                     <img className={styles.thumbImg} src={work.thumbImg} alt='thumb' />
                   </motion.div>
                 ))}
