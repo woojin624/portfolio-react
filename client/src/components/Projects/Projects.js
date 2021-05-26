@@ -27,6 +27,11 @@ const Projects = ({ projectsList }) => {
     history.push(`/projects/${workId}`);
   };
 
+  const onCardBtnClick = (e) => {
+    let workId = e.target.parentNode.parentNode.dataset.id;
+    history.push(`/projects/${workId}`);
+  };
+
   return (
     <motion.div variants={framer.projects} initial='hidden' animate='visible' exit='out' className={styles.projects}>
       <motion.h3 variants={framer.pageTitle} className={styles.pageTitle}>
@@ -42,7 +47,7 @@ const Projects = ({ projectsList }) => {
       <motion.div className={styles.projectsContain} variants={framer.projectBox}>
         <div className={styles.projectBoxWrap}>
           {reversedList.map((project, i) => (
-            <div data-id={project._id} className={styles.projectBox} key={i}>
+            <div data-id={project._id} className={i % 2 === 0 ? `${styles.projectBox} ${styles.odd}` : `${styles.projectBox} ${styles.even}`} key={i}>
               <figure
                 className={styles.projectBoxImg}
                 onClick={onCardClick} //
@@ -56,11 +61,15 @@ const Projects = ({ projectsList }) => {
                   <AiOutlinePlus />
                 </div>
               </figure>
-              <h4 className={styles.projectBoxTitle} onClick={onCardClick}>
-                {project.title}
-              </h4>
-              <div className={styles.projectBoxSkills}>{project.tag && project.tag.map((skill, i) => <span key={i}>{skill}</span>)}</div>
-              <p className={styles.projectBoxDesc}>{project.subTitle}</p>
+              <div className={styles.projectBoxContent}>
+                <p className={styles.projectNum}>{i < 9 ? `0${i + 1}` : i + 1}</p>
+                <h4 className={styles.projectBoxTitle}>{project.title}</h4>
+                <div className={styles.projectBoxSkills}>{project.tag && project.tag.map((skill, i) => <span key={i}>{skill}</span>)}</div>
+                <p className={styles.projectBoxDesc}>{project.subTitle}</p>
+                <button className={styles.viewBtn} onClick={onCardBtnClick}>
+                  VIEW PROJECT<div></div>
+                </button>
+              </div>
             </div>
           ))}
         </div>

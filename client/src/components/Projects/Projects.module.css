@@ -19,11 +19,8 @@
 
 .projectBoxWrap {
   padding: 0 2rem;
-  padding-top: 120px;
+  padding-top: 100px;
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
 }
 
 .projectBoxWrap > div > figure > * {
@@ -34,13 +31,39 @@
   position: relative;
   width: 100%;
   height: auto;
-  /* cursor: pointer; */
   transition: 0.3s ease-in;
   color: #242424;
+  display: flex;
+  margin-bottom: 5rem;
+}
+
+.projectBox.odd .projectBoxContent {
+  margin-left: 5%;
+}
+
+.projectBox.even .projectBoxContent {
+  order: 1;
+  margin-right: 5%;
+}
+
+.projectBox.even .projectBoxImg {
+  order: 2;
+}
+
+.projectBoxContent {
+  border-top: 1px solid #242424;
+  padding-top: 2rem;
+  flex: 2;
+}
+
+.projectNum {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
 .projectBoxImg {
   position: relative;
+  flex: 3;
   z-index: 999;
   width: 100%;
   cursor: pointer;
@@ -52,6 +75,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .projectBoxImg .thumbHover {
@@ -93,10 +117,9 @@
 
 .projectBoxTitle {
   position: relative;
-  font-size: 36px;
+  font-size: 6rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  cursor: pointer;
 }
 
 .projectBoxSkills {
@@ -115,17 +138,45 @@
 
 .projectBoxDesc {
   position: relative;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 700;
   margin-bottom: 2rem;
+}
+
+.viewBtn {
+  border: 2px solid #242424;
+  padding: 1rem;
+  font-size: 18px;
+  font-weight: 700;
+  position: relative;
+  overflow: hidden;
+}
+
+.viewBtn > div {
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: 0.4s;
+  backdrop-filter: invert(100%);
+  transform: translate(0, 100%);
+}
+
+.viewBtn:hover > div {
+  transform: translate(0, 0%);
+}
+
+.viewBtn:focus > div {
+  transform: translate(0, 0%) scaleY(0);
 }
 
 .initTitle {
   width: 100%;
   top: 80px;
   left: 1rem;
-  /* overflow-x: hidden; */
   position: relative;
   padding-bottom: 3rem;
   white-space: nowrap;
@@ -155,6 +206,15 @@
   }
   .projectBoxWrap {
     padding-top: 80px;
+  }
+
+  .projectBoxTitle {
+    font-size: 3.5rem;
+  }
+
+  .viewBtn {
+    padding: 0.8rem;
+    font-size: 16px;
   }
 }
 
@@ -198,6 +258,11 @@
     font-size: 8rem;
     font-weight: 700;
   }
+
+  .viewBtn {
+    padding: 0.8rem;
+    font-size: 16px;
+  }
 }
 
 /* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
@@ -213,13 +278,51 @@
     gap: 1rem;
   }
 
+  .projectBoxImg {
+    margin-bottom: 1rem;
+  }
+
+  .projectBox {
+    flex-direction: column;
+    margin-bottom: 4rem;
+  }
+
+  .projectBoxContent {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .projectBox.odd .projectBoxContent {
+    margin-left: 0%;
+  }
+
+  .projectBox.even .projectBoxContent {
+    order: 2;
+    margin-right: 0%;
+  }
+
+  .projectBox.even .projectBoxImg {
+    order: 1;
+  }
+
+  .projectBoxContent {
+    border-top: 0px solid #242424;
+    padding-top: 0rem;
+    flex: 2;
+  }
+
+  .projectNum {
+    display: none;
+  }
+
   .projectBoxTitle {
-    font-size: 30px;
-    margin-bottom: 1.5rem;
+    font-size: 3rem;
+    margin-bottom: 0.8rem;
   }
 
   .projectBoxSkills {
     margin-bottom: 1rem;
+    order: -1;
   }
   .projectBoxSkills > span {
     display: inline-block;
@@ -232,8 +335,14 @@
   }
 
   .projectBoxDesc {
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  .projectBoxImg {
+    margin-bottom: 0.5rem;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
   }
 
   .projectBoxImg .thumbHover {
