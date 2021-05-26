@@ -10,7 +10,7 @@ const ContentArea = ({ project }) => {
     padding: 50px;
 
     @media all and (max-width: 767px) {
-      padding: 1rem;
+      padding: 0.5rem 1rem;
     }
   `;
 
@@ -32,6 +32,10 @@ const ContentArea = ({ project }) => {
     ${frame}
     ${title('3rem')}
     margin: 1rem auto 4rem;
+
+    @media all and (max-width: 767px) {
+      ${title('2rem')}
+    }
   `;
 
   const Content = styled.section`
@@ -39,11 +43,6 @@ const ContentArea = ({ project }) => {
     width: 100%;
     min-height: 100px;
     height: auto;
-
-    img {
-      width: 100%;
-      margin-bottom: 3rem;
-    }
 
     h1 {
       ${frame}
@@ -59,58 +58,97 @@ const ContentArea = ({ project }) => {
       ${frame}
       ${title('18px')}
     }
+    p {
+      img {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: block;
+      }
+    }
 
     ul {
       background: #242424;
       color: #f8f6f3;
-      padding: 1rem 0;
-
-      li {
-        strong {
-          display: block;
-          ${frame}
-          ${title('3rem')}
-        }
-
-        em {
-          display: block;
-          ${frame}
-          ${title('1.5rem')}
-          font-weight: 500;
-        }
-      }
-
-      img {
-        ${frame}
-        margin-bottom: 0;
-        padding: 1rem 50px;
-      }
+      padding: 2rem 0;
     }
 
     ol {
       background: none;
       color: #242424;
-      padding: 1rem 0;
+      padding: 2rem 0;
+    }
 
-      li {
-        strong {
-          display: block;
-          ${frame}
-          ${title('3rem')}
-        }
+    li {
+      strong {
+        display: block;
+        ${frame}
+        ${title('3rem')}
+        margin-top: 3rem;
+      }
 
-        em {
-          display: block;
-          ${frame}
-          ${title('1.5rem')}
-          font-weight: 500;
-        }
+      em {
+        display: block;
+        ${frame}
+        ${title('1.5rem')}
+        font-weight: 500;
       }
 
       img {
         ${frame}
-        margin-bottom: 0;
+        margin: 0 auto;
         padding: 1rem 50px;
+        display: block;
+      }
+    }
+
+    blockquote {
+      ${frame};
+      margin: 0 auto;
+      font-size: 1rem;
+      text-align: left;
+      p {
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      h1 {
+        ${title('1.3rem')}
+      }
+
+      h2 {
+        ${title('18px')}
+      }
+
+      h3 {
+        ${title('14px')}
+      }
+
+      ul {
+        padding: 0.5rem 0;
+      }
+
+      ol {
+        padding: 0.5rem 0;
+      }
+
+      li {
+        strong {
+          ${title('1.3rem')}
+          margin: 1rem auto;
+        }
+
+        em {
+          ${title('0.8rem')}
+          font-weight: 500;
+          margin: 0.5rem auto;
+        }
+
+        img {
+          ${frame}
+          margin-bottom: 0;
+          padding: 0.5rem 50px;
+        }
       }
     }
   `;

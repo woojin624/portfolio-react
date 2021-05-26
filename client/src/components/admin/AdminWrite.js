@@ -15,6 +15,7 @@ const AdminWrite = ({ loadingProjects }) => {
 
   const [projectContent, setProjectContetns] = useState({
     number: '',
+    category: '',
     thumbImg: null,
     thumbImgName: '',
     thumbImgPath: '',
@@ -35,7 +36,7 @@ const AdminWrite = ({ loadingProjects }) => {
     workRangeArr: '',
   });
 
-  const { number, thumbImg, thumbImgName, thumbImgPath, mainImg, mainImgName, mainImgPath, title, subTitle, period, siteLink, githubLink, subImg, subImgName, subImgPath, desc, tagArr, people, workRangeArr } = projectContent;
+  const { number, category, thumbImg, thumbImgName, thumbImgPath, mainImg, mainImgName, mainImgPath, title, subTitle, period, siteLink, githubLink, subImg, subImgName, subImgPath, desc, tagArr, people, workRangeArr } = projectContent;
 
   const [content, setContent] = useState('콘텐츠 입력');
   const [color, setColor] = useColor('hex', '#fff');
@@ -102,6 +103,7 @@ const AdminWrite = ({ loadingProjects }) => {
     formData.append(`number`, number);
     formData.append(`color`, color.hex);
     formData.append(`visible`, visible);
+    formData.append(`category`, category);
     formData.append('title', title);
     formData.append('subTitle', subTitle);
     formData.append('period', period);
@@ -143,6 +145,14 @@ const AdminWrite = ({ loadingProjects }) => {
                   <div className={styles.toggle} style={{ left: visible ? '0' : '50%' }}></div>
                 </div>
               </div>
+            </div>
+            <div className={styles.categoryWrap}>
+              <h3>프로젝트 종류</h3>
+              <select value={category} name='category' id='category' onChange={getValue}>
+                <option value='Personal Project'>Personal Project</option>
+                <option value='Team Project'>Team Project</option>
+                <option value='Business Project'>Business Project</option>
+              </select>
             </div>
           </article>
           <figure className={styles.thumbFrame}>
@@ -210,7 +220,9 @@ const AdminWrite = ({ loadingProjects }) => {
         <div className={styles.contentWrap}>
           <AdminWriteEditor content={content} setContent={setContent} />
         </div>
-        <button type='submit'>등록</button>
+        <button className={styles.submitBtn} type='submit'>
+          등록
+        </button>
       </form>
     </div>
   );

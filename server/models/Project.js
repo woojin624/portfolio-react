@@ -7,6 +7,7 @@ const projectSchema = new mongoose.Schema(
     image: { type: String },
     color: { type: String },
     visible: { type: Boolean },
+    category: { type: String },
     title: { type: String },
     subTitle: { type: String },
     period: { type: String },

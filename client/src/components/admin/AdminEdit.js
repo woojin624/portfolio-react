@@ -28,6 +28,7 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
 
   const [projectContent, setProjectContent] = useState({
     number: '',
+    category: '',
     thumbImg: null,
     thumbImgName: '',
     thumbImgPath: '',
@@ -48,7 +49,7 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
     workRangeArr: '',
   });
 
-  const { number, thumbImg, thumbImgName, thumbImgPath, mainImg, mainImgName, mainImgPath, title, subTitle, period, siteLink, githubLink, subImg, subImgName, subImgPath, desc, tagArr, people, workRangeArr } = projectContent;
+  const { number, category, thumbImg, thumbImgName, thumbImgPath, mainImg, mainImgName, mainImgPath, title, subTitle, period, siteLink, githubLink, subImg, subImgName, subImgPath, desc, tagArr, people, workRangeArr } = projectContent;
 
   const [content, setContent] = useState();
   const [color, setColor] = useColor('hex', [...projectsList].filter((data) => data._id === parseInt(id))[0].color);
@@ -117,6 +118,7 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
     formData.append(`number`, number);
     formData.append(`color`, color.hex);
     formData.append(`visible`, visible);
+    formData.append(`category`, category);
     formData.append('title', title);
     formData.append('subTitle', subTitle);
     formData.append('period', period);
@@ -158,6 +160,14 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
                   <div className={styles.toggle} style={{ left: visible ? '0' : '50%' }}></div>
                 </div>
               </div>
+            </div>
+            <div className={styles.categoryWrap}>
+              <h3>프로젝트 종류</h3>
+              <select value={category} name='category' id='category' onChange={getValue}>
+                <option value='Personal Project'>Personal Project</option>
+                <option value='Team Project'>Team Project</option>
+                <option value='Business Project'>Business Project</option>
+              </select>
             </div>
           </article>
           <figure className={styles.thumbFrame}>
@@ -231,7 +241,9 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
         </section>
         <label htmlFor='content'>내용</label>
         <div className={styles.contentWrap}>{content && <AdminWriteEditor content={NodeHtmlMarkdown.translate(content)} setContent={setContent} />}</div>
-        <button type='submit'>수정</button>
+        <button className={styles.submitBtn} type='submit'>
+          수정
+        </button>
       </form>
     </div>
   );

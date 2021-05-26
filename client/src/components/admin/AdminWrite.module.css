@@ -42,7 +42,7 @@ input.number {
   min-width: 200px;
   margin: 0.5rem 0;
 }
-
+.categoryWrap,
 .visibleWrap,
 .colorWrap {
   margin: 0 1rem;
@@ -129,6 +129,15 @@ input.number {
   background: #fff;
   border-radius: 50%;
   transition: 0.2s;
+}
+
+.categoryWrap > select {
+  height: 40px;
+  margin: 0.5rem 0;
+  padding: 5px 10px;
+  font-weight: 500;
+  border: 0;
+  background: rgba(243, 243, 243, 0.884);
 }
 
 .thumbFrame {
@@ -384,6 +393,16 @@ input.number {
   height: auto;
   margin: 0.5rem 0;
   border: 1px solid black;
+}
+
+.submitBtn {
+  margin: 0 auto;
+  width: 120px;
+  height: 40px;
+  background: rgb(12, 49, 65);
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 
 /* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/
