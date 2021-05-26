@@ -31,17 +31,17 @@ export const mainImageWrap = {
   },
 };
 
-export const mainImageCover = {
+export const projectCloseBtn = {
   hidden: {
-    scaleY: 1,
-    transition: { duration: 0, delay: 0.9 },
+    opacity: 0,
+    transition: { duration: 0, delay: 0 },
   },
   in: {
-    scaleY: 0,
-    transition: { duration: 0.9, delay: 0.6 },
+    opacity: 1,
+    transition: { duration: 0.4, delay: 0.5 },
   },
   out: {
-    scaleY: 1,
-    transition: { duration: 0, delay: 0.9 },
+    opacity: 0,
+    transition: { duration: 0.4, delay: 0 },
   },
 };

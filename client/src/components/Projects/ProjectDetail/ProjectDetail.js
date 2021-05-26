@@ -3,7 +3,7 @@ import { useHistory, withRouter } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { connect } from 'react-redux';
 import { BsArrowUpRight, BsX } from 'react-icons/bs';
-import * as framer from '../../framer/projectDetail';
+import * as framer from '../../../framer/projectDetail';
 
 import styles from './ProjectDetail.module.css';
 import SubImg from './SubImg';
@@ -35,9 +35,6 @@ const ProjectDetail = ({ match, projectsList }) => {
               className={styles.mainImageWrap}
             >
               <img src={project.mainImg} alt='main' />
-              {/* <motion.div variants={framer.mainImageCover} className={styles.mainImageCover} style={{ backgroundColor: project.color ? project.color : '#f00' }}>
-                <h1>{project.title}</h1>
-              </motion.div> */}
             </motion.figure>
           )}
           <div className={styles.projectInfo}>
@@ -101,9 +98,9 @@ const ProjectDetail = ({ match, projectsList }) => {
           <h1>비공개 프로젝트입니다.🤔</h1>
         </div>
       )}
-      <button className={styles.projectCloseBtn} onClick={projectClose}>
+      <motion.button initial='hidden' animate='in' exit='out' variants={framer.projectCloseBtn} className={styles.projectCloseBtn} onClick={projectClose}>
         <BsX className={styles.xBtn} />
-      </button>
+      </motion.button>
     </>
   );
 };

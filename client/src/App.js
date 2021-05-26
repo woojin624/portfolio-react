@@ -13,7 +13,7 @@ import Games from './components/Games/Games';
 import Projects from './components/Projects/Projects';
 import NavBar from './components/NavBar';
 import Admin from './components/admin/Admin';
-import ProjectDetail from './components/Projects/ProjectDetail';
+import ProjectDetail from './components/Projects/ProjectDetail/ProjectDetail';
 import Loading from './components/Loading';
 import LoginPage from './components/admin/LoginPage';
 
