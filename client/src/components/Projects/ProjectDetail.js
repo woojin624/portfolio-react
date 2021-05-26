@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 import { BsArrowUpRight, BsX } from 'react-icons/bs';
 import * as framer from '../../framer/projectDetail';
 
-import ReactHtmlParser from 'react-html-parser';
-
 import styles from './ProjectDetail.module.css';
 import SubImg from './SubImg';
 import OtherProjectBtn from './OtherProjectBtn';
+import ToTopBtn from './ToTopBtn';
+import ContentArea from './ContentArea';
 
 const ProjectDetail = ({ match, projectsList }) => {
   const id = match.params.id;
@@ -51,7 +51,7 @@ const ProjectDetail = ({ match, projectsList }) => {
             <section className={styles.mainInfo}>
               <article>
                 <a href={project.siteLink ? project.siteLink : '#'}>
-                  <span>SITE</span>
+                  <span>SITE LINK</span>
                   <BsArrowUpRight />
                 </a>
                 <a href={project.githubLink ? project.githubLink : '#'}>
@@ -86,13 +86,14 @@ const ProjectDetail = ({ match, projectsList }) => {
                 <p className={styles.projectDesc}>{project.desc}</p>
               </article>
             </section>
-            <section className={styles.content}>{ReactHtmlParser(project.content)}</section>
           </div>
+          <ContentArea project={project} />
           <div className={styles.otherProjectsWrap}>
-            <section className={styles.otherProjects}>
+            <div className={styles.otherProjects}>
               {openedProjects[curIndex + 1] && <OtherProjectBtn order={'Prev'} project={openedProjects[curIndex + 1]} />}
               {openedProjects[curIndex - 1] && <OtherProjectBtn order={'Next'} project={openedProjects[curIndex - 1]} />}
-            </section>
+              <ToTopBtn />
+            </div>
           </div>
         </motion.div>
       ) : (
@@ -100,9 +101,9 @@ const ProjectDetail = ({ match, projectsList }) => {
           <h1>비공개 프로젝트입니다.🤔</h1>
         </div>
       )}
-      <div className={styles.projectCloseBtn} onClick={projectClose}>
+      <button className={styles.projectCloseBtn} onClick={projectClose}>
         <BsX className={styles.xBtn} />
-      </div>
+      </button>
     </>
   );
 };

@@ -2,5 +2,14 @@
   text-align: center;
   position: relative;
   margin: 0 auto;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+}
+
+button {
+  border: 0;
+  background: none;
+}
+
+button:focus {
+  outline: 0;
 }

@@ -44,7 +44,7 @@ const OtherProjectBtn = ({ project, order }) => {
       background-color: #24242490;
 
       h2 {
-        letter-spacing: 0.1rem;
+        letter-spacing: 1px;
       }
     }
 

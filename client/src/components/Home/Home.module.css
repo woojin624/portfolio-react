@@ -47,6 +47,7 @@
 
 .textWrap > p > span {
   display: inline-block;
+  letter-spacing: 1px;
 }
 
 .myWorks,
@@ -60,7 +61,7 @@
   border-radius: 25px;
   cursor: pointer;
   transition: 0.6s;
-  background: #fff;
+  background: #f8f6f3;
 }
 
 .myWorks {
@@ -77,7 +78,7 @@
 .myWorks:hover,
 .aboutMe:hover {
   border: 2px solid #242424;
-  color: #fff;
+  color: #f8f6f3;
   background: #242424;
 }
 
