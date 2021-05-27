@@ -49,7 +49,7 @@ const Projects = ({ projectsList }) => {
         <motion.div className={styles.projectsContain} variants={framer.projectBox}>
           <div className={styles.projectBoxWrap}>
             {reversedList.map((project, i) => (
-              <div data-id={project._id} className={i % 2 === 0 ? `${styles.projectBox} ${styles.odd}` : `${styles.projectBox} ${styles.even}`} key={i}>
+              <div data-id={project._id} className={i % 2 === 0 ? (i % 4 === 0 ? `${styles.projectBox} ${styles.odd} ${styles.top}` : `${styles.projectBox} ${styles.odd} ${styles.bottom}`) : i - (1 % 4) === 0 ? `${styles.projectBox} ${styles.even} ${styles.top}` : `${styles.projectBox} ${styles.even} ${styles.bottom}`} key={i}>
                 <figure
                   className={styles.projectBoxImg}
                   onClick={onCardClick} //
@@ -62,12 +62,13 @@ const Projects = ({ projectsList }) => {
                   <div className={thumbClass}>
                     <AiOutlinePlus />
                   </div>
+                  <p className={styles.category}>{project.category}</p>
+                  <p className={styles.projectNum}>{i < 9 ? `0${i + 1}` : i + 1}</p>
                 </figure>
                 <div className={styles.projectBoxContent}>
-                  <p className={styles.projectNum}>{i < 9 ? `0${i + 1}` : i + 1}</p>
                   <h4 className={styles.projectBoxTitle}>{project.title}</h4>
-                  <div className={styles.projectBoxSkills}>{project.tag && project.tag.map((skill, i) => <span key={i}>{skill}</span>)}</div>
                   <p className={styles.projectBoxDesc}>{project.subTitle}</p>
+                  <div className={styles.projectBoxSkills}>{project.tag && project.tag.map((skill, i) => <span key={i}>{skill}</span>)}</div>
                   <button className={styles.viewBtn} onClick={onCardBtnClick}>
                     VIEW PROJECT<div></div>
                   </button>
