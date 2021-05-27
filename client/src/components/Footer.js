@@ -100,9 +100,50 @@ const Footer = () => {
       figure {
         width: fit-content;
         height: auto;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end;
         svg {
-          font-size: 16rem;
-          transform: rotate(45deg);
+          font-size: 10rem;
+          transform: rotate(45deg) scale(1.6);
+        }
+      }
+
+      @media all and (max-width: 767px) {
+        padding: 2rem 1rem 1rem;
+        flex-direction: column;
+
+        section {
+          h1 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+          }
+
+          ul {
+            margin-bottom: 1.5rem;
+          }
+
+          .mail {
+            margin-bottom: 1.5rem;
+
+            .contact {
+              font-size: 14px;
+            }
+          }
+
+          .copyright {
+            font-size: 12px;
+            font-weight: 700;
+          }
+        }
+
+        figure {
+          align-self: flex-end;
+          margin-top: 1rem;
+          svg {
+            font-size: 4rem;
+            transform: rotate(45deg) scale(1.3);
+          }
         }
       }
     }

@@ -4,6 +4,7 @@
   height: auto;
   margin: 0 auto;
   text-align: left;
+  overflow-x: hidden;
 }
 
 .aboutContain {
