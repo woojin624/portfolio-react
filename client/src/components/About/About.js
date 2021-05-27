@@ -7,6 +7,7 @@ import styles from './About.module.css';
 
 import * as framer from '../../framer/about';
 import AbilityList from './AbilityList';
+import Footer from '../Footer';
 
 const About = () => {
   const aboutTitle = ['A', 'B', 'O', 'U', 'T'];
@@ -78,6 +79,7 @@ const About = () => {
           </article>
         </motion.section>
       </motion.div>
+      <Footer />
     </motion.div>
   );
 };
