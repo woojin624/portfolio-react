@@ -23,7 +23,7 @@ const App = ({ loading, gLoading, loadingProjects, loadingGames }) => {
   useEffect(() => {
     loadingGames();
     loadingProjects();
-  }, []);
+  }, [loadingGames, loadingProjects]);
 
   return (
     <div className='App'>

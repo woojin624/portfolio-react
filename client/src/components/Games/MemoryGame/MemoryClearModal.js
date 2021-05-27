@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-
+import { connect } from 'react-redux';
+import { loadingGames } from '../../../redux';
 import styles from './MemoryGame.module.css';
 
-const MemoryClearModal = ({ time, rankList, setIsClear }) => {
+const MemoryClearModal = ({ time, rankList, setIsClear, loadingGames }) => {
   const [newRankList, setNewRankList] = useState(rankList);
   const [newRank, setNewRank] = useState({
     name: '',
@@ -22,24 +23,33 @@ const MemoryClearModal = ({ time, rankList, setIsClear }) => {
   };
 
   const rankRecordHandler = () => {
-    console.log(newRankList);
-    let arr = [...newRankList, newRank];
-    arr.sort(function (a, b) {
-      return a.time - b.time;
-    });
-    setNewRankList(arr);
-    setIsRankRecord(false);
+    if (newRank.name) {
+      let arr = [...newRankList, newRank];
+      arr.sort(function (a, b) {
+        return a.time - b.time;
+      });
+      setNewRankList(arr);
+      updataRank(arr);
+      setIsRankRecord(false);
+    } else {
+      window.alert('Insert Your Name!');
+    }
   };
 
-  useEffect(() => {
+  const updataRank = (update) => {
     axios
       .put('/api/gamerank/memorygame/update', {
-        rank: newRankList,
+        rank: update,
       })
       .then((response) => {
-        // console.log(response.data);
+        console.log(response.data.name);
       });
-  }, [isRankRecord]);
+  };
+
+  const closeRank = () => {
+    setIsClear(false);
+    loadingGames();
+  };
 
   return (
     <div className={styles.cardClearPop}>
@@ -88,7 +98,7 @@ const MemoryClearModal = ({ time, rankList, setIsClear }) => {
           </div>
         )}
 
-        <button className={styles.cardModalClose} onClick={() => setIsClear(false)}>
+        <button className={styles.cardModalClose} onClick={closeRank}>
           닫기
         </button>
       </div>
@@ -96,4 +106,12 @@ const MemoryClearModal = ({ time, rankList, setIsClear }) => {
   );
 };
 
-export default MemoryClearModal;
+const mapStateToProps = () => {
+  return {};
+};
+
+const mapDispatchToProps = {
+  loadingGames,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MemoryClearModal);

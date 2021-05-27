@@ -15,7 +15,7 @@ const AdminWrite = ({ loadingProjects }) => {
 
   const [projectContent, setProjectContetns] = useState({
     number: '',
-    category: '',
+    category: 'Personal Project',
     thumbImg: null,
     thumbImgName: '',
     thumbImgPath: '',
@@ -149,7 +149,9 @@ const AdminWrite = ({ loadingProjects }) => {
             <div className={styles.categoryWrap}>
               <h3>프로젝트 종류</h3>
               <select value={category} name='category' id='category' onChange={getValue}>
-                <option value='Personal Project'>Personal Project</option>
+                <option value='Personal Project' selected='selected'>
+                  Personal Project
+                </option>
                 <option value='Team Project'>Team Project</option>
                 <option value='Business Project'>Business Project</option>
               </select>

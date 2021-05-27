@@ -49,7 +49,7 @@ const NavBar = () => {
                   transition={{ duration: 0.4 }}
                   onClick={scrollTopHandler}
                 >
-                  <a target='_blank' href={`${list.link}`}>
+                  <a target='_blank' rel='noopener noreferrer' href={`${list.link}`}>
                     {list.name}
                   </a>
                 </motion.li>

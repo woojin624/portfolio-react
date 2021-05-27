@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Route, Switch, useLocation, BrowserRouter as Router, useHistory } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { connect } from 'react-redux';
@@ -16,7 +15,7 @@ const Games = ({ games }) => {
 
   useEffect(() => {
     setMemoryRank(games[0].rank.slice(0, 5));
-  }, []);
+  }, [games]);
 
   const location = useLocation();
   let history = useHistory();

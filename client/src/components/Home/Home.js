@@ -19,7 +19,7 @@ const Home = ({ projectsList }) => {
       arr.length = 4;
     }
     setMyWorks(arr);
-  }, []);
+  }, [projectsList]);
 
   const onAboutClick = () => {
     history.push(`/about`);

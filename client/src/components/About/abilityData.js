@@ -1,4 +1,4 @@
-export default {
+const abilityData = {
   frontEnd: [
     {
       name: 'HTML5',
@@ -68,3 +68,5 @@ export default {
     },
   ],
 };
+
+export default abilityData;
