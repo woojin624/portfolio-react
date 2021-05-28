@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactHtmlParser from 'react-html-parser';
 import styled, { css } from 'styled-components';
+import TuiViewer from '../../admin/TuiViewer';
 
 const ContentArea = ({ project }) => {
   const frame = css`
@@ -71,12 +71,14 @@ const ContentArea = ({ project }) => {
       background: #242424;
       color: #f8f6f3;
       padding: 2rem 0;
+      list-style-type: none;
     }
 
     ol {
       background: none;
       color: #242424;
       padding: 2rem 0;
+      list-style: none;
     }
 
     li {
@@ -156,7 +158,9 @@ const ContentArea = ({ project }) => {
   return (
     <>
       <ContentTitle>Project Detail</ContentTitle>
-      <Content>{ReactHtmlParser(project.content)}</Content>
+      <Content>
+        <TuiViewer content={project.content} />
+      </Content>
     </>
   );
 };

@@ -33,19 +33,19 @@
   align-items: center;
 }
 
-.textWrap > h3 {
+.textTitle {
   font-size: 20px;
   font-weight: 700;
 }
 
-.textWrap > p {
+.text {
   font-size: 140px;
   font-weight: 800;
   margin-left: -6px;
   overflow: hidden;
 }
 
-.textWrap > p > span {
+.text > span {
   display: inline-block;
   letter-spacing: 1px;
 }
@@ -167,7 +167,7 @@
     padding-right: 3rem;
   }
 
-  .textWrap > p {
+  .text {
     font-size: 128px;
     font-weight: 800;
     margin-left: -6px;
@@ -189,7 +189,7 @@
     padding-right: 3rem;
   }
 
-  .textWrap > p {
+  .text {
     font-size: 108px;
     font-weight: 800;
     margin-left: -6px;
@@ -211,7 +211,7 @@
     padding-right: 2rem;
   }
 
-  .textWrap > p {
+  .text {
     font-size: 90px;
     font-weight: 800;
     margin-left: -6px;
@@ -233,12 +233,12 @@
     padding-right: 2rem;
   }
 
-  .textWrap > h4 {
+  .textTitle {
     font-size: 16px;
     font-weight: 700;
   }
 
-  .textWrap > p {
+  .text {
     font-size: 80px;
     font-weight: 800;
     margin-left: -6px;
@@ -275,12 +275,12 @@
     justify-content: center;
   }
 
-  .textWrap > h4 {
+  .textTitle {
     font-size: 16px;
     font-weight: 700;
   }
 
-  .textWrap > p {
+  .text {
     font-size: 80px;
     font-weight: 800;
     margin-left: -6px;
@@ -314,7 +314,7 @@
     height: auto;
   }
 
-  .textWrap > h3 {
+  .textTitle {
     font-size: 16px;
     font-weight: 700;
   }
@@ -338,12 +338,7 @@
     justify-content: center;
   }
 
-  .textWrap > h4 {
-    font-size: 16px;
-    font-weight: 700;
-  }
-
-  .textWrap > p {
+  .text {
     font-size: 48px;
     font-weight: 800;
     margin-left: -3px;

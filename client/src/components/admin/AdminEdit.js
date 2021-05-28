@@ -3,7 +3,6 @@ import axios from 'axios';
 import { withRouter, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loadingProjects } from '../../redux';
-import { NodeHtmlMarkdown } from 'node-html-markdown';
 import { useColor } from 'react-color-palette';
 import 'react-color-palette/lib/css/styles.css';
 
@@ -240,7 +239,7 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
           </article>
         </section>
         <label htmlFor='content'>내용</label>
-        <div className={styles.contentWrap}>{content && <AdminWriteEditor content={NodeHtmlMarkdown.translate(content)} setContent={setContent} />}</div>
+        <div className={styles.contentWrap}>{content && <AdminWriteEditor content={content} setContent={setContent} />}</div>
         <button className={styles.submitBtn} type='submit'>
           수정
         </button>

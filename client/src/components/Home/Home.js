@@ -36,10 +36,10 @@ const Home = ({ projectsList }) => {
         </motion.h1>
         <motion.div variants={framer.landContain} className={styles.landContain}>
           <section className={styles.introSec}>
-            <div className={styles.textWrap}>
-              <h3>FRONT-END</h3>
+            <div className={styles.texts}>
+              <h3 className={styles.textTitle}>FRONT-END</h3>
               {introText.map((text, i) => (
-                <p key={i}>
+                <p className={styles.text} key={i}>
                   <motion.span variants={framer.introTextSpan} custom={i}>
                     {text}
                   </motion.span>

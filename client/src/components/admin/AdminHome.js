@@ -3,12 +3,11 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { AiFillEdit, AiOutlineCheck } from 'react-icons/ai';
-import ReactHtmlParser from 'react-html-parser';
-import { NodeHtmlMarkdown } from 'node-html-markdown';
 
 import styles from './AdminHome.module.css';
 
 import AdminWriteEditor from './AdminWriteEditor';
+import TuiViewer from './TuiViewer';
 
 function AdminHome({ user }) {
   const [memo, setMemo] = useState(user.memo);
@@ -42,9 +41,11 @@ function AdminHome({ user }) {
           </button>
         )}
         {isEdit ? ( //
-          <AdminWriteEditor content={NodeHtmlMarkdown.translate(memo)} setContent={setMemo} />
+          <AdminWriteEditor content={memo} setContent={setMemo} />
         ) : (
-          <section className={styles.memoBoard}>{ReactHtmlParser(memo)}</section>
+          <section className={styles.memoBoard}>
+            <TuiViewer content={memo} />
+          </section>
         )}
       </div>
     </div>

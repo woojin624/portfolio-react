@@ -1,0 +1,351 @@
+@import '../../styles/common.scss';
+
+.home {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: left;
+}
+
+.pageTitle {
+  @include pageTitle;
+}
+
+.landContain {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.introSec {
+  position: relative;
+  height: auto;
+  width: 100%;
+  flex: 3;
+  padding-right: 3rem;
+  @include flex(flex-end, center);
+
+  .textTitle {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .text {
+    font-size: 140px;
+    font-weight: 800;
+    margin-left: -6px;
+    overflow: hidden;
+
+    span {
+      display: inline-block;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+.myWorks,
+.aboutMe {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 20px;
+  font-weight: 600;
+  border: 2px solid #242424;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.6s;
+  background: #f8f6f3;
+
+  .arrow {
+    transition: 0.3s;
+    margin-left: 0.5rem;
+    transform: rotate(-45deg) scale(1.1);
+  }
+
+  &:hover {
+    border: 2px solid $background;
+    color: $mainColor;
+    background: $background;
+
+    .arrow {
+      transform: rotate(0deg) scale(1.1);
+    }
+  }
+
+  &:active {
+    .arrow {
+      transform: translateX(-30%) rotate(0deg) scale(1.1);
+    }
+  }
+}
+
+.myWorks {
+  margin: 0 0 2rem;
+}
+
+.worksSec {
+  width: 100%;
+  height: auto;
+  flex: 2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .thumbBox {
+    width: 640px;
+    height: 640px;
+    position: relative;
+  }
+
+  .workThumb {
+    position: absolute;
+    background: grey;
+    width: 640px;
+    height: 360px;
+    overflow: hidden;
+    transition: 0.3 ease;
+    transform-origin: right top;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    .thumbImg {
+      width: 100%;
+    }
+  }
+}
+
+.cornerCircle {
+  position: absolute;
+  pointer-events: none;
+  top: 100vh;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  min-width: 150px;
+  height: 50vw;
+  min-height: 150px;
+  backdrop-filter: invert(100%);
+  /* border-radius: 50%; */
+}
+
+.backCircle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  width: 75vw;
+  height: 75vw;
+  border: 2px solid #525252;
+  /* border-radius: 50%; */
+  z-index: -1;
+}
+
+@media all and (min-width: 1721px) and (max-width: 1920px) {
+  .introSec {
+    .text {
+      font-size: 128px;
+    }
+  }
+
+  .worksSec {
+    .thumbBox {
+      width: 560px;
+      height: 560px;
+    }
+
+    .workThumb {
+      width: 560px;
+      height: 315px;
+    }
+  }
+}
+
+@media all and (min-width: 1441px) and (max-width: 1720px) {
+  .introSec {
+    .text {
+      font-size: 108px;
+    }
+  }
+
+  .worksSec {
+    .thumbBox {
+      width: 480px;
+      height: 480px;
+    }
+
+    .workThumb {
+      width: 480px;
+      height: 270px;
+    }
+  }
+}
+
+@media all and (min-width: 1201px) and (max-width: 1440px) {
+  .introSec {
+    padding-right: 2rem;
+
+    .text {
+      font-size: 90px;
+    }
+  }
+
+  .worksSec {
+    .thumbBox {
+      width: 400px;
+      height: 400px;
+    }
+
+    .workThumb {
+      width: 400px;
+      height: 225px;
+    }
+  }
+}
+
+@media all and (min-width: 1023px) and (max-width: 1200px) {
+  .introSec {
+    padding-right: 2rem;
+
+    .textTitle {
+      font-size: 16px;
+    }
+
+    .text {
+      font-size: 80px;
+    }
+  }
+
+  .worksSec {
+    .thumbBox {
+      width: 320px;
+      height: 320px;
+    }
+
+    .workThumb {
+      width: 320px;
+      height: 180px;
+    }
+  }
+
+  .myWorks,
+  .aboutMe {
+    font-size: 18px;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1023px) {
+  .home {
+    height: auto;
+  }
+
+  .landContain {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .introSec {
+    padding-top: 150px;
+    padding-right: 2rem;
+    flex: 1;
+    justify-content: center;
+
+    .textTitle {
+      font-size: 16px;
+    }
+
+    .text {
+      font-size: 80px;
+    }
+  }
+
+  .worksSec {
+    margin-top: 60px;
+    justify-content: center;
+    flex: 1;
+    text-align: right;
+
+    .thumbBox {
+      width: 480px;
+      height: 480px;
+    }
+
+    .workThumb {
+      width: 480px;
+      height: 270px;
+    }
+  }
+
+  .myWorks,
+  .aboutMe {
+    font-size: 18px;
+  }
+
+  .cornerCircle {
+    left: -20%;
+    width: 100vw;
+    height: 100vw;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .home {
+    height: auto;
+  }
+  .landContain {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .introSec {
+    padding-top: 120px;
+    padding-right: 0rem;
+    flex: 1;
+    justify-content: center;
+
+    .textTitle {
+      font-size: 16px;
+    }
+
+    .text {
+      font-size: 48px;
+      margin-left: -3px;
+    }
+  }
+
+  .worksSec {
+    margin-top: 60px;
+    justify-content: center;
+    flex: 1;
+    text-align: right;
+
+    .thumbBox {
+      transform: translateX(10%);
+      width: 320px;
+      height: 320px;
+    }
+
+    .workThumb {
+      pointer-events: none;
+      width: 320px;
+      height: 180px;
+    }
+  }
+
+  .myWorks,
+  .aboutMe {
+    font-size: 18px;
+  }
+
+  .cornerCircle {
+    left: -20%;
+    width: 100vw;
+    height: 100vw;
+  }
+}
