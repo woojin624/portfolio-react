@@ -200,7 +200,7 @@
 }
 .skillWrap > li > .title > img {
   width: 32px;
-  height: auto;
+  height: 32px;
   margin-right: 1rem;
 }
 .skillWrap > li > .title > h4 {
@@ -364,6 +364,7 @@
 
   .skillWrap > li > .title > img {
     width: 26px;
+    height: 26px;
     margin-right: 1rem;
   }
   .skillWrap > li > .title > h4 {
