@@ -29,17 +29,17 @@
   padding-right: 50px;
 }
 
-.introSec .introLeft h1 {
+.introSec .introLeft h2 {
   font-size: 130px;
   font-weight: 800;
 }
 
-.introSec .introLeft h1 span {
+.introSec .introLeft h2 span {
   display: inline-block;
   transform-origin: left center;
 }
 
-.introSec .introLeft h2 {
+.introSec .introLeft h3 {
   font-size: 40px;
   font-weight: 300;
   margin-top: 3rem;
@@ -180,38 +180,42 @@
   margin: 3rem 0 1.5rem 0;
 }
 
-.feWrap {
+.skillWrap {
   width: 100%;
 }
 
-.feWrap > li {
+.skillWrap > li {
   width: 100%;
   display: flex;
-  margin: 0.8rem 0;
-  padding: 0.6rem 1rem;
+  margin: 0.8rem auto;
+  padding: 0.8rem 1.5rem;
   justify-content: space-between;
   align-items: center;
   color: aliceblue;
-  border-bottom: 2px solid rgb(41, 41, 41);
+  border-bottom: 2px solid rgb(46, 46, 46);
 }
 
-.feWrap > li > .title {
+.skillWrap > li > .title {
   display: flex;
 }
-.feWrap > li > .title > img {
+.skillWrap > li > .title > img {
   width: 32px;
   height: auto;
   margin-right: 1rem;
 }
-.feWrap > li > .title > h4 {
+.skillWrap > li > .title > h4 {
   font-size: 24px;
   font-weight: 700;
   display: flex;
   align-items: center;
   padding-bottom: 0.1rem;
 }
-.feWrap > li > .desc {
+.skillWrap > li > .desc {
+  width: 60%;
+  line-height: 1.3;
   text-align: right;
+  word-break: keep-all;
+  align-self: flex-end;
 }
 
 .pageTitle {
@@ -232,11 +236,11 @@
     padding-right: 2rem;
   }
 
-  .introSec .introLeft h1 {
+  .introSec .introLeft h2 {
     font-size: 90px;
   }
 
-  .introSec .introLeft h2 {
+  .introSec .introLeft h3 {
     font-size: 32px;
     margin-top: 2rem;
   }
@@ -279,11 +283,11 @@
     padding-right: 0rem;
   }
 
-  .introSec .introLeft h1 {
+  .introSec .introLeft h2 {
     font-size: 64px;
   }
 
-  .introSec .introLeft h2 {
+  .introSec .introLeft h3 {
     font-size: 22px;
     margin-top: 1rem;
   }
@@ -351,26 +355,26 @@
     margin: 2rem 0 1rem 0;
   }
 
-  .feWrap > li {
+  .skillWrap > li {
     flex-direction: column;
     margin: 0.8rem 0;
-    padding: 0.6rem 1rem;
+    padding: 0.4rem 1rem;
     align-items: flex-start;
   }
 
-  .feWrap > li > .title > img {
+  .skillWrap > li > .title > img {
     width: 26px;
     margin-right: 1rem;
   }
-  .feWrap > li > .title > h4 {
+  .skillWrap > li > .title > h4 {
     font-size: 18px;
     padding-bottom: 0.1rem;
   }
 
-  .feWrap > li > .desc {
+  .skillWrap > li > .desc {
     align-self: flex-end;
-    text-align: right;
-    margin-top: 1.5rem;
+    width: 100%;
+    margin-top: 1rem;
     padding-left: 3rem;
     font-size: 14px;
   }

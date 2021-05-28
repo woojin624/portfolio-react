@@ -30,14 +30,14 @@ const Home = ({ projectsList }) => {
 
   return (
     <>
-      <motion.div variants={framer.home} initial='hidden' animate='visible' exit='out' className={styles.home}>
-        <motion.h3 variants={framer.pageTitle} className={styles.pageTitle}>
+      <motion.main variants={framer.home} initial='hidden' animate='visible' exit='out' className={styles.home}>
+        <motion.h1 variants={framer.pageTitle} className={styles.pageTitle}>
           Portfolio
-        </motion.h3>
+        </motion.h1>
         <motion.div variants={framer.landContain} className={styles.landContain}>
           <section className={styles.introSec}>
             <div className={styles.textWrap}>
-              <h4>FRONT-END</h4>
+              <h3>FRONT-END</h3>
               {introText.map((text, i) => (
                 <p key={i}>
                   <motion.span variants={framer.introTextSpan} custom={i}>
@@ -45,20 +45,20 @@ const Home = ({ projectsList }) => {
                   </motion.span>
                 </p>
               ))}
-              <div onClick={onAboutClick} className={styles.aboutMe}>
+              <button onClick={onAboutClick} className={styles.aboutMe}>
                 <p>
                   About Me <ImArrowRight2 className={styles.arrow} />
                 </p>
-              </div>
+              </button>
             </div>
           </section>
           <section className={styles.worksSec}>
             <div className={styles.worksWrap}>
-              <div onClick={onWorksClick} className={styles.myWorks}>
+              <button onClick={onWorksClick} className={styles.myWorks}>
                 <p>
                   My Works <ImArrowRight2 className={styles.arrow} />
                 </p>
-              </div>
+              </button>
               <div className={styles.thumbBox}>
                 {myWorks.map((work, i) => (
                   <motion.div onClick={onWorksClick} variants={framer.workThumb} initial='hidden' animate='visible' exit='out' whileHover='hover' custom={i} key={i} className={styles.workThumb}>
@@ -71,7 +71,7 @@ const Home = ({ projectsList }) => {
         </motion.div>
         <motion.div variants={framer.cornerCircle} className={styles.cornerCircle}></motion.div>
         <motion.div variants={framer.backCircle} className={styles.backCircle}></motion.div>
-      </motion.div>
+      </motion.main>
     </>
   );
 };

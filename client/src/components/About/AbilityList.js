@@ -3,7 +3,7 @@ import styles from './About.module.css';
 
 const AbilityList = ({ ability }) => {
   return (
-    <ul className={styles.feWrap}>
+    <ul className={styles.skillWrap}>
       {ability.map((skill, i) => (
         <li key={i}>
           <div className={styles.title}>

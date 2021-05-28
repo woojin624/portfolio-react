@@ -43,7 +43,7 @@ const Footer = () => {
       width: 100%;
       height: 1px;
       display: block;
-      background: #f8f6f3;
+      background: #f8f6f360;
     }
 
     .footer {

@@ -28,7 +28,7 @@ const ContentArea = ({ project }) => {
     `;
   };
 
-  const ContentTitle = styled.h1`
+  const ContentTitle = styled.h2`
     ${frame}
     ${title('3rem')}
     margin: 1rem auto 4rem;

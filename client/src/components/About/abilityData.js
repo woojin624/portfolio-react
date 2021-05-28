@@ -10,7 +10,7 @@ const abilityData = {
       name: 'CSS3',
       icon: '/images/logo/logo_css.png',
       color: '#0170BA',
-      desc: 'SCSS, Styled-Component, Layout, Flex Box, Gird, Animation, Interaction',
+      desc: 'SCSS, Styled-Component, Responsive Layout, Flex Box, Gird, Animation, Interaction',
     },
     {
       name: 'JavsScript',
@@ -22,19 +22,19 @@ const abilityData = {
       name: 'React',
       icon: '/images/logo/logo_react.png',
       color: '#61D9FA',
-      desc: '리액트',
+      desc: 'Functional Component, Hook, React-router, Context API, React-redux',
     },
     {
       name: 'Vue.js',
       icon: '/images/logo/logo_vue.png',
       color: '#41B883',
-      desc: 'Vue',
+      desc: 'Vue3, VueX, Vue-router, Data Binding, ',
     },
     {
       name: 'Redux',
       icon: '/images/logo/logo_redux.png',
       color: '#764ABC',
-      desc: '상태관리',
+      desc: 'Redux를 통해 애플리케이션에 사용되는 상태 관리',
     },
   ],
   backEnd: [
@@ -42,7 +42,7 @@ const abilityData = {
       name: 'Node Js',
       icon: '/images/logo/logo_node.png',
       color: '#8CC84B',
-      desc: 'Express 서버개발',
+      desc: 'Express 프레임워크를 통한 서버 개발, RESTful API',
     },
   ],
   database: [
@@ -50,7 +50,7 @@ const abilityData = {
       name: 'mongoDB',
       icon: '/images/logo/logo_mongo.png',
       color: '#81C564',
-      desc: '몽고DB를 통해 프로젝트 내용 관리',
+      desc: 'MongoDB ODM인 Mongoose로 Schema 및 Model 형성하여 데이터베이스 관리',
     },
   ],
   etc: [
@@ -58,13 +58,13 @@ const abilityData = {
       name: 'AWS',
       icon: '/images/logo/logo_aws.png',
       color: '#FF9A00',
-      desc: 'Elastic Beanstalk를 통해 웹앱 배포',
+      desc: 'Elastic Beanstalk를 통한 웹 앱 배포, Route53을 사용하여 도메인 등록 및 DNS 라우팅, S3에서 프로젝트 파일 관리',
     },
     {
       name: 'Git',
       icon: '/images/logo/logo_git.png',
       color: '#F05033',
-      desc: '형상관리',
+      desc: 'Github를 통하여 프로젝트의 형상관리',
     },
   ],
 };

@@ -53,7 +53,7 @@
   padding: 2%;
 }
 
-.gamesEl > h2 {
+.gamesEl > h3 {
   pointer-events: none;
   font-size: 30px;
   font-weight: 700;
@@ -86,7 +86,7 @@
   height: 350px;
   margin: 1rem;
 }
-.gamesElRight > h2 {
+.gamesElRight > h3 {
   font-size: 26px;
   font-weight: 700;
   margin: 1rem 0;

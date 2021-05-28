@@ -30,17 +30,17 @@ const NavBar = () => {
   };
 
   return (
-    <>
-      <h3 className={styles.navLogo} onClick={navCloseHandler}>
+    <header>
+      <h1 className={styles.navLogo} onClick={navCloseHandler}>
         <Link to={'/'}>J.com</Link>
-      </h3>
-      <div className={isNavOpen ? `${styles.navToggleBtn} ${styles.opened}` : styles.navToggleBtn} onClick={navToggleHandler}>
+      </h1>
+      <button className={isNavOpen ? `${styles.navToggleBtn} ${styles.opened}` : styles.navToggleBtn} onClick={navToggleHandler}>
         <div className={styles.navToggleTop}></div>
         <div className={styles.navToggleBottom}></div>
-      </div>
+      </button>
       <AnimatePresence>
         {isNavOpen ? (
-          <motion.div initial='out' animate='in' exit='out' variants={framer.navContain} className={styles.navContain}>
+          <motion.nav initial='out' animate='in' exit='out' variants={framer.navContain} className={styles.navContain}>
             <motion.ul className={styles.linkList} variants={framer.navUl}>
               {linkListNames.map((list, i) => (
                 <motion.li
@@ -74,10 +74,10 @@ const NavBar = () => {
                 </motion.li>
               ))}
             </motion.ul>
-          </motion.div>
+          </motion.nav>
         ) : null}
       </AnimatePresence>
-    </>
+    </header>
   );
 };
 

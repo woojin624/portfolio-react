@@ -25,6 +25,9 @@ const Projects = ({ projectsList }) => {
 
   const onCardClick = (e) => {
     let workId = e.target.parentNode.dataset.id;
+    console.log(e.target);
+    console.log(e.target.parentNode);
+    console.log(workId);
     history.push(`/projects/${workId}`);
   };
 
@@ -35,21 +38,21 @@ const Projects = ({ projectsList }) => {
 
   return (
     <>
-      <motion.div variants={framer.projects} initial='hidden' animate='visible' exit='out' className={styles.projects}>
-        <motion.h3 variants={framer.pageTitle} className={styles.pageTitle}>
+      <motion.main variants={framer.projects} initial='hidden' animate='visible' exit='out' className={styles.projects}>
+        <motion.h1 variants={framer.pageTitle} className={styles.pageTitle}>
           Projects
-        </motion.h3>
-        <motion.p className={styles.initTitle} variants={framer.initTitle}>
+        </motion.h1>
+        <motion.h2 className={styles.initTitle} variants={framer.initTitle}>
           {initTitle.map((a, i) => (
             <motion.span key={i} variants={framer.initTitleSpan} custom={i}>
               {a}
             </motion.span>
           ))}
-        </motion.p>
+        </motion.h2>
         <motion.div className={styles.projectsContain} variants={framer.projectBox}>
           <div className={styles.projectBoxWrap}>
             {reversedList.map((project, i) => (
-              <div data-id={project._id} className={i % 2 === 0 ? (i % 4 === 0 ? `${styles.projectBox} ${styles.odd} ${styles.top}` : `${styles.projectBox} ${styles.odd} ${styles.bottom}`) : i - (1 % 4) === 0 ? `${styles.projectBox} ${styles.even} ${styles.top}` : `${styles.projectBox} ${styles.even} ${styles.bottom}`} key={i}>
+              <article data-id={project._id} className={i % 2 === 0 ? (i % 4 === 0 ? `${styles.projectBox} ${styles.odd} ${styles.top}` : `${styles.projectBox} ${styles.odd} ${styles.bottom}`) : i - (1 % 4) === 0 ? `${styles.projectBox} ${styles.even} ${styles.top}` : `${styles.projectBox} ${styles.even} ${styles.bottom}`} key={i}>
                 <figure
                   className={styles.projectBoxImg}
                   onClick={onCardClick} //
@@ -66,18 +69,18 @@ const Projects = ({ projectsList }) => {
                   <p className={styles.projectNum}>{i < 9 ? `0${i + 1}` : i + 1}</p>
                 </figure>
                 <div className={styles.projectBoxContent}>
-                  <h4 className={styles.projectBoxTitle}>{project.title}</h4>
+                  <h3 className={styles.projectBoxTitle}>{project.title}</h3>
                   <p className={styles.projectBoxDesc}>{project.subTitle}</p>
                   <div className={styles.projectBoxSkills}>{project.tag && project.tag.map((skill, i) => <span key={i}>{skill}</span>)}</div>
                   <button className={styles.viewBtn} onClick={onCardBtnClick}>
                     VIEW PROJECT<div></div>
                   </button>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </motion.div>
-      </motion.div>
+      </motion.main>
       <Footer />
     </>
   );

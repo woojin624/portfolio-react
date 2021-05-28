@@ -26,7 +26,7 @@ const ProjectDetail = ({ match, projectsList }) => {
   return (
     <>
       {project.visible ? (
-        <motion.div initial='hidden' animate='in' exit='out' variants={framer.projectDetail} className={styles.projectDetail}>
+        <motion.main initial='hidden' animate='in' exit='out' variants={framer.projectDetail} className={styles.projectDetail}>
           {project.mainImg && (
             <motion.figure //
               variants={framer.mainImageWrap}
@@ -36,10 +36,10 @@ const ProjectDetail = ({ match, projectsList }) => {
             </motion.figure>
           )}
           <div className={styles.projectInfo}>
-            <h3 className={styles.projectSubTitle}>
+            <h2 className={styles.projectSubTitle}>
               {project.subTitle}
               <span />
-            </h3>
+            </h2>
             <h1 className={styles.projectTitle}>{project.title}</h1>
             <div className={styles.skillSetEls}>{project.tag && project.tag.map((skill, i) => <span key={i}>{skill}</span>)}</div>
             <p className={styles.projectPeriod}>{project.period}</p>
@@ -75,7 +75,7 @@ const ProjectDetail = ({ match, projectsList }) => {
 
             <section className={styles.summary}>
               <article>
-                <h2 className={styles.summaryTitle}>About the Project</h2>
+                <h3 className={styles.summaryTitle}>About the Project</h3>
               </article>
               <article>
                 <p className={styles.projectDesc}>{project.desc}</p>
@@ -90,7 +90,7 @@ const ProjectDetail = ({ match, projectsList }) => {
               <ToTopBtn />
             </div>
           </div>
-        </motion.div>
+        </motion.main>
       ) : (
         <div className={styles.hiddenProject}>
           <h1>비공개 프로젝트입니다.🤔</h1>
