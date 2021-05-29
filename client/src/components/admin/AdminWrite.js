@@ -129,7 +129,7 @@ const AdminWrite = ({ loadingProjects }) => {
       <form onSubmit={handleFormSubmit}>
         <section className={styles.defaultInfo}>
           <article>
-            <div>
+            <div className={styles.numberWrap}>
               <label htmlFor='number'>프로젝트 넘버</label>
               <input className={styles.number} type='number' min='0' required value={number} name='number' onChange={getValue} placeholder='프로젝트 넘버' id='number' />
             </div>
@@ -161,13 +161,11 @@ const AdminWrite = ({ loadingProjects }) => {
             {thumbImg ? <img src={thumbImgPath} alt='thumbnail' /> : <div className={styles.thumbTemp}>Thumbnail</div>}
             <input className={styles.thumbInput} type='file' value={thumbImgName} file={thumbImg} name='thumbImg' onChange={handleFileChange} placeholder='썸네일이미지파일' id='thumbImg' />
           </figure>
-          <div className={styles.divLine}></div>
-          <figure className={styles.mainFrame}>
-            {mainImg ? <img src={mainImgPath} alt='mainImg' /> : <div className={styles.mainTemp}>Main</div>}
-            {/* <h1>{title}</h1> */}
-          </figure>
-          <input className={styles.mainImageInput} type='file' value={mainImgName} file={mainImg} name='mainImg' onChange={handleFileChange} placeholder='메인이미지파일' id='mainImg' />
         </section>
+
+        <div className={styles.divLine}></div>
+        <figure className={styles.mainFrame}>{mainImg ? <img src={mainImgPath} alt='mainImg' /> : <div className={styles.mainTemp}>Main</div>}</figure>
+        <input className={styles.mainImageInput} type='file' value={mainImgName} file={mainImg} name='mainImg' onChange={handleFileChange} placeholder='메인이미지파일' id='mainImg' />
         <input className={styles.subTitleInput} type='text' value={subTitle} name='subTitle' onChange={getValue} placeholder='프로젝트 부제목' id='subTitle' />
         <input className={styles.titleInput} type='text' value={title} name='title' onChange={getValue} placeholder='프로젝트 제목' id='title' />
         {tag.length > 1 && (

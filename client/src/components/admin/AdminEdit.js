@@ -143,7 +143,7 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
       <form onSubmit={handleFormSubmit}>
         <section className={styles.defaultInfo}>
           <article>
-            <div>
+            <div className={styles.numberWrap}>
               <label htmlFor='number'>프로젝트 넘버</label>
               <input className={styles.number} type='number' min='0' required value={number} name='number' onChange={getValue} placeholder='프로젝트 넘버' id='number' />
             </div>
@@ -170,23 +170,18 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
             </div>
           </article>
           <figure className={styles.thumbFrame}>
-            {/* <label htmlFor='thumb'>썸네일</label> */}
             <img src={thumbImgPath ? thumbImgPath : thumbImg} alt='thumbnail' />
             <input className={styles.thumbInput} type='file' value={thumbImgName} file={thumbImg} name='thumbImg' onChange={handleFileChange} placeholder='썸네일이미지파일' id='thumbImg' />
           </figure>
-          <div className={styles.divLine}></div>
-
-          <figure className={styles.mainFrame}>
-            {/* <label htmlFor='mainImg'>메인 이미지</label> */}
-            <img src={mainImgPath ? mainImgPath : mainImg} alt='mainImg' />
-            {/* <h1>{title}</h1> */}
-          </figure>
-          <input className={styles.mainImageInput} type='file' value={mainImgName} file={mainImg} name='mainImg' onChange={handleFileChange} placeholder='메인이미지파일' id='mainImg' />
         </section>
 
+        <div className={styles.divLine}></div>
+        <figure className={styles.mainFrame}>
+          <img src={mainImgPath ? mainImgPath : mainImg} alt='mainImg' />
+        </figure>
+        <input className={styles.mainImageInput} type='file' value={mainImgName} file={mainImg} name='mainImg' onChange={handleFileChange} placeholder='메인이미지파일' id='mainImg' />
         <input className={styles.subTitleInput} type='text' value={subTitle} name='subTitle' onChange={getValue} placeholder='프로젝트 부제목' id='subTitle' />
         <input className={styles.titleInput} type='text' value={title} name='title' onChange={getValue} placeholder='프로젝트 제목' id='title' />
-        {/* <label htmlFor='tagArr'>기술스택</label> */}
         {tag.length > 1 && (
           <div className={styles.skillSetEls}>
             {tag.map((skill, i) => (
@@ -225,7 +220,6 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
         </section>
 
         <figure className={styles.subFrame}>
-          {/* <label htmlFor='subImg'>서브 이미지</label> */}
           <img src={subImgPath ? subImgPath : subImg} alt='subImg' />
         </figure>
         <input className={styles.subImageInput} type='file' value={subImgName} file={subImg} name='subImg' onChange={handleFileChange} placeholder='서브이미지파일' id='subImg' />

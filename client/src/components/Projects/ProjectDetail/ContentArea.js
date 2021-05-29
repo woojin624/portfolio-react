@@ -127,6 +127,47 @@ const ContentArea = ({ project }) => {
         }
       }
 
+      @media all and (min-width: 768px) and (max-width: 1023px) {
+        h1 {
+          ${title('1.3rem')}
+        }
+
+        h2 {
+          ${title('18px')}
+        }
+
+        h3 {
+          ${title('14px')}
+        }
+
+        ul {
+          padding: 0.5rem 0;
+        }
+
+        ol {
+          padding: 0.5rem 0;
+        }
+
+        li {
+          strong {
+            ${title('2rem')}
+            margin: 1rem auto;
+          }
+
+          em {
+            ${title('1.2rem')}
+            font-weight: 500;
+            margin: 0.5rem auto;
+          }
+
+          img {
+            ${frame}
+            margin: 0 auto;
+            padding: 1rem 50px;
+          }
+        }
+      }
+
       @media all and (max-width: 767px) {
         h1 {
           ${title('1.3rem')}
