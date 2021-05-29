@@ -65,9 +65,9 @@ const Projects = ({ projectsList }) => {
                   <div className={thumbClass}>
                     <AiOutlinePlus />
                   </div>
-                  <p className={styles.category}>{project.category}</p>
-                  <p className={styles.projectNum}>{i < 9 ? `0${i + 1}` : i + 1}</p>
                 </figure>
+                <p className={styles.category}>{project.category}</p>
+                <p className={styles.projectNum}>{i < 9 ? `0${i + 1}` : i + 1}</p>
                 <div className={styles.projectBoxContent}>
                   <h3 className={styles.projectBoxTitle}>{project.title}</h3>
                   <p className={styles.projectBoxDesc}>{project.subTitle}</p>

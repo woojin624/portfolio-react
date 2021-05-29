@@ -2,7 +2,7 @@ export const projectDetail = {
   hidden: {
     y: '100vh',
     opacity: 1,
-    transition: { duration: 0.8, delay: 0.2 },
+    transition: { duration: 0.8, delay: 0 },
   },
   in: {
     y: '0%',

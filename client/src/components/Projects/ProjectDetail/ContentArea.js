@@ -106,6 +106,7 @@ const ContentArea = ({ project }) => {
           display: block;
           ${frame}
           ${title('1.5rem')}
+          font-style: normal;
           font-weight: 500;
         }
 

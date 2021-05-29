@@ -79,7 +79,6 @@ export const workThumb = {
     },
   }),
   hover: {
-    scale: 1.01,
     zIndex: 10,
     transition: { duration: 0.3 },
   },
@@ -102,14 +101,14 @@ export const pageTitle = {
 
 export const cornerCircle = {
   hidden: {
-    x: '-60%',
-    y: '-45%',
+    x: '-50%',
+    y: '-50%',
     scale: 0,
   },
   visible: {
-    x: '-60%',
-    y: '-45%',
-    scale: 0.5,
+    x: '-50%',
+    y: '-50%',
+    scale: 0.3,
     transition: {
       delay: 0,
       ease: 'easeInOut',
@@ -118,8 +117,8 @@ export const cornerCircle = {
   },
   out: {
     opacity: [1, 1, 0],
-    x: '-60%',
-    y: '-45%',
+    x: '-50%',
+    y: '-50%',
     scale: [1, 5, 5],
     transition: {
       ease: 'easeInOut',
