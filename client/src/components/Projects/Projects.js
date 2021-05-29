@@ -25,9 +25,6 @@ const Projects = ({ projectsList }) => {
 
   const onCardClick = (e) => {
     let workId = e.target.parentNode.dataset.id;
-    console.log(e.target);
-    console.log(e.target.parentNode);
-    console.log(workId);
     history.push(`/projects/${workId}`);
   };
 
