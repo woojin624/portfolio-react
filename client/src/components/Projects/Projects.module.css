@@ -96,7 +96,7 @@
 }
 
 .projectBox:hover > .projectNum {
-  transform: translate(30%, -90%);
+  transform: translate(30%, -90%) !important;
 }
 
 .projectBox > .category {
@@ -107,8 +107,6 @@
   font-weight: 500;
   color: #242424c2;
   text-transform: uppercase;
-  /* writing-mode: vertical-rl; */
-  transform: translate(0%, -120%);
 }
 
 .projectBoxImg {
@@ -117,7 +115,7 @@
   cursor: pointer;
   overflow: hidden;
   margin-bottom: 1rem;
-  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2); */
 }
 
 .projectBoxImg > img {
@@ -167,6 +165,29 @@
 
 .projectBoxImg .thumbHover.mouseUp svg {
   transform: scale(8) rotate(90deg) !important;
+}
+
+.thumbCover {
+  z-index: 1500;
+  background-color: #f8f6f3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.projectBox.odd.top .thumbCover {
+  transform-origin: left center;
+}
+.projectBox.odd.bottom .thumbCover {
+  transform-origin: center top;
+}
+.projectBox.even.top .thumbCover {
+  transform-origin: center bottom;
+}
+.projectBox.even.bottom .thumbCover {
+  transform-origin: right center;
 }
 
 .projectBoxTitle {
@@ -270,7 +291,7 @@
     font-size: 16px;
   }
 
-  .projectBoxImg > .projectNum {
+  .projectBox > .projectNum {
     font-size: 3rem;
   }
 }
@@ -283,11 +304,11 @@
     gap: 1rem;
   }
 
-  .projectBoxImg .thumbHover {
+  .projectBox .thumbHover {
     font-size: 3rem;
   }
 
-  .projectBoxImg > .projectNum {
+  .projectBox > .projectNum {
     font-size: 2.5rem;
   }
 
@@ -358,12 +379,12 @@
     flex: 2;
   }
 
-  .projectBoxImg > .projectNum {
+  .projectBox > .projectNum {
     font-size: 1.3rem;
-    transform: translate(0%, -100%);
+    transform: translate(0%, -100%) !important;
   }
 
-  .projectBoxImg > .category {
+  .projectBox > .category {
     font-size: 12px;
   }
 

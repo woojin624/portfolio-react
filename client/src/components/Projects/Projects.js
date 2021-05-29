@@ -66,8 +66,12 @@ const Projects = ({ projectsList }) => {
                     <AiOutlinePlus />
                   </div>
                 </figure>
-                <p className={styles.category}>{project.category}</p>
-                <p className={styles.projectNum}>{i < 9 ? `0${i + 1}` : i + 1}</p>
+                <motion.p variants={framer.category} className={styles.category}>
+                  {project.category}
+                </motion.p>
+                <motion.p variants={framer.projectNum} className={styles.projectNum}>
+                  {i < 9 ? `0${i + 1}` : i + 1}
+                </motion.p>
                 <div className={styles.projectBoxContent}>
                   <h3 className={styles.projectBoxTitle}>{project.title}</h3>
                   <p className={styles.projectBoxDesc}>{project.subTitle}</p>
@@ -76,6 +80,7 @@ const Projects = ({ projectsList }) => {
                     VIEW PROJECT<div></div>
                   </button>
                 </div>
+                <motion.div variants={i % 2 === 0 ? (i % 4 === 0 ? framer.thumbCoverHor : framer.thumbCoverVer) : i - (1 % 4) === 0 ? framer.thumbCoverVer : framer.thumbCoverHor} className={styles.thumbCover}></motion.div>
               </article>
             ))}
           </div>
