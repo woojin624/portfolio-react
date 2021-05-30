@@ -233,7 +233,7 @@ const AdminEdit = ({ match, projectsList, loadingProjects }) => {
           </article>
         </section>
         <label htmlFor='content'>내용</label>
-        <div className={styles.contentWrap}>{content && <AdminWriteEditor content={content} setContent={setContent} />}</div>
+        <div className={`${styles.contentWrap} toastui`}>{content && <AdminWriteEditor content={content} setContent={setContent} />}</div>
         <button className={styles.submitBtn} type='submit'>
           수정
         </button>

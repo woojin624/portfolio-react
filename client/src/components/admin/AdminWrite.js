@@ -215,8 +215,8 @@ const AdminWrite = ({ loadingProjects }) => {
           </article>
         </section>
         <label htmlFor='content'>내용</label>
-        <div className={styles.contentWrap}>
-          <AdminWriteEditor content={content} setContent={setContent} />
+        <div className={`${styles.contentWrap} toastui`}>
+          <AdminWriteEditor content={content} setContent={setContent} className='toastui' />
         </div>
         <button className={styles.submitBtn} type='submit'>
           등록

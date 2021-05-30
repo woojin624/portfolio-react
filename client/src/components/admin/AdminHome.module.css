@@ -30,6 +30,18 @@
   background: rgb(12, 49, 65);
 }
 
+.cancelBtn {
+  position: absolute;
+  right: 90px;
+  top: -30px;
+  width: 80px;
+  height: 30px;
+  font-weight: 500;
+  border: none;
+  color: #fff;
+  background: rgb(202, 4, 4);
+}
+
 .memoBoard {
   width: 100%;
   height: auto;
