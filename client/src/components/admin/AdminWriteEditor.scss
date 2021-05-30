@@ -2,22 +2,23 @@
   position: relative;
   width: 100%;
   max-width: 1600px;
-  padding: 50px;
+  padding: 0 50px;
+  margin: 0 auto;
+  text-align: left;
 
   @media all and (max-width: 767px) {
-    padding: 0.5rem 1rem;
+    padding: 0rem 1rem;
   }
 }
 
 @mixin title($size) {
-  text-align: left;
   font-size: $size;
-  font-weight: 700;
-  margin: 1rem auto;
-  padding: 0 50px;
+  font-weight: 500;
+  // margin: 1rem auto;
+  // padding: 0 50px;
 
   @media all and (max-width: 767px) {
-    padding: 0 1rem;
+    // padding: 0 1rem;
   }
 }
 
@@ -82,6 +83,8 @@ div.tui-editor-contents {
   li {
     margin: 0 auto;
     padding: 0;
+    font-size: 16px;
+    @include frame;
 
     &::before {
       content: none;
@@ -90,25 +93,29 @@ div.tui-editor-contents {
     b,
     strong {
       display: block;
-      @include frame;
-      @include title(3rem);
-      margin-top: 3rem;
+      @include title(2.5rem);
+      margin-top: 2rem;
     }
 
     i,
     em {
       display: block;
-      @include frame;
-      @include title(1.5rem);
+      @include title(1.3rem);
       font-style: normal;
       font-weight: 500;
     }
 
     img {
-      @include frame;
-      margin: 0 auto;
-      padding: 1rem 50px;
+      padding: 1rem 0 2.5rem;
       display: block;
+      margin-top: 0;
+    }
+
+    &:last-child {
+      img {
+        padding: 1rem 0;
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -137,20 +144,12 @@ div.tui-editor-contents {
       b,
       strong {
         @include title(2rem);
-        margin: 1rem auto;
+        margin-top: 1.5rem;
       }
 
       i,
       em {
         @include title(1.2rem);
-        font-weight: 500;
-        margin: 0.5rem auto;
-      }
-
-      img {
-        @include frame;
-        margin: 0 auto;
-        padding: 1rem 50px;
       }
     }
   }
@@ -177,23 +176,27 @@ div.tui-editor-contents {
     }
 
     li {
+      font-size: 14px;
+      font-weight: 400;
       b,
       strong {
-        @include title(1.3rem);
-        margin: 1rem auto;
+        @include title(1.4rem);
+        margin-top: 1rem;
       }
 
       i,
       em {
-        @include title(0.8rem);
-        font-weight: 500;
-        margin: 0.5rem auto;
+        @include title(1rem);
       }
 
       img {
-        @include frame;
-        margin-bottom: 0;
-        padding: 0.5rem 50px;
+        padding: 0.4rem 0;
+      }
+
+      &:last-child {
+        img {
+          padding: 0.4rem 0;
+        }
       }
     }
   }
