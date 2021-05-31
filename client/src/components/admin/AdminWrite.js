@@ -6,7 +6,7 @@ import { loadingProjects } from '../../redux';
 import { useColor } from 'react-color-palette';
 import 'react-color-palette/lib/css/styles.css';
 
-import styles from './AdminWrite.module.css';
+import styles from './AdminWrite.module.scss';
 import AdminWriteEditor from './AdminWriteEditor';
 import ColorTab from './ColorTab';
 
@@ -214,7 +214,7 @@ const AdminWrite = ({ loadingProjects }) => {
             <textarea className={styles.descInput} type='text' value={desc} name='desc' onChange={getValue} placeholder='프로젝트 설명' id='desc' />
           </article>
         </section>
-        <label htmlFor='content'>내용</label>
+        <label htmlFor='content'>Project Detail</label>
         <div className={`${styles.contentWrap} toastui`}>
           <AdminWriteEditor content={content} setContent={setContent} className='toastui' />
         </div>

@@ -3,7 +3,7 @@ import { AiFillCloseCircle } from 'react-icons/ai';
 import { ColorPicker } from 'react-color-palette';
 import 'react-color-palette/lib/css/styles.css';
 
-import styles from './AdminWrite.module.css';
+import styles from './AdminWrite.module.scss';
 
 const ColorTab = ({ color, setColor }) => {
   const [colorOpen, setColorOpen] = useState(false);

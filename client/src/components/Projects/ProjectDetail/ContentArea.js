@@ -43,7 +43,9 @@ const ContentArea = ({ project }) => {
   return (
     <>
       <ContentTitle>Project Detail</ContentTitle>
-      <TuiViewer content={project.content} />
+      <div className='toastui'>
+        <TuiViewer content={project.content} />
+      </div>
     </>
   );
 };

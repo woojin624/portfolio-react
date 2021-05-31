@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { AiFillGithub, AiOutlineMail, AiOutlineUser } from 'react-icons/ai';
 import ability from './abilityData';
 
-import styles from './About.module.css';
+import styles from './About.module.scss';
 
 import * as framer from '../../framer/about';
 import AbilityList from './AbilityList';

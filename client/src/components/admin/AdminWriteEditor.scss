@@ -1,26 +1,91 @@
-@mixin frame {
-  position: relative;
-  width: 100%;
-  max-width: 1600px;
-  padding: 0 50px;
-  margin: 0 auto;
-  text-align: left;
+@import '../../styles/common.scss';
 
+@mixin list($list-color, $h-color) {
+  li {
+    margin: 0 auto;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 400;
+    color: $list-color;
+    @include frame;
+
+    &::before {
+      content: none;
+    }
+
+    b,
+    strong {
+      display: block;
+      color: $h-color;
+      @include title(2.5rem);
+      margin-top: 2rem;
+    }
+
+    i,
+    em {
+      display: block;
+      color: $h-color;
+      @include title(1.3rem);
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    img {
+      padding: 1rem 0 2.5rem;
+      display: block;
+      margin-top: 0;
+    }
+
+    &:last-child {
+      img {
+        padding: 1rem 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @media all and (min-width: 768px) and (max-width: 1023px) {
+    li {
+      b,
+      strong {
+        @include title(2rem);
+        margin-top: 1.5rem;
+      }
+
+      i,
+      em {
+        @include title(1.2rem);
+      }
+    }
+  }
   @media all and (max-width: 767px) {
-    padding: 0rem 1rem;
+    li {
+      font-size: 14px;
+
+      b,
+      strong {
+        @include title(1.6rem);
+        margin-top: 1rem;
+      }
+
+      i,
+      em {
+        @include title(1.1rem);
+      }
+
+      img {
+        padding: 0.4rem 0;
+      }
+
+      &:last-child {
+        img {
+          padding: 0.4rem 0;
+        }
+      }
+    }
   }
 }
 
-@mixin title($size) {
-  font-size: $size;
-  font-weight: 500;
-  // margin: 1rem auto;
-  // padding: 0 50px;
-
-  @media all and (max-width: 767px) {
-    // padding: 0 1rem;
-  }
-}
 .toastui {
   div.tui-editor-contents {
     position: relative;
@@ -47,6 +112,7 @@
       @include frame;
       @include title(18px);
     }
+
     p {
       img {
         width: 100%;
@@ -57,147 +123,72 @@
     }
 
     ul {
-      background: #242424;
-      color: #f8f6f3;
+      background-color: $sub-color;
+      color: $main-color;
       padding: 2rem 0;
       margin: 0;
       list-style-type: none;
+      @include list(#9b9b9b, $main-color);
 
       * {
-        color: #f8f6f3;
+        color: $main-color;
       }
     }
 
     ol {
-      background: none;
-      color: #242424;
+      background-color: none;
+      color: $sub-color;
       padding: 2rem 0;
       margin: 0;
       list-style: none;
+      @include list(#616161, $sub-color);
 
       * {
-        color: #242424;
+        color: $sub-color;
       }
     }
 
-    li {
-      margin: 0 auto;
-      padding: 0;
-      font-size: 16px;
-      @include frame;
-
-      &::before {
-        content: none;
-      }
-
-      b,
-      strong {
-        display: block;
-        @include title(2.5rem);
-        margin-top: 2rem;
-      }
-
-      i,
-      em {
-        display: block;
+    @media all and (min-width: 768px) and (max-width: 1023px) {
+      h1 {
         @include title(1.3rem);
-        font-style: normal;
-        font-weight: 500;
       }
 
-      img {
-        padding: 1rem 0 2.5rem;
-        display: block;
-        margin-top: 0;
+      h2 {
+        @include title(18px);
       }
 
-      &:last-child {
-        img {
-          padding: 1rem 0;
-          margin-bottom: 0;
-        }
-      }
-    }
-  }
-
-  @media all and (min-width: 768px) and (max-width: 1023px) {
-    h1 {
-      @include title(1.3rem);
-    }
-
-    h2 {
-      @include title(18px);
-    }
-
-    h3 {
-      @include title(14px);
-    }
-
-    ul {
-      padding: 0.5rem 0;
-    }
-
-    ol {
-      padding: 0.5rem 0;
-    }
-
-    li {
-      b,
-      strong {
-        @include title(2rem);
-        margin-top: 1.5rem;
+      h3 {
+        @include title(14px);
       }
 
-      i,
-      em {
-        @include title(1.2rem);
-      }
-    }
-  }
-
-  @media all and (max-width: 767px) {
-    h1 {
-      @include title(1.3rem);
-    }
-
-    h2 {
-      @include title(18px);
-    }
-
-    h3 {
-      @include title(14px);
-    }
-
-    ul {
-      padding: 0.5rem 0;
-    }
-
-    ol {
-      padding: 0.5rem 0;
-    }
-
-    li {
-      font-size: 14px;
-      font-weight: 400;
-      b,
-      strong {
-        @include title(1.4rem);
-        margin-top: 1rem;
+      ul {
+        padding: 0.5rem 0;
       }
 
-      i,
-      em {
-        @include title(1rem);
+      ol {
+        padding: 0.5rem 0;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      h1 {
+        @include title(1.3rem);
       }
 
-      img {
-        padding: 0.4rem 0;
+      h2 {
+        @include title(18px);
       }
 
-      &:last-child {
-        img {
-          padding: 0.4rem 0;
-        }
+      h3 {
+        @include title(14px);
+      }
+
+      ul {
+        padding: 0.5rem 0;
+      }
+
+      ol {
+        padding: 0.5rem 0;
       }
     }
   }

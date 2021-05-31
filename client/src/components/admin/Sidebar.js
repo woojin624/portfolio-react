@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
-import styles from './SideBar.module.css';
+import styles from './SideBar.module.scss';
 
 import { AiOutlineHome, AiOutlineUnorderedList, AiOutlineFileAdd } from 'react-icons/ai';
 

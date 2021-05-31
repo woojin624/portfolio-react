@@ -160,3 +160,7 @@ config
 # elastic beanstalk
 
 .ebignore
+
+# prev styles
+
+styles-pre/

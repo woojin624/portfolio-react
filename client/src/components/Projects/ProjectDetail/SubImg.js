@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import styles from './ProjectDetail.module.css';
+import styles from './ProjectDetail.module.scss';
 
 const SubImg = ({ subImg }) => {
   const [scrollTop, setScrollTop] = useState(0);

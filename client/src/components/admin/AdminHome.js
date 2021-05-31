@@ -4,10 +4,10 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { AiFillEdit, AiOutlineCheck, AiOutlineClose } from 'react-icons/ai';
 
-import styles from './AdminHome.module.css';
-
 import AdminWriteEditor from './AdminWriteEditor';
 import TuiViewer from './TuiViewer';
+
+import styles from './AdminHome.module.scss';
 
 function AdminHome({ user }) {
   const [memo, setMemo] = useState(user.memo);

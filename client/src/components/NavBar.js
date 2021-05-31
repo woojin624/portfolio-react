@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import styles from './NavBar.module.css';
 import * as framer from '../framer/navBar';
+
+import styles from './NavBar.module.scss';
 
 const NavBar = () => {
   const navListNames = [

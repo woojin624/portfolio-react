@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loadingProjects } from '../../redux';
 
-import styles from './AdminList.module.css';
+import styles from './AdminList.module.scss';
 
 const AdminList = ({ loadingProjects, originProjectsList }) => {
   const history = useHistory();

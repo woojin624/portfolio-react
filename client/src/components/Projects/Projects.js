@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 import { AiOutlinePlus } from 'react-icons/ai';
 
 import * as framer from '../../framer/projects';
-
-import styles from './Projects.module.css';
 import Footer from '../Footer';
+
+import styles from './Projects.module.scss';
 
 const Projects = ({ projectsList }) => {
   const openedProjects = projectsList.filter((project) => project.visible);
@@ -25,11 +25,6 @@ const Projects = ({ projectsList }) => {
 
   const onCardClick = (e) => {
     let workId = e.target.parentNode.dataset.id;
-    history.push(`/projects/${workId}`);
-  };
-
-  const onCardBtnClick = (e) => {
-    let workId = e.target.parentNode.parentNode.dataset.id;
     history.push(`/projects/${workId}`);
   };
 
@@ -69,13 +64,10 @@ const Projects = ({ projectsList }) => {
                 <motion.p variants={framer.projectNum} className={styles.projectNum}>
                   {i < 9 ? `0${i + 1}` : i + 1}
                 </motion.p>
-                <div className={styles.projectBoxContent}>
+                <div>
                   <h3 className={styles.projectBoxTitle}>{project.title}</h3>
                   <p className={styles.projectBoxDesc}>{project.subTitle}</p>
                   <div className={styles.projectBoxSkills}>{project.tag && project.tag.map((skill, i) => <span key={i}>{skill}</span>)}</div>
-                  <button className={styles.viewBtn} onClick={onCardBtnClick}>
-                    VIEW PROJECT<div></div>
-                  </button>
                 </div>
                 <motion.div variants={i % 2 === 0 ? (i % 4 === 0 ? framer.thumbCoverHor : framer.thumbCoverVer) : i - (1 % 4) === 0 ? framer.thumbCoverVer : framer.thumbCoverHor} className={styles.thumbCover}></motion.div>
               </article>

@@ -5,7 +5,7 @@ import { loginUser } from '../../redux';
 
 import { AiOutlineUser, AiOutlineLock } from 'react-icons/ai';
 
-import styles from './LoginPage.module.css';
+import styles from './LoginPage.module.scss';
 
 function LoginPage(props) {
   const dispatch = useDispatch();
@@ -57,7 +57,7 @@ function LoginPage(props) {
             <AiOutlineLock className={styles.loginIcon} />
             <input type='password' value={Password} onChange={onPasswordHandler} placeholder='*********'></input>
           </div>
-          <button>LOGIN</button>
+          <button className={styles.loginBtn}>LOGIN</button>
         </form>
       </div>
     </div>

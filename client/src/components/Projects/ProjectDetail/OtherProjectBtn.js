@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import styles from './ProjectDetail.module.css';
+import styles from './ProjectDetail.module.scss';
 import { BsArrowRight, BsArrowLeft } from 'react-icons/bs';
 
 const OtherProjectBtn = ({ project, order }) => {

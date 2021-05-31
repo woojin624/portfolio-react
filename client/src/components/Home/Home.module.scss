@@ -54,7 +54,7 @@
   padding: 0.8rem 1.5rem;
   font-size: 20px;
   font-weight: 600;
-  border: 2px solid #242424;
+  border: 2px solid $sub-color;
   border-radius: 25px;
   cursor: pointer;
   transition: 0.6s;
@@ -67,9 +67,9 @@
   }
 
   &:hover {
-    border: 2px solid $background;
-    color: $mainColor;
-    background: $background;
+    border: 2px solid $sub-color;
+    color: $main-color;
+    background: $sub-color;
 
     .arrow {
       transform: rotate(0deg) scale(1.1);
@@ -96,27 +96,32 @@
   align-items: center;
 
   .thumbBox {
-    width: 640px;
-    height: 640px;
+    width: 660px;
+    height: 660px;
     position: relative;
   }
 
   .workThumb {
     position: absolute;
     background: grey;
-    width: 640px;
-    height: 360px;
+    width: 660px;
+    height: 440px;
     overflow: hidden;
     transition: 0.3 ease;
     transform-origin: right top;
     cursor: pointer;
 
-    &:hover {
-      transform: scale(1.1);
-    }
-
     .thumbImg {
       width: 100%;
+      height: auto;
+      transition: 0.5s;
+      transform: scale(1) translateY(-17%);
+    }
+
+    &:hover {
+      .thumbImg {
+        transform: scale(1.15) translateY(-12%);
+      }
     }
   }
 }
@@ -132,7 +137,7 @@
   height: 50vw;
   min-height: 150px;
   backdrop-filter: invert(100%);
-  /* border-radius: 50%; */
+  border-radius: 50%;
 }
 
 .backCircle {
@@ -143,7 +148,7 @@
   width: 75vw;
   height: 75vw;
   border: 2px solid #525252;
-  /* border-radius: 50%; */
+  border-radius: 50%;
   z-index: -1;
 }
 
@@ -156,13 +161,13 @@
 
   .worksSec {
     .thumbBox {
-      width: 560px;
-      height: 560px;
+      width: 570px;
+      height: 570px;
     }
 
     .workThumb {
-      width: 560px;
-      height: 315px;
+      width: 570px;
+      height: 380px;
     }
   }
 }
@@ -182,7 +187,7 @@
 
     .workThumb {
       width: 480px;
-      height: 270px;
+      height: 320px;
     }
   }
 }
@@ -198,13 +203,13 @@
 
   .worksSec {
     .thumbBox {
-      width: 400px;
-      height: 400px;
+      width: 420px;
+      height: 420px;
     }
 
     .workThumb {
-      width: 400px;
-      height: 225px;
+      width: 420px;
+      height: 280px;
     }
   }
 }
@@ -224,13 +229,13 @@
 
   .worksSec {
     .thumbBox {
-      width: 320px;
-      height: 320px;
+      width: 330px;
+      height: 330px;
     }
 
     .workThumb {
-      width: 320px;
-      height: 180px;
+      width: 330px;
+      height: 220px;
     }
   }
 
@@ -278,7 +283,7 @@
 
     .workThumb {
       width: 480px;
-      height: 270px;
+      height: 320px;
     }
   }
 
@@ -327,14 +332,14 @@
 
     .thumbBox {
       transform: translateX(10%);
-      width: 320px;
-      height: 320px;
+      width: 330px;
+      height: 330px;
     }
 
     .workThumb {
       pointer-events: none;
-      width: 320px;
-      height: 180px;
+      width: 330px;
+      height: 220px;
     }
   }
 

@@ -1,0 +1,367 @@
+@import '../../../styles/common.scss';
+
+.projectDetail {
+  position: relative;
+  z-index: 400;
+  width: 100%;
+  height: auto;
+  background: $main-color;
+  overflow-x: hidden;
+}
+.mainImageWrap {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  transform-origin: center top;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.projectInfo {
+  text-align: left;
+  position: relative;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 50px;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.projectSubTitle {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+
+  span {
+    display: inline-block;
+    width: 6rem;
+    height: 2px;
+    background: #242424;
+    margin-left: 0.5rem;
+    margin-bottom: -2px;
+  }
+}
+
+.projectTitle {
+  font-size: 10rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 2rem;
+  text-align: right;
+  width: 100%;
+  color: rgba(0, 0, 0, 0);
+  -webkit-text-stroke: 2px rgb(59, 59, 59);
+}
+
+.skillSetEls {
+  text-align: right;
+  margin-bottom: 1rem;
+
+  span {
+    font-size: 20px;
+    font-weight: 500;
+    margin-right: 12px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.projectPeriod {
+  font-size: 20px;
+  margin-bottom: 2rem;
+  text-align: right;
+}
+
+.projectRange,
+.projectPeople {
+  font-size: 16px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.PeopleEl,
+.rangeEls {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.subImageWrap {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 1rem 0 3rem;
+
+  &:before {
+    content: '';
+    display: block;
+    padding-top: 25%;
+  }
+}
+
+.subImage {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.mainInfo {
+  width: 100%;
+  display: flex;
+  margin: 20px 0 80px 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+
+  a {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    transition: 0.2s ease-in;
+
+    span {
+      margin-top: -2px;
+      margin-right: 2px;
+      transition: 0.2s ease-in;
+    }
+
+    &:hover {
+      span {
+        margin-right: 12px;
+      }
+    }
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+
+    &:first-child {
+      padding-right: 20px;
+      text-align: right;
+      flex: 2;
+    }
+
+    &:last-child {
+      flex-direction: row;
+      flex: 3;
+      padding-left: 20px;
+      justify-content: space-between;
+
+      div {
+        text-align: right;
+        margin-left: 2rem;
+      }
+    }
+  }
+}
+
+.summary {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 100px 0 150px;
+
+  article {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+
+.summaryTitle {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.projectDesc {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
+.projectCloseBtn {
+  @include navBtn;
+  background-color: $main-color;
+  z-index: 500;
+
+  .xBtn {
+    color: #242424;
+    font-size: 36px;
+    transition: 0.2s ease-in;
+  }
+
+  &:hover {
+    .xBtn {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.otherProjectsWrap {
+  width: 100%;
+  height: 300px;
+  background-color: $sub-color;
+  margin-top: 8rem;
+}
+
+.otherProjects {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  @include flex(flex-start, center);
+}
+
+/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/
+@media all and (min-width: 768px) and (max-width: 1023px) {
+  .projectInfo {
+    padding: 20px 40px;
+  }
+
+  .projectSubTitle {
+    font-size: 20px;
+  }
+
+  .projectTitle {
+    font-size: 6rem;
+  }
+}
+
+/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
+@media all and (max-width: 767px) {
+  .mainImageWrap {
+    padding: 0;
+  }
+
+  .projectInfo {
+    padding: 1rem;
+  }
+
+  .projectSubTitle {
+    font-size: 16px;
+    font-weight: 500;
+
+    span {
+      width: 2px;
+      height: 1.2rem;
+      display: none;
+    }
+  }
+
+  .projectTitle {
+    font-size: 64px;
+    color: $sub-color;
+    margin-bottom: 1rem;
+    -webkit-text-stroke: 0px rgb(59, 59, 59);
+  }
+
+  .skillSetEls {
+    margin-bottom: 0.5rem;
+
+    span {
+      font-size: 14px;
+    }
+  }
+
+  .projectPeriod {
+    font-size: 14px;
+  }
+
+  .projectRange,
+  .projectPeople {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .PeopleEl,
+  .rangeEls {
+    font-size: 14px;
+  }
+
+  .subImageWrap {
+    margin: 2rem 0 3rem;
+  }
+
+  .mainInfo {
+    flex-direction: column;
+    margin: 0;
+
+    a {
+      font-size: 16px;
+    }
+
+    &:hover {
+      span {
+        margin-right: 0px;
+      }
+    }
+
+    &:focus {
+      span {
+        margin-right: 12px;
+      }
+    }
+
+    article:first-child {
+      padding-right: 0px;
+      flex-direction: row;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      margin-bottom: 2rem;
+    }
+
+    article:last-child {
+      justify-content: flex-end;
+    }
+  }
+
+  .summary {
+    margin-bottom: 3rem;
+    flex-direction: column;
+    margin: 0;
+
+    article {
+      text-align: center;
+      width: 90%;
+    }
+  }
+
+  .projectDesc {
+    font-size: 14px;
+  }
+
+  .projectCloseBtn {
+    .xBtn {
+      font-size: 24px;
+    }
+  }
+
+  .otherProjectsWrap {
+    height: auto;
+    margin-top: 4.5rem;
+  }
+
+  .otherProjects {
+    height: auto;
+    flex-direction: column;
+  }
+}

@@ -5,11 +5,13 @@ import { connect } from 'react-redux';
 import { BsArrowUpRight, BsX } from 'react-icons/bs';
 import * as framer from '../../../framer/projectDetail';
 
-import styles from './ProjectDetail.module.css';
 import SubImg from './SubImg';
 import OtherProjectBtn from './OtherProjectBtn';
 import ToTopBtn from './ToTopBtn';
 import ContentArea from './ContentArea';
+import HiddenProject from './HiddenProject';
+
+import styles from './ProjectDetail.module.scss';
 
 const ProjectDetail = ({ match, projectsList }) => {
   const id = match.params.id;
@@ -92,9 +94,7 @@ const ProjectDetail = ({ match, projectsList }) => {
           </div>
         </motion.main>
       ) : (
-        <div className={styles.hiddenProject}>
-          <h1>비공개 프로젝트입니다.🤔</h1>
-        </div>
+        <HiddenProject />
       )}
       <motion.button initial='hidden' animate='in' exit='out' variants={framer.projectCloseBtn} className={styles.projectCloseBtn} onClick={projectClose}>
         <BsX className={styles.xBtn} />

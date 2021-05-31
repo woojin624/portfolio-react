@@ -1,3 +1,5 @@
+@import '../../styles/common.scss';
+
 .projects {
   position: relative;
   width: 100;
@@ -6,6 +8,10 @@
   text-align: left;
   overflow-x: hidden;
   padding-bottom: 80px;
+}
+
+.pageTitle {
+  @include pageTitle;
 }
 
 .projectsContain {
@@ -19,16 +25,11 @@
 }
 
 .projectBoxWrap {
-  padding: 0 50px;
-  padding-top: 100px;
+  padding: 100px 50px 0;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-}
-
-.projectBoxWrap > article > figure > * {
-  pointer-events: none;
 }
 
 .projectBox {
@@ -36,8 +37,59 @@
   width: 100%;
   height: auto;
   transition: 0.3s ease-in;
-  color: #242424;
+  color: $sub-color;
   margin-bottom: 4rem;
+
+  .category {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #242424c2;
+    text-transform: uppercase;
+  }
+
+  .projectNum {
+    position: absolute;
+    z-index: -1;
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    top: 0;
+    right: 0;
+    transform: translate(30%, -40%);
+    transition: 0.5s ease;
+  }
+
+  .thumbCover {
+    z-index: 1500;
+    background-color: #f8f6f3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover {
+    .projectNum {
+      transform: translate(30%, -90%) !important;
+    }
+  }
+}
+
+.projectBox.odd.top .thumbCover {
+  transform-origin: left center;
+}
+.projectBox.odd.bottom .thumbCover {
+  transform-origin: center top;
+}
+.projectBox.even.top .thumbCover {
+  transform-origin: center bottom;
+}
+.projectBox.even.bottom .thumbCover {
+  transform-origin: right center;
 }
 
 .projectBox.odd.bottom {
@@ -47,14 +99,6 @@
 .projectBox.even.top {
   width: 66%;
   transform: translateX(51.5%);
-}
-
-.projectBox.odd.top > .projectBoxImg,
-.projectBox.odd.bottom > .projectBoxImg,
-.projectBox.even.top > .projectBoxImg,
-.projectBox.even.bottom > .projectBoxImg {
-  width: 100%;
-  position: relative;
 }
 
 .projectBox.odd.bottom > .projectBoxImg:before,
@@ -70,10 +114,20 @@
   padding-top: 66%;
 }
 
-.projectBox.odd.top > .projectBoxImg > img,
-.projectBox.odd.bottom > .projectBoxImg > img,
-.projectBox.even.top > .projectBoxImg > img,
-.projectBox.even.bottom > .projectBoxImg > img {
+.projectBoxImg {
+  position: relative;
+  width: 100%;
+  z-index: 999;
+  cursor: pointer;
+  overflow: hidden;
+  margin-bottom: 1rem;
+
+  * {
+    pointer-events: none;
+  }
+}
+
+.projectBoxImg > img {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -81,46 +135,6 @@
   right: 0;
   bottom: 0;
   left: 0;
-}
-
-.projectBox > .projectNum {
-  position: absolute;
-  z-index: -1;
-  font-size: 4rem;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  top: 0;
-  right: 0;
-  transform: translate(30%, -40%);
-  transition: 0.5s ease;
-}
-
-.projectBox:hover > .projectNum {
-  transform: translate(30%, -90%) !important;
-}
-
-.projectBox > .category {
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 14px;
-  font-weight: 500;
-  color: #242424c2;
-  text-transform: uppercase;
-}
-
-.projectBoxImg {
-  position: relative;
-  z-index: 999;
-  cursor: pointer;
-  overflow: hidden;
-  margin-bottom: 1rem;
-  /* box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2); */
-}
-
-.projectBoxImg > img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
   display: block;
   transition: 0.5s ease;
@@ -137,26 +151,24 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
-  color: #fff;
+  color: $main-color;
   font-size: 4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   opacity: 0;
   transition: 0.4s;
-}
+  @include flex(center, center);
 
-.projectBoxImg .thumbHover svg {
-  transition: 0.4s;
-  transform: scale(0) rotate(0deg);
+  svg {
+    transition: 0.4s;
+    transform: scale(0) rotate(0deg);
+  }
 }
 
 .projectBoxImg:hover .thumbHover {
   opacity: 1;
-}
 
-.projectBoxImg:hover .thumbHover svg {
-  transform: scale(1) rotate(90deg);
+  svg {
+    transform: scale(1) rotate(90deg);
+  }
 }
 
 .projectBoxImg:hover:active .thumbHover svg {
@@ -165,29 +177,6 @@
 
 .projectBoxImg .thumbHover.mouseUp svg {
   transform: scale(8) rotate(90deg) !important;
-}
-
-.thumbCover {
-  z-index: 1500;
-  background-color: #f8f6f3;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.projectBox.odd.top .thumbCover {
-  transform-origin: left center;
-}
-.projectBox.odd.bottom .thumbCover {
-  transform-origin: center top;
-}
-.projectBox.even.top .thumbCover {
-  transform-origin: center bottom;
-}
-.projectBox.even.bottom .thumbCover {
-  transform-origin: right center;
 }
 
 .projectBoxTitle {
@@ -200,16 +189,17 @@
 
 .projectBoxSkills {
   margin-bottom: 0.5rem;
-}
-.projectBoxSkills > span {
-  display: inline-block;
-  margin-right: 0.5rem;
-  background: #242424f6;
-  color: #f8f6f3;
-  font-size: 13px;
-  font-weight: 500;
-  padding: 3px 6px 3px 6px;
-  border-radius: 12px;
+
+  span {
+    display: inline-block;
+    margin-right: 0.5rem;
+    background: #242424f6;
+    color: $main-color;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 3px 6px 3px 6px;
+    border-radius: 12px;
+  }
 }
 
 .projectBoxDesc {
@@ -221,36 +211,6 @@
   margin-bottom: 0.5rem;
 }
 
-.viewBtn {
-  border: 2px solid #242424;
-  padding: 1rem;
-  font-size: 18px;
-  font-weight: 700;
-  position: relative;
-  overflow: hidden;
-  display: none;
-}
-
-.viewBtn > div {
-  position: absolute;
-  pointer-events: none;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  transition: 0.4s;
-  backdrop-filter: invert(100%);
-  transform: translate(0, 100%);
-}
-
-.viewBtn:hover > div {
-  transform: translate(0, 0%);
-}
-
-.viewBtn:focus > div {
-  transform: translate(0, 0%) scaleY(0);
-}
-
 .initTitle {
   width: 100%;
   top: 80px;
@@ -260,47 +220,33 @@
   white-space: nowrap;
   font-size: 14rem;
   font-weight: 700;
-  color: #242424;
+  color: $sub-color;
   letter-spacing: -0.2rem;
-}
 
-.initTitle > span {
-  display: inline-block;
-}
-
-.pageTitle {
-  position: absolute;
-  font-size: 14px;
-  font-weight: 700;
-  left: 50%;
-  top: 3rem;
+  span {
+    display: inline-block;
+  }
 }
 
 @media all and (min-width: 1023px) and (max-width: 1440px) {
-  .initTitle {
-    margin-bottom: 3rem;
-    font-size: 12rem;
-    font-weight: 700;
-  }
   .projectBoxWrap {
     padding-top: 80px;
   }
 
-  .viewBtn {
-    padding: 0.8rem;
-    font-size: 16px;
+  .projectNum {
+    font-size: 3rem;
   }
 
-  .projectBox > .projectNum {
-    font-size: 3rem;
+  .initTitle {
+    margin-bottom: 3rem;
+    font-size: 12rem;
   }
 }
 
 /* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/
 @media all and (min-width: 768px) and (max-width: 1023px) {
   .projectBoxWrap {
-    padding: 0 1rem;
-    padding-top: 80px;
+    padding: 80px 1rem 0;
     gap: 1rem;
   }
 
@@ -308,19 +254,13 @@
     font-size: 3rem;
   }
 
-  .projectBox > .projectNum {
+  .projectNum {
     font-size: 2.5rem;
   }
 
   .initTitle {
     margin-bottom: 2rem;
     font-size: 8rem;
-    font-weight: 700;
-  }
-
-  .viewBtn {
-    padding: 0.8rem;
-    font-size: 16px;
   }
 }
 
@@ -337,13 +277,18 @@
     gap: 1rem;
   }
 
-  .projectBoxImg {
-    margin-bottom: 1rem;
-  }
-
   .projectBox {
     flex-direction: column;
     margin-bottom: 2rem;
+
+    .projectNum {
+      font-size: 1.3rem;
+      transform: translate(0%, -100%) !important;
+    }
+
+    .category {
+      font-size: 12px;
+    }
   }
 
   .projectBox.odd.bottom {
@@ -368,28 +313,14 @@
     padding-top: 66%;
   }
 
-  .projectBoxContent {
-    display: flex;
-    flex-direction: column;
+  .projectBoxImg {
+    margin-bottom: 1rem;
   }
 
-  .projectBoxContent {
-    border-top: 0px solid #242424;
-    padding-top: 0rem;
-    flex: 2;
-  }
-
-  .projectBox > .projectNum {
-    font-size: 1.3rem;
-    transform: translate(0%, -100%) !important;
-  }
-
-  .projectBox > .category {
-    font-size: 12px;
-  }
-
-  .projectBoxSkills > span {
-    font-size: 12px;
+  .projectBoxSkills {
+    span {
+      font-size: 12px;
+    }
   }
 
   .projectBoxImg {
@@ -405,10 +336,5 @@
     margin-left: -3px;
     margin-bottom: 1rem;
     font-size: 4rem;
-    font-weight: 700;
-  }
-
-  .pageTitle {
-    top: 2.2rem;
   }
 }

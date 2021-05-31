@@ -1,5 +1,5 @@
-$mainColor: #f8f6f3;
-$background: #242424;
+$main-color: #f8f6f3;
+$sub-color: #242424;
 
 @mixin flex($justify: flex-start, $align: flex-start) {
   display: flex;
@@ -17,4 +17,42 @@ $background: #242424;
   @media all and (max-width: 767px) {
     top: 2.2rem;
   }
+}
+
+@mixin navBtn {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  z-index: 200;
+  border: 2px solid $sub-color;
+  overflow: hidden;
+  cursor: pointer;
+  @include flex(center, center);
+
+  @media all and (max-width: 767px) {
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+@mixin frame {
+  position: relative;
+  width: 100%;
+  max-width: 1600px;
+  padding: 0 50px;
+  margin: 0 auto;
+  text-align: left;
+
+  @media all and (max-width: 767px) {
+    padding: 0rem 1rem;
+  }
+}
+
+@mixin title($size) {
+  font-size: $size;
+  font-weight: 500;
 }

@@ -7,7 +7,7 @@ import AdminList from './AdminList';
 import AdminWrite from './AdminWrite';
 import AdminEdit from './AdminEdit';
 
-import styles from './Admin.module.css';
+import styles from './Admin.module.scss';
 import Sidebar from './Sidebar';
 
 const Admin = ({ user }) => {

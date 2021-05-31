@@ -5,7 +5,7 @@ import { ImArrowRight2 } from 'react-icons/im';
 import { connect } from 'react-redux';
 import * as framer from '../../framer/home';
 
-import styles from './Home.module.css';
+import styles from './Home.module.scss';
 
 const Home = ({ projectsList }) => {
   let history = useHistory();
