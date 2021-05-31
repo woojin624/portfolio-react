@@ -110,7 +110,7 @@ loadingProjects  웹이 처음 렌더될 때, 어드민 페이지에서 프로�
 
 각 페이지에서 mount될 때 unmount될 때 트랜지션을 주어 router를 통한 페이지 전환이 부드럽게 진행되게 만들고 싶었고 이것을 보다 효과적으로 만들어주는 Framer Motion 라이브러리를 사용하여 인터랙션을 구현했습니다.
 
-gif 넣는 구역
+![mainPage](https://woojin-project.s3.ap-northeast-2.amazonaws.com/Portfolio/main-motion.png)
 
 <br/>
 
@@ -196,7 +196,11 @@ Games 페이지에서 게임을 한 후 기록을 남겨 데이터베이스에 �
 
 어드민 경로로 링크를 입력하면 어드민 페이지로 넘어가 로그인을 하도록 화면을 띄웠으며 유저정보에서 패스워드는 bcrypt를 통해 암호화하였고 로그인을 하면 JWT로 토큰이 주어지며 토큰이 일치하는 로그인 유저에게만 어드민 페이지의 컴포넌트가 보이도록 작성했습니다. 
 
+![adminLogin](https://woojin-project.s3.ap-northeast-2.amazonaws.com/Portfolio/admin-login.png)
+
 그 후 프로젝트 상세페이지로 쓰일 부분을 디자인하고 컴포넌트를 제작해본 후 해당 규격에 맞추어 Write페이지를 만들었습니다. 사실상 개인 포트폴리오 페이지의 어드민 영역은 작성자 혼자만 보는 곳이고 작성자만 알아보면 되는 것이라는 글을 어드민 페이지 공부를 하며 봤었는데 내가 아닌 다른 사용자들이 보았을 때 사용법을 읽지 않아도 사용할 수 있는 글쓰기 페이지를 만들고 싶었습니다.
+
+![adminWrite](https://woojin-project.s3.ap-northeast-2.amazonaws.com/Portfolio/admin-write.png)
 
 Write페이지의 화면은 ProjectDetail의 화면과 거의 유사하게 보이도록 만들었고 내가 지금 쓰는 글이 발행이 되면 어떻게 보이게 될지 바로 유추할 수 있게 하였습니다.
 
@@ -243,6 +247,8 @@ Write페이지에서 필수적으로 입력되어야하는 정보들은 틀을 �
 작성된 글 내용을 .getHtml() 함수로 받아와 html형식으로 데이터베이스에 저장하였으며 프로젝트 상세페이지에서는 해당 데이터를 받아와 react-html-parser 라이브러리로 파싱하여 페이지에 뿌려주었고 프로젝트를 수정할 떄 진입하는 AdminEdit페이지에서는 node-html-markdown를 통해 html로 저장된 데이터를 다시 마크다운으로 가져와 처음 글을 작성할 때와 동일한 모습을 보이도록 하였습니다.
 
 리스트 페이지에서는 프로젝트를 수정하거나 삭제할 수 있게 하였고 프로젝트 양이 좀 더 많아지면 정렬과 검색기능을 추가하여 가독성을 높여보려고 합니다.
+
+![adminEdit](https://woojin-project.s3.ap-northeast-2.amazonaws.com/Portfolio/admin-edit.png)
 
 <br />
 
