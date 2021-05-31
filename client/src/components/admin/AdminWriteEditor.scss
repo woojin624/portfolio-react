@@ -13,6 +13,13 @@
       content: none;
     }
 
+    img {
+      width: 100%;
+      padding: 1rem 0 2.5rem;
+      display: block;
+      margin-top: 0;
+    }
+
     b,
     strong {
       display: block;
@@ -30,10 +37,14 @@
       font-weight: 500;
     }
 
-    img {
-      padding: 1rem 0 2.5rem;
-      display: block;
-      margin-top: 0;
+    del {
+      display: flex;
+      justify-content: space-around;
+
+      img {
+        width: 49%;
+        display: inline-block;
+      }
     }
 
     &:last-child {
@@ -62,6 +73,10 @@
     li {
       font-size: 14px;
 
+      img {
+        padding: 0.4rem 0;
+      }
+
       b,
       strong {
         @include title(1.6rem);
@@ -73,8 +88,12 @@
         @include title(1.1rem);
       }
 
-      img {
-        padding: 0.4rem 0;
+      del {
+        display: block;
+        img {
+          width: 100%;
+          display: inline-block;
+        }
       }
 
       &:last-child {
