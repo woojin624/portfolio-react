@@ -1,0 +1,214 @@
+@import '../../styles/common.scss';
+
+@mixin list($list-color, $h-color) {
+  li {
+    margin: 0 auto;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 400;
+    color: $list-color;
+    @include frame;
+
+    &::before {
+      content: none;
+    }
+
+    img {
+      width: 100%;
+      padding: 1rem 0 2.5rem;
+      display: block;
+      margin-top: 0;
+    }
+
+    b,
+    strong {
+      display: block;
+      color: $h-color;
+      @include title(2.5rem);
+      margin-top: 2rem;
+    }
+
+    i,
+    em {
+      display: block;
+      color: $h-color;
+      @include title(1.3rem);
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    del {
+      display: flex;
+      justify-content: space-around;
+
+      img {
+        width: 49%;
+        display: inline-block;
+      }
+    }
+
+    &:last-child {
+      img {
+        padding: 1rem 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @media all and (min-width: 768px) and (max-width: 1023px) {
+    li {
+      b,
+      strong {
+        @include title(2rem);
+        margin-top: 1.5rem;
+      }
+
+      i,
+      em {
+        @include title(1.2rem);
+      }
+    }
+  }
+  @media all and (max-width: 767px) {
+    li {
+      font-size: 14px;
+
+      img {
+        padding: 0.4rem 0;
+      }
+
+      b,
+      strong {
+        @include title(1.6rem);
+        margin-top: 1rem;
+      }
+
+      i,
+      em {
+        @include title(1.1rem);
+      }
+
+      del {
+        display: block;
+        img {
+          width: 100%;
+          display: inline-block;
+        }
+      }
+
+      &:last-child {
+        img {
+          padding: 0.4rem 0;
+        }
+      }
+    }
+  }
+}
+
+.toastui {
+  div.tui-editor {
+    position: relative;
+    width: 100%;
+    min-height: 100px;
+    height: auto;
+    font-family: 'Roboto', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+
+    * {
+      box-sizing: border-box;
+    }
+
+    h1 {
+      @include frame;
+      @include title(32px);
+    }
+
+    h2 {
+      @include frame;
+      @include title(24px);
+    }
+
+    h3 {
+      @include frame;
+      @include title(18px);
+    }
+
+    p {
+      img {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: block;
+      }
+    }
+
+    ul {
+      background-color: $sub-color;
+      color: $main-color;
+      padding: 2rem 0;
+      margin: 0;
+      list-style-type: none;
+      @include list(#9b9b9b, $main-color);
+
+      * {
+        color: $main-color;
+      }
+    }
+
+    ol {
+      background-color: none;
+      color: $sub-color;
+      padding: 2rem 0;
+      margin: 0;
+      list-style: none;
+      @include list(#616161, $sub-color);
+
+      * {
+        color: $sub-color;
+      }
+    }
+
+    @media all and (min-width: 768px) and (max-width: 1023px) {
+      h1 {
+        @include title(1.3rem);
+      }
+
+      h2 {
+        @include title(18px);
+      }
+
+      h3 {
+        @include title(14px);
+      }
+
+      ul {
+        padding: 0.5rem 0;
+      }
+
+      ol {
+        padding: 0.5rem 0;
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      h1 {
+        @include title(1.3rem);
+      }
+
+      h2 {
+        @include title(18px);
+      }
+
+      h3 {
+        @include title(14px);
+      }
+
+      ul {
+        padding: 0.5rem 0;
+      }
+
+      ol {
+        padding: 0.5rem 0;
+      }
+    }
+  }
+}

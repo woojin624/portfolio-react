@@ -19,7 +19,7 @@ const OtherProjectBtn = ({ project, order }) => {
     padding: 0;
     width: 50%;
     height: 100%;
-    color: #fff;
+    color: #f8f6f3;
     background-position: center;
     background-color: #242424;
     background-size: 50% auto;

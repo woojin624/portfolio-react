@@ -32,11 +32,12 @@ const ContentArea = ({ project }) => {
 
   const ContentTitle = styled.h2`
     ${frame}
-    ${title('3rem')}
-    margin: 1rem auto;
+    ${title('4rem')}
+    margin: 2rem auto 4rem;
 
     @media all and (max-width: 767px) {
       ${title('2rem')}
+      margin: 1.5rem auto 3rem;
     }
   `;
 

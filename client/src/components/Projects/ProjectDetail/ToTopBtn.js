@@ -14,6 +14,7 @@ const ToTopBtn = () => {
     top: -5rem;
     right: 50px;
     transition: 0.5s;
+    color: #f8f6f3;
 
     svg {
       font-size: 2rem;
