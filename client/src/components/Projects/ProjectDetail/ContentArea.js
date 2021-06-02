@@ -37,7 +37,7 @@ const ContentArea = ({ project }) => {
 
     @media all and (max-width: 767px) {
       ${title('2rem')}
-      margin: 1.5rem auto 3rem;
+      margin: 2.5rem auto 2rem;
     }
   `;
 

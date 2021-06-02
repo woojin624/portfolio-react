@@ -1,6 +1,8 @@
 @import '../../styles/common.scss';
 
 .toastui {
+  margin-bottom: 1rem;
+
   div.tui-editor-contents {
     height: auto;
     min-height: 100px;
@@ -14,8 +16,13 @@
       // color: $main-color;
     }
 
+    a {
+      display: inline-block;
+    }
+
     h1 {
       @include title(32px);
+      font-weight: 700;
       color: $main-color;
       border: 0;
     }
@@ -54,9 +61,20 @@
       }
     }
 
+    li {
+      &::before {
+        width: 5px;
+        height: 5px;
+        margin-top: 11px;
+        margin-left: -15px;
+        background-color: #f8f6f3b8;
+      }
+    }
+
     @media all and (min-width: 768px) and (max-width: 1023px) {
       h1 {
         @include title(1.3rem);
+        font-weight: 700;
       }
 
       h2 {
@@ -65,12 +83,31 @@
 
       h3 {
         @include title(14px);
+      }
+
+      p {
+        font-size: 14px;
+
+        img {
+          margin: 0.5rem auto 3rem;
+        }
+      }
+
+      li {
+        &::before {
+          width: 4px;
+          height: 4px;
+          margin-top: 9px;
+          margin-left: -12px;
+        }
       }
     }
 
     @media all and (max-width: 767px) {
       h1 {
-        @include title(1.3rem);
+        @include title(1.5rem);
+        font-weight: 700;
+        margin: 2rem 0 0.8rem;
       }
 
       h2 {
@@ -79,6 +116,29 @@
 
       h3 {
         @include title(14px);
+      }
+
+      p {
+        font-size: 13px;
+
+        img {
+          margin: 0.5rem auto 3rem;
+        }
+
+        del {
+          img {
+            width: 100%;
+          }
+        }
+      }
+
+      li {
+        &::before {
+          width: 4px;
+          height: 4px;
+          margin-top: 8px;
+          margin-left: -10px;
+        }
       }
     }
   }
