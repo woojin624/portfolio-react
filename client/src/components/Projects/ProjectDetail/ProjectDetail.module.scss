@@ -69,10 +69,11 @@
   margin-bottom: 1rem;
 
   span {
+    display: inline-block;
     line-height: 1.6;
     font-size: 20px;
     font-weight: 500;
-    margin-right: 16px;
+    margin-left: 16px;
 
     &:last-child {
       margin-right: 0;
