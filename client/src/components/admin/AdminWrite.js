@@ -10,11 +10,11 @@ import styles from './AdminWrite.module.scss';
 import AdminWriteEditor from './AdminWriteEditor';
 import ColorTab from './ColorTab';
 
-const AdminWrite = ({ loadingProjects }) => {
+const AdminWrite = ({ projectsList, loadingProjects }) => {
   const history = useHistory();
 
   const [projectContent, setProjectContetns] = useState({
-    number: '',
+    number: projectsList.length + 1,
     category: 'Personal Project',
     thumbImg: null,
     thumbImgName: '',
@@ -226,8 +226,10 @@ const AdminWrite = ({ loadingProjects }) => {
   );
 };
 
-const mapStateToProps = () => {
-  return {};
+const mapStateToProps = ({ projects }) => {
+  return {
+    projectsList: projects.projects,
+  };
 };
 
 const mapDispatchToProps = {

@@ -2,13 +2,13 @@ const mongoose = require('mongoose');
 
 const projectSchema = new mongoose.Schema(
   {
-    _id: { type: Number },
-    number: { type: Number },
+    _id: { type: Number, required: true },
+    number: { type: Number, required: true },
     image: { type: String },
     color: { type: String },
-    visible: { type: Boolean },
+    visible: { type: Boolean, required: true },
     category: { type: String },
-    title: { type: String },
+    title: { type: String, required: true },
     subTitle: { type: String },
     period: { type: String },
     siteLink: { type: String },

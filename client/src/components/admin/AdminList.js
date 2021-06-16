@@ -132,7 +132,7 @@ const AdminList = ({ loadingProjects, originProjectsList }) => {
           {projectsList.map((element, i) => {
             return (
               <tr key={i} className={i % 2 === 1 ? styles.odd : styles.even}>
-                <td>{element._id}</td>
+                <td>{element.number}</td>
                 <td>{element.title}</td>
                 <td>{element.visible ? '공개' : '비공개'}</td>
                 <td>{element.subTitle}</td>

@@ -7,10 +7,6 @@ const upload = require('../modules/multer');
 router.post('/add', upload.any(), async (req, res) => {
   const images = req.files;
   console.log(req.body);
-
-  // console.log(images);
-  // const path = image.map((img) => img.location);
-  // console.log(path);
   const thumbImg = [...images].filter((file) => file.fieldname.substr([...file.fieldname].indexOf('&') + 1) === 'thumbImg');
   const mainImg = [...images].filter((file) => file.fieldname.substr([...file.fieldname].indexOf('&') + 1) === 'mainImg');
   const subImg = [...images].filter((file) => file.fieldname.substr([...file.fieldname].indexOf('&') + 1) === 'subImg');
@@ -22,7 +18,7 @@ router.post('/add', upload.any(), async (req, res) => {
     req.body.mainImg = mainImg[0] ? mainImg[0].location : req.body.mainImg;
     req.body.subImg = subImg[0] ? subImg[0].location : req.body.subImg;
     let params = { ...req.body };
-    console.log(params);
+    // console.log(params);
 
     Project.create(params)
       .then((project) => res.send(project))
@@ -35,8 +31,6 @@ router.put('/editwork', upload.any(), async (req, res) => {
   const images = req.files;
 
   console.log(images);
-  // const path = image.map((img) => img.location);
-  // console.log(path);
   const thumbImg = [...images].filter((file) => file.fieldname.substr([...file.fieldname].indexOf('&') + 1) === 'thumbImg');
   const mainImg = [...images].filter((file) => file.fieldname.substr([...file.fieldname].indexOf('&') + 1) === 'mainImg');
   const subImg = [...images].filter((file) => file.fieldname.substr([...file.fieldname].indexOf('&') + 1) === 'subImg');
@@ -47,7 +41,7 @@ router.put('/editwork', upload.any(), async (req, res) => {
   req.body.subImg = subImg[0] ? subImg[0].location : req.body.subImg;
 
   let params = { ...req.body };
-  console.log(params);
+  // console.log(params);
 
   Project.updateByProjectid(req.body._id, params)
     .then((project) => res.send(project))
